@@ -399,7 +399,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysoką']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysokąiej']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
