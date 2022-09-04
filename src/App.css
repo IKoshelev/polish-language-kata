@@ -1,6 +1,13 @@
+.cases-table thead tr td:first-child {
+  width: 12%;
+}
+
+.cases-table thead tr td:not(:first-child) {
+  width: 22%;
+}
+
 td {
   border: 2px solid black;
-  width: 20%;
 }
 
 td.case-text {
