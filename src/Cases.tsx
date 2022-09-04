@@ -49,37 +49,37 @@ const casesSourceData: CaseSourceData[] = [
         cards: {
             singular: [{
                 templates: [['To jest ({verb} {noun})', 'To jest {verb} {noun}']],
-                verbs: [['młody', 'młody'], ['wesoły', 'wesoły'], ['przystojny', 'przystojny'], ['dobry', 'dobry'], ['drogi', 'drogi']],
+                verbs: [['młody', 'młody'], ['wesoły', 'wesoły'], ['przystojny', 'przystojny'], ['dobry', 'dobry'], ['drogi', 'drogi'], ['wysoki', 'wysoki']],
                 nouns: [['Marek', 'Marek'], ['aktor', 'aktor'], ['kot', 'kot'], ['poeta', 'poeta']]
             }, {
                 templates: [['To jest ({verb} {noun})', 'To jest {verb} {noun}']],
-                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary']],
+                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary'], ['wysoki', 'wysoki']],
                 nouns: [['samochód', 'samochód'], ['ser', 'ser']]
             }, {
                 templates: [['To jest ({verb} {noun})', 'To jest {verb} {noun}']],
-                verbs: [['ładna', 'ładna'], ['młoda', 'młoda'], ['inteligentna', 'inteligentna']],
+                verbs: [['ładna', 'ładna'], ['młoda', 'młoda'], ['inteligentna', 'inteligentna'], ['wysoka', 'wysoka']],
                 nouns: [['matka', 'matka'], ['sofa', 'sofa'], ['pani', 'pani'], ['noc', 'noc']]
             }, {
                 templates: [['To jest ({verb} {noun})', 'To jest {verb} {noun}']],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kino'], ['slońce', 'slońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kino'], ['słońce', 'słońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [['To są ({verb} {noun})', 'To są {verb} {noun}']],
-                verbs: [['młody', 'młodzi'], ['wesoły', 'weseli'], ['przystojny', 'przystojni'], ['dobry', 'dobrzy'], ['drogi', 'drodzy']],
+                verbs: [['młody', 'młodzi'], ['wesoły', 'weseli'], ['przystojny', 'przystojni'], ['dobry', 'dobrzy'], ['drogi', 'drodzy'], ['wysoki', 'wysocy']],
                 nouns: [['Marek', 'Markowie'], ['aktor', 'aktorzy'], ['student', 'studenci'], ['poeta', 'poeci']]
             }, {
                 templates: [['To są ({verb} {noun})', 'To są {verb} {noun}']],
-                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'],  ['dobry', 'dobre']],
+                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'],  ['dobry', 'dobre'], ['wysoki', 'wysokie']],
                 nouns: [['samochód', 'samochody'], ['kot', 'koty'], ['ser', 'sery']]
             }, {
                 templates: [['To są ({verb} {noun})', 'To są {verb} {noun}']],
-                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne']],
+                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne'], ['wysoka', 'wysokie']],
                 nouns: [['matka', 'matki'], ['sofa', 'sofy'], ['pani', 'panie'], ['noc', 'nocy']]
             }, {
                 templates: [['To są ({verb} {noun})', 'To są {verb} {noun}']],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kina'], ['slońce', 'slońca'], ['dziecko', 'dziecka'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kina'], ['słońce', 'słońca'], ['dziecko', 'dziecka'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
             }]
         }
     },
@@ -95,7 +95,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojnego', 'przystojny'], ['dobry', 'dobrego'], ['drogi', 'drogiego']],
+                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojny', 'przystojnego'], ['dobry', 'dobrego'], ['drogi', 'drogiego'], ['wysoki', 'wysokiego']],
                 nouns: [['Marek', 'Marka'], ['aktor', 'aktora'], ['kot', 'kota'], ['poeta', 'poety']]
             }, {
                 templates: [
@@ -104,7 +104,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['dobry', 'dobrego'], ['drogi', 'drogiego'], ['stary', 'starego']],
+                verbs: [['dobry', 'dobrego'], ['drogi', 'drogiego'], ['stary', 'starego'], ['wysoki', 'wysokiego']],
                 nouns: [['samochód', 'samochodu'], ['ser', 'sera']]
             }, {
                 templates: [
@@ -113,7 +113,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'], ['wysoka', 'wysokiej']],
                 nouns: [['matka', 'matki'], ['sofa', 'sofy'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
@@ -122,8 +122,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['grzecne', 'grzecnego'], ['małe', 'małego'], ['wesołe', 'wesołego']],
-                nouns: [['kino', 'kina'], ['slońce', 'slońca'], ['dziecko', 'dziecka'], ['imię', 'imienia'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzecznego'], ['małe', 'małego'], ['wesołe', 'wesołego'], ['wysokie', 'wysokiego']],
+                nouns: [['kino', 'kina'], ['słońce', 'słońca'], ['dziecko', 'dziecka'], ['imię', 'imienia'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
@@ -132,8 +132,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'droich']],
-                nouns: [['Marek', 'Marków'], ['aktor', 'aktorów'], ['student', 'studenów'], ['poeta', 'poetów']]
+                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'drogich'], ['wysoki', 'wysokich']],
+                nouns: [['Marek', 'Marków'], ['aktor', 'aktorów'], ['student', 'studentów'], ['poeta', 'poetów']]
             }, {
                 templates: [
                     ['Nie ma ({verb} {noun})', 'Nie ma {verb} {noun}'],
@@ -141,7 +141,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych']],
+                verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych'], ['wysoki', 'wysokich']],
                 nouns: [['samochód', 'samochodów'], ['kot', 'kotów'], ['ser', 'serów']]
             }, {
                 templates: [
@@ -150,7 +150,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych']],
+                verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych'], ['wysoka', 'wysokich']],
                 nouns: [['matka', 'matek'], ['sofa', 'sof'], ['pani', 'pań'], ['noc', 'nocy']]
             }, {
                 templates: [
@@ -159,8 +159,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Nie widzę ({verb} {noun})', 'Nie widzę {verb} {noun}'],
                     ['Nie lubię ({verb} {noun})', 'Nie lubię {verb} {noun}']
                 ],
-                verbs: [['grzecne', 'grzecnych'], ['małe', 'małych'], ['wesołe', 'wesołych']],
-                nouns: [['kino', 'kin'], ['slońce', 'slońc'], ['dziecko', 'dzieci'], ['imię', 'imion'], ['akwarium', 'akwariów']]
+                verbs: [['grzeczne', 'grzecznych'], ['małe', 'małych'], ['wesołe', 'wesołych'], ['wysokie', 'wysokich']],
+                nouns: [['kino', 'kin'], ['słońce', 'słońc'], ['dziecko', 'dzieci'], ['imię', 'imion'], ['akwarium', 'akwariów']]
             }]
         }
     },
@@ -174,58 +174,58 @@ const casesSourceData: CaseSourceData[] = [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodemu'], ['wesoły', 'wesołemu'], ['przystojnego', 'przystojnemu'], ['dobry', 'dobremu'], ['drogi', 'drogiemu']],
+                verbs: [['młody', 'młodemu'], ['wesoły', 'wesołemu'], ['przystojny', 'przystojnemu'], ['dobry', 'dobremu'], ['drogi', 'drogiemu'], ['wysoki', 'wysokiemu']],
                 nouns: [['Marek', 'Markowi'], ['aktor', 'aktorowi'], ['kot', 'kotu'], ['poeta', 'poecie']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobremu'], ['drogi', 'drogiemu'], ['stary', 'staremu']],
+                verbs: [['dobry', 'dobremu'], ['drogi', 'drogiemu'], ['stary', 'staremu'], ['wysoki', 'wysokiemu']],
                 nouns: [['samochód', 'samochodowi'], ['ser', 'serowi']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'], ['wysoka', 'wysokiej']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnemu'], ['małe', 'małemu'], ['wesołe', 'wesołemu']],
-                nouns: [['kino', 'kinu'], ['slońce', 'slońcu'], ['dziecko', 'dziecku'], ['imię', 'imieniu'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzecznemu'], ['małe', 'małemu'], ['wesołe', 'wesołemu'], ['wysokie', 'wysokiemu']],
+                nouns: [['kino', 'kinu'], ['słońce', 'słońcu'], ['dziecko', 'dziecku'], ['imię', 'imieniu'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'droim']],
-                nouns: [['Marek', 'Markom'], ['aktor', 'aktorom'], ['student', 'studenom'], ['poeta', 'poetom']]
+                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim'], ['wysoki', 'wysokim']],
+                nouns: [['Marek', 'Markom'], ['aktor', 'aktorom'], ['student', 'studentom'], ['poeta', 'poetom']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym']],
+                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym'], ['wysoki', 'wysokim']],
                 nouns: [['samochód', 'samochodom'], ['kot', 'kotom'], ['ser', 'serom']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnym'], ['młoda', 'młodym'], ['inteligentna', 'inteligentnym']],
+                verbs: [['ładna', 'ładnym'], ['młoda', 'młodym'], ['inteligentna', 'inteligentnym'], ['wysoka', 'wysokim']],
                 nouns: [['matka', 'matkom'], ['sofa', 'sofom'], ['pani', 'paniom'], ['noc', 'nocom']]
             }, {
                 templates: [
                     ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
                     ['Przyglądam się ({verb} {noun})', 'Przyglądam się {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnym'], ['małe', 'małym'], ['wesołe', 'wesołym']],
-                nouns: [['kino', 'kinom'], ['slońce', 'slońcom'], ['dziecko', 'dziecom'], ['imię', 'imionom'], ['akwarium', 'akwariom']]
+                verbs: [['grzeczne', 'grzecznym'], ['małe', 'małym'], ['wesołe', 'wesołym'], ['wysokie', 'wysokim']],
+                nouns: [['kino', 'kinom'], ['słońce', 'słońcom'], ['dziecko', 'dzieciom'], ['imię', 'imionom'], ['akwarium', 'akwariom']]
             }]
         }
     },
@@ -241,7 +241,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojnego', 'przystojnego'], ['dobry', 'dobrego'], ['drogi', 'drogiego']],
+                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojny', 'przystojnego'], ['dobry', 'dobrego'], ['drogi', 'drogiego'],  ['wysoki', 'wysokiego']],
                 nouns: [['Marek', 'Marka'], ['aktor', 'aktora'], ['kot', 'kota'], ['poeta', 'poetę']]
             }, {
                 templates: [
@@ -250,7 +250,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary']],
+                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary'], ['wysoki', 'wysoki']],
                 nouns: [['samochód', 'samochód'], ['ser', 'ser']]
             }, {
                 templates: [
@@ -259,8 +259,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładną'], ['młoda', 'młodą'], ['inteligentna', 'inteligentną']],
-                nouns: [['matka', 'matę'], ['sofa', 'sofę'], ['pani', 'panią'], ['noc', 'noc']]
+                verbs: [['ładna', 'ładną'], ['młoda', 'młodą'], ['inteligentna', 'inteligentną'], ['wysoka', 'wysoką']],
+                nouns: [['matka', 'matkę'], ['sofa', 'sofę'], ['pani', 'panią'], ['noc', 'noc']]
             }, {
                 templates: [
                     ['Mam ({verb} {noun})', 'Mam {verb} {noun}'],
@@ -268,8 +268,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kino'], ['slońce', 'slońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kino'], ['słońce', 'słońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
@@ -278,7 +278,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'droich']],
+                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'drogich'], ['wysoki', 'wysokich']],
                 nouns: [['Marek', 'Marków'], ['aktor', 'aktorów'], ['student', 'studentów'], ['poeta', 'poetów']]
             }, {
                 templates: [
@@ -287,7 +287,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobre'], ['drogi', 'drogi'], ['stary', 'stare']],
+                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'], ['wysoki', 'wysokie']],
                 nouns: [['samochód', 'samochody'], ['kot', 'koty'], ['ser', 'sery']]
             }, {
                 templates: [
@@ -296,7 +296,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne']],
+                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne'], ['wysoka', 'wysokie']],
                 nouns: [['matka', 'matki'], ['sofa', 'sofy'], ['pani', 'panie'], ['noc', 'noce']]
             }, {
                 templates: [
@@ -305,8 +305,8 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kina'], ['slońce', 'slońca'], ['dziecko', 'dzieci'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kina'], ['słońce', 'słońca'], ['dziecko', 'dzieci'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
             }]
         }
     },
@@ -320,58 +320,58 @@ const casesSourceData: CaseSourceData[] = [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojnego', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim']],
+                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim'], ['wysoki', 'wysokim']],
                 nouns: [['Marek', 'Markiem'], ['aktor', 'aktorem'], ['kot', 'kotem'], ['poeta', 'poetą']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym']],
+                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym'], ['wysoki', 'wysokim']],
                 nouns: [['samochód', 'samochodem'], ['ser', 'serem']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładną'], ['młoda', 'młodą'], ['inteligentna', 'inteligentną']],
+                verbs: [['ładna', 'ładną'], ['młoda', 'młodą'], ['inteligentna', 'inteligentną'], ['wysoka', 'wysoką']],
                 nouns: [['matka', 'matką'], ['sofa', 'sofą'], ['pani', 'panią'], ['noc', 'nocą']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnym'], ['małe', 'małym'], ['wesołe', 'wesołym']],
-                nouns: [['kino', 'kinem'], ['slońce', 'slońcem'], ['dziecko', 'dzieckiem'], ['imię', 'imieniem'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzecznym'], ['małe', 'małym'], ['wesołe', 'wesołym'], ['wysokie', 'wysokim']],
+                nouns: [['kino', 'kinem'], ['słońce', 'słońcem'], ['dziecko', 'dzieckiem'], ['imię', 'imieniem'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodymi'], ['wesoły', 'wesołymi'], ['przystojny', 'przystojnymi'], ['dobry', 'dobrymi'], ['drogi', 'droimi']],
+                verbs: [['młody', 'młodymi'], ['wesoły', 'wesołymi'], ['przystojny', 'przystojnymi'], ['dobry', 'dobrymi'], ['drogi', 'drogimi'], ['wysoki', 'wysokimi']],
                 nouns: [['Marek', 'Markami'], ['aktor', 'aktorami'], ['student', 'studentami'], ['poeta', 'poetami']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobrymi'], ['drogi', 'drogimi'], ['stary', 'starymi']],
+                verbs: [['dobry', 'dobrymi'], ['drogi', 'drogimi'], ['stary', 'starymi'], ['wysoki', 'wysokimi']],
                 nouns: [['samochód', 'samochodami'], ['kot', 'kotami'], ['ser', 'serami']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnymi'], ['młoda', 'młodymi'], ['inteligentna', 'inteligentnymi']],
+                verbs: [['ładna', 'ładnymi'], ['młoda', 'młodymi'], ['inteligentna', 'inteligentnymi'], ['wysoka', 'wysokimi']],
                 nouns: [['matka', 'matkami'], ['sofa', 'sofami'], ['pani', 'paniami'], ['noc', 'nocami']]
             }, {
                 templates: [
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnymi'], ['małe', 'małymi'], ['wesołe', 'wesołymi']],
-                nouns: [['kino', 'kinami'], ['slońce', 'slońcami'], ['dziecko', 'dziećmi'], ['imię', 'imionami'], ['akwarium', 'akwariami']]
+                verbs: [['grzeczne', 'grzecznymi'], ['małe', 'małymi'], ['wesołe', 'wesołymi'], ['wysoki', 'wysokimi']],
+                nouns: [['kino', 'kinami'], ['słońce', 'słońcami'], ['dziecko', 'dziećmi'], ['imię', 'imionami'], ['akwarium', 'akwariami']]
             }]
         }
     },
@@ -385,58 +385,58 @@ const casesSourceData: CaseSourceData[] = [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojnego', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim']],
+                verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim'], ['wysoki', 'wysokim']],
                 nouns: [['Marek', 'Marku'], ['aktor', 'aktorze'], ['kot', 'kocie'], ['poeta', 'poecie']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym']],
+                verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym'], ['wysoki', 'wysokim']],
                 nouns: [['samochód', 'samochodzie'], ['ser', 'serze']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysoką']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnym'], ['małe', 'małym'], ['wesołe', 'wesołym']],
-                nouns: [['kino', 'kinie'], ['slońce', 'slońcu'], ['dziecko', 'dziecku'], ['imię', 'imieniu'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzecznym'], ['małe', 'małym'], ['wesołe', 'wesołym'], ['wysokie', 'wysokim']],
+                nouns: [['kino', 'kinie'], ['słońce', 'słońcu'], ['dziecko', 'dziecku'], ['imię', 'imieniu'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'droimich']],
+                verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'drogich'], ['wysoki', 'wysokich']],
                 nouns: [['Marek', 'Markach'], ['aktor', 'aktorach'], ['student', 'studentach'], ['poeta', 'poetach']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych']],
+                verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych'], ['wysoki', 'wysokich']],
                 nouns: [['samochód', 'samochodach'], ['kot', 'kotach'], ['ser', 'serach']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych']],
+                verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych'], ['wysoka', 'wysokich']],
                 nouns: [['matka', 'matkach'], ['sofa', 'sofach'], ['pani', 'paniach'], ['noc', 'nocach']]
             }, {
                 templates: [
                     ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
-                verbs: [['grzecne', 'grzecnych'], ['małe', 'małych'], ['wesołe', 'wesołych']],
-                nouns: [['kino', 'kinach'], ['slońce', 'slońcach'], ['dziecko', 'dzieciach'], ['imię', 'imionach'], ['akwarium', 'akwariach']]
+                verbs: [['grzeczne', 'grzecznych'], ['małe', 'małych'], ['wesołe', 'wesołych'], ['wysokie', 'wysokich']],
+                nouns: [['kino', 'kinach'], ['słońce', 'słońcach'], ['dziecko', 'dzieciach'], ['imię', 'imionach'], ['akwarium', 'akwariach']]
             }]
         }
     },
@@ -450,58 +450,58 @@ const casesSourceData: CaseSourceData[] = [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['młody', 'młody'], ['wesoły', 'wesoły'], ['przystojnego', 'przystojny'], ['dobry', 'dobry'], ['drogi', 'drogi']],
+                verbs: [['młody', 'młody'], ['wesoły', 'wesoły'], ['przystojny', 'przystojny'], ['dobry', 'dobry'], ['drogi', 'drogi'], ['wysoki', 'wysoki']],
                 nouns: [['Marek', 'Marku'], ['aktor', 'aktorze'], ['kot', 'kocie'], ['poeta', 'poeto']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary']],
+                verbs: [['dobry', 'dobry'], ['drogi', 'drogi'], ['stary', 'stary'], ['wysoki', 'wysoki']],
                 nouns: [['samochód', 'samochodzie'], ['ser', 'serze']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['ładna', 'ładna'], ['młoda', 'młoda'], ['inteligentna', 'inteligentna']],
-                nouns: [['matka', 'matko'], ['sofa', 'sofo'], ['pani', 'pani'], ['noc', 'nocy']]
+                verbs: [['ładna', 'ładna'], ['młoda', 'młoda'], ['inteligentna', 'inteligentna'], ['wysoka', 'wysoka']],
+                nouns: [['matka', 'matko'], ['sofa', 'sofo'], ['pani', 'pani'], ['noc', 'nocy'], ['Ania', 'Aniu'], ['Kasia', 'Kasiu']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kino'], ['slońce', 'slońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kino'], ['słońce', 'słońce'], ['dziecko', 'dziecko'], ['imię', 'imię'], ['akwarium', 'akwarium']]
             }],
             plural: [{
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['młody', 'młodzi'], ['wesoły', 'wesełi'], ['przystojny', 'przystojni'], ['dobry', 'dobrzy'], ['drogi', 'drodzy']],
+                verbs: [['młody', 'młodzi'], ['wesoły', 'weseli'], ['przystojny', 'przystojni'], ['dobry', 'dobrzy'], ['drogi', 'drodzy'], ['wysoki', 'wysocy']],
                 nouns: [['Marek', 'Markowie'], ['aktor', 'aktorzy'], ['student', 'studenci'], ['poeta', 'poeci']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare']],
+                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'], ['wysoki', 'wysokie']],
                 nouns: [['samochód', 'samochody'], ['kot', 'koty'], ['ser', 'sery']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne']],
+                verbs: [['ładna', 'ładne'], ['młoda', 'młode'], ['inteligentna', 'inteligentne'], ['wysoka', 'wysokie']],
                 nouns: [['matka', 'matki'], ['sofa', 'sofy'], ['pani', 'panie'], ['noc', 'noce']]
             }, {
                 templates: [
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                     ['O ({verb} {noun})!', 'O {verb} {noun}!'],
                 ],
-                verbs: [['grzecne', 'grzecne'], ['małe', 'małe'], ['wesołe', 'wesołe']],
-                nouns: [['kino', 'kina'], ['slońce', 'slońca'], ['dziecko', 'dzieci'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
+                verbs: [['grzeczne', 'grzeczne'], ['małe', 'małe'], ['wesołe', 'wesołe'], ['wysokie', 'wysokie']],
+                nouns: [['kino', 'kina'], ['słońce', 'słońca'], ['dziecko', 'dzieci'], ['imię', 'imiona'], ['akwarium', 'akwaria']]
             }]
         }
     },
@@ -1218,4 +1218,48 @@ export function Cases() {
             </table>
         </>
     );
+}
+
+// prepareSpellcheck();
+function prepareSpellcheck(){
+    const linesToCehck = casesSourceData
+        .flatMap(x => x.cards)
+        .flatMap(x => [x.singular, x.plural])
+        .flatMap(x => x)
+        .flatMap(x => {
+            const max = Math.max(x.nouns.length, x.verbs.length);
+            const result: string[] = [];
+            for (let count = 0; count < max; count++) {
+                const verb = x.verbs[count % x.verbs.length][1];
+                const noun = x.nouns[count % x.nouns.length][1];
+                result.push(x.templates[0][1]
+                                .replace("{verb}", verb)
+                                .replace("{noun}", noun));
+            }
+            return result;
+        });
+
+        console.log(linesToCehck.join('\r\n'));
+}
+
+//prepareSpellcheck2();
+function prepareSpellcheck2(){
+    const linesToCehck = casesSourceData
+        .flatMap(x => x.cards)
+        .flatMap(x => [x.singular, x.plural])
+        .flatMap(x => x)
+        .flatMap(x => {
+            const max = Math.max(x.nouns.length, x.verbs.length);
+            const result: string[] = [];
+            for (let count = 0; count < max; count++) {
+                const verb = x.verbs[count % x.verbs.length][0];
+                const noun = x.nouns[count % x.nouns.length][0];
+                result.push(x.templates[0][0]
+                                .replace("{verb}", verb)
+                                .replace("{noun}", noun));
+            }
+            return result;
+        });
+
+        console.log(linesToCehck.join('\r\n'));
 }
