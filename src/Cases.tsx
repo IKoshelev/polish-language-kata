@@ -6,6 +6,13 @@ type Card = {
     back: string[],
 }
 
+type CardSource = {
+    frontTemplate: `${string}${'{verb}'} ${'{noun}'}${string}`,
+    backTemplate: `${string}${'{verb}'} ${'{noun}'}${string}`,
+    verbs: [string, string][],
+    nouns: [string, string][]
+}
+
 type CaseData = {
     name: string,
     question: string,
@@ -16,521 +23,527 @@ type CaseData = {
     }
 }
 
-const casesData: CaseData[] = [
+type CaseSourceData = {
+    name: string,
+    question: string,
+    use: string,
+    cards: {
+        singular: CardSource[],
+        plural: CardSource[]
+    }
+}
+
+function getRandomItem<T>(arr: T[]): T {
+    const index = Math.floor(arr.length * (Math.random() - 0.001));
+    return arr[index];
+}
+
+const casesSourceData: CaseSourceData[] = [
     {
         name: 'Mianownik',
         question: 'Kto? Co?',
         use: 'To jest... To są...',
         cards: {
             singular: [{
-                back: [
-                    "To jest (młody Marek)",
-                    "To jest (dobry kot)"
-                ],
-                front: [
-                    "To jest młody Marek",
-                    "To jest dobry kot"
-                ]
-            }, {
-                back: [
-                    "To jest (drogi samochód)"
-                ],
-                front: [
-                    "To jest drogi samochód"
-                ]
-            }, {
-                back: [
-                    "To jest (ładna matka)"
-                ],
-                front: [
-                    "To jest ładna matka"
-                ]
-            }, {
-                back: [
-                    "To jest (krótkie kino)",
-                    "To jest (małe akwarium)"
-                ],
-                front: [
-                    "To jest krótkie kino",
-                    "To jest małe akwarium"
-                ]
+              frontTemplate: 'To jest {verb} {noun}',
+              backTemplate: 'To jest ({verb} {noun})',
+              verbs: [['młody','młody'], ['wesoły','wesoły'], ['przystojny','przystojny'], ['dobry','dobry'], ['drogi','drogi']],
+              nouns: [['Marek','Marek'],['aktor', 'aktor'], ['kot', 'kot'], ['poeta', 'poeta']]
             }],
-            plural: [{
-                back: [
-                    "To są (młody Marek)",
-                ],
-                front: [
-                    "To są młodzi Markowie "
-                ]
-            }, {
-                back: [
-                    "To są (drogi samochód)",
-                    "To są (dobry kot)"
-                ],
-                front: [
-                    "To są drogie samochody",
-                    "To są dobre koty"
-                ]
-            }, {
-                back: [
-                    "To są (ładna matka)"
-                ],
-                front: [
-                    "To są ładne matki"
-                ]
-            }, {
-                back: [
-                    "To są (krótkie kino)",
-                    "To są (małe akwarium)"
-                ],
-                front: [
-                    "To są krótkie kina",
-                    "To są małe akwaria"
-                ]
+            plural: [{ 
+              frontTemplate: 'To są {verb} {noun}',
+              backTemplate: 'To są ({verb} {noun})  l.mn.',
+              verbs: [['młody','młodzi'], ['wesoły','weseli'], ['przystojny','przystojni'], ['dobry','dobrzy'], ['drogi','drodzy']],
+              nouns: [['Marek','Markowie'],['aktor', 'aktorzy'], ['student', 'studenci'], ['poeta', 'poeci']]
             }]
         }
     },
-    {
-        name: 'Dopełniacz',
-        question: 'Kogo? Czego?',
-        use: 'Nie ma... Nie znam... Nie widzę...  Nie lubię...',
-        cards: {
-            singular: [{
-                back: [
-                    "Nie ma (młody Marek)",
-                    "Nie ma (dobry kot)"
-                ],
-                front: [
-                    "Nie ma młodego Marka",
-                    "Nie ma dobrego kota"
-                ]
-            }, {
-                back: [
-                    "Nie ma (drogi samochód)"
-                ],
-                front: [
-                    "Nie ma drogiego samochodu"
-                ]
-            }, {
-                back: [
-                    "Nie ma (ładna matka)"
-                ],
-                front: [
-                    "Nie ma ładnej matki"
-                ]
-            }, {
-                back: [
-                    "Nie ma (krótkie kino)",
-                    "Nie ma (małe akwarium)"
-                ],
-                front: [
-                    "Nie ma krótkiego kina",
-                    "Nie ma małego akwarium"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "Nie ma (młody Marek)",
-                ],
-                front: [
-                    "Nie ma młodych Marków"
-                ]
-            }, {
-                back: [
-                    "Nie ma (drogi samochód)",
-                    "Nie ma (dobry kot)"
-                ],
-                front: [
-                    "Nie ma drogich samochodów",
-                    "Nie ma dobrych kotów"
-                ]
-            }, {
-                back: [
-                    "Nie ma (ładna matka)"
-                ],
-                front: [
-                    "Nie ma ładnych matek"
-                ]
-            }, {
-                back: [
-                    "Nie ma (krótkie kino)",
-                    "TNie ma (małe akwarium)"
-                ],
-                front: [
-                    "Nie ma krótkich kin",
-                    "Nie ma małych akwariów"
-                ]
-            }]
-        }
-    },
-    {
-        name: 'Celownik',
-        question: 'Komu? Czemu?',
-        use: 'Przyglądam się... Ufam...',
-        cards: {
-            singular: [{
-                back: [
-                    "Ufam (młody Marek)",
-                    "Ufam  (dobry kot)"
-                ],
-                front: [
-                    "Ufam młodemu Markowi",
-                    "Ufam dobremu kotu"
-                ]
-            }, {
-                back: [
-                    "Ufam (drogi samochód)"
-                ],
-                front: [
-                    "Ufam drogiemu samochodowi"
-                ]
-            }, {
-                back: [
-                    "Ufam (ładna matka)"
-                ],
-                front: [
-                    "Ufam ładnej matce"
-                ]
-            }, {
-                back: [
-                    "Ufam (krótkie kino)",
-                    "Ufam (małe akwarium)"
-                ],
-                front: [
-                    "Ufam krótkiemu kinu",
-                    "Ufam małemu akwarium"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "Ufam (młody Marek)",
-                ],
-                front: [
-                    "Ufam młodym Markom"
-                ]
-            }, {
-                back: [
-                    "Ufam (drogi samochód)",
-                    "Ufam (dobry kot)"
-                ],
-                front: [
-                    "Ufam drogim samochodom",
-                    "Ufam dobrym kotom"
-                ]
-            }, {
-                back: [
-                    "Ufam (ładna matka)"
-                ],
-                front: [
-                    "Ufam ładnym matkom"
-                ]
-            }, {
-                back: [
-                    "Ufam (krótkie kino)",
-                    "Ufam (małe akwarium)"
-                ],
-                front: [
-                    "Ufam krótkim kinom",
-                    "Ufam małym akwariom"
-                ]
-            }]
-        }
-    },
-    {
-        name: 'Biernik',
-        question: 'Kogo? Co?',
-        use: 'Mam...  Znam... Widzę... Lubię...',
-        cards: {
-            singular: [{
-                back: [
-                    "Znam (młody Marek)",
-                    "Znam (dobry kot)"
-                ],
-                front: [
-                    "Znam młodego Marka",
-                    "Znam dobrego kota"
-                ]
-            }, {
-                back: [
-                    "Znam (drogi samochód)"
-                ],
-                front: [
-                    "Znam drogi samochód"
-                ]
-            }, {
-                back: [
-                    "Znam (ładna matka)"
-                ],
-                front: [
-                    "Znam ładną matkę"
-                ]
-            }, {
-                back: [
-                    "Znam (krótkie kino)",
-                    "Znam (małe akwarium)"
-                ],
-                front: [
-                    "Znam krótkie kino",
-                    "Znam małe akwarium"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "Znam (młody Marek)",
-                ],
-                front: [
-                    "Znam młodych Marków"
-                ]
-            }, {
-                back: [
-                    "Znam (drogi samochód)",
-                    "Znam (dobry kot)"
-                ],
-                front: [
-                    "Znam drogie samochody",
-                    "Znam dobre koty"
-                ]
-            }, {
-                back: [
-                    "Znam (ładna matka)"
-                ],
-                front: [
-                    "Znam ładne matki"
-                ]
-            }, {
-                back: [
-                    "Znam (krótkie kino)",
-                    "Znam (małe akwarium)"
-                ],
-                front: [
-                    "Znam krótkie kina",
-                    "Znam małe akwaria"
-                ]
-            }]
-        }
-    },
-    {
-        name: 'Narzędnik',
-        question: '(Z) Kim? Czym?',
-        use: 'Idę z … na drinka; Opiekuję się...',
-        cards: {
-            singular: [{
-                back: [
-                    "Opiekuję (młody Marek)",
-                    "Opiekuję (dobry kot)"
-                ],
-                front: [
-                    "Opiekuję się młodym Markiem",
-                    "Opiekuję się dobrym kotem"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (drogi samochód)"
-                ],
-                front: [
-                    "Opiekuję się drogim samochodem"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (ładna matka)"
-                ],
-                front: [
-                    "Opiekuję się ładną matką"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (krótkie kino)",
-                    "Opiekuję (małe akwarium)"
-                ],
-                front: [
-                    "Opiekuję się krótkim kinem",
-                    "Opiekuję się małym akwarium"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "Opiekuję (młody Marek)",
-                ],
-                front: [
-                    "Opiekuję się młodymi Markami"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (drogi samochód)",
-                    "Opiekuję (dobry kot)"
-                ],
-                front: [
-                    "Opiekuję się drogimi samochodami",
-                    "Opiekuję się dobrymi kotami"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (ładna matka)"
-                ],
-                front: [
-                    "Opiekuję się ładnymi matkami"
-                ]
-            }, {
-                back: [
-                    "Opiekuję (krótkie kino)",
-                    "Opiekuję (małe akwarium)"
-                ],
-                front: [
-                    "Opiekuję się krótkimi kinami",
-                    "Opiekuję się małymi akwariami"
-                ]
-            }]
-        }
-    },
-    {
-        name: 'Miejscownik',
-        question: '(O) Kim? Czym?',
-        use: 'Marże o... Myślę o...',
-        cards: {
-            singular: [{
-                back: [
-                    "Myślę o (młody Marek)",
-                    "Myślę o (dobry kot)"
-                ],
-                front: [
-                    "Myślę o młodym Marku",
-                    "Myślę o dobrym kocie"
-                ]
-            }, {
-                back: [
-                    "Myślę o (drogi samochód)"
-                ],
-                front: [
-                    "Myślę o drogim samochodzie"
-                ]
-            }, {
-                back: [
-                    "Myślę o (ładna matka)"
-                ],
-                front: [
-                    "Myślę o ładnej matce"
-                ]
-            }, {
-                back: [
-                    "Myślę o (krótkie kino, słońce)",
-                    "Myślę o (małe akwarium)"
-                ],
-                front: [
-                    "Myślę o krótkim kinie, słońcu",
-                    "Myślę o małym akwarium"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "Myślę o (młody Marek)",
-                ],
-                front: [
-                    "Myślę o młodych Markach"
-                ]
-            }, {
-                back: [
-                    "Myślę o (drogi samochód)",
-                    "Myślę o (dobry kot)"
-                ],
-                front: [
-                    "Myślę o drogich samochodach",
-                    "Myślę o dobrych kotach"
-                ]
-            }, {
-                back: [
-                    "Myślę o (ładna matka)"
-                ],
-                front: [
-                    "Myślę o ładnych matkach"
-                ]
-            }, {
-                back: [
-                    "Myślę o (krótkie kino)",
-                    "Myślę o (małe akwarium)"
-                ],
-                front: [
-                    "Myślę o krótkich kinach",
-                    "Myślę o małych akwariach"
-                ]
-            }]
-        }
-    },
-    {
-        name: 'Wołacz',
-        question: 'O!',
-        use: 'Drogi...  Drodzy...',
-        cards: {
-            singular: [{
-                back: [
-                    "O (młody Marek)!",
-                    "O (dobry kot)!"
-                ],
-                front: [
-                    "O Młody Marku!",
-                    "O Dobry kocie!"
-                ]
-            }, {
-                back: [
-                    "O (drogi samochód)!"
-                ],
-                front: [
-                    "O Drogi samochodzie!"
-                ]
-            }, {
-                back: [
-                    "O (ładna matka)!"
-                ],
-                front: [
-                    "o Ładna matko!"
-                ]
-            }, {
-                back: [
-                    "O (krótkie kino)!",
-                    "O (małe akwarium)!"
-                ],
-                front: [
-                    "Krótkie kino!",
-                    "Małe akwarium!"
-                ]
-            }],
-            plural: [{
-                back: [
-                    "O (młody Marek)!",
-                ],
-                front: [
-                    "O Młodzi Markowie!",
-                ]
-            }, {
-                back: [
-                    "O (drogi samochód)!",
-                    "O (dobry kot)!"
-                ],
-                front: [
-                    "O Drogie samochody!",
-                    "O Dobre koty!"
-                ]
-            }, {
-                back: [
-                    "O (ładna matka)!"
-                ],
-                front: [
-                    "O Ładne matki!"
-                ]
-            }, {
-                back: [
-                    "O (krótkie kino)!",
-                    "O (małe akwarium)!"
-                ],
-                front: [
-                    "O Krótkie kina!",
-                    "O Małe akwaria!"
-                ]
-            }],
-        }
-    },
+    // {
+    //     name: 'Dopełniacz',
+    //     question: 'Kogo? Czego?',
+    //     use: 'Nie ma... Nie znam... Nie widzę...  Nie lubię...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "Nie ma (młody Marek)",
+    //                 "Nie ma (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Nie ma młodego Marka",
+    //                 "Nie ma dobrego kota"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (drogi samochód)"
+    //             ],
+    //             front: [
+    //                 "Nie ma drogiego samochodu"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Nie ma ładnej matki"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (krótkie kino)",
+    //                 "Nie ma (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Nie ma krótkiego kina",
+    //                 "Nie ma małego akwarium"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "Nie ma (młody Marek)",
+    //             ],
+    //             front: [
+    //                 "Nie ma młodych Marków"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (drogi samochód)",
+    //                 "Nie ma (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Nie ma drogich samochodów",
+    //                 "Nie ma dobrych kotów"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Nie ma ładnych matek"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Nie ma (krótkie kino)",
+    //                 "TNie ma (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Nie ma krótkich kin",
+    //                 "Nie ma małych akwariów"
+    //             ]
+    //         }]
+    //     }
+    // },
+    // {
+    //     name: 'Celownik',
+    //     question: 'Komu? Czemu?',
+    //     use: 'Przyglądam się... Ufam...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "Ufam (młody Marek)",
+    //                 "Ufam  (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Ufam młodemu Markowi",
+    //                 "Ufam dobremu kotu"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (drogi samochód)"
+    //             ],
+    //             front: [
+    //                 "Ufam drogiemu samochodowi"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Ufam ładnej matce"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (krótkie kino)",
+    //                 "Ufam (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Ufam krótkiemu kinu",
+    //                 "Ufam małemu akwarium"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "Ufam (młody Marek)",
+    //             ],
+    //             front: [
+    //                 "Ufam młodym Markom"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (drogi samochód)",
+    //                 "Ufam (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Ufam drogim samochodom",
+    //                 "Ufam dobrym kotom"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Ufam ładnym matkom"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Ufam (krótkie kino)",
+    //                 "Ufam (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Ufam krótkim kinom",
+    //                 "Ufam małym akwariom"
+    //             ]
+    //         }]
+    //     }
+    // },
+    // {
+    //     name: 'Biernik',
+    //     question: 'Kogo? Co?',
+    //     use: 'Mam...  Znam... Widzę... Lubię...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "Znam (młody Marek)",
+    //                 "Znam (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Znam młodego Marka",
+    //                 "Znam dobrego kota"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (drogi samochód)"
+    //             ],
+    //             front: [
+    //                 "Znam drogi samochód"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Znam ładną matkę"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (krótkie kino)",
+    //                 "Znam (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Znam krótkie kino",
+    //                 "Znam małe akwarium"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "Znam (młody Marek)",
+    //             ],
+    //             front: [
+    //                 "Znam młodych Marków"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (drogi samochód)",
+    //                 "Znam (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Znam drogie samochody",
+    //                 "Znam dobre koty"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Znam ładne matki"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Znam (krótkie kino)",
+    //                 "Znam (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Znam krótkie kina",
+    //                 "Znam małe akwaria"
+    //             ]
+    //         }]
+    //     }
+    // },
+    // {
+    //     name: 'Narzędnik',
+    //     question: '(Z) Kim? Czym?',
+    //     use: 'Idę z … na drinka; Opiekuję się...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "Opiekuję (młody Marek)",
+    //                 "Opiekuję (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się młodym Markiem",
+    //                 "Opiekuję się dobrym kotem"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (drogi samochód)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się drogim samochodem"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się ładną matką"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (krótkie kino)",
+    //                 "Opiekuję (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się krótkim kinem",
+    //                 "Opiekuję się małym akwarium"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "Opiekuję (młody Marek)",
+    //             ],
+    //             front: [
+    //                 "Opiekuję się młodymi Markami"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (drogi samochód)",
+    //                 "Opiekuję (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się drogimi samochodami",
+    //                 "Opiekuję się dobrymi kotami"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się ładnymi matkami"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Opiekuję (krótkie kino)",
+    //                 "Opiekuję (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Opiekuję się krótkimi kinami",
+    //                 "Opiekuję się małymi akwariami"
+    //             ]
+    //         }]
+    //     }
+    // },
+    // {
+    //     name: 'Miejscownik',
+    //     question: '(O) Kim? Czym?',
+    //     use: 'Marże o... Myślę o...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "Myślę o (młody Marek)",
+    //                 "Myślę o (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Myślę o młodym Marku",
+    //                 "Myślę o dobrym kocie"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (drogi samochód)"
+    //             ],
+    //             front: [
+    //                 "Myślę o drogim samochodzie"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Myślę o ładnej matce"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (krótkie kino, słońce)",
+    //                 "Myślę o (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Myślę o krótkim kinie, słońcu",
+    //                 "Myślę o małym akwarium"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "Myślę o (młody Marek)",
+    //             ],
+    //             front: [
+    //                 "Myślę o młodych Markach"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (drogi samochód)",
+    //                 "Myślę o (dobry kot)"
+    //             ],
+    //             front: [
+    //                 "Myślę o drogich samochodach",
+    //                 "Myślę o dobrych kotach"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (ładna matka)"
+    //             ],
+    //             front: [
+    //                 "Myślę o ładnych matkach"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "Myślę o (krótkie kino)",
+    //                 "Myślę o (małe akwarium)"
+    //             ],
+    //             front: [
+    //                 "Myślę o krótkich kinach",
+    //                 "Myślę o małych akwariach"
+    //             ]
+    //         }]
+    //     }
+    // },
+    // {
+    //     name: 'Wołacz',
+    //     question: 'O!',
+    //     use: 'Drogi...  Drodzy...',
+    //     cards: {
+    //         singular: [{
+    //             back: [
+    //                 "O (młody Marek)!",
+    //                 "O (dobry kot)!"
+    //             ],
+    //             front: [
+    //                 "O Młody Marku!",
+    //                 "O Dobry kocie!"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (drogi samochód)!"
+    //             ],
+    //             front: [
+    //                 "O Drogi samochodzie!"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (ładna matka)!"
+    //             ],
+    //             front: [
+    //                 "o Ładna matko!"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (krótkie kino)!",
+    //                 "O (małe akwarium)!"
+    //             ],
+    //             front: [
+    //                 "Krótkie kino!",
+    //                 "Małe akwarium!"
+    //             ]
+    //         }],
+    //         plural: [{
+    //             back: [
+    //                 "O (młody Marek)!",
+    //             ],
+    //             front: [
+    //                 "O Młodzi Markowie!",
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (drogi samochód)!",
+    //                 "O (dobry kot)!"
+    //             ],
+    //             front: [
+    //                 "O Drogie samochody!",
+    //                 "O Dobre koty!"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (ładna matka)!"
+    //             ],
+    //             front: [
+    //                 "O Ładne matki!"
+    //             ]
+    //         }, {
+    //             back: [
+    //                 "O (krótkie kino)!",
+    //                 "O (małe akwarium)!"
+    //             ],
+    //             front: [
+    //                 "O Krótkie kina!",
+    //                 "O Małe akwaria!"
+    //             ]
+    //         }],
+    //     }
+    // },
 ];
 
-const getAllCards = () => casesData
+function getRandomizedCaseData(): CaseData[] {
+    const sourcesDataClone = JSON.parse(JSON.stringify(casesSourceData)) as CaseSourceData[];
+
+    const sourcesData = sourcesDataClone.map(x => {
+
+        function collapseCardSource(source: CardSource): Card {
+            const verb = getRandomItem(source.verbs);
+            const noun = getRandomItem(source.nouns);
+
+            return {
+                back: [source.backTemplate.replace('{verb}', verb[0]).replace('{noun}', noun[0])],
+                front: [source.frontTemplate.replace('{verb}', verb[1]).replace('{noun}', noun[1])]
+            }
+        }
+
+        const s: CaseData = {
+            name: x.name,
+            question: x.question,
+            use: x.use,
+            cards: {
+                singular: x.cards.singular.map(collapseCardSource),
+                plural: x.cards.plural.map(collapseCardSource)
+            }
+        }
+
+        return s;
+    });
+
+    return sourcesData;
+}
+
+let currentCasesData: CaseData[] = attemptGetCasesDataByQSKey() ?? getRandomizedCaseData();
+
+function attemptGetCasesDataByQSKey(): CaseData[] | undefined {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (false === searchParams.has('state-key')) {
+        return;
+    }
+
+    const key = searchParams.get('state-key');
+    const item = window.localStorage.getItem(`state-key-${key}`);
+    if (!item) { return; }
+    return JSON.parse(item);
+}
+
+const getAllCards = () => currentCasesData
                             .flatMap(x => x.cards)
                             .flatMap(x => [x.plural, x.singular])
                             .flatMap(x => x);
@@ -547,15 +560,15 @@ export function Cases() {
     const render = useRender();
 
     useEffect(() => {
-        if (randomModeOn && !target) {
+        if (randomModeOn && (!target || target.isFlipped)) {
             const allCards = getAllCards().filter(x => !x.isFlipped);
             if (allCards.length === 0) {
                 alert('Gratulacje!');
                 return;
             }
 
-            const randomIndex = Math.floor(allCards.length * (Math.random() - 0.001));
-            setTarget(allCards[randomIndex]);
+            const randomCard = getRandomItem(allCards);
+            setTarget(randomCard);
             // make sure newly setelect tile is visible
             setTimeout(() => {
                const targetTd = window.document.querySelector('td.target');
@@ -602,7 +615,7 @@ export function Cases() {
                     getAllCards().forEach(x => x.isFlipped = true);
                     render();
                 }}
-            >Otworzyć wszystkie</button>
+            >otworzyć wszystkie</button>
             <button
                 className='cases-button'
                 onClick={() => {
@@ -619,9 +632,27 @@ export function Cases() {
             >
             {randomModeOn ? "dezaktywuj tryb losowy" : "aktywuj tryb losowy" }
             </button>
+            <button
+                className='cases-button'
+                onClick={() => {
+                    const num = Math.random();
+                    const key = `state-key-${num}`;
+                    window.localStorage.setItem(key, JSON.stringify(currentCasesData));
+                    window.location.search = `state-key=${num}`;
+                    alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
+                }}
+            >zapisz bieżący stan</button>
+            <button
+                className='cases-button'
+                onClick={() => {
+                    currentCasesData = getRandomizedCaseData();
+                    setTarget(undefined);
+                    render();
+                }}
+            >tasować</button>
             <table style={{ width: "100%" }}>
                 <tbody>
-                    {casesData.map(cse => <>
+                    {currentCasesData.map(cse => <>
                         <tr
                             key={cse.name + '1'}>
                             <td
