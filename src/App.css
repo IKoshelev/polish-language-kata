@@ -3,6 +3,23 @@ td {
   width: 20%;
 }
 
+td.case-text {
+  vertical-align: top;
+  font-size: 10px;
+}
+
+.cases-button {
+  height: 40px;
+}
+
+body {
+  margin-bottom: 100px;
+}
+
+td.case-description {
+  font-size: 10px;
+}
+
 .App {
   text-align: center;
 }
