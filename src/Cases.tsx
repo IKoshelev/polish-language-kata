@@ -548,15 +548,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "To są (młody Marek)",
+                    "To są (młody Marek l.mn.)",
                 ],
                 front: [
                     "To są młodzi Markowie "
                 ]
             }, {
                 back: [
-                    "To są (drogi samochód)",
-                    "To są (dobry kot)"
+                    "To są (drogi samochód l.mn.)",
+                    "To są (dobry kot l.mn.)"
                 ],
                 front: [
                     "To są drogie samochody",
@@ -564,15 +564,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "To są (ładna matka)"
+                    "To są (ładna matka l.mn.)"
                 ],
                 front: [
                     "To są ładne matki"
                 ]
             }, {
                 back: [
-                    "To są (krótkie kino)",
-                    "To są (małe akwarium)"
+                    "To są (krótkie kino l.mn.)",
+                    "To są (małe akwarium l.mn.)"
                 ],
                 front: [
                     "To są krótkie kina",
@@ -621,15 +621,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "Nie ma (młody Marek)",
+                    "Nie ma (młody Marek l.mn.)",
                 ],
                 front: [
                     "Nie ma młodych Marków"
                 ]
             }, {
                 back: [
-                    "Nie ma (drogi samochód)",
-                    "Nie ma (dobry kot)"
+                    "Nie ma (drogi samochód l.mn.)",
+                    "Nie ma (dobry kot l.mn.)"
                 ],
                 front: [
                     "Nie ma drogich samochodów",
@@ -637,15 +637,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "Nie ma (ładna matka)"
+                    "Nie ma (ładna matka l.mn.)"
                 ],
                 front: [
                     "Nie ma ładnych matek"
                 ]
             }, {
                 back: [
-                    "Nie ma (krótkie kino)",
-                    "TNie ma (małe akwarium)"
+                    "Nie ma (krótkie kino l.mn.)",
+                    "TNie ma (małe akwarium l.mn.)"
                 ],
                 front: [
                     "Nie ma krótkich kin",
@@ -694,15 +694,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "Ufam (młody Marek)",
+                    "Ufam (młody Marek l.mn.)",
                 ],
                 front: [
                     "Ufam młodym Markom"
                 ]
             }, {
                 back: [
-                    "Ufam (drogi samochód)",
-                    "Ufam (dobry kot)"
+                    "Ufam (drogi samochód l.mn.)",
+                    "Ufam (dobry kot l.mn.)"
                 ],
                 front: [
                     "Ufam drogim samochodom",
@@ -710,15 +710,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "Ufam (ładna matka)"
+                    "Ufam (ładna matka l.mn.)"
                 ],
                 front: [
                     "Ufam ładnym matkom"
                 ]
             }, {
                 back: [
-                    "Ufam (krótkie kino)",
-                    "Ufam (małe akwarium)"
+                    "Ufam (krótkie kino l.mn.)",
+                    "Ufam (małe akwarium l.mn.)"
                 ],
                 front: [
                     "Ufam krótkim kinom",
@@ -767,15 +767,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "Znam (młody Marek)",
+                    "Znam (młody Marek l.mn.)",
                 ],
                 front: [
                     "Znam młodych Marków"
                 ]
             }, {
                 back: [
-                    "Znam (drogi samochód)",
-                    "Znam (dobry kot)"
+                    "Znam (drogi samochód l.mn.)",
+                    "Znam (dobry kot l.mn.)"
                 ],
                 front: [
                     "Znam drogie samochody",
@@ -783,15 +783,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "Znam (ładna matka)"
+                    "Znam (ładna matka l.mn.)"
                 ],
                 front: [
                     "Znam ładne matki"
                 ]
             }, {
                 back: [
-                    "Znam (krótkie kino)",
-                    "Znam (małe akwarium)"
+                    "Znam (krótkie kino l.mn.)",
+                    "Znam (małe akwarium l.mn.)"
                 ],
                 front: [
                     "Znam krótkie kina",
@@ -840,15 +840,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "Opiekuję się (młody Marek)",
+                    "Opiekuję się (młody Marek l.mn.)",
                 ],
                 front: [
                     "Opiekuję się młodymi Markami"
                 ]
             }, {
                 back: [
-                    "Opiekuję się (drogi samochód)",
-                    "Opiekuję się (dobry kot)"
+                    "Opiekuję się (drogi samochód l.mn.)",
+                    "Opiekuję się (dobry kot l.mn.)"
                 ],
                 front: [
                     "Opiekuję się drogimi samochodami",
@@ -856,15 +856,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "Opiekuję się (ładna matka)"
+                    "Opiekuję się (ładna matka l.mn.)"
                 ],
                 front: [
                     "Opiekuję się ładnymi matkami"
                 ]
             }, {
                 back: [
-                    "Opiekuję się (krótkie kino)",
-                    "Opiekuję się (małe akwarium)"
+                    "Opiekuję się (krótkie kino l.mn.)",
+                    "Opiekuję się (małe akwarium l.mn.)"
                 ],
                 front: [
                     "Opiekuję się krótkimi kinami",
@@ -913,15 +913,15 @@ const basicCaseData: CaseData[] = [
             }],
             plural: [{
                 back: [
-                    "Myślę o (młody Marek)",
+                    "Myślę o (młody Marek l.mn.)",
                 ],
                 front: [
                     "Myślę o młodych Markach"
                 ]
             }, {
                 back: [
-                    "Myślę o (drogi samochód)",
-                    "Myślę o (dobry kot)"
+                    "Myślę o (drogi samochód l.mn.)",
+                    "Myślę o (dobry kot l.mn.)"
                 ],
                 front: [
                     "Myślę o drogich samochodach",
@@ -929,15 +929,15 @@ const basicCaseData: CaseData[] = [
                 ]
             }, {
                 back: [
-                    "Myślę o (ładna matka)"
+                    "Myślę o (ładna matka l.mn.)"
                 ],
                 front: [
                     "Myślę o ładnych matkach"
                 ]
             }, {
                 back: [
-                    "Myślę o (krótkie kino)",
-                    "Myślę o (małe akwarium)"
+                    "Myślę o (krótkie kino l.mn.)",
+                    "Myślę o (małe akwarium l.mn.)"
                 ],
                 front: [
                     "Myślę o krótkich kinach",
