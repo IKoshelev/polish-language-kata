@@ -6,6 +6,10 @@
   width: 22%;
 }
 
+.cases-table tbody td>div {
+  min-height: 30px;
+}
+
 td:not(.marked) {
   border: 2.5px solid black;
 }

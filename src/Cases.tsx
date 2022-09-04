@@ -1156,12 +1156,12 @@ export function Cases() {
                 const isRightSide = eventOffsetX < (currentTargetRect.width / 2);
                 
                 if (isRightSide) {
+                    card.isMarked = !card.isMarked;
+                } else {
                     card.isFlipped = !card.isFlipped;
                     if (card === target) {
                         setTarget(undefined);
                     }
-                } else {
-                    card.isMarked = !card.isMarked;
                 }
 
                 render();
@@ -1184,7 +1184,7 @@ export function Cases() {
     return (
         <>
             <div style={{ width: '100%' }}>
-                <strong>Przypadki</strong> (kliknij na kartki, lewa strona do odwrócenia, prawa strona do zaznaczenia)
+                <strong>Przypadki</strong> (kliknij na kartki, prawa strona do odwrócenia, lewa strona do zaznaczenia)
             </div>
             <div style={{ width: '100%' }}>
 
