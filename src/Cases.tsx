@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 type Card = {
     isFlipped?: boolean;
+    isMarked?: boolean;
     front: string[],
     back: string[],
 }
@@ -1146,12 +1147,23 @@ export function Cases() {
 
     const renderCardCells = (isPlural: boolean) => (card: Card) =>
         <td
-            className={`case-text ${card === target ? 'target' : ''}`}
-            onClick={() => {
-                card.isFlipped = !card.isFlipped;
-                if (card === target) {
-                    setTarget(undefined);
+            className={`case-text ${card === target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
+            onClick={(event) => {
+
+                const currentTargetRect = event.currentTarget.getBoundingClientRect();
+                const eventOffsetX = event.pageX - currentTargetRect.left;
+                // eventOffsetY = event.pageY - currentTargetRect.top;
+                const isRightSide = eventOffsetX < (currentTargetRect.width / 2);
+                
+                if (isRightSide) {
+                    card.isFlipped = !card.isFlipped;
+                    if (card === target) {
+                        setTarget(undefined);
+                    }
+                } else {
+                    card.isMarked = !card.isMarked;
                 }
+
                 render();
             }}
             key={card.front[0]}
@@ -1172,7 +1184,7 @@ export function Cases() {
     return (
         <>
             <div style={{ width: '100%' }}>
-                <strong>Przypadki</strong> (kliknij na kartki, aby odwrócić)
+                <strong>Przypadki</strong> (kliknij na kartki, lewa strona do odwrócenia, prawa strona do zaznaczenia)
             </div>
             <div style={{ width: '100%' }}>
 
