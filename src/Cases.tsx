@@ -382,28 +382,28 @@ const casesSourceData: CaseSourceData[] = [
         cards: {
             singular: [{
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim'], ['wysoki', 'wysokim']],
                 nouns: [['Marek', 'Marku'], ['aktor', 'aktorze'], ['kot', 'kocie'], ['poeta', 'poecie']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym'], ['wysoki', 'wysokim']],
                 nouns: [['samochód', 'samochodzie'], ['ser', 'serze']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysoką']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['grzeczne', 'grzecznym'], ['małe', 'małym'], ['wesołe', 'wesołym'], ['wysokie', 'wysokim']],
@@ -411,28 +411,28 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'drogich'], ['wysoki', 'wysokich']],
                 nouns: [['Marek', 'Markach'], ['aktor', 'aktorach'], ['student', 'studentach'], ['poeta', 'poetach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych'], ['wysoki', 'wysokich']],
                 nouns: [['samochód', 'samochodach'], ['kot', 'kotach'], ['ser', 'serach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych'], ['wysoka', 'wysokich']],
                 nouns: [['matka', 'matkach'], ['sofa', 'sofach'], ['pani', 'paniach'], ['noc', 'nocach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun}) na drinka', 'Marże o {verb} {noun}'],
+                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                 ],
                 verbs: [['grzeczne', 'grzecznych'], ['małe', 'małych'], ['wesołe', 'wesołych'], ['wysokie', 'wysokich']],
@@ -1092,16 +1092,19 @@ export function Cases() {
             }
 
             const randomCard = getRandomItem(allCards);
-            setTarget(randomCard);
+            setTimeout(() => setTarget(randomCard), 1500);
+
             // make sure newly setelect tile is visible
             setTimeout(() => {
                 const targetTd = window.document.querySelector('td.target');
                 if (targetTd) {
                     targetTd.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'center',
+                        inline: 'center'
                     });
                 }
-            }, 10);
+            }, 1600);
         }
     }, [randomModeOn, target]);
 
@@ -1156,6 +1159,7 @@ export function Cases() {
                     className='cases-button'
                     onClick={() => {
                         setRandomMode(!randomModeOn);
+                        setTarget(undefined);
                         render();
                     }}
                 >
