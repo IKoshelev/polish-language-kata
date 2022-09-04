@@ -208,33 +208,33 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
-                    ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
-                    ['To dzięki ({verb} {noun})', 'To dzięki {verb} {noun}'],
-                    ['Na przekór ({verb} {noun})', 'Na przekór {verb} {noun}']
+                    ['Ufam ({verb} {noun} l.mn.)', 'Ufam {verb} {noun}'],
+                    ['To dzięki ({verb} {noun} l.mn.)', 'To dzięki {verb} {noun}'],
+                    ['Na przekór ({verb} {noun} l.mn.)', 'Na przekór {verb} {noun}']
                 ],
                 verbs: [['młody', 'młodym'], ['wesoły', 'wesołym'], ['przystojny', 'przystojnym'], ['dobry', 'dobrym'], ['drogi', 'drogim'], ['wysoki', 'wysokim']],
                 nouns: [['Marek', 'Markom'], ['aktor', 'aktorom'], ['student', 'studentom'], ['poeta', 'poetom']]
             }, {
                 templates: [
-                    ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
-                    ['To dzięki ({verb} {noun})', 'To dzięki {verb} {noun}'],
-                    ['Na przekór ({verb} {noun})', 'Na przekór {verb} {noun}']
+                    ['Ufam ({verb} {noun} l.mn.)', 'Ufam {verb} {noun}'],
+                    ['To dzięki ({verb} {noun} l.mn.)', 'To dzięki {verb} {noun}'],
+                    ['Na przekór ({verb} {noun} l.mn.)', 'Na przekór {verb} {noun}']
                 ],
                 verbs: [['dobry', 'dobrym'], ['drogi', 'drogim'], ['stary', 'starym'], ['wysoki', 'wysokim']],
                 nouns: [['samochód', 'samochodom'], ['kot', 'kotom'], ['ser', 'serom']]
             }, {
                 templates: [
-                    ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
-                    ['To dzięki ({verb} {noun})', 'To dzięki {verb} {noun}'],
-                    ['Na przekór ({verb} {noun})', 'Na przekór {verb} {noun}']
+                    ['Ufam ({verb} {noun} l.mn.)', 'Ufam {verb} {noun}'],
+                    ['To dzięki ({verb} {noun} l.mn.)', 'To dzięki {verb} {noun}'],
+                    ['Na przekór ({verb} {noun} l.mn.)', 'Na przekór {verb} {noun}']
                 ],
                 verbs: [['ładna', 'ładnym'], ['młoda', 'młodym'], ['inteligentna', 'inteligentnym'], ['wysoka', 'wysokim']],
                 nouns: [['matka', 'matkom'], ['sofa', 'sofom'], ['pani', 'paniom'], ['noc', 'nocom']]
             }, {
                 templates: [
-                    ['Ufam ({verb} {noun})', 'Ufam {verb} {noun}'],
-                    ['To dzięki ({verb} {noun})', 'To dzięki {verb} {noun}'],
-                    ['Na przekór ({verb} {noun})', 'Na przekór {verb} {noun}']
+                    ['Ufam ({verb} {noun} l.mn.)', 'Ufam {verb} {noun}'],
+                    ['To dzięki ({verb} {noun} l.mn.)', 'To dzięki {verb} {noun}'],
+                    ['Na przekór ({verb} {noun} l.mn.)', 'Na przekór {verb} {noun}']
                 ],
                 verbs: [['grzeczne', 'grzecznym'], ['małe', 'małym'], ['wesołe', 'wesołym'], ['wysokie', 'wysokim']],
                 nouns: [['kino', 'kinom'], ['słońce', 'słońcom'], ['dziecko', 'dzieciom'], ['imię', 'imionom'], ['akwarium', 'akwariom']]
@@ -362,33 +362,33 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
-                    ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
-                    ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
+                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
+                    ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
                 verbs: [['młody', 'młodymi'], ['wesoły', 'wesołymi'], ['przystojny', 'przystojnymi'], ['dobry', 'dobrymi'], ['drogi', 'drogimi'], ['wysoki', 'wysokimi']],
                 nouns: [['Marek', 'Markami'], ['aktor', 'aktorami'], ['student', 'studentami'], ['poeta', 'poetami']]
             }, {
                 templates: [
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
-                    ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
-                    ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
+                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
+                    ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
                 verbs: [['dobry', 'dobrymi'], ['drogi', 'drogimi'], ['stary', 'starymi'], ['wysoki', 'wysokimi']],
                 nouns: [['samochód', 'samochodami'], ['kot', 'kotami'], ['ser', 'serami']]
             }, {
                 templates: [
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
-                    ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
-                    ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
+                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
+                    ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
                 verbs: [['ładna', 'ładnymi'], ['młoda', 'młodymi'], ['inteligentna', 'inteligentnymi'], ['wysoka', 'wysokimi']],
                 nouns: [['matka', 'matkami'], ['sofa', 'sofami'], ['pani', 'paniami'], ['noc', 'nocami']]
             }, {
                 templates: [
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
-                    ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
-                    ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
+                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
+                    ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
                 verbs: [['grzeczne', 'grzecznymi'], ['małe', 'małymi'], ['wesołe', 'wesołymi'], ['wysoki', 'wysokimi']],
                 nouns: [['kino', 'kinami'], ['słońce', 'słońcami'], ['dziecko', 'dziećmi'], ['imię', 'imionami'], ['akwarium', 'akwariami']]
@@ -435,33 +435,33 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
-                    ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
-                    ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
+                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
+                    ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
                 verbs: [['młody', 'młodych'], ['wesoły', 'wesołych'], ['przystojny', 'przystojnych'], ['dobry', 'dobrych'], ['drogi', 'drogich'], ['wysoki', 'wysokich']],
                 nouns: [['Marek', 'Markach'], ['aktor', 'aktorach'], ['student', 'studentach'], ['poeta', 'poetach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
-                    ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
-                    ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
+                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
+                    ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
                 verbs: [['dobry', 'dobrych'], ['drogi', 'drogich'], ['stary', 'starych'], ['wysoki', 'wysokich']],
                 nouns: [['samochód', 'samochodach'], ['kot', 'kotach'], ['ser', 'serach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
-                    ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
-                    ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
+                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
+                    ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
                 verbs: [['ładna', 'ładnych'], ['młoda', 'młodych'], ['inteligentna', 'inteligentnych'], ['wysoka', 'wysokich']],
                 nouns: [['matka', 'matkach'], ['sofa', 'sofach'], ['pani', 'paniach'], ['noc', 'nocach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
-                    ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
-                    ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
+                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
+                    ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
                 verbs: [['grzeczne', 'grzecznych'], ['małe', 'małych'], ['wesołe', 'wesołych'], ['wysokie', 'wysokich']],
                 nouns: [['kino', 'kinach'], ['słońce', 'słońcach'], ['dziecko', 'dzieciach'], ['imię', 'imionach'], ['akwarium', 'akwariach']]
