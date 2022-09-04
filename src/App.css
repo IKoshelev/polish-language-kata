@@ -8,6 +8,10 @@ td.case-text {
   font-size: 10px;
 }
 
+.cases-table thead td {
+  font-size: 10px;
+}
+
 .cases-button {
   height: 40px;
 }
