@@ -1050,7 +1050,7 @@ const basicCaseData: CaseData[] = [
     },
 ];
 
-function getRandomizedCaseData(): CaseData[] {
+function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): CaseData[] {
     const sourcesDataClone = JSON.parse(JSON.stringify(casesSourceData)) as CaseSourceData[];
 
     const sourcesData = sourcesDataClone.map(x => {
@@ -1079,7 +1079,17 @@ function getRandomizedCaseData(): CaseData[] {
         return s;
     });
 
+    for (const cse of currentSourceToPreserveMarked ?? [])        
+    for (const type of ['singular', 'plural'] as const) 
+    for (const [index, card] of cse.cards[type].entries()) {
+        if (card.isMarked) {
+            sourcesData.find(x => x.name === cse.name)!.cards[type][index] = card;
+        }
+    }
+    
     const sourcesDataShuffled: CaseData[] = [];
+
+
 
     while (sourcesData.length > 0) {
         const item = getRandomItem(sourcesData, true);
@@ -1186,7 +1196,7 @@ export function Cases() {
             <div style={{ width: '100%' }}>
                 <strong>Przypadki</strong> (kliknij na kartki, prawa strona do odwrócenia, lewa strona do zaznaczenia)
             </div>
-            <div style={{ width: '100%' }}>
+            <div className="cases-buttons" style={{ width: '100%' }}>
 
                 <button
                     className='cases-button'
@@ -1210,7 +1220,7 @@ export function Cases() {
                         render();
                     }}
                 >
-                    {randomModeOn ? "dezaktywuj tryb losowy" : "aktywuj tryb losowy"}
+                    {randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
                 </button>
                 <button
                     className='cases-button'
@@ -1223,15 +1233,15 @@ export function Cases() {
                         window.location.search = searchParams.toString();
                         alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
                     }}
-                >zapisz bieżący stan</button>
+                >zapisać bieżący stan</button>
                 <button
                     className='cases-button'
                     onClick={() => {
-                        currentCasesData = getRandomizedCaseData();
+                        currentCasesData = getRandomizedCaseData(currentCasesData);
                         setTarget(undefined);
                         render();
                     }}
-                >tasować (trudniejsze)</button>
+                >tasować <br/> <i>dodaje trudniejsze słowa</i> <br/> <i>zachowuje zaznaczone kartki</i></button>
             </div>
             <table className='cases-table' style={{ width: "100%" }}>
                 <thead>

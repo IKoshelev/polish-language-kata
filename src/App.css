@@ -27,8 +27,13 @@ td.case-text {
   font-size: 10px;
 }
 
+.cases-buttons {
+  display: flex;
+  justify-content: center;
+}
+
 .cases-button {
-  height: 40px;
+  height: 60px;
 }
 
 body {
