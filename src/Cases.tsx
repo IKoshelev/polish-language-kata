@@ -330,6 +330,7 @@ const casesSourceData: CaseSourceData[] = [
         cards: {
             singular: [{
                 templates: [
+                    ['On jest ({verb} {noun})', 'On jest {verb} {noun}'],
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
@@ -338,6 +339,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['Marek', 'Markiem'], ['aktor', 'aktorem'], ['kot', 'kotem'], ['poeta', 'poetą']]
             }, {
                 templates: [
+                    ['On jest ({verb} {noun})', 'On jest {verb} {noun}'],
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
@@ -346,6 +348,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['samochód', 'samochodem'], ['ser', 'serem']]
             }, {
                 templates: [
+                    ['Ona jest ({verb} {noun})', 'Ona jest {verb} {noun}'],
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
@@ -354,6 +357,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['matka', 'matką'], ['sofa', 'sofą'], ['pani', 'panią'], ['noc', 'nocą']]
             }, {
                 templates: [
+                    ['Ono jest ({verb} {noun})', 'Ono jest {verb} {noun}'],
                     ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
@@ -363,6 +367,7 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
+                    ['Oni są ({verb} {noun})', 'Oni są {verb} {noun}'],
                     ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
@@ -371,6 +376,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['Marek', 'Markami'], ['aktor', 'aktorami'], ['student', 'studentami'], ['poeta', 'poetami']]
             }, {
                 templates: [
+                    ['One są ({verb} {noun})', 'One są {verb} {noun}'],
                     ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
@@ -379,6 +385,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['samochód', 'samochodami'], ['kot', 'kotami'], ['ser', 'serami']]
             }, {
                 templates: [
+                    ['One są ({verb} {noun})', 'One są {verb} {noun}'],
                     ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
@@ -387,6 +394,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['matka', 'matkami'], ['sofa', 'sofami'], ['pani', 'paniami'], ['noc', 'nocami']]
             }, {
                 templates: [
+                    ['One są ({verb} {noun})', 'One są {verb} {noun}'],
                     ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
@@ -403,7 +411,7 @@ const casesSourceData: CaseSourceData[] = [
         cards: {
             singular: [{
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
@@ -411,7 +419,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['Marek', 'Marku'], ['aktor', 'aktorze'], ['kot', 'kocie'], ['poeta', 'poecie']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
@@ -419,7 +427,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['samochód', 'samochodzie'], ['ser', 'serze']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
@@ -427,7 +435,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun})', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
@@ -436,7 +444,7 @@ const casesSourceData: CaseSourceData[] = [
             }],
             plural: [{
                 templates: [
-                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
@@ -444,7 +452,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['Marek', 'Markach'], ['aktor', 'aktorach'], ['student', 'studentach'], ['poeta', 'poetach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
@@ -452,7 +460,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['samochód', 'samochodach'], ['kot', 'kotach'], ['ser', 'serach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
@@ -460,7 +468,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['matka', 'matkach'], ['sofa', 'sofach'], ['pani', 'paniach'], ['noc', 'nocach']]
             }, {
                 templates: [
-                    ['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
+                    //['Marże o ({verb} {noun} l.mn.)', 'Marże o {verb} {noun}'],
                     ['Myślę o ({verb} {noun} l.mn.)', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun} l.mn.)', 'Stoi przy {verb} {noun}'],
                 ],
@@ -1133,7 +1141,7 @@ export function Cases() {
         if (randomModeOn && (!target || target.isFlipped)) {
             const allCards = getAllCards().filter(x => !x.isFlipped);
             if (allCards.length === 0) {
-                alert('Gratulacje!');
+                setTimeout(() =>  alert('Gratulacje!'), 2500);
                 return;
             }
 
