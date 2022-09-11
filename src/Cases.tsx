@@ -431,7 +431,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysokąiej']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysokiej']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
@@ -1141,7 +1141,10 @@ export function Cases() {
         if (randomModeOn && (!target || target.isFlipped)) {
             const allCards = getAllCards().filter(x => !x.isFlipped);
             if (allCards.length === 0) {
-                setTimeout(() =>  alert('Gratulacje!'), 2500);
+                setTimeout(() =>  {
+                    alert('Gratulacje!');
+                    setRandomMode(false);
+                }, 2500);
                 return;
             }
 
