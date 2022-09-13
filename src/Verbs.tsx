@@ -21,11 +21,16 @@ const forms = [
     'wy m.', 'wy n.m.',
     'oni', 'one'] as const
 
-type FormKeys = (typeof forms)[number];
+type FormKey = (typeof forms)[number];
+
+const formLayout: [FormKey, number][][] = [
+    [['ja m.', 1], ['ty m.', 1], ['on', 1], ['my m.', 1], ['wy m.', 1], ['oni', 1]],
+    [['ja k.', 2], ['ty k.', 2], ['ona', 1], ['my n.m.', 2], ['wy n.m.', 2], ['one', 2]],
+    [['ono', 1]]
+];
 
 type ConjugationsDict<T> = {
-    forms: { [K in FormKeys]: T
-    }
+    forms: { [K in FormKey]: T }
     general_rule?: string
 }
 
@@ -259,7 +264,8 @@ function attemptGetCardsDataByQSKey(): VerbsData | undefined {
 function getAllCards(data: VerbsData): Card[] {
     return data
         .flatMap(x => x.verbs)
-        .flatMap(x => Object.values(x.forms) as any as Card[]);
+        .flatMap(x => entries(x.forms.forms))
+        .map(([k,v]) => v);
 }
 
 
@@ -298,8 +304,9 @@ export function Verbs() {
         }
     }, [randomModeOn, target]);
 
-    const renderCardCell = (card: Card) =>
+    const renderCardCell = (card: Card, rowSpan: number) =>
         <td
+            rowSpan={rowSpan}
             className={`verb-text ${card === target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
             onClick={(event) => {
 
@@ -385,41 +392,50 @@ export function Verbs() {
             >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
         </div>
 
-        <table className='verbs-table'>
+        <table className='verbs-table' style={{ width: "100%" }}>
             <thead>
-                <tr>
-                    <td></td>
-                    {
-                        forms.map(x => <td key={x}>
-                            {x}
-                        </td>)
-                    }
-                </tr>
+                {
+                    formLayout.map((row, i) =>
+                        <tr>
+                            {i === 0 && <th rowSpan={3}></th>}
+                            {row.map(([form, rowSpan]) =>
+                                <th
+                                    key={form}
+                                    rowSpan={rowSpan}
+                                >
+                                    {form}
+                                </th>)}
+
+                        </tr>)
+                }
             </thead>
             <tbody>
-                {currentData.map(sectionData => {
-                    return <>
-                        <tr
-                            key={sectionData.section}>
-                            <td
-                                className='verb-description'
-                                colSpan={14}
-                            >
-                                {sectionData.section}
-                            </td>
-                        </tr>
-                        {sectionData.verbs.map(verbData => {
-                            return <tr
-                                key={verbData.verb}>
-                                <td>{verbData.verb}</td>
-                                {
-                                    forms.map(x =>
-                                        renderCardCell(verbData.forms.forms[x]))
-                                }
-                            </tr>
-                        })}
-                    </>
-                })}
+                {currentData.map(sectionData => <>
+                    <tr
+                        key={sectionData.section}>
+                        <td
+                            className='verb-description'
+                            colSpan={7}
+                        >
+                            {sectionData.section}
+                        </td>
+                    </tr>
+
+                    {
+                        sectionData.verbs.map(verbData =>
+                            formLayout.map((row, i) => <>
+                                <tr key={`${verbData.verb}-${i}`}>
+                                    {i === 0 && <td rowSpan={3}>{verbData.verb}</td>}
+                                    {
+                                        row.map(([form, rowSpan]) =>
+                                            renderCardCell(verbData.forms.forms[form], rowSpan))
+                                    }
+                                </tr>
+                            </>)
+                        )
+                    }
+                </>
+                )}
             </tbody>
         </table>
     </>;

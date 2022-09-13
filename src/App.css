@@ -19,10 +19,12 @@
   width: 22%;
 }
 
+.verbs-table tbody td>div,
 .cases-table tbody td>div {
   min-height: 30px;
 }
 
+.verbs-table th,
 td:not(.marked) {
   border: 2.5px solid black;
 }
