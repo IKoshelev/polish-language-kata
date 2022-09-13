@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Cases } from './Cases';
+import { Verbs } from './Verbs';
 
-type Mode = 'cases';
+type Mode = 'cases' | 'verbs';
 const APP_MODE_KEY = 'app-mode-key';
 
 function getModeFromQS(){
@@ -25,7 +26,28 @@ function App() {
 
   return (
     <div className="App">
-      {mode === 'cases' && <Cases />}
+      <div className='menu'>
+        <div>
+          <strong>Tryb: &nbsp;</strong>
+        </div>
+        {([['cases', 'Przypadki'],['verbs', 'Rzeczowniki']] as [Mode, string][])
+          .map(([buttonMode, label]) => 
+            <button 
+              key={buttonMode}
+              className={buttonMode === mode ? 'active' : ''}
+              onClick={() => {
+                setModeToQs(buttonMode); 
+                setMode(buttonMode);
+              }}
+            >
+              {label}
+            </button>
+          )}
+      </div>
+      <div>
+        {mode === 'cases' && <Cases />}
+        {mode === 'verbs' && <Verbs />}
+      </div>
     </div>
   );
 }

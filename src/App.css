@@ -1,3 +1,16 @@
+.menu {
+  display: flex;
+  justify-content: center;
+}
+
+.menu button {
+  min-height: 30px;
+}
+
+.menu .active {
+  background-color: darkgrey;
+}
+
 .cases-table thead tr td:first-child {
   width: 12%;
 }
@@ -18,7 +31,8 @@ td.marked {
   border: 2.5px solid orange;
 }
 
-td.case-text {
+td.case-text
+td.verb-text {
   vertical-align: top;
   font-size: 10px;
 }
@@ -30,6 +44,27 @@ td.case-text {
 .cases-buttons {
   display: flex;
   justify-content: center;
+}
+
+/* .verbs-table thead td {
+  font-size: 10px;
+} */
+
+.verbs-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.cases-table thead tr td:first-child {
+  width: 40px;
+}
+
+.cases-table thead tr td:not(:first-child) {
+  width: 60px;
+}
+
+.cases-table tbody td>div {
+  min-height: 20px;
 }
 
 body {

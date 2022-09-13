@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getRandomItem, useRender } from './util';
 
 type Card = {
     isFlipped?: boolean;
@@ -37,14 +38,6 @@ type CaseSourceData = {
 
 const CASES_STATE_QS_KEY = 'cases-state-key';
 
-function getRandomItem<T>(arr: T[], removeFromArray = false): T {
-    const index = Math.floor(arr.length * (Math.random() - 0.001));
-    const item = arr[index];
-    if (removeFromArray) {
-        arr.splice(index, 1);
-    }
-    return item;
-}
 
 const casesSourceData: CaseSourceData[] = [
     {
@@ -1097,8 +1090,6 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
     
     const sourcesDataShuffled: CaseData[] = [];
 
-
-
     while (sourcesData.length > 0) {
         const item = getRandomItem(sourcesData, true);
         sourcesDataShuffled.push(item);
@@ -1125,11 +1116,6 @@ const getAllCards = () => currentCasesData
     .flatMap(x => x.cards)
     .flatMap(x => [x.plural, x.singular])
     .flatMap(x => x);
-
-function useRender() {
-    const [counter, setCounter] = useState(0);
-    return () => setCounter(counter + 1);
-}
 
 export function Cases() {
 
