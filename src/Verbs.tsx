@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useImmer } from 'use-immer';
 import { entries, getRandomItem, shuffleAndReturnArr, useRender } from './util';
 
 const VERBS_STATE_QS_KEY = 'verbs-state-key';
@@ -10,6 +11,7 @@ type Card = {
     hidden: string;
     revealed: string;
     rule?: string;
+    id: number;
 }
 
 const forms = [
@@ -55,12 +57,8 @@ function conjugationsDict<T>(
     }
 }
 
-type VerbsDataSource = {
-    [section: string]: { [verb: string]: ConjugationsDict<string | string[]> }
-}
-
 type VerbsData = {
-    section: string;
+    section: keyof typeof sourceData;
     verbs:
     {
         verb: string;
@@ -86,7 +84,7 @@ function x<TCount extends number, TValue>(repeat: TCount, value: TValue):
     return arr as any;
 }
 
-const sourceData: VerbsDataSource = {
+const sourceData = {
     "1 koniugacja; -ę, -esz": {
         'pisać': conjugationsDictSource(
             ...x(2, 'piszę'),
@@ -290,7 +288,7 @@ const sourceData: VerbsDataSource = {
             "Czas teraźniejszy",
         ),
     },
-    "czasowniki nieregularne": {
+    "Czasowniki nieregularne": {
         'być': conjugationsDictSource(
             ...x(2, 'jestem'),
             ...x(2, 'jesteś'),
@@ -406,7 +404,7 @@ const sourceData: VerbsDataSource = {
             "kupowały",
             "Czas przeszły",
         ),
-        'mieć': conjugationsDictSource(
+        'mie͟ć͟': conjugationsDictSource(
             "miałem",
             "miałam",
             "miałeś",
@@ -423,7 +421,7 @@ const sourceData: VerbsDataSource = {
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'woleć': conjugationsDictSource(
+        'wole͟ć͟': conjugationsDictSource(
             "wolałem",
             "wolałam",
             "wolałeś",
@@ -440,7 +438,7 @@ const sourceData: VerbsDataSource = {
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'nieść': conjugationsDictSource(
+        'nieś͟ć͟': conjugationsDictSource(
             "niosłem",
             "niosłam",
             "niosłeś",
@@ -450,14 +448,14 @@ const sourceData: VerbsDataSource = {
             "niosło",
             "nieśliśmy",
             "niosłyśmy",
-            "nieśliśmy",
-            "niosłyśmy",
+            "nieśliście",
+            "niosłyście",
             "nieśli",
             "niosły",
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'wieźć': conjugationsDictSource(
+        'wieź͟ć͟': conjugationsDictSource(
             "wiozłem",
             "wiozłam",
             "wiozłeś",
@@ -600,6 +598,14 @@ const sourceData: VerbsDataSource = {
             "Tryb przypuszczający"
         )
     }
+} as const;
+
+type CurrentState = {
+    cards: VerbsData,
+    timeout: number;
+    target?: Card | undefined,
+    randomModeOn: boolean,
+    activeSections: Partial<Record<(keyof typeof sourceData), boolean>>;
 }
 
 function prepareCards(shuffle = false): VerbsData {
@@ -616,6 +622,7 @@ function prepareCards(shuffle = false): VerbsData {
                 : [v, source.general_rule];
 
             c.forms[k] = ({
+                id: Math.random(),
                 tense: source.tense,
                 hidden: `${k} (${verb})`,
                 revealed: `${k} ${answer}`,
@@ -645,7 +652,7 @@ function prepareCards(shuffle = false): VerbsData {
     return data;
 }
 
-function attemptGetCardsDataByQSKey(): VerbsData | undefined {
+function attemptGetCardsDataByQSKey(): CurrentState | undefined {
     const searchParams = new URLSearchParams(window.location.search);
     if (false === searchParams.has(VERBS_STATE_QS_KEY)) {
         return;
@@ -657,34 +664,46 @@ function attemptGetCardsDataByQSKey(): VerbsData | undefined {
     return JSON.parse(item);
 }
 
-function getAllCards(data: VerbsData): Card[] {
-    return data
+function getAllCards(data: VerbsData, activeSections?: Partial<Record<(keyof typeof sourceData), boolean>>): Card[] {
+
+    let sections = data;
+
+    if (activeSections) {
+        sections = sections.filter(s => activeSections[s.section] === true);
+    }
+
+    return sections
         .flatMap(x => x.verbs)
         .flatMap(x => entries(x.forms.forms))
-        .map(([k,v]) => v);
+        .map(([k, v]) => v);
 }
-
 
 export function Verbs() {
 
-    const [currentData, setCurrentData] = useState(() => attemptGetCardsDataByQSKey() ?? prepareCards());
-    const [randomModeOn, setRandomMode] = useState(false);
-    const [target, setTarget] = useState(undefined as undefined | Card);
-    const render = useRender();
+    const [state, updateState] = useImmer(() => attemptGetCardsDataByQSKey() ?? {
+        cards: prepareCards(),
+        timeout: 2000,
+        target: undefined,
+        randomModeOn: false,
+        activeSections: entries(sourceData).reduce((prev, [k, v]) => {
+            prev[k] = true;
+            return prev
+        }, {} as CurrentState['activeSections'])
+    });
 
     useEffect(() => {
-        if (randomModeOn && (!target || target.isFlipped)) {
-            const allCards = getAllCards(currentData).filter(x => !x.isFlipped);
-            if (allCards.length === 0) {
+        if (state.randomModeOn && (!state.target || state.target.isFlipped)) {
+            const allShownCards = getAllCards(state.cards, state.activeSections).filter(x => !x.isFlipped);
+            if (allShownCards.length === 0) {
                 setTimeout(() => {
                     alert('Gratulacje!');
-                    setRandomMode(false);
+                    updateState(d => { d.randomModeOn = false; })
                 }, 2500);
                 return;
             }
 
-            const randomCard = getRandomItem(allCards);
-            setTimeout(() => setTarget(randomCard), 1500);
+            const randomCard = getRandomItem(allShownCards);
+            setTimeout(() => updateState(d => { d.target = randomCard; }), state.timeout);
 
             // make sure newly setelect tile is visible
             setTimeout(() => {
@@ -696,14 +715,14 @@ export function Verbs() {
                         inline: 'center'
                     });
                 }
-            }, 1600);
+            }, state.timeout + 100);
         }
-    }, [randomModeOn, target]);
+    }, [state.randomModeOn, state.target?.id]);
 
     const renderCardCell = (card: Card, rowSpan: number) =>
         <td
             rowSpan={rowSpan}
-            className={`verb-text ${card === target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
+            className={`verb-text ${card.id === state.target?.id ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
             onClick={(event) => {
 
                 const currentTargetRect = event.currentTarget.getBoundingClientRect();
@@ -711,27 +730,29 @@ export function Verbs() {
                 // eventOffsetY = event.pageY - currentTargetRect.top;
                 const isRightSide = eventOffsetX < (currentTargetRect.width / 2);
 
-                if (isRightSide) {
-                    card.isMarked = !card.isMarked;
-                } else {
-                    card.isFlipped = !card.isFlipped;
-                    if (card === target) {
-                        setTarget(undefined);
-                    }
-                }
+                updateState(d => {
+                    const cardMut = getAllCards(d.cards).find(c => c.id === card.id)!;
 
-                render();
+                    if (isRightSide) {
+                        cardMut.isMarked = !cardMut.isMarked;
+                    } else {
+                        cardMut.isFlipped = !cardMut.isFlipped;
+                        if (cardMut.id === state.target?.id) {
+                            d.target = undefined;
+                        }
+                    }
+                });
             }}
             key={card.revealed}
             style={{
-                backgroundColor: card === target ? 'lightgreen' :
+                backgroundColor: card.id === state.target?.id ? 'lightgreen' :
                     !card.isFlipped ? 'lightgray' :
                         ""
             }}
         >
             <div>
                 <div style={{
-                     fontStyle: "italic"
+                    fontStyle: "italic"
                 }}>
                     {card.tense}
                 </div>
@@ -748,29 +769,26 @@ export function Verbs() {
             <strong>Czasowniki</strong> (kliknij na kartki, prawa strona do odwrócenia, lewa strona do zaznaczenia)
         </div>
         <div className="verbs-buttons">
-
             <button
                 className='verbs-button'
-                onClick={() => {
-                    getAllCards(currentData).forEach(x => x.isFlipped = true);
-                    render();
-                }}
+                onClick={() => updateState(d => {
+                    getAllCards(d.cards).forEach(x => x.isFlipped = true);
+                })}
             >otworzyć wszystkie</button>
             <button
                 className='verbs-button'
-                onClick={() => {
-                    getAllCards(currentData).forEach(x => x.isFlipped = false);
-                    render();
-                }}
+                onClick={() => updateState(d => {
+                    getAllCards(d.cards).forEach(x => x.isFlipped = false);
+                })}
             >zamknąć wszystkie</button>
             <button
                 className='verbs-button'
-                onClick={() => {
-                    setRandomMode(!randomModeOn);
-                    setTarget(undefined);
-                }}
+                onClick={() => updateState(d => {
+                    d.randomModeOn = !d.randomModeOn;
+                    d.target = undefined;
+                })}
             >
-                {randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
+                {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
             </button>
             <button
                 className='verbs-button'
@@ -778,7 +796,7 @@ export function Verbs() {
                     const searchParams = new URLSearchParams(window.location.search);
                     const num = Math.random();
                     const key = `${VERBS_STATE_QS_KEY}-${num}`;
-                    window.localStorage.setItem(key, JSON.stringify(currentData));
+                    window.localStorage.setItem(key, JSON.stringify(state));
                     searchParams.set(VERBS_STATE_QS_KEY, num.toString());
                     window.location.search = searchParams.toString();
                     alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
@@ -787,12 +805,42 @@ export function Verbs() {
             <button
                 className='verbs-button'
                 onClick={() => {
-                    setCurrentData(prepareCards(true));
-                    setTarget(undefined);
+                    updateState((d) => {
+                        d.cards = prepareCards(true);
+                        d.target = undefined;
+                    });
                 }}
             >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
+            <button
+                className='verbs-button'
+                onClick={() => {
+                    updateState((d) => {
+                        d.timeout += 500;
+                        if (d.timeout > 5000) {
+                            d.timeout = 1000;
+                        }
+                    });
+                }}
+            >Zwłoka {state.timeout / 1000} s</button>
         </div>
-
+        <div>Sekcje:</div>
+        <div className="verbs-sections">     
+            {
+                entries(sourceData).map(([k, v]) => {
+                    return <div
+                        className='section-checkbox'
+                        onClick={() => updateState((d) => {
+                            d.activeSections[k] = !d.activeSections[k];
+                        })}
+                    >
+                        <span style={{
+                            fontSize: '2em'
+                        }}>{state.activeSections[k] === true ? '☑' : '☐'}</span>
+                        {k}
+                    </div>
+                })
+            }
+        </div>
         <table className='verbs-table' style={{ width: "100%" }}>
             <thead>
                 {
@@ -811,32 +859,34 @@ export function Verbs() {
                 }
             </thead>
             <tbody>
-                {currentData.map(sectionData => <>
-                    <tr
-                        key={sectionData.section}>
-                        <td
-                            className='verb-description'
-                            colSpan={7}
-                        >
-                            {sectionData.section}
-                        </td>
-                    </tr>
+                {state.cards
+                    .filter(sectionData => state.activeSections[sectionData.section] === true)
+                    .map(sectionData => <>
+                        <tr
+                            key={sectionData.section}>
+                            <td
+                                className='verb-description'
+                                colSpan={7}
+                            >
+                                {sectionData.section}
+                            </td>
+                        </tr>
 
-                    {
-                        sectionData.verbs.map(verbData =>
-                            formLayout.map((row, i) => <>
-                                <tr key={`${verbData.verb}-${i}`}>
-                                    {i === 0 && <td rowSpan={3}>{verbData.verb}</td>}
-                                    {
-                                        row.map(([form, rowSpan]) =>
-                                            renderCardCell(verbData.forms.forms[form], rowSpan))
-                                    }
-                                </tr>
-                            </>)
-                        )
-                    }
-                </>
-                )}
+                        {
+                            sectionData.verbs.map(verbData =>
+                                formLayout.map((row, i) => <>
+                                    <tr key={`${verbData.verb}-${i}`}>
+                                        {i === 0 && <td rowSpan={3}>{verbData.verb}</td>}
+                                        {
+                                            row.map(([form, rowSpan]) =>
+                                                renderCardCell(verbData.forms.forms[form], rowSpan))
+                                        }
+                                    </tr>
+                                </>)
+                            )
+                        }
+                    </>
+                    )}
             </tbody>
         </table>
     </>;

@@ -77,6 +77,20 @@ td.case-description {
   font-size: 10px;
 }
 
+.verbs-sections {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.section-checkbox {
+  border: solid 2px black;
+  width: 280px;
+  cursor: pointer;
+  text-align: left;
+}
+
 .App {
   text-align: center;
 }
