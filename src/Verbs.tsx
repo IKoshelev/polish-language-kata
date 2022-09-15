@@ -824,7 +824,7 @@ export function Verbs() {
             >Zwłoka {state.timeout / 1000} s</button>
         </div>
         <div>Sekcje:</div>
-        <div className="verbs-sections">     
+        <div className="verbs-sections">
             {
                 entries(sourceData).map(([k, v]) => {
                     return <div
@@ -873,16 +873,27 @@ export function Verbs() {
                         </tr>
 
                         {
-                            sectionData.verbs.map(verbData =>
-                                formLayout.map((row, i) => <>
-                                    <tr key={`${verbData.verb}-${i}`}>
-                                        {i === 0 && <td rowSpan={3}>{verbData.verb}</td>}
-                                        {
-                                            row.map(([form, rowSpan]) =>
-                                                renderCardCell(verbData.forms.forms[form], rowSpan))
-                                        }
+                            sectionData.verbs.map(verbData => <>
+                                {
+                                    formLayout.map((row, i) => <>
+                                        <tr key={`${verbData.verb}-${i}`}>
+                                            {i === 0 && <td rowSpan={verbData.forms.general_rule ? 4 : 3}>{verbData.verb}</td>}
+                                            {
+                                                row.map(([form, rowSpan]) =>
+                                                    renderCardCell(verbData.forms.forms[form], rowSpan))
+                                            }
+                                        </tr>
+                                    </>)
+                                }
+                                {
+                                    verbData.forms.general_rule &&
+                                    <tr key={`${verbData.verb}-rule`}>
+                                        <td colSpan={6}>
+                                            {verbData.forms.general_rule}
+                                        </td>
                                     </tr>
-                                </>)
+                                }
+                            </>
                             )
                         }
                     </>

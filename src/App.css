@@ -82,6 +82,7 @@ td.case-description {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
 .section-checkbox {
