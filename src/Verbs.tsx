@@ -833,10 +833,10 @@ export function Verbs() {
                             d.activeSections[k] = !d.activeSections[k];
                         })}
                     >
+                        {k}
                         <span style={{
                             fontSize: '2em'
-                        }}>{state.activeSections[k] === true ? '☑' : '☐'}</span>
-                        {k}
+                        }}>{state.activeSections[k] === true ? '✔️' : ' '}</span>
                     </div>
                 })
             }
