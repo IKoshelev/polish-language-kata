@@ -751,16 +751,22 @@ export function Verbs() {
             }}
         >
             <div>
-                <div style={{
-                    fontStyle: "italic"
-                }}>
-                    {card.tense}
-                </div>
-                <div>{
+                {
                     (card.isFlipped
-                        ? card.revealed
-                        : card.hidden)
-                }</div>
+                        ? <div>
+                            {card.revealed}
+                        </div>
+                        : <>
+                            <div style={{
+                                fontStyle: "italic"
+                            }}>
+                                {card.tense}
+                            </div>
+                            <div>
+                                {card.hidden}
+                            </div>
+                        </>)
+                }
             </div>
         </td>;
 
@@ -835,7 +841,8 @@ export function Verbs() {
                     >
                         {k}
                         <span style={{
-                            fontSize: '2em'
+                            //fontSize: '2em',
+                            float: 'right'
                         }}>{state.activeSections[k] === true ? '✔️' : ' '}</span>
                     </div>
                 })

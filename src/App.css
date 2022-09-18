@@ -90,6 +90,7 @@ td.case-description {
   width: 300px;
   cursor: pointer;
   text-align: left;
+  padding: 3px;
 }
 
 .App {
