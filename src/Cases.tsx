@@ -1197,7 +1197,7 @@ export function Cases() {
 
         if (state.target
             //|| getAllCards(state.cards).find(c => c.id === state.target)?.isFlipped === false
-            ) {
+        ) {
             return;
         }
 
@@ -1205,7 +1205,7 @@ export function Cases() {
         if (allCards.length === 0) {
             setTimeout(() => {
                 alert('Gratulacje!');
-                updateState((d) => {d.randomModeOn = false;})
+                updateState((d) => { d.randomModeOn = false; })
             }, 2500);
             return;
         }
@@ -1328,7 +1328,6 @@ export function Cases() {
             <table className='cases-table' style={{ width: "100%" }}>
                 <thead>
                     <tr>
-                        <td rowSpan={2}></td>
                         <td>Rodzaj Męski (ten, ci) Żywotny</td>
                         <td>Rodzaj Męski (ten, ci) Nieżywotny</td>
                         <td rowSpan={2}>Rodzaj żeński (ta, te)</td>
@@ -1342,18 +1341,22 @@ export function Cases() {
                 <tbody>
                     {state.cards.map(cse => <>
                         <tr
-                            key={cse.name + '1'}>
+                            key={cse.name + 'description'}
+                        >
                             <td
                                 className='case-description'
-                                rowSpan={2}
+                                colSpan={4}
                             >
-                                <strong>{cse.name}</strong><br />
-                                {cse.question}<br />
+                                <strong>{cse.name}</strong>&nbsp;
+                                {cse.question}&nbsp;
                                 {cse.use}
                             </td>
+                        </tr>
+                        <tr
+                            key={cse.name + 'singular'}>
                             {cse.cards.singular.map(renderCardCells(false))}
                         </tr>
-                        <tr key={cse.name + '2'}>
+                        <tr key={cse.name + 'plural'}>
                             {cse.cards.plural.map(renderCardCells(true))}
                         </tr>
                     </>)}

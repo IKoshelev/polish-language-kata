@@ -11,13 +11,9 @@
   background-color: darkgrey;
 }
 
-.cases-table thead tr td:first-child {
-  width: 12%;
-}
-
-.cases-table thead tr td:not(:first-child) {
-  width: 22%;
-}
+/* .cases-table thead tr td {
+  min-width: 250px;
+} */
 
 .verbs-table tbody td>div,
 .cases-table tbody td>div {
@@ -46,6 +42,11 @@ td.verb-text {
 .cases-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cases-buttons button {
+  min-height: 30px;
 }
 
 /* .verbs-table thead td {
@@ -55,6 +56,11 @@ td.verb-text {
 .verbs-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.verbs-buttons button {
+  min-height: 30px;
 }
 
 .cases-table thead tr td:first-child {
@@ -75,6 +81,11 @@ body {
 
 td.case-description {
   font-size: 10px;
+}
+
+.verb-description {
+  font-size: 1.5em;
+  font-weight: strong;
 }
 
 .verbs-sections {

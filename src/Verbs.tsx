@@ -853,7 +853,6 @@ export function Verbs() {
                 {
                     formLayout.map((row, i) =>
                         <tr>
-                            {i === 0 && <th rowSpan={3}></th>}
                             {row.map(([form, rowSpan]) =>
                                 <th
                                     key={form}
@@ -873,7 +872,7 @@ export function Verbs() {
                             key={sectionData.section}>
                             <td
                                 className='verb-description'
-                                colSpan={7}
+                                colSpan={6}
                             >
                                 {sectionData.section}
                             </td>
@@ -881,24 +880,21 @@ export function Verbs() {
 
                         {
                             sectionData.verbs.map(verbData => <>
+                                <tr key={`${verbData.verb}-verb`}>
+                                    <td colSpan={6}>
+                                        <strong>{verbData.verb}</strong> &nbsp;
+                                        {verbData.forms.general_rule ? verbData.forms.general_rule : ''}
+                                    </td>
+                                </tr>
                                 {
                                     formLayout.map((row, i) => <>
                                         <tr key={`${verbData.verb}-${i}`}>
-                                            {i === 0 && <td rowSpan={verbData.forms.general_rule ? 4 : 3}>{verbData.verb}</td>}
                                             {
                                                 row.map(([form, rowSpan]) =>
                                                     renderCardCell(verbData.forms.forms[form], rowSpan))
                                             }
                                         </tr>
                                     </>)
-                                }
-                                {
-                                    verbData.forms.general_rule &&
-                                    <tr key={`${verbData.verb}-rule`}>
-                                        <td colSpan={6}>
-                                            {verbData.forms.general_rule}
-                                        </td>
-                                    </tr>
                                 }
                             </>
                             )
