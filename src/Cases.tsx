@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useImmer } from 'use-immer';
 import { getRandomItem, useRender } from './util';
 
 type Card = {
+    id: number;
     isFlipped?: boolean;
     isMarked?: boolean;
     front: string[],
@@ -68,7 +70,7 @@ const casesSourceData: CaseSourceData[] = [
                 nouns: [['Marek', 'Markowie'], ['aktor', 'aktorzy'], ['student', 'studenci'], ['poeta', 'poeci']]
             }, {
                 templates: [['To są ({verb} {noun} l.mn.)', 'To są {verb} {noun}']],
-                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'],  ['dobry', 'dobre'], ['wysoki', 'wysokie']],
+                verbs: [['dobry', 'dobre'], ['drogi', 'drogie'], ['stary', 'stare'], ['dobry', 'dobre'], ['wysoki', 'wysokie']],
                 nouns: [['samochód', 'samochody'], ['kot', 'koty'], ['ser', 'sery']]
             }, {
                 templates: [['To są ({verb} {noun} l.mn.)', 'To są {verb} {noun}']],
@@ -247,7 +249,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Widzę ({verb} {noun})', 'Widzę {verb} {noun}'],
                     ['Lubię ({verb} {noun})', 'Lubię {verb} {noun}'],
                 ],
-                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojny', 'przystojnego'], ['dobry', 'dobrego'], ['drogi', 'drogiego'],  ['wysoki', 'wysokiego']],
+                verbs: [['młody', 'młodego'], ['wesoły', 'wesołego'], ['przystojny', 'przystojnego'], ['dobry', 'dobrego'], ['drogi', 'drogiego'], ['wysoki', 'wysokiego']],
                 nouns: [['Marek', 'Marka'], ['aktor', 'aktora'], ['kot', 'kota'], ['poeta', 'poetę']]
             }, {
                 templates: [
@@ -424,7 +426,7 @@ const casesSourceData: CaseSourceData[] = [
                     ['Myślę o ({verb} {noun})', 'Myślę o {verb} {noun}'],
                     ['Stoi przy ({verb} {noun})', 'Stoi przy {verb} {noun}'],
                 ],
-                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'],  ['wysoka', 'wysokiej']],
+                verbs: [['ładna', 'ładnej'], ['młoda', 'młodej'], ['inteligentna', 'inteligentnej'], ['wysoka', 'wysokiej']],
                 nouns: [['matka', 'matce'], ['sofa', 'sofie'], ['pani', 'pani'], ['noc', 'nocy']]
             }, {
                 templates: [
@@ -544,6 +546,7 @@ const basicCaseData: CaseData[] = [
         use: 'To jest... To są...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "To jest (młody Marek)",
                     "To jest (dobry kot)"
@@ -553,6 +556,7 @@ const basicCaseData: CaseData[] = [
                     "To jest dobry kot"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To jest (drogi samochód)"
                 ],
@@ -560,6 +564,7 @@ const basicCaseData: CaseData[] = [
                     "To jest drogi samochód"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To jest (ładna matka)"
                 ],
@@ -567,6 +572,7 @@ const basicCaseData: CaseData[] = [
                     "To jest ładna matka"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To jest (krótkie kino)",
                     "To jest (małe akwarium)"
@@ -577,6 +583,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "To są (młody Marek l.mn.)",
                 ],
@@ -584,6 +591,7 @@ const basicCaseData: CaseData[] = [
                     "To są młodzi Markowie "
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To są (drogi samochód l.mn.)",
                     "To są (dobry kot l.mn.)"
@@ -593,6 +601,7 @@ const basicCaseData: CaseData[] = [
                     "To są dobre koty"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To są (ładna matka l.mn.)"
                 ],
@@ -600,6 +609,7 @@ const basicCaseData: CaseData[] = [
                     "To są ładne matki"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "To są (krótkie kino l.mn.)",
                     "To są (małe akwarium l.mn.)"
@@ -617,6 +627,7 @@ const basicCaseData: CaseData[] = [
         use: 'Nie ma... Nie znam... Nie widzę...  Nie lubię...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "Nie ma (młody Marek)",
                     "Nie ma (dobry kot)"
@@ -626,6 +637,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma dobrego kota"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (drogi samochód)"
                 ],
@@ -633,6 +645,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma drogiego samochodu"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (ładna matka)"
                 ],
@@ -640,6 +653,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma ładnej matki"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (krótkie kino)",
                     "Nie ma (małe akwarium)"
@@ -650,6 +664,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "Nie ma (młody Marek l.mn.)",
                 ],
@@ -657,6 +672,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma młodych Marków"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (drogi samochód l.mn.)",
                     "Nie ma (dobry kot l.mn.)"
@@ -666,6 +682,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma dobrych kotów"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (ładna matka l.mn.)"
                 ],
@@ -673,6 +690,7 @@ const basicCaseData: CaseData[] = [
                     "Nie ma ładnych matek"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Nie ma (krótkie kino l.mn.)",
                     "TNie ma (małe akwarium l.mn.)"
@@ -690,6 +708,7 @@ const basicCaseData: CaseData[] = [
         use: 'Przyglądam się... Ufam...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "Ufam (młody Marek)",
                     "Ufam  (dobry kot)"
@@ -699,6 +718,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam dobremu kotu"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (drogi samochód)"
                 ],
@@ -706,6 +726,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam drogiemu samochodowi"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (ładna matka)"
                 ],
@@ -713,6 +734,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam ładnej matce"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (krótkie kino)",
                     "Ufam (małe akwarium)"
@@ -723,6 +745,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "Ufam (młody Marek l.mn.)",
                 ],
@@ -730,6 +753,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam młodym Markom"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (drogi samochód l.mn.)",
                     "Ufam (dobry kot l.mn.)"
@@ -739,6 +763,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam dobrym kotom"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (ładna matka l.mn.)"
                 ],
@@ -746,6 +771,7 @@ const basicCaseData: CaseData[] = [
                     "Ufam ładnym matkom"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Ufam (krótkie kino l.mn.)",
                     "Ufam (małe akwarium l.mn.)"
@@ -763,6 +789,7 @@ const basicCaseData: CaseData[] = [
         use: 'Mam...  Znam... Widzę... Lubię...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "Znam (młody Marek)",
                     "Znam (dobry kot)"
@@ -772,6 +799,7 @@ const basicCaseData: CaseData[] = [
                     "Znam dobrego kota"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (drogi samochód)"
                 ],
@@ -779,6 +807,7 @@ const basicCaseData: CaseData[] = [
                     "Znam drogi samochód"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (ładna matka)"
                 ],
@@ -786,6 +815,7 @@ const basicCaseData: CaseData[] = [
                     "Znam ładną matkę"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (krótkie kino)",
                     "Znam (małe akwarium)"
@@ -796,6 +826,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "Znam (młody Marek l.mn.)",
                 ],
@@ -803,6 +834,7 @@ const basicCaseData: CaseData[] = [
                     "Znam młodych Marków"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (drogi samochód l.mn.)",
                     "Znam (dobry kot l.mn.)"
@@ -812,6 +844,7 @@ const basicCaseData: CaseData[] = [
                     "Znam dobre koty"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (ładna matka l.mn.)"
                 ],
@@ -819,6 +852,7 @@ const basicCaseData: CaseData[] = [
                     "Znam ładne matki"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Znam (krótkie kino l.mn.)",
                     "Znam (małe akwarium l.mn.)"
@@ -836,6 +870,7 @@ const basicCaseData: CaseData[] = [
         use: 'Idę z … na drinka; Opiekuję się...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "Opiekuję się (młody Marek)",
                     "Opiekuję się (dobry kot)"
@@ -845,6 +880,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się dobrym kotem"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (drogi samochód)"
                 ],
@@ -852,6 +888,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się drogim samochodem"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (ładna matka)"
                 ],
@@ -859,6 +896,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się ładną matką"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (krótkie kino)",
                     "Opiekuję się (małe akwarium)"
@@ -869,6 +907,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "Opiekuję się (młody Marek l.mn.)",
                 ],
@@ -876,6 +915,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się młodymi Markami"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (drogi samochód l.mn.)",
                     "Opiekuję się (dobry kot l.mn.)"
@@ -885,6 +925,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się dobrymi kotami"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (ładna matka l.mn.)"
                 ],
@@ -892,6 +933,7 @@ const basicCaseData: CaseData[] = [
                     "Opiekuję się ładnymi matkami"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Opiekuję się (krótkie kino l.mn.)",
                     "Opiekuję się (małe akwarium l.mn.)"
@@ -909,6 +951,7 @@ const basicCaseData: CaseData[] = [
         use: 'Marże o... Myślę o...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "Myślę o (młody Marek)",
                     "Myślę o (dobry kot)"
@@ -918,6 +961,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o dobrym kocie"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (drogi samochód)"
                 ],
@@ -925,6 +969,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o drogim samochodzie"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (ładna matka)"
                 ],
@@ -932,6 +977,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o ładnej matce"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (krótkie kino, słońce)",
                     "Myślę o (małe akwarium)"
@@ -942,6 +988,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "Myślę o (młody Marek l.mn.)",
                 ],
@@ -949,6 +996,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o młodych Markach"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (drogi samochód l.mn.)",
                     "Myślę o (dobry kot l.mn.)"
@@ -958,6 +1006,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o dobrych kotach"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (ładna matka l.mn.)"
                 ],
@@ -965,6 +1014,7 @@ const basicCaseData: CaseData[] = [
                     "Myślę o ładnych matkach"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "Myślę o (krótkie kino l.mn.)",
                     "Myślę o (małe akwarium l.mn.)"
@@ -982,6 +1032,7 @@ const basicCaseData: CaseData[] = [
         use: 'Drogi...  Drodzy...',
         cards: {
             singular: [{
+                id: Math.random(),
                 back: [
                     "O (młody Marek)!",
                     "O (dobry kot)!"
@@ -991,6 +1042,7 @@ const basicCaseData: CaseData[] = [
                     "O Dobry kocie!"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (drogi samochód)!"
                 ],
@@ -998,6 +1050,7 @@ const basicCaseData: CaseData[] = [
                     "O Drogi samochodzie!"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (ładna matka)!"
                 ],
@@ -1005,6 +1058,7 @@ const basicCaseData: CaseData[] = [
                     "o Ładna matko!"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (krótkie kino)!",
                     "O (małe akwarium)!"
@@ -1015,6 +1069,7 @@ const basicCaseData: CaseData[] = [
                 ]
             }],
             plural: [{
+                id: Math.random(),
                 back: [
                     "O (młody Marek)!",
                 ],
@@ -1022,6 +1077,7 @@ const basicCaseData: CaseData[] = [
                     "O Młodzi Markowie!",
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (drogi samochód)!",
                     "O (dobry kot)!"
@@ -1031,6 +1087,7 @@ const basicCaseData: CaseData[] = [
                     "O Dobre koty!"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (ładna matka)!"
                 ],
@@ -1038,6 +1095,7 @@ const basicCaseData: CaseData[] = [
                     "O Ładne matki!"
                 ]
             }, {
+                id: Math.random(),
                 back: [
                     "O (krótkie kino)!",
                     "O (małe akwarium)!"
@@ -1062,6 +1120,7 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
             const noun = getRandomItem(source.nouns);
 
             return {
+                id: Math.random(),
                 back: [template[0].replace('{verb}', verb[0]).replace('{noun}', noun[0])],
                 front: [template[1].replace('{verb}', verb[1]).replace('{noun}', noun[1])]
             }
@@ -1080,14 +1139,14 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
         return s;
     });
 
-    for (const cse of currentSourceToPreserveMarked ?? [])        
-    for (const type of ['singular', 'plural'] as const) 
-    for (const [index, card] of cse.cards[type].entries()) {
-        if (card.isMarked) {
-            sourcesData.find(x => x.name === cse.name)!.cards[type][index] = card;
-        }
-    }
-    
+    for (const cse of currentSourceToPreserveMarked ?? [])
+        for (const type of ['singular', 'plural'] as const)
+            for (const [index, card] of cse.cards[type].entries()) {
+                if (card.isMarked) {
+                    sourcesData.find(x => x.name === cse.name)!.cards[type][index] = card;
+                }
+            }
+
     const sourcesDataShuffled: CaseData[] = [];
 
     while (sourcesData.length > 0) {
@@ -1098,9 +1157,14 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
     return sourcesDataShuffled;
 }
 
-let currentCasesData: CaseData[] = attemptGetCasesDataByQSKey() ?? basicCaseData;
+type CurrentState = {
+    cards: CaseData[];
+    timeout: number;
+    target?: number | undefined,
+    randomModeOn: boolean,
+}
 
-function attemptGetCasesDataByQSKey(): CaseData[] | undefined {
+function attemptGetCasesDataByQSKey(): CurrentState | undefined {
     const searchParams = new URLSearchParams(window.location.search);
     if (false === searchParams.has(CASES_STATE_QS_KEY)) {
         return;
@@ -1112,70 +1176,84 @@ function attemptGetCasesDataByQSKey(): CaseData[] | undefined {
     return JSON.parse(item);
 }
 
-const getAllCards = () => currentCasesData
+const getAllCards = (caseData: CaseData[]) => caseData
     .flatMap(x => x.cards)
     .flatMap(x => [x.plural, x.singular])
     .flatMap(x => x);
 
 export function Cases() {
 
-    const [randomModeOn, setRandomMode] = useState(false);
-    const [target, setTarget] = useState(undefined as undefined | Card);
-    const render = useRender();
+    const [state, updateState] = useImmer(() => attemptGetCasesDataByQSKey() ?? {
+        cards: basicCaseData,
+        timeout: 2000,
+        target: undefined,
+        randomModeOn: false,
+    });
 
     useEffect(() => {
-        if (randomModeOn && (!target || target.isFlipped)) {
-            const allCards = getAllCards().filter(x => !x.isFlipped);
-            if (allCards.length === 0) {
-                setTimeout(() =>  {
-                    alert('Gratulacje!');
-                    setRandomMode(false);
-                }, 2500);
-                return;
-            }
-
-            const randomCard = getRandomItem(allCards);
-            setTimeout(() => setTarget(randomCard), 1500);
-
-            // make sure newly setelect tile is visible
-            setTimeout(() => {
-                const targetTd = window.document.querySelector('td.target');
-                if (targetTd) {
-                    targetTd.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center',
-                        inline: 'center'
-                    });
-                }
-            }, 1600);
+        if (!state.randomModeOn) {
+            return;
         }
-    }, [randomModeOn, target]);
+
+        if (state.target
+            //|| getAllCards(state.cards).find(c => c.id === state.target)?.isFlipped === false
+            ) {
+            return;
+        }
+
+        const allCards = getAllCards(state.cards).filter(x => !x.isFlipped);
+        if (allCards.length === 0) {
+            setTimeout(() => {
+                alert('Gratulacje!');
+                updateState((d) => {d.randomModeOn = false;})
+            }, 2500);
+            return;
+        }
+
+        const randomCard = getRandomItem(allCards);
+        setTimeout(() => updateState((d) => { d.target = randomCard.id }), state.timeout);
+
+        // make sure newly setelect tile is visible
+        setTimeout(() => {
+            const targetTd = window.document.querySelector('td.target');
+            if (targetTd) {
+                targetTd.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center'
+                });
+            }
+        }, state.timeout + 100);
+
+    }, [state.randomModeOn, state.target]);
 
 
     const renderCardCells = (isPlural: boolean) => (card: Card) =>
         <td
-            className={`case-text ${card === target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
+            className={`case-text ${card.id === state.target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
             onClick={(event) => {
 
                 const currentTargetRect = event.currentTarget.getBoundingClientRect();
                 const eventOffsetX = event.pageX - currentTargetRect.left;
                 // eventOffsetY = event.pageY - currentTargetRect.top;
                 const isRightSide = eventOffsetX < (currentTargetRect.width / 2);
-                
-                if (isRightSide) {
-                    card.isMarked = !card.isMarked;
-                } else {
-                    card.isFlipped = !card.isFlipped;
-                    if (card === target) {
-                        setTarget(undefined);
-                    }
-                }
 
-                render();
+                updateState((d) => {
+                    const cardUpdate = getAllCards(d.cards).find(c => c.id === card.id)!;
+                    if (isRightSide) {
+                        cardUpdate.isMarked = !cardUpdate.isMarked;
+                    } else {
+                        cardUpdate.isFlipped = !cardUpdate.isFlipped;
+                        if (cardUpdate.id === state.target) {
+                            d.target = undefined;
+                        }
+                    }
+                })
+
             }}
             key={card.front[0]}
             style={{
-                backgroundColor: card === target ? 'lightgreen' :
+                backgroundColor: card.id === state.target ? 'lightgreen' :
                     !card.isFlipped ? 'lightgray' :
                         ""
             }}
@@ -1197,27 +1275,24 @@ export function Cases() {
 
                 <button
                     className='cases-button'
-                    onClick={() => {
-                        getAllCards().forEach(x => x.isFlipped = true);
-                        render();
-                    }}
+                    onClick={() => updateState((d) => {
+                        getAllCards(d.cards).forEach(x => x.isFlipped = true);
+                    })}
                 >otworzyć wszystkie</button>
                 <button
                     className='cases-button'
-                    onClick={() => {
-                        getAllCards().forEach(x => x.isFlipped = false);
-                        render();
-                    }}
+                    onClick={() => updateState((d) => {
+                        getAllCards(d.cards).forEach(x => x.isFlipped = false);
+                    })}
                 >zamknąć wszystkie</button>
                 <button
                     className='cases-button'
-                    onClick={() => {
-                        setRandomMode(!randomModeOn);
-                        setTarget(undefined);
-                        render();
-                    }}
+                    onClick={() => updateState((d) => {
+                        d.randomModeOn = !d.randomModeOn;
+                        d.target = undefined;
+                    })}
                 >
-                    {randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
+                    {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
                 </button>
                 <button
                     className='cases-button'
@@ -1225,7 +1300,7 @@ export function Cases() {
                         const searchParams = new URLSearchParams(window.location.search);
                         const num = Math.random();
                         const key = `${CASES_STATE_QS_KEY}-${num}`;
-                        window.localStorage.setItem(key, JSON.stringify(currentCasesData));
+                        window.localStorage.setItem(key, JSON.stringify(state));
                         searchParams.set(CASES_STATE_QS_KEY, num.toString());
                         window.location.search = searchParams.toString();
                         alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
@@ -1233,12 +1308,22 @@ export function Cases() {
                 >zapisać bieżący stan</button>
                 <button
                     className='cases-button'
+                    onClick={() => updateState((d) => {
+                        d.cards = getRandomizedCaseData(d.cards);
+                        d.target = undefined;
+                    })}
+                >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
+                <button
+                    className='verbs-button'
                     onClick={() => {
-                        currentCasesData = getRandomizedCaseData(currentCasesData);
-                        setTarget(undefined);
-                        render();
+                        updateState((d) => {
+                            d.timeout += 500;
+                            if (d.timeout > 5000) {
+                                d.timeout = 1000;
+                            }
+                        });
                     }}
-                >tasować <br/> <i>dodaje trudniejsze słowa</i> <br/> <i>zachowuje zaznaczone kartki</i></button>
+                >Zwłoka {state.timeout / 1000} s</button>
             </div>
             <table className='cases-table' style={{ width: "100%" }}>
                 <thead>
@@ -1255,7 +1340,7 @@ export function Cases() {
                     </tr>
                 </thead>
                 <tbody>
-                    {currentCasesData.map(cse => <>
+                    {state.cards.map(cse => <>
                         <tr
                             key={cse.name + '1'}>
                             <td
@@ -1279,7 +1364,7 @@ export function Cases() {
 }
 
 // prepareSpellcheck();
-function prepareSpellcheck(){
+function prepareSpellcheck() {
     const linesToCehck = casesSourceData
         .flatMap(x => x.cards)
         .flatMap(x => [x.singular, x.plural])
@@ -1291,17 +1376,17 @@ function prepareSpellcheck(){
                 const verb = x.verbs[count % x.verbs.length][1];
                 const noun = x.nouns[count % x.nouns.length][1];
                 result.push(x.templates[0][1]
-                                .replace("{verb}", verb)
-                                .replace("{noun}", noun));
+                    .replace("{verb}", verb)
+                    .replace("{noun}", noun));
             }
             return result;
         });
 
-        console.log(linesToCehck.join('\r\n'));
+    console.log(linesToCehck.join('\r\n'));
 }
 
 //prepareSpellcheck2();
-function prepareSpellcheck2(){
+function prepareSpellcheck2() {
     const linesToCehck = casesSourceData
         .flatMap(x => x.cards)
         .flatMap(x => [x.singular, x.plural])
@@ -1313,11 +1398,11 @@ function prepareSpellcheck2(){
                 const verb = x.verbs[count % x.verbs.length][0];
                 const noun = x.nouns[count % x.nouns.length][0];
                 result.push(x.templates[0][0]
-                                .replace("{verb}", verb)
-                                .replace("{noun}", noun));
+                    .replace("{verb}", verb)
+                    .replace("{noun}", noun));
             }
             return result;
         });
 
-        console.log(linesToCehck.join('\r\n'));
+    console.log(linesToCehck.join('\r\n'));
 }
