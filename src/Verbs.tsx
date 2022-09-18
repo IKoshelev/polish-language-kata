@@ -848,60 +848,68 @@ export function Verbs() {
                 })
             }
         </div>
-        <table className='verbs-table' style={{ width: "100%" }}>
-            <thead>
-                {
-                    formLayout.map((row, i) =>
-                        <tr>
-                            {row.map(([form, rowSpan]) =>
-                                <th
-                                    key={form}
-                                    rowSpan={rowSpan}
+        <div
+            style={{
+                width: "100%",
+                overflowY: 'scroll'
+
+            }}
+        >
+            <table className='verbs-table' style={{ width: "100%" }}>
+                <thead>
+                    {
+                        formLayout.map((row, i) =>
+                            <tr>
+                                {row.map(([form, rowSpan]) =>
+                                    <th
+                                        key={form}
+                                        rowSpan={rowSpan}
+                                    >
+                                        {form}
+                                    </th>)}
+
+                            </tr>)
+                    }
+                </thead>
+                <tbody>
+                    {state.cards
+                        .filter(sectionData => state.activeSections[sectionData.section] === true)
+                        .map(sectionData => <>
+                            <tr
+                                key={sectionData.section}>
+                                <td
+                                    className='verb-description'
+                                    colSpan={6}
                                 >
-                                    {form}
-                                </th>)}
+                                    {sectionData.section}
+                                </td>
+                            </tr>
 
-                        </tr>)
-                }
-            </thead>
-            <tbody>
-                {state.cards
-                    .filter(sectionData => state.activeSections[sectionData.section] === true)
-                    .map(sectionData => <>
-                        <tr
-                            key={sectionData.section}>
-                            <td
-                                className='verb-description'
-                                colSpan={6}
-                            >
-                                {sectionData.section}
-                            </td>
-                        </tr>
-
-                        {
-                            sectionData.verbs.map(verbData => <>
-                                <tr key={`${verbData.verb}-verb`}>
-                                    <td colSpan={6}>
-                                        <strong>{verbData.verb}</strong> &nbsp;
-                                        {verbData.forms.general_rule ? verbData.forms.general_rule : ''}
-                                    </td>
-                                </tr>
-                                {
-                                    formLayout.map((row, i) => <>
-                                        <tr key={`${verbData.verb}-${i}`}>
-                                            {
-                                                row.map(([form, rowSpan]) =>
-                                                    renderCardCell(verbData.forms.forms[form], rowSpan))
-                                            }
-                                        </tr>
-                                    </>)
-                                }
-                            </>
-                            )
-                        }
-                    </>
-                    )}
-            </tbody>
-        </table>
+                            {
+                                sectionData.verbs.map(verbData => <>
+                                    <tr key={`${verbData.verb}-verb`}>
+                                        <td colSpan={6}>
+                                            <strong>{verbData.verb}</strong> &nbsp;
+                                            {verbData.forms.general_rule ? verbData.forms.general_rule : ''}
+                                        </td>
+                                    </tr>
+                                    {
+                                        formLayout.map((row, i) => <>
+                                            <tr key={`${verbData.verb}-${i}`}>
+                                                {
+                                                    row.map(([form, rowSpan]) =>
+                                                        renderCardCell(verbData.forms.forms[form], rowSpan))
+                                                }
+                                            </tr>
+                                        </>)
+                                    }
+                                </>
+                                )
+                            }
+                        </>
+                        )}
+                </tbody>
+            </table>
+        </div>
     </>;
 }

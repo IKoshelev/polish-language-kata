@@ -36,7 +36,7 @@ td.verb-text {
 }
 
 .cases-table thead td {
-  font-size: 10px;
+  /* font-size: 10px; */
 }
 
 .cases-buttons {
@@ -63,16 +63,17 @@ td.verb-text {
   min-height: 30px;
 }
 
-.cases-table thead tr td:first-child {
+/* .cases-table thead tr td:first-child {
   width: 40px;
-}
+} */
 
-.cases-table thead tr td:not(:first-child) {
-  width: 60px;
-}
+/* .cases-table thead tr td {
+  width: 200px;
+} */
 
 .cases-table tbody td>div {
   min-height: 20px;
+  width: 280px;
 }
 
 body {
@@ -80,7 +81,7 @@ body {
 }
 
 td.case-description {
-  font-size: 10px;
+  /* font-size: 10px; */
 }
 
 .verb-description {

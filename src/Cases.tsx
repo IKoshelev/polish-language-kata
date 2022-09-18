@@ -326,7 +326,7 @@ const casesSourceData: CaseSourceData[] = [
             singular: [{
                 templates: [
                     ['On jest ({verb} {noun})', 'On jest {verb} {noun}'],
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun})', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
                 ],
@@ -335,7 +335,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['On jest ({verb} {noun})', 'On jest {verb} {noun}'],
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun})', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
                 ],
@@ -344,7 +344,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['Ona jest ({verb} {noun})', 'Ona jest {verb} {noun}'],
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun})', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
                 ],
@@ -353,7 +353,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['Ono jest ({verb} {noun})', 'Ono jest {verb} {noun}'],
-                    ['Idę z ({verb} {noun}) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun})', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun})', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun})', 'W porównaniu z {verb} {noun}']
                 ],
@@ -363,7 +363,7 @@ const casesSourceData: CaseSourceData[] = [
             plural: [{
                 templates: [
                     ['Oni są ({verb} {noun})', 'Oni są {verb} {noun}'],
-                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun} l.mn.)', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
@@ -372,7 +372,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['One są ({verb} {noun})', 'One są {verb} {noun}'],
-                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun} l.mn.)', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
@@ -381,7 +381,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['One są ({verb} {noun})', 'One są {verb} {noun}'],
-                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun} l.mn.)', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
@@ -390,7 +390,7 @@ const casesSourceData: CaseSourceData[] = [
             }, {
                 templates: [
                     ['One są ({verb} {noun})', 'One są {verb} {noun}'],
-                    ['Idę z ({verb} {noun} l.mn.) na drinka', 'Idę z {verb} {noun} na drinka'],
+                    ['Idę z ({verb} {noun} l.mn.)', 'Idę z {verb} {noun}'],
                     ['Opiekuję się ({verb} {noun} l.mn.)', 'Opiekuję się {verb} {noun}'],
                     ['W porównaniu z ({verb} {noun} l.mn.)', 'W porównaniu z {verb} {noun}']
                 ],
@@ -1325,43 +1325,57 @@ export function Cases() {
                     }}
                 >Zwłoka {state.timeout / 1000} s</button>
             </div>
-            <table className='cases-table' style={{ width: "100%" }}>
-                <thead>
-                    <tr>
-                        <td>Rodzaj Męski (ten, ci) Żywotny</td>
-                        <td>Rodzaj Męski (ten, ci) Nieżywotny</td>
-                        <td rowSpan={2}>Rodzaj żeński (ta, te)</td>
-                        <td rowSpan={2}>Rodzaj nijaki (to, te) </td>
-                    </tr>
-                    <tr>
-                        <td>Męskoosobowy</td>
-                        <td>Męski nieosobowy</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {state.cards.map(cse => <>
-                        <tr
-                            key={cse.name + 'description'}
-                        >
-                            <td
-                                className='case-description'
-                                colSpan={4}
+            <div
+                style={{ 
+                    width: "100%",
+                    overflowY: 'scroll'
+                
+                }}
+            >
+                <table className='cases-table' >
+                    <thead>
+                        <tr>
+                            <td>Rodzaj Męski (ten, ci) Żywotny</td>
+                            <td>Rodzaj Męski (ten, ci) Nieżywotny</td>
+                            <td rowSpan={2}>Rodzaj żeński (ta, te)</td>
+                            <td rowSpan={2}>Rodzaj nijaki (to, te) </td>
+                        </tr>
+                        <tr>
+                            <td>Męskoosobowy</td>
+                            <td>Męski nieosobowy</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {state.cards.map(cse => <>
+                            <tr
+                                key={cse.name + 'description'}
                             >
-                                <strong>{cse.name}</strong>&nbsp;
-                                {cse.question}&nbsp;
-                                {cse.use}
-                            </td>
-                        </tr>
-                        <tr
-                            key={cse.name + 'singular'}>
-                            {cse.cards.singular.map(renderCardCells(false))}
-                        </tr>
-                        <tr key={cse.name + 'plural'}>
-                            {cse.cards.plural.map(renderCardCells(true))}
-                        </tr>
-                    </>)}
-                </tbody>
-            </table>
+                                <td
+                                    className='case-description'
+                                    colSpan={4}
+                                >
+                                    {/* <div
+                                        style={{
+                                            position: 'sticky',
+                                            left: 10
+                                        }}> */}
+                                    <strong>{cse.name}</strong>&nbsp;
+                                    {cse.question}&nbsp;
+                                    {cse.use}
+                                    {/* </div> */}
+                                </td>
+                            </tr>
+                            <tr
+                                key={cse.name + 'singular'}>
+                                {cse.cards.singular.map(renderCardCells(false))}
+                            </tr>
+                            <tr key={cse.name + 'plural'}>
+                                {cse.cards.plural.map(renderCardCells(true))}
+                            </tr>
+                        </>)}
+                    </tbody>
+                </table>
+            </div>
         </>
     );
 }
