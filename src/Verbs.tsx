@@ -816,7 +816,7 @@ export function Verbs() {
                         d.target = undefined;
                     });
                 }}
-            >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
+            >tasować <br /><i>zachowuje zaznaczone kartki</i></button>
             <button
                 className='verbs-button'
                 onClick={() => {
