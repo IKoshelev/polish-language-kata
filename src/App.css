@@ -47,6 +47,7 @@ td.verb-text {
 
 .cases-buttons button {
   min-height: 30px;
+  width: 200px;
 }
 
 /* .verbs-table thead td {
@@ -61,6 +62,7 @@ td.verb-text {
 
 .verbs-buttons button {
   min-height: 30px;
+  width: 200px;
 }
 
 /* .cases-table thead tr td:first-child {

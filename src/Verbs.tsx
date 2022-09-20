@@ -799,7 +799,7 @@ export function Verbs() {
                         window.localStorage.setItem(VERBS_STATE_QS_KEY, JSON.stringify(state));
                         updateState(d => { d.hasSavedData = true; });
                     }}
-                >zapisać bieżący stan</button>
+                >zapisać<br/>bieżący stan</button>
                 {
                     state.hasSavedData &&
                     <button
@@ -807,7 +807,7 @@ export function Verbs() {
                         onClick={() => {
                             updateState(d => attemptGetCardsDataByQSKey() ?? d);
                         }}
-                    >załadować ostatnio zapisany stan</button>
+                    >załadować<br/>zapisany stan</button>
                 }
             <button
                 className='verbs-button'

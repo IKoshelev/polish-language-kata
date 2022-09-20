@@ -1314,7 +1314,7 @@ export function Cases() {
                         window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(state));
                         updateState(d => { d.hasSavedData = true; });
                     }}
-                >zapisać bieżący stan</button>
+                >zapisać <br/>bieżący stan</button>
                 {
                     state.hasSavedData &&
                     <button
@@ -1322,7 +1322,7 @@ export function Cases() {
                         onClick={() => {
                             updateState(d => attemptGetCasesDataByQSKey() ?? d);
                         }}
-                    >załadować ostatnio zapisany stan</button>
+                    >załadować <br/>zapisany stan</button>
                 }
                 <button
                     className='cases-button'
@@ -1384,16 +1384,17 @@ export function Cases() {
                                         style={{
                                             position: 'sticky',
                                             float: 'left',
-                                            left: 10
+                                            left: 10,
+                                            textAlign: 'left'
                                         }}>
                                         {
                                             cse.caseNameIsFlipped
                                                 ? <>
                                                     <strong>{cse.name}</strong>&nbsp;
-                                                    {cse.question}&nbsp;
+                                                    {cse.question}<br />
                                                     {cse.use}
                                                 </>
-                                                : "??????"
+                                                : <>??????<br />??????</>
                                         }
 
                                     </span>
