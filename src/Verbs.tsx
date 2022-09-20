@@ -135,7 +135,7 @@ const sourceData = {
             "Czas teraźniejszy",
             '–ować: owa -> uj'
         ),
-        'daw͟a͟ć͟': conjugationsDictSource(
+        'daw͟ać': conjugationsDictSource(
             ...x(2, 'daję'),
             ...x(2, 'dajesz'),
             ...x(3, 'daje'),
@@ -404,7 +404,7 @@ const sourceData = {
             "kupowały",
             "Czas przeszły",
         ),
-        'mie͟ć͟': conjugationsDictSource(
+        'mieć': conjugationsDictSource(
             "miałem",
             "miałam",
             "miałeś",
@@ -421,7 +421,7 @@ const sourceData = {
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'wole͟ć͟': conjugationsDictSource(
+        'woleć': conjugationsDictSource(
             "wolałem",
             "wolałam",
             "wolałeś",
@@ -438,7 +438,7 @@ const sourceData = {
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'nieś͟ć͟': conjugationsDictSource(
+        'nieść': conjugationsDictSource(
             "niosłem",
             "niosłam",
             "niosłeś",
@@ -455,7 +455,7 @@ const sourceData = {
             "Czas przeszły",
             "-eć: e -> a oprócz m.osob"
         ),
-        'wieź͟ć͟': conjugationsDictSource(
+        'wieźć': conjugationsDictSource(
             "wiozłem",
             "wiozłam",
             "wiozłeś",
