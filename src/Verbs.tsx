@@ -103,7 +103,7 @@ const sourceData = {
             ...x(2, 'myjecie'),
             ...x(2, 'myją'),
             "Czas teraźniejszy",
-            'jednosylabowy => my+ j +e'
+            'jednosylabowy => temat+ j +e'
         ),
         'żyć': conjugationsDictSource(
             ...x(2, 'żyję'),
@@ -113,9 +113,9 @@ const sourceData = {
             ...x(2, 'żyjecie'),
             ...x(2, 'żyją'),
             "Czas teraźniejszy",
-            'jednosylabowy: my+ j +e'
+            'jednosylabowy: temat+ j +e'
         ),
-        'praco͟w͟a͟ć͟': conjugationsDictSource(
+        'pracować': conjugationsDictSource(
             ...x(2, 'pracuję'),
             ...x(2, 'pracujesz'),
             ...x(3, 'pracuje'),
@@ -125,7 +125,7 @@ const sourceData = {
             "Czas teraźniejszy",
             '–ować: owa -> uj'
         ),
-        'kupo͟w͟a͟ć͟': conjugationsDictSource(
+        'kupować': conjugationsDictSource(
             ...x(2, 'kupuję'),
             ...x(2, 'kupujesz'),
             ...x(3, 'kupuje'),
@@ -145,7 +145,7 @@ const sourceData = {
             "Czas teraźniejszy",
             '–wać: wa -> j'
         ),
-        'szano͟w͟a͟ć͟': conjugationsDictSource(
+        'szanować': conjugationsDictSource(
             ...x(2, 'szanuję'),
             ...x(2, 'szanujesz'),
             ...x(3, 'szanuje'),
@@ -605,6 +605,7 @@ type CurrentState = {
     timeout: number;
     target?: Card | undefined,
     randomModeOn: boolean,
+    hasSavedData: boolean,
     activeSections: Partial<Record<(keyof typeof sourceData), boolean>>;
 }
 
@@ -653,13 +654,7 @@ function prepareCards(shuffle = false): VerbsData {
 }
 
 function attemptGetCardsDataByQSKey(): CurrentState | undefined {
-    const searchParams = new URLSearchParams(window.location.search);
-    if (false === searchParams.has(VERBS_STATE_QS_KEY)) {
-        return;
-    }
-
-    const key = searchParams.get(VERBS_STATE_QS_KEY);
-    const item = window.localStorage.getItem(`${VERBS_STATE_QS_KEY}-${key}`);
+    const item = window.localStorage.getItem(VERBS_STATE_QS_KEY);
     if (!item) { return; }
     return JSON.parse(item);
 }
@@ -680,16 +675,17 @@ function getAllCards(data: VerbsData, activeSections?: Partial<Record<(keyof typ
 
 export function Verbs() {
 
-    const [state, updateState] = useImmer(() => attemptGetCardsDataByQSKey() ?? {
+    const [state, updateState] = useImmer(() => ({
         cards: prepareCards(),
         timeout: 2000,
         target: undefined,
         randomModeOn: false,
+        hasSavedData: !!localStorage.getItem(VERBS_STATE_QS_KEY),
         activeSections: entries(sourceData).reduce((prev, [k, v]) => {
             prev[k] = true;
             return prev
         }, {} as CurrentState['activeSections'])
-    });
+    } as CurrentState));
 
     useEffect(() => {
         if (state.randomModeOn && (!state.target || state.target.isFlipped)) {
@@ -745,6 +741,7 @@ export function Verbs() {
             }}
             key={card.revealed}
             style={{
+                cursor: 'pointer',
                 backgroundColor: card.id === state.target?.id ? 'lightgreen' :
                     !card.isFlipped ? 'lightgray' :
                         ""
@@ -797,22 +794,29 @@ export function Verbs() {
                 {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
             </button>
             <button
-                className='verbs-button'
-                onClick={() => {
-                    const searchParams = new URLSearchParams(window.location.search);
-                    const num = Math.random();
-                    const key = `${VERBS_STATE_QS_KEY}-${num}`;
-                    window.localStorage.setItem(key, JSON.stringify(state));
-                    searchParams.set(VERBS_STATE_QS_KEY, num.toString());
-                    window.location.search = searchParams.toString();
-                    alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
-                }}
-            >zapisać bieżący stan</button>
+                    className='verbs-button'
+                    onClick={() => {
+                        window.localStorage.setItem(VERBS_STATE_QS_KEY, JSON.stringify(state));
+                        updateState(d => { d.hasSavedData = true; });
+                    }}
+                >zapisać bieżący stan</button>
+                {
+                    state.hasSavedData &&
+                    <button
+                        className='verbs-button'
+                        onClick={() => {
+                            updateState(d => attemptGetCardsDataByQSKey() ?? d);
+                        }}
+                    >załadować ostatnio zapisany stan</button>
+                }
             <button
                 className='verbs-button'
                 onClick={() => {
                     updateState((d) => {
-                        d.cards = prepareCards(true);
+                        shuffleAndReturnArr(d.cards);
+                        for (const c of d.cards) {
+                            shuffleAndReturnArr(c.verbs);
+                        }
                         d.target = undefined;
                     });
                 }}
@@ -835,6 +839,9 @@ export function Verbs() {
                 entries(sourceData).map(([k, v]) => {
                     return <div
                         className='section-checkbox'
+                        style={{
+                            cursor: 'pointer'
+                        }}
                         onClick={() => updateState((d) => {
                             d.activeSections[k] = !d.activeSections[k];
                         })}

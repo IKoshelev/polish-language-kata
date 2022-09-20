@@ -71,7 +71,7 @@ td.verb-text {
   width: 200px;
 } */
 
-.cases-table tbody td>div {
+.cases-table tbody td.case-text>div {
   min-height: 20px;
   width: 280px;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useImmer } from 'use-immer';
-import { getRandomItem, useRender } from './util';
+import { getRandomItem } from './util';
 
 type Card = {
     id: number;
@@ -22,6 +22,7 @@ type CaseData = {
     name: string,
     question: string,
     use: string,
+    caseNameIsFlipped: boolean,
     cards: {
         singular: Card[],
         plural: Card[]
@@ -544,6 +545,7 @@ const basicCaseData: CaseData[] = [
         name: 'Mianownik',
         question: 'Kto? Co?',
         use: 'To jest... To są...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -625,6 +627,7 @@ const basicCaseData: CaseData[] = [
         name: 'Dopełniacz',
         question: 'Kogo? Czego?',
         use: 'Nie ma... Nie znam... Nie widzę...  Nie lubię...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -706,6 +709,7 @@ const basicCaseData: CaseData[] = [
         name: 'Celownik',
         question: 'Komu? Czemu?',
         use: 'Przyglądam się... Ufam...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -787,6 +791,7 @@ const basicCaseData: CaseData[] = [
         name: 'Biernik',
         question: 'Kogo? Co?',
         use: 'Mam...  Znam... Widzę... Lubię...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -868,6 +873,7 @@ const basicCaseData: CaseData[] = [
         name: 'Narzędnik',
         question: '(Z) Kim? Czym?',
         use: 'Idę z … na drinka; Opiekuję się...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -949,6 +955,7 @@ const basicCaseData: CaseData[] = [
         name: 'Miejscownik',
         question: '(O) Kim? Czym?',
         use: 'Marże o... Myślę o...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -1030,6 +1037,7 @@ const basicCaseData: CaseData[] = [
         name: 'Wołacz',
         question: 'O!',
         use: 'Drogi...  Drodzy...',
+        caseNameIsFlipped: true,
         cards: {
             singular: [{
                 id: Math.random(),
@@ -1108,7 +1116,6 @@ const basicCaseData: CaseData[] = [
         }
     },
 ];
-
 function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): CaseData[] {
     const sourcesDataClone = JSON.parse(JSON.stringify(casesSourceData)) as CaseSourceData[];
 
@@ -1130,6 +1137,7 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
             name: x.name,
             question: x.question,
             use: x.use,
+            caseNameIsFlipped: false,
             cards: {
                 singular: x.cards.singular.map(collapseCardSource),
                 plural: x.cards.plural.map(collapseCardSource)
@@ -1160,18 +1168,13 @@ function getRandomizedCaseData(currentSourceToPreserveMarked?: CaseData[]): Case
 type CurrentState = {
     cards: CaseData[];
     timeout: number;
-    target?: number | undefined,
-    randomModeOn: boolean,
+    target?: number | undefined;
+    hasSavedData: boolean;
+    randomModeOn: boolean;
 }
 
 function attemptGetCasesDataByQSKey(): CurrentState | undefined {
-    const searchParams = new URLSearchParams(window.location.search);
-    if (false === searchParams.has(CASES_STATE_QS_KEY)) {
-        return;
-    }
-
-    const key = searchParams.get(CASES_STATE_QS_KEY);
-    const item = window.localStorage.getItem(`${CASES_STATE_QS_KEY}-${key}`);
+    const item = window.localStorage.getItem(CASES_STATE_QS_KEY);
     if (!item) { return; }
     return JSON.parse(item);
 }
@@ -1183,12 +1186,13 @@ const getAllCards = (caseData: CaseData[]) => caseData
 
 export function Cases() {
 
-    const [state, updateState] = useImmer(() => attemptGetCasesDataByQSKey() ?? {
+    const [state, updateState] = useImmer(() => ({
         cards: basicCaseData,
         timeout: 2000,
         target: undefined,
+        hasSavedData: !!localStorage.getItem(CASES_STATE_QS_KEY),
         randomModeOn: false,
-    });
+    }) as CurrentState);
 
     useEffect(() => {
         if (!state.randomModeOn) {
@@ -1205,13 +1209,19 @@ export function Cases() {
         if (allCards.length === 0) {
             setTimeout(() => {
                 alert('Gratulacje!');
-                updateState((d) => { d.randomModeOn = false; })
+                updateState((d) => {
+                    d.cards.forEach(x => x.caseNameIsFlipped = true);
+                    d.randomModeOn = false;
+                })
             }, 2500);
             return;
         }
 
         const randomCard = getRandomItem(allCards);
-        setTimeout(() => updateState((d) => { d.target = randomCard.id }), state.timeout);
+        setTimeout(() => updateState((d) => {
+            d.cards.forEach(x => x.caseNameIsFlipped = false);
+            d.target = randomCard.id;
+        }), state.timeout);
 
         // make sure newly setelect tile is visible
         setTimeout(() => {
@@ -1228,7 +1238,7 @@ export function Cases() {
     }, [state.randomModeOn, state.target]);
 
 
-    const renderCardCells = (isPlural: boolean) => (card: Card) =>
+    const renderCardCells = (isPlural: boolean) => (card: Card, caseData: CaseData) =>
         <td
             className={`case-text ${card.id === state.target ? 'target' : ''} ${card.isMarked ? 'marked' : ''}`}
             onClick={(event) => {
@@ -1244,6 +1254,7 @@ export function Cases() {
                         cardUpdate.isMarked = !cardUpdate.isMarked;
                     } else {
                         cardUpdate.isFlipped = !cardUpdate.isFlipped;
+                        d.cards.find(x => x.name === caseData.name)!.caseNameIsFlipped = true;
                         if (cardUpdate.id === state.target) {
                             d.target = undefined;
                         }
@@ -1253,6 +1264,7 @@ export function Cases() {
             }}
             key={card.front[0]}
             style={{
+                cursor: 'pointer',
                 backgroundColor: card.id === state.target ? 'lightgreen' :
                     !card.isFlipped ? 'lightgray' :
                         ""
@@ -1277,12 +1289,14 @@ export function Cases() {
                     className='cases-button'
                     onClick={() => updateState((d) => {
                         getAllCards(d.cards).forEach(x => x.isFlipped = true);
+                        d.cards.forEach(x => x.caseNameIsFlipped = true);
                     })}
                 >otworzyć wszystkie</button>
                 <button
                     className='cases-button'
                     onClick={() => updateState((d) => {
                         getAllCards(d.cards).forEach(x => x.isFlipped = false);
+                        d.cards.forEach(x => x.caseNameIsFlipped = false);
                     })}
                 >zamknąć wszystkie</button>
                 <button
@@ -1297,15 +1311,19 @@ export function Cases() {
                 <button
                     className='cases-button'
                     onClick={() => {
-                        const searchParams = new URLSearchParams(window.location.search);
-                        const num = Math.random();
-                        const key = `${CASES_STATE_QS_KEY}-${num}`;
-                        window.localStorage.setItem(key, JSON.stringify(state));
-                        searchParams.set(CASES_STATE_QS_KEY, num.toString());
-                        window.location.search = searchParams.toString();
-                        alert('Stan zapisany. Zakładka strony, aby ponownie ją otworzyć (tylko na tym urządzeniu).')
+                        window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(state));
+                        updateState(d => { d.hasSavedData = true; });
                     }}
                 >zapisać bieżący stan</button>
+                {
+                    state.hasSavedData &&
+                    <button
+                        className='cases-button'
+                        onClick={() => {
+                            updateState(d => attemptGetCasesDataByQSKey() ?? d);
+                        }}
+                    >załadować ostatnio zapisany stan</button>
+                }
                 <button
                     className='cases-button'
                     onClick={() => updateState((d) => {
@@ -1326,10 +1344,10 @@ export function Cases() {
                 >Zwłoka {state.timeout / 1000} s</button>
             </div>
             <div
-                style={{ 
+                style={{
                     width: "100%",
                     overflowY: 'scroll'
-                
+
                 }}
             >
                 <table className='cases-table' >
@@ -1352,25 +1370,41 @@ export function Cases() {
                             >
                                 <td
                                     className='case-description'
+                                    style={{
+                                        backgroundColor: !cse.caseNameIsFlipped ? 'lightgray' : "",
+                                        cursor: 'pointer'
+                                    }}
                                     colSpan={4}
+                                    onClick={() => updateState((d) => {
+                                        const caseDraft = d.cards.find(x => x.name === cse.name)!;
+                                        caseDraft.caseNameIsFlipped = !caseDraft.caseNameIsFlipped;
+                                    })}
                                 >
-                                    {/* <div
+                                    <span
                                         style={{
                                             position: 'sticky',
+                                            float: 'left',
                                             left: 10
-                                        }}> */}
-                                    <strong>{cse.name}</strong>&nbsp;
-                                    {cse.question}&nbsp;
-                                    {cse.use}
-                                    {/* </div> */}
+                                        }}>
+                                        {
+                                            cse.caseNameIsFlipped
+                                                ? <>
+                                                    <strong>{cse.name}</strong>&nbsp;
+                                                    {cse.question}&nbsp;
+                                                    {cse.use}
+                                                </>
+                                                : "??????"
+                                        }
+
+                                    </span>
                                 </td>
                             </tr>
                             <tr
                                 key={cse.name + 'singular'}>
-                                {cse.cards.singular.map(renderCardCells(false))}
+                                {cse.cards.singular.map(x => renderCardCells(false)(x, cse))}
                             </tr>
                             <tr key={cse.name + 'plural'}>
-                                {cse.cards.plural.map(renderCardCells(true))}
+                                {cse.cards.plural.map(x => renderCardCells(true)(x, cse))}
                             </tr>
                         </>)}
                     </tbody>
