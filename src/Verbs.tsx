@@ -135,7 +135,7 @@ const sourceData = {
             "Czas teraźniejszy",
             '–ować: owa -> uj'
         ),
-        'daw͟ać': conjugationsDictSource(
+        'dawać': conjugationsDictSource(
             ...x(2, 'daję'),
             ...x(2, 'dajesz'),
             ...x(3, 'daje'),
