@@ -25,3 +25,9 @@ export function shuffleAndReturnArr<T>(array: T[]) : T[]{
     }
     return array;
 }
+
+export function attemptGetDataByQSKey<T>(key: string): T | undefined {
+    const item = window.localStorage.getItem(key);
+    if (!item) { return; }
+    return JSON.parse(item);
+}

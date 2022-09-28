@@ -16,7 +16,8 @@
 } */
 
 .verbs-table tbody td>div,
-.cases-table tbody td>div {
+.cases-table tbody td>div,
+.numerals-table tbody td>div  {
   min-height: 30px;
 }
 
@@ -65,6 +66,17 @@ td.verb-text {
   width: 200px;
 }
 
+.numerals-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.numerals-buttons button {
+  min-height: 30px;
+  width: 200px;
+}
+
 /* .cases-table thead tr td:first-child {
   width: 40px;
 } */
@@ -92,6 +104,14 @@ td.case-description {
 }
 
 .verbs-sections {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.numerals-sections {
   display: flex;
   flex-direction: row;
   align-items: flex-start;

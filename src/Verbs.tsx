@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import { entries, getRandomItem, shuffleAndReturnArr, useRender } from './util';
+import { attemptGetDataByQSKey, entries, getRandomItem, shuffleAndReturnArr } from './util';
 
 const VERBS_STATE_QS_KEY = 'verbs-state-key';
 
@@ -653,11 +653,7 @@ function prepareCards(shuffle = false): VerbsData {
     return data;
 }
 
-function attemptGetCardsDataByQSKey(): CurrentState | undefined {
-    const item = window.localStorage.getItem(VERBS_STATE_QS_KEY);
-    if (!item) { return; }
-    return JSON.parse(item);
-}
+
 
 function getAllCards(data: VerbsData, activeSections?: Partial<Record<(keyof typeof sourceData), boolean>>): Card[] {
 
@@ -805,7 +801,7 @@ export function Verbs() {
                     <button
                         className='verbs-button'
                         onClick={() => {
-                            updateState(d => attemptGetCardsDataByQSKey() ?? d);
+                            updateState(d =>  attemptGetDataByQSKey<CurrentState>(VERBS_STATE_QS_KEY) ?? d);
                         }}
                     >załadować<br/>zapisany stan</button>
                 }

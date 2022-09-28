@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Cases } from './Cases';
+import { Numerals } from './Numerals';
 import { Verbs } from './Verbs';
 
-type Mode = 'cases' | 'verbs';
+type Mode = 'cases' | 'verbs' | 'numerals';
 const APP_MODE_KEY = 'app-mode-key';
 
-function getModeFromQS(){
+function getModeFromQS() {
   const searchParams = new URLSearchParams(window.location.search);
 
   if (searchParams.has(APP_MODE_KEY)) {
@@ -30,13 +31,17 @@ function App() {
         <div>
           <strong>Tryb: &nbsp;</strong>
         </div>
-        {([['cases', 'Przypadki'],['verbs', 'Rzeczowniki']] as [Mode, string][])
-          .map(([buttonMode, label]) => 
-            <button 
+        {([
+          ['cases', 'Przypadki'],
+          ['verbs', 'Rzeczowniki'],
+          ['numerals', 'Liczebniki'],
+        ] as [Mode, string][])
+          .map(([buttonMode, label]) =>
+            <button
               key={buttonMode}
               className={buttonMode === mode ? 'active' : ''}
               onClick={() => {
-                setModeToQs(buttonMode); 
+                setModeToQs(buttonMode);
                 setMode(buttonMode);
               }}
             >
@@ -47,6 +52,7 @@ function App() {
       <div>
         {mode === 'cases' && <Cases />}
         {mode === 'verbs' && <Verbs />}
+        {mode === 'numerals' && <Numerals />}  
       </div>
     </div>
   );

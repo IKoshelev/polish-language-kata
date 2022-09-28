@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
-import { getRandomItem } from './util';
+import { attemptGetDataByQSKey, getRandomItem } from './util';
 
 type Card = {
     id: number;
@@ -1173,12 +1173,6 @@ type CurrentState = {
     randomModeOn: boolean;
 }
 
-function attemptGetCasesDataByQSKey(): CurrentState | undefined {
-    const item = window.localStorage.getItem(CASES_STATE_QS_KEY);
-    if (!item) { return; }
-    return JSON.parse(item);
-}
-
 const getAllCards = (caseData: CaseData[]) => caseData
     .flatMap(x => x.cards)
     .flatMap(x => [x.plural, x.singular])
@@ -1320,7 +1314,7 @@ export function Cases() {
                     <button
                         className='cases-button'
                         onClick={() => {
-                            updateState(d => attemptGetCasesDataByQSKey() ?? d);
+                            updateState(d => attemptGetDataByQSKey<CurrentState>(CASES_STATE_QS_KEY) ?? d);
                         }}
                     >załadować <br/>zapisany stan</button>
                 }
