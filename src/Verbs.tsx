@@ -430,7 +430,7 @@ const sourceData = {
             "wolała",
             "wolało",
             "woleliśmy",
-            "wlałyśmy",
+            "wolałyśmy",
             "woleliście",
             "wolałyście",
             "woleli",
@@ -453,7 +453,7 @@ const sourceData = {
             "nieśli",
             "niosły",
             "Czas przeszły",
-            "-eć: e -> a oprócz m.osob"
+            "-ść,-źć: e -> o,ó oprócz m.osob"
         ),
         'wieźć': conjugationsDictSource(
             "wiozłem",
@@ -470,7 +470,7 @@ const sourceData = {
             "wieźli",
             "wiozły",
             "Czas przeszły",
-            "-eć: e -> a oprócz m.osob"
+            "-ść,-źć: e -> o,ó oprócz m.osob"
         ),
         'iść': conjugationsDictSource(
             "szedłem",
