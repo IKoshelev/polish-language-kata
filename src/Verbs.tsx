@@ -700,14 +700,17 @@ export function Verbs() {
             // make sure newly setelect tile is visible
             setTimeout(() => {
                 const targetTd = window.document.querySelector('td.target');
-                if (targetTd) {
-                    targetTd.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center',
-                        inline: 'center'
-                    });
+                if (!targetTd) {
+                    // something went wrong, rechoose
+                    updateState(d => d.target = undefined);
+                    return;
                 }
-            }, state.timeout + 100);
+                targetTd.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center'
+                });
+            }, state.timeout + 200);
         }
     }, [state.randomModeOn, state.target?.id]);
 
@@ -790,6 +793,18 @@ export function Verbs() {
                 {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
             </button>
             <button
+                className='verbs-button'
+                onClick={() => {
+                    updateState((d) => {
+                        shuffleAndReturnArr(d.cards);
+                        for (const c of d.cards) {
+                            shuffleAndReturnArr(c.verbs);
+                        }
+                        d.target = undefined;
+                    });
+                }}
+            >tasować <br /><i>zachowuje zaznaczone kartki</i></button>
+            <button
                     className='verbs-button'
                     onClick={() => {
                         const st = {...state};
@@ -807,18 +822,6 @@ export function Verbs() {
                         }}
                     >załadować<br/>zapisany stan</button>
                 }
-            <button
-                className='verbs-button'
-                onClick={() => {
-                    updateState((d) => {
-                        shuffleAndReturnArr(d.cards);
-                        for (const c of d.cards) {
-                            shuffleAndReturnArr(c.verbs);
-                        }
-                        d.target = undefined;
-                    });
-                }}
-            >tasować <br /><i>zachowuje zaznaczone kartki</i></button>
             <button
                 className='verbs-button'
                 onClick={() => {

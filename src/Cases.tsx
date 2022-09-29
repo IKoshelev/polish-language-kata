@@ -1220,14 +1220,18 @@ export function Cases() {
         // make sure newly setelect tile is visible
         setTimeout(() => {
             const targetTd = window.document.querySelector('td.target');
-            if (targetTd) {
-                targetTd.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center',
-                    inline: 'center'
-                });
+            if (!targetTd) {
+                // something went wrong, rechoose
+                updateState(d => d.target = undefined);
+                return;
             }
-        }, state.timeout + 100);
+            targetTd.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center'
+            });
+
+        }, state.timeout + 200);
 
     }, [state.randomModeOn, state.target]);
 
@@ -1304,13 +1308,20 @@ export function Cases() {
                 </button>
                 <button
                     className='cases-button'
+                    onClick={() => updateState((d) => {
+                        d.cards = getRandomizedCaseData(d.cards);
+                        d.target = undefined;
+                    })}
+                >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
+                <button
+                    className='cases-button'
                     onClick={() => {
-                        const st = {...state};
+                        const st = { ...state };
                         st.hasSavedData = true;
                         window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(st));
                         updateState(d => { d.hasSavedData = true; });
                     }}
-                >zapisać <br/>bieżący stan</button>
+                >zapisać <br />bieżący stan</button>
                 {
                     state.hasSavedData &&
                     <button
@@ -1318,15 +1329,8 @@ export function Cases() {
                         onClick={() => {
                             updateState(d => attemptGetDataByQSKey<CurrentState>(CASES_STATE_QS_KEY) ?? d);
                         }}
-                    >załadować <br/>zapisany stan</button>
+                    >załadować <br />zapisany stan</button>
                 }
-                <button
-                    className='cases-button'
-                    onClick={() => updateState((d) => {
-                        d.cards = getRandomizedCaseData(d.cards);
-                        d.target = undefined;
-                    })}
-                >tasować <br /> <i>dodaje trudniejsze słowa</i> <br /> <i>zachowuje zaznaczone kartki</i></button>
                 <button
                     className='verbs-button'
                     onClick={() => {

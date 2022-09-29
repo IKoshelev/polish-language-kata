@@ -178,14 +178,17 @@ export function Numerals() {
             // make sure newly setelect tile is visible
             setTimeout(() => {
                 const targetTd = window.document.querySelector('td.target');
-                if (targetTd) {
-                    targetTd.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center',
-                        inline: 'center'
-                    });
+                if (!targetTd) {
+                    // something went wrong, rechoose
+                    updateState(d => d.target = undefined);
+                    return;
                 }
-            }, state.timeout + 100);
+                targetTd.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center'
+                });
+            }, state.timeout + 200);
         }
     }, [state.randomModeOn, state.target?.id]);
 
@@ -262,6 +265,15 @@ export function Numerals() {
             <button
                 className='numerals-button'
                 onClick={() => {
+                    updateState((d) => {
+                        shuffleAndReturnArr(d.numerals);
+                        d.target = undefined;
+                    });
+                }}
+            >tasować <br /><i>zachowuje zaznaczone kartki</i></button>
+            <button
+                className='numerals-button'
+                onClick={() => {
                     const st = {...state};
                     st.hasSavedData = true;
                     window.localStorage.setItem(NUMERALS_STATE_QS_KEY, JSON.stringify(st));
@@ -277,15 +289,6 @@ export function Numerals() {
                     }}
                 >załadować<br />zapisany stan</button>
             }
-            <button
-                className='numerals-button'
-                onClick={() => {
-                    updateState((d) => {
-                        shuffleAndReturnArr(d.numerals);
-                        d.target = undefined;
-                    });
-                }}
-            >tasować <br /><i>zachowuje zaznaczone kartki</i></button>
             <button
                 className='numerals-button'
                 onClick={() => {

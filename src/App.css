@@ -4,11 +4,22 @@
 }
 
 .menu button {
-  min-height: 30px;
+  min-height: 40px;
+  min-width: 100px;
 }
 
 .menu .active {
   background-color: darkgrey;
+}
+
+#help-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#help-dialog > p {
+    max-width: 30em;
 }
 
 /* .cases-table thead tr td {
