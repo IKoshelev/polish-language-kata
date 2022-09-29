@@ -792,7 +792,9 @@ export function Verbs() {
             <button
                     className='verbs-button'
                     onClick={() => {
-                        window.localStorage.setItem(VERBS_STATE_QS_KEY, JSON.stringify(state));
+                        const st = {...state};
+                        st.hasSavedData = true;
+                        window.localStorage.setItem(VERBS_STATE_QS_KEY, JSON.stringify(st));
                         updateState(d => { d.hasSavedData = true; });
                     }}
                 >zapisać<br/>bieżący stan</button>

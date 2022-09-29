@@ -1305,7 +1305,9 @@ export function Cases() {
                 <button
                     className='cases-button'
                     onClick={() => {
-                        window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(state));
+                        const st = {...state};
+                        st.hasSavedData = true;
+                        window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(st));
                         updateState(d => { d.hasSavedData = true; });
                     }}
                 >zapisać <br/>bieżący stan</button>
@@ -1407,48 +1409,4 @@ export function Cases() {
             </div>
         </>
     );
-}
-
-// prepareSpellcheck();
-function prepareSpellcheck() {
-    const linesToCehck = casesSourceData
-        .flatMap(x => x.cards)
-        .flatMap(x => [x.singular, x.plural])
-        .flatMap(x => x)
-        .flatMap(x => {
-            const max = Math.max(x.nouns.length, x.verbs.length);
-            const result: string[] = [];
-            for (let count = 0; count < max; count++) {
-                const verb = x.verbs[count % x.verbs.length][1];
-                const noun = x.nouns[count % x.nouns.length][1];
-                result.push(x.templates[0][1]
-                    .replace("{verb}", verb)
-                    .replace("{noun}", noun));
-            }
-            return result;
-        });
-
-    console.log(linesToCehck.join('\r\n'));
-}
-
-//prepareSpellcheck2();
-function prepareSpellcheck2() {
-    const linesToCehck = casesSourceData
-        .flatMap(x => x.cards)
-        .flatMap(x => [x.singular, x.plural])
-        .flatMap(x => x)
-        .flatMap(x => {
-            const max = Math.max(x.nouns.length, x.verbs.length);
-            const result: string[] = [];
-            for (let count = 0; count < max; count++) {
-                const verb = x.verbs[count % x.verbs.length][0];
-                const noun = x.nouns[count % x.nouns.length][0];
-                result.push(x.templates[0][0]
-                    .replace("{verb}", verb)
-                    .replace("{noun}", noun));
-            }
-            return result;
-        });
-
-    console.log(linesToCehck.join('\r\n'));
 }

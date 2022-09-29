@@ -160,7 +160,7 @@ export function Numerals() {
 
     useEffect(() => {
         if (state.randomModeOn && (!state.target || state.target.isFlipped)) {
-            
+
             const allShownCards = getAllCards(getNumeralsFromActiveSections(state))
                 .filter(x => !x.isFlipped);
 
@@ -262,7 +262,9 @@ export function Numerals() {
             <button
                 className='numerals-button'
                 onClick={() => {
-                    window.localStorage.setItem(NUMERALS_STATE_QS_KEY, JSON.stringify(state));
+                    const st = {...state};
+                    st.hasSavedData = true;
+                    window.localStorage.setItem(NUMERALS_STATE_QS_KEY, JSON.stringify(st));
                     updateState(d => { d.hasSavedData = true; });
                 }}
             >zapisać<br />bieżący stan</button>
