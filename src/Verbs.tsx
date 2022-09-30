@@ -2,6 +2,13 @@ import classNames from "classnames";
 import React, { useEffect } from "react";
 import { useImmer } from "use-immer";
 import {
+  MdAvTimer,
+  MdFlipToBack,
+  MdFlipToFront,
+  MdShuffle,
+} from "react-icons/md";
+import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import {
   attemptGetDataByQSKey,
   entries,
   getRandomItem,
@@ -839,7 +846,10 @@ export function Verbs() {
             })
           }
         >
-          otworzyć wszystkie
+          <div className="text">otworzyć wszystkie</div>
+          <div className="icon">
+            <MdFlipToFront />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -848,7 +858,10 @@ export function Verbs() {
             })
           }
         >
-          zamknąć wszystkie
+          <div className="text">zamknąć wszystkie</div>
+          <div className="icon">
+            <MdFlipToBack />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -858,7 +871,12 @@ export function Verbs() {
             })
           }
         >
-          {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          <div className="text">
+            {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          </div>
+          <div className="icon">
+            <GiCardRandom />
+          </div>
         </button>
         <button
           onClick={() => {
@@ -871,8 +889,12 @@ export function Verbs() {
             });
           }}
         >
-          tasować <br />
-          <i>zachowuje zaznaczone kartki</i>
+          <div className="text">
+            tasować <br /> <i>zachowuje zaznaczone kartki</i>
+          </div>
+          <div className="icon">
+            <MdShuffle />
+          </div>
         </button>
         <button
           onClick={() => {
@@ -885,9 +907,13 @@ export function Verbs() {
             alert("Stan zapisany.");
           }}
         >
-          zapisać
-          <br />
-          bieżący stan
+          <div className="text">
+            zapisać <br />
+            bieżący stan
+          </div>
+          <div className="icon">
+            <GiSave />
+          </div>
         </button>
         {state.hasSavedData && (
           <button
@@ -898,9 +924,13 @@ export function Verbs() {
               );
             }}
           >
-            załadować
-            <br />
-            zapisany stan
+            <div className="text">
+              załadować <br />
+              bieżący stan
+            </div>
+            <div className="icon">
+              <GiLoad />
+            </div>
           </button>
         )}
         <button
@@ -913,7 +943,10 @@ export function Verbs() {
             });
           }}
         >
-          Zwłoka {state.timeout / 1000} sek.
+          <div className="text">Zwłoka {state.timeout / 1000} sek.</div>
+          <div className="icon">
+            <MdAvTimer />
+          </div>
         </button>
       </div>
       <div>
@@ -931,9 +964,7 @@ export function Verbs() {
               }
             >
               {k}
-              <span>
-                {state.activeSections[k] === true ? "✔️" : " "}
-              </span>
+              <span>{state.activeSections[k] === true ? "✔️" : " "}</span>
             </div>
           );
         })}

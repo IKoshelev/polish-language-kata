@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useImmer } from "use-immer";
 import { attemptGetDataByQSKey, getRandomItem } from "./util";
-import { FaBeer } from "react-icons/fa";
+import { MdAvTimer, MdFlipToBack, MdFlipToFront, MdShuffle } from "react-icons/md";
+import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
 
 type Card = {
@@ -1846,7 +1847,10 @@ export function Cases() {
             })
           }
         >
-          otworzyć wszystkie <FaBeer />
+          <div className="text">otworzyć wszystkie</div>
+          <div className="icon">
+            <MdFlipToFront />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -1856,7 +1860,10 @@ export function Cases() {
             })
           }
         >
-          zamknąć wszystkie
+          <div className="text">zamknąć wszystkie</div>
+          <div className="icon">
+            <MdFlipToBack />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -1866,7 +1873,12 @@ export function Cases() {
             })
           }
         >
-          {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          <div className="text">
+            {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          </div>
+          <div className="icon">
+            <GiCardRandom />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -1876,8 +1888,13 @@ export function Cases() {
             })
           }
         >
-          tasować <br /> <i>dodaje trudniejsze słowa</i> <br />{" "}
-          <i>zachowuje zaznaczone kartki</i>
+          <div className="text">
+            tasować <br /> <i>dodaje trudniejsze słowa</i> <br />{" "}
+            <i>zachowuje zaznaczone kartki</i>
+          </div>
+          <div className="icon">
+            <MdShuffle />
+          </div>
         </button>
         <button
           onClick={() => {
@@ -1890,8 +1907,13 @@ export function Cases() {
             alert("Stan zapisany.");
           }}
         >
-          zapisać <br />
-          bieżący stan
+          <div className="text">
+            zapisać <br />
+            bieżący stan
+          </div>
+          <div className="icon">
+            <GiSave />
+          </div>
         </button>
         {state.hasSavedData && (
           <button
@@ -1902,8 +1924,13 @@ export function Cases() {
               );
             }}
           >
-            załadować <br />
-            zapisany stan
+            <div className="text">
+              załadować <br />
+              bieżący stan
+            </div>
+            <div className="icon">
+              <GiLoad />
+            </div>
           </button>
         )}
         <button
@@ -1917,7 +1944,12 @@ export function Cases() {
             });
           }}
         >
-          Zwłoka {state.timeout / 1000} sek.
+            <div className="text">
+                Zwłoka {state.timeout / 1000} sek.
+            </div>
+            <div className="icon">
+              <MdAvTimer />
+            </div>
         </button>
       </div>
       <div className="table-container-std">

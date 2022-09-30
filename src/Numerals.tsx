@@ -2,6 +2,14 @@ import classNames from "classnames";
 import React, { useEffect } from "react";
 import { useImmer } from "use-immer";
 import {
+  MdAvTimer,
+  MdFlipToBack,
+  MdFlipToFront,
+  MdShuffle,
+} from "react-icons/md";
+import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+
+import {
   attemptGetDataByQSKey,
   getRandomItem,
   shuffleAndReturnArr,
@@ -671,7 +679,11 @@ export function Numerals() {
       key={card.textWhenClosed}
     >
       <div>
-        {card.isOpened ? <div>{card.textWhenOpened}</div> : <div>{card.textWhenClosed}</div>}
+        {card.isOpened ? (
+          <div>{card.textWhenOpened}</div>
+        ) : (
+          <div>{card.textWhenClosed}</div>
+        )}
       </div>
     </td>
   );
@@ -690,7 +702,10 @@ export function Numerals() {
             })
           }
         >
-          otworzyć wszystkie
+          <div className="text">otworzyć wszystkie</div>
+          <div className="icon">
+            <MdFlipToFront />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -699,7 +714,10 @@ export function Numerals() {
             })
           }
         >
-          zamknąć wszystkie
+          <div className="text">zamknąć wszystkie</div>
+          <div className="icon">
+            <MdFlipToBack />
+          </div>
         </button>
         <button
           onClick={() =>
@@ -709,7 +727,12 @@ export function Numerals() {
             })
           }
         >
-          {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          <div className="text">
+            {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
+          </div>
+          <div className="icon">
+            <GiCardRandom />
+          </div>
         </button>
         <button
           onClick={() => {
@@ -719,8 +742,12 @@ export function Numerals() {
             });
           }}
         >
-          tasować <br />
-          <i>zachowuje zaznaczone kartki</i>
+          <div className="text">
+            tasować <br /> <i>zachowuje zaznaczone kartki</i>
+          </div>
+          <div className="icon">
+            <MdShuffle />
+          </div>
         </button>
         <button
           onClick={() => {
@@ -736,9 +763,13 @@ export function Numerals() {
             alert("Stan zapisany.");
           }}
         >
-          zapisać
-          <br />
-          bieżący stan
+          <div className="text">
+            zapisać <br />
+            bieżący stan
+          </div>
+          <div className="icon">
+            <GiSave />
+          </div>
         </button>
         {state.hasSavedData && (
           <button
@@ -750,9 +781,13 @@ export function Numerals() {
               );
             }}
           >
-            załadować
-            <br />
-            zapisany stan
+            <div className="text">
+              załadować <br />
+              bieżący stan
+            </div>
+            <div className="icon">
+              <GiLoad />
+            </div>
           </button>
         )}
         <button
@@ -765,7 +800,10 @@ export function Numerals() {
             });
           }}
         >
-          Zwłoka {state.timeout / 1000} sek.
+          <div className="text">Zwłoka {state.timeout / 1000} sek.</div>
+          <div className="icon">
+            <MdAvTimer />
+          </div>
         </button>
       </div>
       <div>
@@ -784,9 +822,7 @@ export function Numerals() {
               }
             >
               {section.name}
-              <span>
-                {section.active === true ? "✔️" : " "}
-              </span>
+              <span>{section.active === true ? "✔️" : " "}</span>
             </div>
           );
         })}

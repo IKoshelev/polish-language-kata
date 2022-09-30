@@ -18,8 +18,8 @@ function getModeFromQS() {
 
 function setModeToQs(mode: Mode) {
   const searchParams = new URLSearchParams(window.location.search);
-  searchParams.set(APP_MODE_KEY, mode);
-  window.location.search = searchParams.toString();
+  searchParams.set(APP_MODE_KEY, mode);       
+  window.history.pushState({}, '', `?${searchParams.toString()}`);
 }
 
 function App() {
