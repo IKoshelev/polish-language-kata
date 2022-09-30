@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Cases } from './Cases';
-import { Numerals } from './Numerals';
-import { Verbs } from './Verbs';
+import React, { useState } from "react";
+import "./App.scss";
+import { Cases } from "./Cases";
+import { Numerals } from "./Numerals";
+import { Verbs } from "./Verbs";
+import dialogPolyfill from 'dialog-polyfill';
 
-type Mode = 'cases' | 'verbs' | 'numerals';
-const APP_MODE_KEY = 'app-mode-key';
+type Mode = "cases" | "verbs" | "numerals";
+const APP_MODE_KEY = "app-mode-key";
 
 function getModeFromQS() {
   const searchParams = new URLSearchParams(window.location.search);
@@ -22,127 +23,126 @@ function setModeToQs(mode: Mode) {
 }
 
 function App() {
-
-  const [mode, setMode] = useState(getModeFromQS() ?? 'cases' as Mode)
+  const [mode, setMode] = useState(getModeFromQS() ?? ("cases" as Mode));
 
   return (
     <div className="App">
-      <div className='menu'>
-        {([
-          ['cases', 'Przypadki'],
-          ['verbs', 'Czasowniki'],
-          ['numerals', 'Liczebniki'],
-        ] as [Mode, string][])
-          .map(([buttonMode, label]) =>
-            <button
-              key={buttonMode}
-              className={buttonMode === mode ? 'active' : ''}
-              onClick={() => {
-                if (buttonMode === mode) {
-                  return;
-                }
-                setModeToQs(buttonMode);
-                setMode(buttonMode);
-              }}
-            >
-              {label}
-            </button>
-          )}
+      <div id="menu-top">
+        {(
+          [
+            ["cases", "Przypadki"],
+            ["verbs", "Czasowniki"],
+            ["numerals", "Liczebniki"],
+          ] as [Mode, string][]
+        ).map(([buttonMode, label]) => (
+          <button
+            key={buttonMode}
+            className={buttonMode === mode ? "active" : ""}
+            onClick={() => {
+              if (buttonMode === mode) {
+                return;
+              }
+              setModeToQs(buttonMode);
+              setMode(buttonMode);
+            }}
+          >
+            {label}
+          </button>
+        ))}
         <button
           key="help"
           style={{
-            marginLeft: 20
+            marginLeft: 20,
           }}
-          onClick={() => { 
-            const dialog = document.getElementById('help-dialog') as HTMLDialogElement;
+          onClick={() => {
+            const dialog = document.getElementById(
+              "help-dialog"
+            ) as HTMLDialogElement;
             dialog.showModal();
           }}
         >
           Jak to działa?
         </button>
       </div>
-          {renderHelpDialog()}
+      {renderHelpDialog()}
       <div>
-        {mode === 'cases' && <Cases />}
-        {mode === 'verbs' && <Verbs />}
-        {mode === 'numerals' && <Numerals />}
+        {mode === "cases" && <Cases />}
+        {mode === "verbs" && <Verbs />}
+        {mode === "numerals" && <Numerals />}
       </div>
     </div>
   );
 
-  function renderHelpDialog(){
-    return <dialog
-    id="help-dialog"
-    style={{
-      width: "100%",
-      height: "100%"
-    }}
-  >
-    <button
-      style={{
-        alignSelf: 'end',
-        width: 30,
-        height: 30
-      }}
-      onClick={() => {
-        const dialog = document.getElementById('help-dialog') as HTMLDialogElement;
-        dialog.close();
-      }}
-    >
-      X
-    </button>
+  function renderHelpDialog() {
+    return (
+      <dialog id="help-dialog">
+        <button
+          style={{
+            alignSelf: "end",
+            width: 30,
+            height: 30,
+          }}
+          onClick={() => {
+            const dialog = document.getElementById(
+              "help-dialog"
+            ) as HTMLDialogElement;
+            dialog.close();
+          }}
+        >
+          X
+        </button>
 
-    <p>
-      "Kata" w sztukach walki to zbiór podstawowych form kluczowych dla poprawnej techniki.
-       Tutaj jest kata dla uczących się języka polskiego. 
+        <p>
+          "Kata" w sztukach walki to zbiór podstawowych form kluczowych dla
+          poprawnej techniki. Tutaj jest kata dla uczących się języka polskiego.
+          Tutaj zebrano przykłady podstawowych reguł gramatycznych i typowych
+          wyjątków. Jest zawsze w telefonie, dzięki czemu możesz ćwiczyć przez
+          10-15 minut w transporcie lub podczas lunchu.
+        </p>
 
-       Tutaj zebrano przykłady podstawowych reguł gramatycznych i typowych wyjątków. 
-       
-       Jest zawsze w telefonie, dzięki czemu możesz ćwiczyć 
-       przez 10-15 minut w transporcie lub podczas lunchu.
-    </p>
+        <p>
+          <strong>Jak ćwiczyć?</strong>
+        </p>
 
-    <p>
-      <strong>Jak ćwiczyć?</strong>
-    </p>
+        <p>Wybierz to, co chcesz ćwiczyć.</p>
 
-    <p>
-      Wybierz to, co chcesz ćwiczyć. 
-    </p>
+        <p>
+          Jeśli tego potrzebujesz - naciśnij{" "}
+          <strong>"otworzyć wszystkie"</strong> i powtórz. Potem naciśnij{" "}
+          <strong>"zamknąć wszystkie"</strong>.
+        </p>
 
-    <p>
-      Jeśli tego potrzebujesz - naciśnij <strong>"otworzyć wszystkie"</strong> i powtórz. Potem naciśnij <strong>"zamknąć wszystkie"</strong>.
-    </p>
+        <p>
+          Naciśnij <strong>"rozpocznij ćwiczyć"</strong>, i przypomnij sobie
+          poprawną formę podświetlonej kartki. Kliknij prawą stronę kartki, aby
+          ją otworzyć i zweryfikować. Jeśli zgadłeś źle - kliknij lewą stronę
+          kartki, aby zaznaczyć ją do powtórzenia.
+        </p>
 
-    <p>
-      Naciśnij <strong>"rozpocznij ćwiczyć"</strong>, i przypomnij sobie poprawną formę podświetlonej kartki.
-      Kliknij prawą stronę kartki, aby ją otworzyć i zweryfikować.
-      Jeśli zgadłeś źle - kliknij lewą stronę kartki, aby zaznaczyć ją do powtórzenia.
-    </p>
+        <p>
+          Naciśnij <strong>"tasować"</strong> żeby utrudnić sobie zadanie.
+        </p>
 
-    <p>
-      Naciśnij <strong>"tasować"</strong> żeby utrudnić sobie zadanie.
-    </p>
+        <p>
+          Potrzebujesz wyjaśnień gramatycznych? Zobacz:
+          <br />
+          <a href="https://polski.info/pl/grammar">
+            https://polski.info/pl/grammar
+          </a>
+          <br />
+          <a href="https://www.polskinawynos.com/?page_id=329">
+            https://www.polskinawynos.com/
+          </a>
+        </p>
 
-    <p>
-      Potrzebujesz wyjaśnień gramatycznych? Zobacz:
-      <br/>
-      <a href="https://polski.info/pl/grammar">
-        https://polski.info/pl/grammar
-      </a>
-      <br/>
-      <a href="https://www.polskinawynos.com/?page_id=329">
-        https://www.polskinawynos.com/
-      </a>
-    </p>
-
-    <p>
-      Kod dostępny jako open source: &nbsp;
-      <a href="https://github.com/IKoshelev/polish-language-kata">
-        https://github.com/IKoshelev/polish-language-kata
-      </a>
-    </p>
-  </dialog>;
+        <p>
+          Kod dostępny jako open source: &nbsp;
+          <a href="https://github.com/IKoshelev/polish-language-kata">
+            https://github.com/IKoshelev/polish-language-kata
+          </a>
+        </p>
+      </dialog>
+    );
   }
 }
 

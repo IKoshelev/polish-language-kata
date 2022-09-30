@@ -1,0 +1,161 @@
+body {
+  margin-bottom: 50px;
+}
+
+#menu-top {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow-y: scroll;
+
+  button {
+    min-height: 40px;
+    min-width: 100px;
+
+    &:first-child{
+      margin-left: 50px;
+    }
+
+    &.active {
+      background-color: darkgrey;
+    }
+  }
+}
+
+#help-dialog {
+  width: 100%;
+  height: 100%;
+  &[open] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & > p {
+    max-width: 30em;
+  }
+}
+
+.sumbenu-std {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  button {
+    min-height: 40px;
+    width: 200px;
+  }
+}
+
+.table-container-std {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.table-std {
+  th {
+    border: 2.5px solid black;
+  }
+
+  tbody {
+    td {
+      cursor: pointer;
+
+      &.target {
+        background-color: lightgreen;
+      }
+
+      &.closed:not(.target) {
+        background-color: lightgray;
+      }
+
+      &:not(.marked) {
+        border: 2.5px solid black;
+      }
+
+      &.marked {
+        border: 2.5px solid orange;
+      }
+
+      & > div {
+        min-height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+#verbs {
+  .table-std {
+    tbody {
+      td {
+        &.verb-description {
+          font-size: 1.5em;
+          font-weight: strong;
+        }
+
+        & > div {
+          min-height: 50px;
+          min-width: 150px;
+        }
+      }
+    }
+  }
+}
+
+#cases {
+  .table-std {
+    tbody {
+      td {
+        & > div {
+          min-height: 20px;
+          width: 280px;
+        }
+      }
+    }
+  }
+}
+
+#numerals {
+  .table-std {
+    tbody {
+      td {
+        & > div {
+          min-height: 20px;
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+.subsections-std {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  .subsection-checkbox {
+    border: solid 2px black;
+    width: 300px;
+    cursor: pointer;
+    text-align: left;
+    padding: 3px;
+  }
+
+  span {
+    float: right;
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
