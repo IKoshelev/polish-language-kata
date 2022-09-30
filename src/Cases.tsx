@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useImmer } from 'use-immer';
 import { attemptGetDataByQSKey, getRandomItem } from './util';
+import { FaBeer } from 'react-icons/fa';
 
 type Card = {
     id: number;
@@ -1289,7 +1290,7 @@ export function Cases() {
                         getAllCards(d.cards).forEach(x => x.isFlipped = true);
                         d.cards.forEach(x => x.caseNameIsFlipped = true);
                     })}
-                >otworzyć wszystkie</button>
+                >otworzyć wszystkie <FaBeer /></button>
                 <button
                     className='cases-button'
                     onClick={() => updateState((d) => {
@@ -1304,7 +1305,7 @@ export function Cases() {
                         d.target = undefined;
                     })}
                 >
-                    {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
+                    {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
                 </button>
                 <button
                     className='cases-button'
@@ -1320,6 +1321,7 @@ export function Cases() {
                         st.hasSavedData = true;
                         window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(st));
                         updateState(d => { d.hasSavedData = true; });
+                        alert('Stan zapisany.');
                     }}
                 >zapisać <br />bieżący stan</button>
                 {

@@ -30,7 +30,7 @@ function App() {
       <div className='menu'>
         {([
           ['cases', 'Przypadki'],
-          ['verbs', 'Rzeczowniki'],
+          ['verbs', 'Czasowniki'],
           ['numerals', 'Liczebniki'],
         ] as [Mode, string][])
           .map(([buttonMode, label]) =>
@@ -93,6 +93,20 @@ function App() {
     </button>
 
     <p>
+      "Kata" w sztukach walki to zbiór podstawowych form kluczowych dla poprawnej techniki.
+       Tutaj jest kata dla uczących się języka polskiego. 
+
+       Tutaj zebrano przykłady podstawowych reguł gramatycznych i typowych wyjątków. 
+       
+       Jest zawsze w telefonie, dzięki czemu możesz ćwiczyć 
+       przez 10-15 minut w transporcie lub podczas lunchu.
+    </p>
+
+    <p>
+      <strong>Jak ćwiczyć?</strong>
+    </p>
+
+    <p>
       Wybierz to, co chcesz ćwiczyć. 
     </p>
 
@@ -101,13 +115,25 @@ function App() {
     </p>
 
     <p>
-      Naciśnij <strong>"aktywować tryb losowy"</strong>, i przypomnij sobie poprawną formę podświetlonej kartki.
+      Naciśnij <strong>"rozpocznij ćwiczyć"</strong>, i przypomnij sobie poprawną formę podświetlonej kartki.
       Kliknij prawą stronę kartki, aby ją otworzyć i zweryfikować.
       Jeśli zgadłeś źle - kliknij lewą stronę kartki, aby zaznaczyć ją do powtórzenia.
     </p>
 
     <p>
       Naciśnij <strong>"tasować"</strong> żeby utrudnić sobie zadanie.
+    </p>
+
+    <p>
+      Potrzebujesz wyjaśnień gramatycznych? Zobacz:
+      <br/>
+      <a href="https://polski.info/pl/grammar">
+        https://polski.info/pl/grammar
+      </a>
+      <br/>
+      <a href="https://www.polskinawynos.com/?page_id=329">
+        https://www.polskinawynos.com/
+      </a>
     </p>
 
     <p>

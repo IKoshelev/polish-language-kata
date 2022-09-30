@@ -32,6 +32,11 @@
   min-height: 30px;
 }
 
+.verbs-table tbody td>div {
+  min-height: 50px;
+  min-width: 150px;
+}
+
 .verbs-table th,
 td:not(.marked) {
   border: 2.5px solid black;
@@ -58,7 +63,7 @@ td.verb-text {
 }
 
 .cases-buttons button {
-  min-height: 30px;
+  min-height: 40px;
   width: 200px;
 }
 
@@ -73,7 +78,7 @@ td.verb-text {
 }
 
 .verbs-buttons button {
-  min-height: 30px;
+  min-height: 40px;
   width: 200px;
 }
 
@@ -84,7 +89,7 @@ td.verb-text {
 }
 
 .numerals-buttons button {
-  min-height: 30px;
+  min-height: 40px;
   width: 200px;
 }
 

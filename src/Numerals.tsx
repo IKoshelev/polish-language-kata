@@ -260,7 +260,7 @@ export function Numerals() {
                     d.target = undefined;
                 })}
             >
-                {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
+                {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
             </button>
             <button
                 className='numerals-button'
@@ -278,6 +278,7 @@ export function Numerals() {
                     st.hasSavedData = true;
                     window.localStorage.setItem(NUMERALS_STATE_QS_KEY, JSON.stringify(st));
                     updateState(d => { d.hasSavedData = true; });
+                    alert('Stan zapisany.');
                 }}
             >zapisać<br />bieżący stan</button>
             {
@@ -301,7 +302,7 @@ export function Numerals() {
                 }}
             >Zwłoka {state.timeout / 1000} s</button>
         </div>
-        <div>Sekcje:</div>
+        <div><strong>Sekcje:</strong></div>
         <div className="numerals-sections">
             {
                 state.sections.map((section) => {

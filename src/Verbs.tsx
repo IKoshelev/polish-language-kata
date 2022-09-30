@@ -507,7 +507,7 @@ const sourceData = {
             "będą czytały",
             "Czas przyszły złożony"
         ),
-        'czytać 2': conjugationsDictSource(
+        'czytać ': conjugationsDictSource(
             ...x(2, 'będę czytać'),
             ...x(2, 'będziesz czytać'),
             ...x(3, 'będzie czytać'),
@@ -790,7 +790,7 @@ export function Verbs() {
                     d.target = undefined;
                 })}
             >
-                {state.randomModeOn ? "dezaktywować tryb losowy" : "aktywować tryb losowy"}
+                {state.randomModeOn ? "przestań ćwiczyć" : "rozpocznij ćwiczyć"}
             </button>
             <button
                 className='verbs-button'
@@ -811,6 +811,7 @@ export function Verbs() {
                         st.hasSavedData = true;
                         window.localStorage.setItem(VERBS_STATE_QS_KEY, JSON.stringify(st));
                         updateState(d => { d.hasSavedData = true; });
+                        alert('Stan zapisany.');
                     }}
                 >zapisać<br/>bieżący stan</button>
                 {
@@ -834,7 +835,7 @@ export function Verbs() {
                 }}
             >Zwłoka {state.timeout / 1000} s</button>
         </div>
-        <div>Sekcje:</div>
+        <div><strong>Sekcje:</strong></div>
         <div className="verbs-sections">
             {
                 entries(sourceData).map(([k, v]) => {
