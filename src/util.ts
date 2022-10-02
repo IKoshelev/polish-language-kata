@@ -6,7 +6,17 @@ export function useRender() {
 }
 
 export function getRandomItem<T>(arr: T[], removeFromArray = false): T {
-    const index = Math.floor(arr.length * (Math.random() - 0.001));
+    if (arr.length === 0) {
+        throw new Error('no items');
+    }
+    let index!: number;
+    while (true) {
+        const rnd = Math.random();
+        index = Math.floor(arr.length * rnd);
+        if (index in arr) {
+            break;
+        }
+    }
     const item = arr[index];
     if (removeFromArray) {
         arr.splice(index, 1);
