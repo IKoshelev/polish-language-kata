@@ -29,32 +29,70 @@ type Card = {
 type CardSourceData = {
   caseName: string;
   id: number;
-  template: () => [string, string];
+  getRandomizedExample: () => [string, string];
 };
 
 const CASES_USAGE_STATE_QS_KEY = "cases-usage-state-key";
 
 let counter = 1;
 
+const forCase =
+  (caseName: string) =>
+  (
+    templates: `${string}{word}${string}`[],
+    words: [string, string, string][]
+  ) => {
+    return {
+      caseName,
+      id: counter++,
+      getRandomizedExample: () => {
+        const [closed, opened, question] = getRandomItem(words);
+        const template = getRandomItem(templates);
+
+        return [
+          template.replace("{word}", `(${closed})`),
+          template.replace("{word}", `(${question}) ${opened}`),
+        ] as [string, string];
+      },
+    };
+  };
+
+const dopełniacz = forCase("Dopełniacz");
+
 const casesSourceData: CardSourceData[] = [
-  {
-    caseName: "Dopełniacz",
-    id: counter++,
-    template: () => {
-      const [closed, opened, question] = getRandomItem([
-        [`pajak l.mn.`, `pajaków`, `Kogo?`],
-        [`wonż`, `węża`, `Kogo?`],
-        [`wysokość`, `wysokości`, `Czego?`],
-      ]);
+  dopełniacz(
+    [`Boję się {word}`, `Nie bój się {word}`, `Czy państwo boją się {word}`],
+    [
+      [`pajak l.mn.`, `pajaków`, `Kogo?`],
+      [`wonż`, `węża`, `Kogo?`],
+      [`wysokość`, `wysokości`, `Czego?`],
+    ]
+  ),
+  dopełniacz(
+    [`Zabraklo mu {word}`, `Zaczyna nam brakować {word}`, `Niech Ci nigdy nie zabraknie {word}`],
+    [
+      [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
+      [`czas`, `czasu`, `Czego?`], 
+      [`siła l.mn.`, `sił`, `Czego?`],
+    ]
+  ),
+  dopełniacz(
+    [`Ja pilnowałam {word}`, `Pilnuj {word}`, `Muszą pilnować {word}`],
+    [
+      [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
+      [`rzecz l.mn.`, `rzeczy`, `Czego?`], 
+      [`dziecko l.mn.`, `dzieci`, `Kogo?`],
+    ]
+  ),
+  dopełniacz(
+    [`On potrzebuje {word}`, `Pilnuj {word}`, `Muszą pilnować {word}`],
+    [
+      [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
+      [`rzecz l.mn.`, `rzeczy`, `Czego?`], 
+      [`dziecko l.mn.`, `dzieci`, `Kogo?`],
+    ]
+  ),
 
-      const template = getRandomItem([`Boję się {noun}`, `Nie bój się {noun}`]);
-
-      return [
-        template.replace("{noun}", `(${closed})`),
-        template.replace("{noun}", `(${question}) ${opened}`),
-      ];
-    },
-  },
   // {
   //   caseName: "Celownik",
   //   id: counter++,
@@ -89,23 +127,23 @@ function getCaseData(
   const addableCards = casesSourceData.filter(
     (x) => preservedCardIds.has(x.id) === false
   );
-
-  const newCardsDict = groupBy(cardsToPreserve, (x) => x.caseName);
   const addableCardsDict = groupBy(addableCards, (x) => x.caseName);
+
+  const newStateDict = groupBy(cardsToPreserve, (x) => x.caseName);
   for (const [cse, availableCards] of Object.entries(addableCardsDict)) {
-    if (!(cse in newCardsDict)) {
-      newCardsDict[cse] = [];
+    if (!(cse in newStateDict)) {
+      newStateDict[cse] = [];
     }
 
-    const cardsInTisCase = newCardsDict[cse];
+    const cardsInThisCase = newStateDict[cse];
     const addableCardsForThisCase = shuffleAndReturnArr(availableCards);
     while (
-      cardsInTisCase.length < cardsToGeneratePerCase &&
+      cardsInThisCase.length < cardsToGeneratePerCase &&
       addableCardsForThisCase.length > 0
     ) {
       const newCard = addableCardsForThisCase.pop()!;
 
-      const templates = newCard.template();
+      const texts = newCard.getRandomizedExample();
 
       const s: Card = {
         id: newCard.id,
@@ -113,15 +151,15 @@ function getCaseData(
         isCaseNameOpened: false,
         isTextOpened: false,
         isMarked: false,
-        textWhenOpened: templates[1],
-        textWhenClosed: templates[0],
+        textWhenOpened: texts[1],
+        textWhenClosed: texts[0],
       };
 
-      cardsInTisCase.push(s);
+      cardsInThisCase.push(s);
     }
   }
 
-  const sourceData = Object.values(newCardsDict).flatMap((x) => x);
+  const sourceData = Object.values(newStateDict).flatMap((x) => x);
 
   if (orderById) {
     sourceData.sort((a, b) => a.id - b.id);
@@ -253,7 +291,7 @@ export function CasesUsage() {
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia
       </div>
-      <div className="sumbenu-std">
+      <div className="submenu-std">
         <button
           onClick={() =>
             updateState((d) => {
