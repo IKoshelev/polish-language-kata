@@ -4,8 +4,9 @@ import { CasesEndings } from "./CasesEndings";
 import { Numerals } from "./Numerals";
 import { Verbs } from "./Verbs";
 import dialogPolyfill from 'dialog-polyfill';
+import { CasesUsage } from "./CasesUsage";
 
-type Mode = "cases-ending" | "verbs" | "numerals";
+type Mode = "cases-ending" | "cases-usage" | "verbs" | "numerals";
 const APP_MODE_KEY = "app-mode-key";
 
 function getModeFromQS() {
@@ -28,8 +29,6 @@ function App() {
   return (
     <div className="App">
       <div id="menu-top">
- 
-
         <select 
           id="mode-select" 
           value={mode}
@@ -45,6 +44,7 @@ function App() {
           {(
             [
               ["cases-ending", "Przypadki (końcówki)"],
+              ["cases-usage", "Przypadki (użycie)"],
               ["verbs", "Czasowniki"],
               ["numerals", "Liczebniki"],
             ] as [Mode, string][]
@@ -73,6 +73,7 @@ function App() {
       {renderHelpDialog()}
       <div>
         {mode === "cases-ending" && <CasesEndings />}
+        {mode === "cases-usage" && <CasesUsage />}
         {mode === "verbs" && <Verbs />}
         {mode === "numerals" && <Numerals />}
       </div>

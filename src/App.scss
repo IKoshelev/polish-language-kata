@@ -9,8 +9,9 @@ body {
   flex-wrap: wrap;
 
   & > select {
-    min-width: 200px;
-    font-size: 2em;
+    width: 240px;
+    font-size: 1.4em;
+
   }
 
   & > * {
@@ -40,6 +41,7 @@ body {
   button {
     min-height: 40px;
     width: 240px;
+    margin: 2px;
     display: flex;
     align-items: center;
 
@@ -99,10 +101,11 @@ body {
 }
 
 #verbs,
-#cases,
+#cases-endings, 
+#cases-usage,
 #numerals {
   & > * {
-    margin-bottom: 15px;
+    margin-top: 15px;
   }
 }
 
@@ -124,7 +127,7 @@ body {
   }
 }
 
-#cases {
+#cases-endings {
   .table-std {
     tbody {
       td {
@@ -136,6 +139,23 @@ body {
     }
   }
 }
+
+#cases-usage {
+  .table-std {
+    tbody {
+      td {
+        & > .case-usage-casename {
+          min-width: 150px;
+        }
+        & > .case-usage-text {
+          min-height: 20px;
+          width: 400px;
+        }
+      }
+    }
+  }
+}
+
 
 #numerals {
   .table-std {

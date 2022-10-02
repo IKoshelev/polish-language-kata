@@ -51,7 +51,7 @@ type CaseSourceData = {
   };
 };
 
-const CASES_STATE_QS_KEY = "cases-state-key";
+const CASES_ENDINGS_STATE_QS_KEY = "cases-endings-state-key";
 
 const casesSourceData: CaseSourceData[] = [
   {
@@ -1742,7 +1742,7 @@ export function CasesEndings() {
         cards: basicCaseData,
         timeout: 2000,
         target: undefined,
-        hasSavedData: !!localStorage.getItem(CASES_STATE_QS_KEY),
+        hasSavedData: !!localStorage.getItem(CASES_ENDINGS_STATE_QS_KEY),
         randomModeOn: false,
       } as CurrentState)
   );
@@ -1839,7 +1839,7 @@ export function CasesEndings() {
       );
 
   return (
-    <div id="cases">
+    <div id="cases-endings">
       <div>
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia
@@ -1906,7 +1906,7 @@ export function CasesEndings() {
           onClick={() => {
             const st = { ...state };
             st.hasSavedData = true;
-            window.localStorage.setItem(CASES_STATE_QS_KEY, JSON.stringify(st));
+            window.localStorage.setItem(CASES_ENDINGS_STATE_QS_KEY, JSON.stringify(st));
             updateState((d) => {
               d.hasSavedData = true;
             });
@@ -1926,7 +1926,7 @@ export function CasesEndings() {
             onClick={() => {
               updateState(
                 (d) =>
-                  attemptGetDataByQSKey<CurrentState>(CASES_STATE_QS_KEY) ?? d
+                  attemptGetDataByQSKey<CurrentState>(CASES_ENDINGS_STATE_QS_KEY) ?? d
               );
             }}
           >
