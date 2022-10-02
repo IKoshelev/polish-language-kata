@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.scss";
-import { Cases } from "./Cases";
+import { CasesEndings } from "./CasesEndings";
 import { Numerals } from "./Numerals";
 import { Verbs } from "./Verbs";
 import dialogPolyfill from 'dialog-polyfill';
 
-type Mode = "cases" | "verbs" | "numerals";
+type Mode = "cases-ending" | "verbs" | "numerals";
 const APP_MODE_KEY = "app-mode-key";
 
 function getModeFromQS() {
@@ -23,7 +23,7 @@ function setModeToQs(mode: Mode) {
 }
 
 function App() {
-  const [mode, setMode] = useState(getModeFromQS() ?? ("cases" as Mode));
+  const [mode, setMode] = useState(getModeFromQS() ?? ("cases-ending" as Mode));
 
   return (
     <div className="App">
@@ -44,7 +44,7 @@ function App() {
         >
           {(
             [
-              ["cases", "Przypadki"],
+              ["cases-ending", "Przypadki (końcówki)"],
               ["verbs", "Czasowniki"],
               ["numerals", "Liczebniki"],
             ] as [Mode, string][]
@@ -72,7 +72,7 @@ function App() {
       </div>
       {renderHelpDialog()}
       <div>
-        {mode === "cases" && <Cases />}
+        {mode === "cases-ending" && <CasesEndings />}
         {mode === "verbs" && <Verbs />}
         {mode === "numerals" && <Numerals />}
       </div>

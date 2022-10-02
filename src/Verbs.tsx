@@ -799,7 +799,7 @@ export function Verbs() {
         updateState((d) => {
           const cardMut = getAllCards(d.cards).find((c) => c.id === card.id)!;
 
-          if (sideClicked === 'right') {
+          if (sideClicked === "right") {
             cardMut.isMarked = !cardMut.isMarked;
           } else {
             cardMut.isOpened = !cardMut.isOpened;
@@ -833,8 +833,8 @@ export function Verbs() {
   return (
     <div id="verbs">
       <div>
-        Kliknij na kartki, prawa strona do
-        odwrócenia, lewa strona do zaznaczenia
+        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
+        zaznaczenia
       </div>
       <div className="sumbenu-std">
         <button
@@ -954,6 +954,7 @@ export function Verbs() {
         {entries(sourceData).map(([k, v]) => {
           return (
             <div
+              key={k}
               className="subsection-checkbox"
               onClick={() =>
                 updateState((d) => {
@@ -971,7 +972,7 @@ export function Verbs() {
         <table className="table-std">
           <thead>
             {formLayout.map((row, i) => (
-              <tr>
+              <tr key={i}>
                 {row.map(([form, rowSpan]) => (
                   <th key={form} rowSpan={rowSpan}>
                     {form}
@@ -987,7 +988,7 @@ export function Verbs() {
                   state.activeSections[sectionData.section] === true
               )
               .map((sectionData) => (
-                <>
+                <React.Fragment key={sectionData.section}>
                   <tr key={sectionData.section}>
                     <td className="verb-description" colSpan={6}>
                       {sectionData.section}
@@ -995,7 +996,7 @@ export function Verbs() {
                   </tr>
 
                   {sectionData.verbs.map((verbData) => (
-                    <>
+                    <React.Fragment key={`${verbData.verb}-verb`}>
                       <tr key={`${verbData.verb}-verb`}>
                         <td colSpan={6}>
                           <strong>{verbData.verb}</strong> &nbsp;
@@ -1005,7 +1006,7 @@ export function Verbs() {
                         </td>
                       </tr>
                       {formLayout.map((row, i) => (
-                        <>
+                        <React.Fragment key={`${verbData.verb}-${i}`}>
                           <tr key={`${verbData.verb}-${i}`}>
                             {row.map(([form, rowSpan]) =>
                               renderCardCell(
@@ -1014,11 +1015,11 @@ export function Verbs() {
                               )
                             )}
                           </tr>
-                        </>
+                        </React.Fragment>
                       ))}
-                    </>
+                    </React.Fragment>
                   ))}
-                </>
+                </React.Fragment>
               ))}
           </tbody>
         </table>

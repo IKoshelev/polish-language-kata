@@ -1,7 +1,16 @@
 import React, { useEffect } from "react";
 import { useImmer } from "use-immer";
-import { attemptGetDataByQSKey, getRandomItem, whichSideOfElementWasClicked } from "./util";
-import { MdAvTimer, MdFlipToBack, MdFlipToFront, MdShuffle } from "react-icons/md";
+import {
+  attemptGetDataByQSKey,
+  getRandomItem,
+  whichSideOfElementWasClicked,
+} from "./util";
+import {
+  MdAvTimer,
+  MdFlipToBack,
+  MdFlipToFront,
+  MdShuffle,
+} from "react-icons/md";
 import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
 
@@ -1652,6 +1661,7 @@ const basicCaseData: CaseData[] = [
     },
   },
 ];
+
 function getRandomizedCaseData(
   currentSourceToPreserveMarked?: CaseData[]
 ): CaseData[] {
@@ -1725,7 +1735,7 @@ const getAllCards = (caseData: CaseData[]) =>
     .flatMap((x) => [x.plural, x.singular])
     .flatMap((x) => x);
 
-export function Cases() {
+export function CasesEndings() {
   const [state, updateState] = useImmer(
     () =>
       ({
@@ -1788,6 +1798,7 @@ export function Cases() {
     (isPlural: boolean) => (card: Card, caseData: CaseData) =>
       (
         <td
+          key={card.textWhenOpened[0]}
           className={classNames("case-text", {
             target: card.id === state.target,
             marked: card.isMarked,
@@ -1801,7 +1812,7 @@ export function Cases() {
               const cardUpdate = getAllCards(d.cards).find(
                 (c) => c.id === card.id
               )!;
-              if (sideClicked === 'right') {
+              if (sideClicked === "right") {
                 cardUpdate.isMarked = !cardUpdate.isMarked;
               } else {
                 cardUpdate.isOpened = !cardUpdate.isOpened;
@@ -1816,7 +1827,6 @@ export function Cases() {
               }
             });
           }}
-          key={card.textWhenOpened[0]}
         >
           <div>
             {(card.isOpened ? card.textWhenOpened : card.textWhenClosed).map(
@@ -1831,8 +1841,8 @@ export function Cases() {
   return (
     <div id="cases">
       <div>
-        Kliknij na kartki, prawa strona do
-        odwrócenia, lewa strona do zaznaczenia
+        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
+        zaznaczenia
       </div>
       <div className="sumbenu-std">
         <button
@@ -1940,12 +1950,10 @@ export function Cases() {
             });
           }}
         >
-            <div className="text">
-                Zwłoka {state.timeout / 1000} sek.
-            </div>
-            <div className="icon">
-              <MdAvTimer />
-            </div>
+          <div className="text">Zwłoka {state.timeout / 1000} sek.</div>
+          <div className="icon">
+            <MdAvTimer />
+          </div>
         </button>
       </div>
       <div className="table-container-std">
@@ -1964,7 +1972,7 @@ export function Cases() {
           </thead>
           <tbody>
             {state.cards.map((cse) => (
-              <>
+              <React.Fragment key={cse.name}>
                 <tr key={cse.name + "description"}>
                   <td
                     className={classNames("case-description", {
@@ -2015,7 +2023,7 @@ export function Cases() {
                 <tr key={cse.name + "plural"}>
                   {cse.cards.plural.map((x) => renderCardCells(true)(x, cse))}
                 </tr>
-              </>
+              </React.Fragment>
             ))}
           </tbody>
         </table>

@@ -811,6 +811,7 @@ export function Numerals() {
         {state.sections.map((section) => {
           return (
             <div
+              key={section.name}
               className="subsection-checkbox"
               onClick={() =>
                 updateState((d) => {
