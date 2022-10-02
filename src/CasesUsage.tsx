@@ -61,7 +61,7 @@ const dopełniacz = forCase("Dopełniacz");
 
 const casesSourceData: CardSourceData[] = [
   dopełniacz(
-    [`Boję się {word}`, `Nie bój się {word}`, `Czy państwo boją się {word}`],
+    [`Boje się {word}`],
     [
       [`pajak l.mn.`, `pajaków`, `Kogo?`],
       [`wonż`, `węża`, `Kogo?`],
@@ -69,7 +69,7 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniacz(
-    [`Zabraklo mu {word}`, `Zaczyna nam brakować {word}`, `Niech Ci nigdy nie zabraknie {word}`],
+    [`Zabraklo mu {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`czas`, `czasu`, `Czego?`], 
@@ -77,7 +77,7 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniacz(
-    [`Ja pilnowałam {word}`, `Pilnuj {word}`, `Muszą pilnować {word}`],
+    [`Pilnuje {word}`],
     [
       [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
       [`rzecz l.mn.`, `rzeczy`, `Czego?`], 
@@ -85,11 +85,11 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniacz(
-    [`On potrzebuje {word}`, `Pilnuj {word}`, `Muszą pilnować {word}`],
+    [`Potrzebuje {word}`],
     [
-      [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
-      [`rzecz l.mn.`, `rzeczy`, `Czego?`], 
-      [`dziecko l.mn.`, `dzieci`, `Kogo?`],
+      [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
+      [`ojciec`, `ojca`, `Kogo?`], 
+      [`pomoc`, `pomocy`, `Czego?`],
     ]
   ),
 

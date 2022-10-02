@@ -692,7 +692,7 @@ export function Numerals() {
         Kliknij na kartki, prawa strona do
         odwrócenia, lewa strona do zaznaczenia
       </div>
-      <div className="sumbenu-std">
+      <div className="submenu-std">
         <button
           onClick={() =>
             updateState((d) => {
