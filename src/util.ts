@@ -31,3 +31,10 @@ export function attemptGetDataByQSKey<T>(key: string): T | undefined {
     if (!item) { return; }
     return JSON.parse(item);
 }
+
+export function whichSideOfElementWasClicked(event: React.MouseEvent<HTMLElement, MouseEvent>): 'right' | 'left' {
+    const currentTargetRect = event.currentTarget.getBoundingClientRect();
+    const eventOffsetX = event.pageX - currentTargetRect.left;
+    const isRightSide = eventOffsetX < currentTargetRect.width / 2;
+    return isRightSide ? 'right' : 'left';
+  }

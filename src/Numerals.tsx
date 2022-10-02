@@ -13,6 +13,7 @@ import {
   attemptGetDataByQSKey,
   getRandomItem,
   shuffleAndReturnArr,
+  whichSideOfElementWasClicked,
 } from "./util";
 
 const NUMERALS_STATE_QS_KEY = "numerals-state-key";
@@ -453,7 +454,7 @@ const numeralsDictBase: NumeralForms[] = [
   ],
   [
     "2000",
-    "dwa_tysiące",
+    "dwa tysiące",
     "dwutysięczny",
     "dwutysięczna",
     "dwutysięczne",
@@ -464,7 +465,7 @@ const numeralsDictBase: NumeralForms[] = [
   ],
   [
     "5000",
-    "pięć_tysięcy",
+    "pięć tysięcy",
     "pięciotysięczny",
     "pięciotysięczna",
     "pięciotysięczne",
@@ -656,17 +657,14 @@ export function Numerals() {
         opened: card.isOpened,
       })}
       onClick={(event) => {
-        const currentTargetRect = event.currentTarget.getBoundingClientRect();
-        const eventOffsetX = event.pageX - currentTargetRect.left;
-        // eventOffsetY = event.pageY - currentTargetRect.top;
-        const isRightSide = eventOffsetX < currentTargetRect.width / 2;
+        const sideClicked = whichSideOfElementWasClicked(event);
 
         updateState((d) => {
           const cardMut = getAllCards(d.numerals).find(
             (c) => c.id === card.id
           )!;
 
-          if (isRightSide) {
+          if (sideClicked === 'right') {
             cardMut.isMarked = !cardMut.isMarked;
           } else {
             cardMut.isOpened = !cardMut.isOpened;
@@ -691,8 +689,8 @@ export function Numerals() {
   return (
     <div id="numerals">
       <div>
-        <strong>Liczebniki</strong> (kliknij na kartki, prawa strona do
-        odwrócenia, lewa strona do zaznaczenia)
+        Kliknij na kartki, prawa strona do
+        odwrócenia, lewa strona do zaznaczenia
       </div>
       <div className="sumbenu-std">
         <button

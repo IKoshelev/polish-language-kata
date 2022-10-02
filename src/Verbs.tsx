@@ -13,6 +13,7 @@ import {
   entries,
   getRandomItem,
   shuffleAndReturnArr,
+  whichSideOfElementWasClicked,
 } from "./util";
 
 const VERBS_STATE_QS_KEY = "verbs-state-key";
@@ -793,15 +794,12 @@ export function Verbs() {
         opened: card.isOpened,
       })}
       onClick={(event) => {
-        const currentTargetRect = event.currentTarget.getBoundingClientRect();
-        const eventOffsetX = event.pageX - currentTargetRect.left;
-        // eventOffsetY = event.pageY - currentTargetRect.top;
-        const isRightSide = eventOffsetX < currentTargetRect.width / 2;
+        const sideClicked = whichSideOfElementWasClicked(event);
 
         updateState((d) => {
           const cardMut = getAllCards(d.cards).find((c) => c.id === card.id)!;
 
-          if (isRightSide) {
+          if (sideClicked === 'right') {
             cardMut.isMarked = !cardMut.isMarked;
           } else {
             cardMut.isOpened = !cardMut.isOpened;
@@ -835,8 +833,8 @@ export function Verbs() {
   return (
     <div id="verbs">
       <div>
-        <strong>Czasowniki</strong> (kliknij na kartki, prawa strona do
-        odwrócenia, lewa strona do zaznaczenia)
+        Kliknij na kartki, prawa strona do
+        odwrócenia, lewa strona do zaznaczenia
       </div>
       <div className="sumbenu-std">
         <button

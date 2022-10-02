@@ -28,27 +28,33 @@ function App() {
   return (
     <div className="App">
       <div id="menu-top">
-        {(
-          [
-            ["cases", "Przypadki"],
-            ["verbs", "Czasowniki"],
-            ["numerals", "Liczebniki"],
-          ] as [Mode, string][]
-        ).map(([buttonMode, label]) => (
-          <button
-            key={buttonMode}
-            className={buttonMode === mode ? "active" : ""}
-            onClick={() => {
-              if (buttonMode === mode) {
-                return;
-              }
-              setModeToQs(buttonMode);
-              setMode(buttonMode);
-            }}
-          >
-            {label}
-          </button>
-        ))}
+ 
+
+        <select 
+          id="mode-select" 
+          value={mode}
+          onChange={(evt) => {
+            const newMode = evt.target.value as Mode | undefined;
+            if (!newMode || newMode === mode) {
+              return;
+            }
+            setModeToQs(newMode);
+            setMode(newMode);
+          }}  
+        >
+          {(
+            [
+              ["cases", "Przypadki"],
+              ["verbs", "Czasowniki"],
+              ["numerals", "Liczebniki"],
+            ] as [Mode, string][]
+          ).map(([buttonMode, label]) => (
+
+            <option key={buttonMode} value={buttonMode}>{label}</option>
+          ))}
+            
+        </select>
+
         <button
           key="help"
           style={{

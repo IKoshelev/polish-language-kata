@@ -6,19 +6,15 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  overflow-y: scroll;
+  flex-wrap: wrap;
 
-  button {
+  & > select {
+    min-width: 200px;
+    font-size: 2em;
+  }
+
+  & > * {
     min-height: 40px;
-    min-width: 100px;
-
-    &:first-child{
-      margin-left: 50px;
-    }
-
-    &.active {
-      background-color: darkgrey;
-    }
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useImmer } from "use-immer";
-import { attemptGetDataByQSKey, getRandomItem } from "./util";
+import { attemptGetDataByQSKey, getRandomItem, whichSideOfElementWasClicked } from "./util";
 import { MdAvTimer, MdFlipToBack, MdFlipToFront, MdShuffle } from "react-icons/md";
 import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
@@ -1795,17 +1795,13 @@ export function Cases() {
             opened: card.isOpened,
           })}
           onClick={(event) => {
-            const currentTargetRect =
-              event.currentTarget.getBoundingClientRect();
-            const eventOffsetX = event.pageX - currentTargetRect.left;
-            // eventOffsetY = event.pageY - currentTargetRect.top;
-            const isRightSide = eventOffsetX < currentTargetRect.width / 2;
+            const sideClicked = whichSideOfElementWasClicked(event);
 
             updateState((d) => {
               const cardUpdate = getAllCards(d.cards).find(
                 (c) => c.id === card.id
               )!;
-              if (isRightSide) {
+              if (sideClicked === 'right') {
                 cardUpdate.isMarked = !cardUpdate.isMarked;
               } else {
                 cardUpdate.isOpened = !cardUpdate.isOpened;
@@ -1835,8 +1831,8 @@ export function Cases() {
   return (
     <div id="cases">
       <div>
-        <strong>Przypadki</strong> (kliknij na kartki, prawa strona do
-        odwrócenia, lewa strona do zaznaczenia)
+        Kliknij na kartki, prawa strona do
+        odwrócenia, lewa strona do zaznaczenia
       </div>
       <div className="sumbenu-std">
         <button
