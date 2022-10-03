@@ -36,7 +36,7 @@ const CASES_USAGE_STATE_QS_KEY = "cases-usage-state-key";
 
 let counter = 1;
 
-const forCase =
+const forCaseVerb =
   (caseName: string) =>
   (
     templates: `${string}{word}${string}`[],
@@ -57,10 +57,29 @@ const forCase =
     };
   };
 
-const dopełniacz = forCase("Dopełniacz");
+const dopełniaczVerb = forCaseVerb("Dopełniacz");
+
+const forCasePreposition =
+  (caseName: string) =>
+  (...templates: [`${string}{word}${string}`, string, string, string][]) => {
+    return {
+      caseName,
+      id: counter++,
+      getRandomizedExample: () => {
+        const [template, closed, opened, question] = getRandomItem(templates);
+
+        return [
+          template.replace("{word}", `(${closed})`),
+          template.replace("{word}", `(${question}) ${opened}`),
+        ] as [string, string];
+      },
+    };
+  };
+
+const dopełniaczPreposition = forCasePreposition("Dopełniacz");
 
 const casesSourceData: CardSourceData[] = [
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Bać się {word}`,
       `Boję się {word}`,
@@ -73,7 +92,7 @@ const casesSourceData: CardSourceData[] = [
       [`wysokość`, `wysokości`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -81,7 +100,7 @@ const casesSourceData: CardSourceData[] = [
       [`siła l.mn.`, `sił`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Pilnować {word}`,
       `Pilnuję {word}`,
@@ -94,7 +113,7 @@ const casesSourceData: CardSourceData[] = [
       [`dziecko`, `dziecka`, `Kogo?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Potrzebować  {word}`,
       `Potrzebuje {word}`,
@@ -107,7 +126,7 @@ const casesSourceData: CardSourceData[] = [
       [`pomoc`, `pomocy`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [`Słuchać {word}`, `Slucham {word}`, `Sluchasz {word}`, `Słuchałem {word}`],
     [
       [`pani`, `pani`, `Kogo?`],
@@ -115,7 +134,7 @@ const casesSourceData: CardSourceData[] = [
       [`dziecko l.mn.`, `dzieci`, `Kogo?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [`Szukać {word}`, `Szukam {word}`, `Szukasz {word}`, `Szukałem {word}`],
     [
       [`kot`, `kota`, `Kogo?`],
@@ -123,7 +142,7 @@ const casesSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Uczyć się {word}`,
       `Uczę się {word}`,
@@ -136,7 +155,7 @@ const casesSourceData: CardSourceData[] = [
       [`właściwe maniery`, `właściwych manier`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [`Używać {word}`, `Używam {word}`, `Używasz {word}`, `Używałem {word}`],
     [
       [`ten kryterium`, `tego kryterium`, `Czego?`],
@@ -144,7 +163,7 @@ const casesSourceData: CardSourceData[] = [
       [`lek`, `leku`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Zapomniać {word}`,
       `Zapomniałem {word}`,
@@ -157,7 +176,7 @@ const casesSourceData: CardSourceData[] = [
       [`czapka`, `czapki`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [`Żałować {word}`, `Żałuję {word}`, `Żałujesz {word}`, `Żałowałem {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -165,7 +184,7 @@ const casesSourceData: CardSourceData[] = [
       [`zmarnowana szansa`, `zmarnowanej szansy`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     // lots of usage, so 3 dicated cards
     [
       `Życzyć {word}`,
@@ -179,7 +198,7 @@ const casesSourceData: CardSourceData[] = [
       [`pomyślna przyszłość`, `pomyślnej przyszłości`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -192,7 +211,7 @@ const casesSourceData: CardSourceData[] = [
       [`odwaga`, `odwagi`, `Czego?`],
     ]
   ),
-  dopełniacz(
+  dopełniaczVerb(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -205,6 +224,116 @@ const casesSourceData: CardSourceData[] = [
       [`przyjemna podróż`, `przyjemnej podróży`, `Czego?`],
       [`wesołe świętą`, `wesołych świąt`, `Czego?`],
     ]
+  ),
+  dopełniaczPreposition(
+    [`Kawa bez {word}`, `cukier`, `cukru`, `Czego?`],
+    [`Lek bez {word}`, `opakownie`, `opakowania`, `Czego?`],
+    [`Działać bez {word}`, `wątpienie`, `wątpienia`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Obniżka dla {word}`, `obywatel l.mn.`, `obywateli`, `Kogo?`],
+    [
+      `Mówimy "tak” dla {word}`,
+      `wspólna polityka`,
+      ` wspólnej polityki`,
+      `Czego?`,
+    ],
+    [
+      `Recykling jest korzystny dla {word}`,
+      `środowisko`,
+      `środowiska`,
+      `Czego?`,
+    ],
+    [`Mam dla {word}`, `Ty`, `Ciebie`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Srodki  do {word}`, `wykorzystanie`, `wykorzystania`, `Czego?`],
+    [`Nalewać do {word}`, `filiżanka`, `filiżanki`, `Czego?`],
+    [`Kandydat do {word}`, `dołączenie`, `dołączenia`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Podróż dookola {word}`, `świat`, `świata`, `Czego?`],
+    [`Skóra dookoła {word}`, `rana`, `rany`, `Czego?`],
+    [`Rośliny dookoła {word}`, `my`, `nas`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Stał obok {word}`, `on`, `niego`, `Kogo?`],
+    [`Siadaj obok {word}`, `ja`, `mnie`, `Kogo?`],
+    [`Siedzieć obok moich {word}`, `rodzice`, `rodziców`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Stał kolo {word}`, `dom`, `domu`, `Czego?`],
+    [`Stał kolo {word}`, `ja`, `mnie`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Kocham cię, mimo {word}`, `twoje błędy`, `twoich błędów`, `Czego?`],
+    [
+      `Sytuacja ta zaistniała mimo {word}`,
+      `podjęte działania`,
+      `podjętych działań`,
+      `Czego?`,
+    ],
+    [
+      `Możliwe mimo {word}`,
+      `zaostrzenie przepisów`,
+      `zaostrzenia przepisów`,
+      `Czego?`,
+    ]
+  ),
+  dopełniaczPreposition(
+    [`Siedzi naprzeciwko {word}`, `ja`, `mnie`, `Kogo?`],
+    [`Siedzieliśmy naprzeciwko {word}`, `siebie`, `siebie`, `Czego?`],
+    [
+      `Sklep naprzeciwko {word}`,
+      `miejsce spotkania`,
+      `miejsca spotkania`,
+      `Czego?`,
+    ]
+  ),
+  dopełniaczPreposition(
+    [`Mieszkam tutaj od {word}`, `lata`, `lat`, `Czego?`],
+    [`Wiadomości od {word}`, `siostra`, `siostry`, `Kogo?`],
+    [
+      `8 godzin od {word}`,
+      `przedawkowanie leku`,
+      `przedawkowania leku`,
+      `Czego?`,
+    ]
+  ),
+  dopełniaczPreposition(
+    [`Egzamin trwa oklo {word}`, `cztery godziny`, `czterech godzin`, `Czego?`],
+    [`Miała okolo {word}`, `dwadzieścia lat`, `dwudziestu lat`, `Czego?`],
+    [`Miał okolo {word}`, `pięćdziesiąt lat`, `pięćdziesięciu lat`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Cała załoga prócz {word} ewakuowała się`, `kapitan`, `kapitana`, `Kogo?`],
+    [`Nie ma innego znaczenia prócz {word}`, `to`, `tego`, `Czego?`],
+    [`Nie lubię nikogo, prócz {word}`, `Ty`, `Ciebie`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Każdy ma samochód oprócz {word}`, `ja`, `mnie`, `Kogo?`],
+    [`Nie przepuszczaj nikogo oprócz {word}`, `on`, `niego`, `Kogo?`],
+    [`Wszystkie oprócz {word}`, `jedna`, `jednej`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Nauczyłam się tego podczas {word}`, `warsztaty`, `warsztatów`, `Czego?`],
+    [
+      `Wystąpił problem podczas {word}`,
+      `tworzenie dokumentu`,
+      `tworzenia dokumentu`,
+      `Czego?`,
+    ],
+    [`Opieka lekarska podczas {word}`, `ciąża`, `ciąży`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [` {word}`, ``, ``, ``],
+    [` {word}`, ``, ``, ``],
+    [` {word}`, ``, ``, ``]
+  ),
+  dopełniaczPreposition(
+    [` {word}`, ``, ``, ``],
+    [` {word}`, ``, ``, ``],
+    [` {word}`, ``, ``, ``]
   ),
 
   // {
