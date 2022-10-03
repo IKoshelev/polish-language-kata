@@ -6,7 +6,7 @@ import { Verbs } from "./Verbs";
 import dialogPolyfill from 'dialog-polyfill';
 import { CasesUsage } from "./CasesUsage";
 
-type Mode = "cases-ending" | "cases-usage" | "verbs" | "numerals";
+type Mode = "verbs" | "cases-ending" | "cases-usage" | "numerals";
 const APP_MODE_KEY = "app-mode-key";
 
 function getModeFromQS() {
@@ -24,7 +24,7 @@ function setModeToQs(mode: Mode) {
 }
 
 function App() {
-  const [mode, setMode] = useState(getModeFromQS() ?? ("cases-ending" as Mode));
+  const [mode, setMode] = useState(getModeFromQS() ?? ("verbs" as Mode));
 
   return (
     <div className="App">
@@ -43,9 +43,9 @@ function App() {
         >
           {(
             [
-              ["cases-ending", "Przypadki (końcówki)"],
-              ["cases-usage", "Przypadki (użycie)"],
               ["verbs", "Czasowniki"],
+              ["cases-ending", "Przypadki (końcówki)"],
+              ["cases-usage", "Przypadki (użycie)"], 
               ["numerals", "Liczebniki"],
             ] as [Mode, string][]
           ).map(([buttonMode, label]) => (
