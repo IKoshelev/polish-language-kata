@@ -6,14 +6,18 @@ import { Verbs } from "./Verbs";
 import dialogPolyfill from 'dialog-polyfill';
 import { CasesUsage } from "./CasesUsage";
 
-type Mode = "verbs" | "cases-ending" | "cases-usage" | "numerals";
+const modes = ["verbs", "cases-ending", "cases-usage", "numerals"] as const;
+
+type Mode = (typeof modes)[number];
 const APP_MODE_KEY = "app-mode-key";
 
 function getModeFromQS() {
   const searchParams = new URLSearchParams(window.location.search);
 
-  if (searchParams.has(APP_MODE_KEY)) {
-    return searchParams.get(APP_MODE_KEY);
+  const mode = searchParams.get(APP_MODE_KEY);
+
+  if (mode && modes.includes(mode as any)) {
+    return mode;
   }
 }
 
@@ -45,7 +49,7 @@ function App() {
             [
               ["verbs", "Czasowniki"],
               ["cases-ending", "Przypadki (końcówki)"],
-              ["cases-usage", "Przypadki (użycie)"], 
+              ["cases-usage", "Czasowniki + Przypadki"], 
               ["numerals", "Liczebniki"],
             ] as [Mode, string][]
           ).map(([buttonMode, label]) => (
@@ -114,16 +118,16 @@ function App() {
         <p>Wybierz to, co chcesz ćwiczyć.</p>
 
         <p>
-          Jeśli tego potrzebujesz - naciśnij{" "}
-          <strong>"otworzyć wszystkie"</strong> i powtórz. Potem naciśnij{" "}
+          Jeśli tego potrzebujesz - naciśnij
+          <strong>"otworzyć wszystkie"</strong> i powtórz. Potem naciśnij
           <strong>"zamknąć wszystkie"</strong>.
         </p>
 
         <p>
           Naciśnij <strong>"rozpocznij ćwiczyć"</strong>, i przypomnij sobie
           poprawną formę podświetlonej kartki. Kliknij prawą stronę kartki, aby
-          ją otworzyć i zweryfikować. Jeśli zgadłeś źle - kliknij lewą stronę
-          kartki, aby zaznaczyć ją do powtórzenia.
+          ją otworzyć i zweryfikować. Jeśli zgadłeś źle - kliknij ponownie aby zamknąć i sprobować jeszcze raz albo
+          kliknij lewą stronę kartki, aby zaznaczyć ją do powtórzenia.
         </p>
 
         <p>

@@ -61,7 +61,12 @@ const dopełniacz = forCase("Dopełniacz");
 
 const casesSourceData: CardSourceData[] = [
   dopełniacz(
-    [`Boję się {word}`, `Boisz się {word}`],
+    [
+      `Bać się {word}`,
+      `Boję się {word}`,
+      `Boisz się {word}`,
+      `Bałem się {word}`,
+    ],
     [
       [`pajak l.mn.`, `pajaków`, `Kogo?`],
       [`wonż`, `węża`, `Kogo?`],
@@ -69,87 +74,118 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniacz(
-    [`Brakuję mi {word}`, `Brakuję ci {word}`],
+    [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
-      [`czas`, `czasu`, `Czego?`], 
+      [`czas`, `czasu`, `Czego?`],
       [`siła l.mn.`, `sił`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Pilnuję {word}`, `Pilnujesz {word}`],
+    [
+      `Pilnować {word}`,
+      `Pilnuję {word}`,
+      `Pilnujesz {word}`,
+      `Pilnowałem {word}`,
+    ],
     [
       [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
-      [`rzecz l.mn.`, `rzeczy`, `Czego?`], 
+      [`rzecz l.mn.`, `rzeczy`, `Czego?`],
       [`dziecko`, `dziecka`, `Kogo?`],
     ]
   ),
   dopełniacz(
-    [`Potrzebuje {word}`, `Potrzebujesz {word}`],
+    [
+      `Potrzebować  {word}`,
+      `Potrzebuje {word}`,
+      `Potrzebujesz {word}`,
+      `Potrzebowałem {word}`,
+    ],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
-      [`ojciec`, `ojca`, `Kogo?`], 
+      [`ojciec`, `ojca`, `Kogo?`],
       [`pomoc`, `pomocy`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Slucham {word}`, `Sluchasz {word}`],
+    [`Słuchać {word}`, `Slucham {word}`, `Sluchasz {word}`, `Słuchałem {word}`],
     [
       [`pani`, `pani`, `Kogo?`],
-      [`ojciec`, `ojca`, `Kogo?`], 
+      [`ojciec`, `ojca`, `Kogo?`],
       [`dziecko l.mn.`, `dzieci`, `Kogo?`],
     ]
   ),
   dopełniacz(
-    [`Szukam {word}`, `Szukasz {word}`],
+    [`Szukać {word}`, `Szukam {word}`, `Szukasz {word}`, `Szukałem {word}`],
     [
       [`kot`, `kota`, `Kogo?`],
-      [`ojciec`, `ojca`, `Kogo?`], 
+      [`ojciec`, `ojca`, `Kogo?`],
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Uczę się {word}`, `Uczysz się {word}`],
+    [
+      `Uczyć się {word}`,
+      `Uczę się {word}`,
+      `Uczysz się {word}`,
+      `Uczyłem się {word}`,
+    ],
     [
       [`jezyk polski`, `jezyka polskiego`, `Czego?`],
-      [`historia Polski`, `historii Polski`, `Czego?`], 
+      [`historia Polski`, `historii Polski`, `Czego?`],
       [`właściwe maniery`, `właściwych manier`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Używam {word}`, `Używasz {word}`],
+    [`Używać {word}`, `Używam {word}`, `Używasz {word}`, `Używałem {word}`],
     [
       [`ten kryterium`, `tego kryterium`, `Czego?`],
-      [`produkt`, `produktu`, `Czego?`], 
+      [`produkt`, `produktu`, `Czego?`],
       [`lek`, `leku`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Zapomniałem {word}`, `Zapomniałeś {word}`],
+    [
+      `Zapomniać {word}`,
+      `Zapomniałem {word}`,
+      `Zapomniałeś {word}`,
+      `Zapomniałem {word}`,
+    ],
     [
       [`hasło`, `hasła`, `Czego?`],
-      [`telefon`, `telefonu`, `Czego?`], 
+      [`telefon`, `telefonu`, `Czego?`],
       [`czapka`, `czapki`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Żałuję {word}`, `Żałujesz {word}`],
+    [`Żałować {word}`, `Żałuję {word}`, `Żałujesz {word}`, `Żałowałem {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
-      [`czegokolwiek`, `czegokolwiek`, `Czego?`], 
+      [`czegokolwiek`, `czegokolwiek`, `Czego?`],
       [`zmarnowana szansa`, `zmarnowanej szansy`, `Czego?`],
     ]
   ),
-  dopełniacz( // lots of usage, so 3 dicated cards 
-    [`Życzę ci {word}`, `Życzysz mi {word}`],
+  dopełniacz(
+    // lots of usage, so 3 dicated cards
+    [
+      `Życzyć {word}`,
+      `Życzę ci {word}`,
+      `Życzysz mi {word}`,
+      `Życzyłem ci {word}`,
+    ],
     [
       [`wielo sukcess l.mn.`, `wielu sukcesów`, `Czego?`],
-      [`miły dzień`, `miłego dnia`, `Czego?`], 
+      [`miły dzień`, `miłego dnia`, `Czego?`],
       [`pomyślna przyszłość`, `pomyślnej przyszłości`, `Czego?`],
     ]
   ),
   dopełniacz(
-    [`Życzę ci {word}`, `Życzysz mi {word}`],
+    [
+      `Życzyć {word}`,
+      `Życzę ci {word}`,
+      `Życzysz mi {word}`,
+      `Życzyłem ci {word}`,
+    ],
     [
       [`szczęśliwy nowy rok`, `szczęśliwego nowego roku`, `Czego?`],
       [`sam sukcess l.mn.`, `samych sukcesów`, `Czego?`],
@@ -157,12 +193,17 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniacz(
-    [`Życzę ci {word}`, `Życzysz mi {word}`],
+    [
+      `Życzyć {word}`,
+      `Życzę ci {word}`,
+      `Życzysz mi {word}`,
+      `Życzyłem ci {word}`,
+    ],
     [
       [`wszystko dobre`, `wszystkiego dobrego`, `Czego?`],
       [`wszelkie sukcess l.mn.`, `wszelkich sukcesów`, `Czego?`],
       [`przyjemna podróż`, `przyjemnej podróży`, `Czego?`],
-      [`wesołe świętą`,`wesołych świąt`,`Czego?`]
+      [`wesołe świętą`, `wesołych świąt`, `Czego?`],
     ]
   ),
 
@@ -360,7 +401,6 @@ export function CasesUsage() {
 
   return (
     <div id="cases-usage">
-
       <div className="submenu-std">
         <button
           onClick={() =>
