@@ -832,10 +832,6 @@ export function Verbs() {
 
   return (
     <div id="verbs">
-      <div>
-        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
-        zaznaczenia
-      </div>
       <div className="submenu-std">
         <button
           onClick={() =>
@@ -967,6 +963,10 @@ export function Verbs() {
             </div>
           );
         })}
+      </div>
+      <div>
+        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
+        zaznaczenia
       </div>
       <div className="table-container-std">
         <table className="table-std">

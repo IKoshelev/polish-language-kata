@@ -360,10 +360,7 @@ export function CasesUsage() {
 
   return (
     <div id="cases-usage">
-      <div>
-        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
-        zaznaczenia
-      </div>
+
       <div className="submenu-std">
         <button
           onClick={() =>
@@ -498,6 +495,10 @@ export function CasesUsage() {
             <MdAvTimer />
           </div>
         </button>
+      </div>
+      <div>
+        Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
+        zaznaczenia
       </div>
       <div className="table-container-std">
         <table className="table-std">
