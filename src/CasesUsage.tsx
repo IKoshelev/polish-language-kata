@@ -326,14 +326,101 @@ const casesSourceData: CardSourceData[] = [
     [`Opieka lekarska podczas {word}`, `ciąża`, `ciąży`, `Czego?`]
   ),
   dopełniaczPreposition(
-    [` {word}`, ``, ``, ``],
-    [` {word}`, ``, ``, ``],
-    [` {word}`, ``, ``, ``]
+    [`Poziom poniżej {word}`, `norma`, `normy`, `Czego?`],
+    [`Prawdopodobieństwo poniżej {word}`, `pięc procent`, `pięciu procent`, `Czego?`],
+    [`Boli mnie poniżej {word}`, `żebra`, `żeber`, `Czego?`]
   ),
   dopełniaczPreposition(
-    [` {word}`, ``, ``, ``],
-    [` {word}`, ``, ``, ``],
-    [` {word}`, ``, ``, ``]
+    [`25 kilometrów powyżej {word}`, `dozwolona prędkość`, `dozwolonej prędkości`, `Czego?`],
+    [`Wartość powyżej {word}`, `zakres`, `zakres`, `Czego?`],
+    [`Przelewy powyżej {word}`, `pięc tysięcy`, `pięciu tysięcy`, `Czego?`],
+    [`Przelewy powyżej {word}`, `dwa tysiące`, `dwóch tysięcy`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Wyszedł spod {word}`, `kontrola`, `kontroli`, `Czego?`],
+    [`Wyszła spod {word}`, `kontrola`, `kontroli`, `Czego?`],
+    [`Próbki skóry spod {word}`, `jej paznokci`, ` jej paznokci`, `Czego?`],
+    [`Wyrwę się spod {word}`, `to wszystkie`, `tego wszystkiego`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Wybieram spomiędzy {word}`, `cztery opcji`, `czterech opcji`, `Czego?`],
+    [`Brud spomiędzy {word}`, `płytka l.mn.`, `płytek`, `Czego?`],
+    [`Ktoś spomiędzy {word}`, `wy`, `was`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Wybiera przewodniczącego spośród {word}`, `przedstawiciel l.mn.`, `przedstawicieli`, `Kogo?`],
+    [`Jesteś spośród {word}`, `kandydat l.mn.`, `kandydatów`, `Kogo?`],
+    [`Największe spośród {word}`, `siedem mórz`, `siedmiu mórz`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Powiedz komuś spoza {word}`, `rodzina`, `rodziny`, `Czego?`],
+    [`Klienci spoza {word}`, `terytorium kraju`, `terytorium kraju`, `Czego?`],
+    [`Szukamy kogoś, spoza {word}`, `społeczeństwo`, `społeczeństwa`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Kanapka sprzed {word}`, `trzy dni`, `trzech dni`, `Czego?`],
+    [`To model sprzed {word}`, `rok`, `roku`, `Czego?`],
+    [`Został skradziony sprzed {word}`, `nasze nosy`, `naszych nosów`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Jestem u {word}`, `dentysta`, `dentysty`, `Kogo?`],
+    [`Jestem u {word}`, `ja`, `siebie`, `Kogo?`],
+    [`Umówić wizytę u {word}`, `lekarz`, `lekarza`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`Dam wam oferty w ciągu {word}`, `godzina`, `godziny`, `Czego?`],
+    [`Potrafię to zrobić w ciągu {word}`, `tydzień`, `tygodnia`, `Czego?`],
+    [`Posunięcia w ciągu {word}`, `ostatnie trzy dni`, `ostatnich trzech dni`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Powód według {word}`, `wiarygodne źródło l.mn.`, `wiarygodnych źródeł`, `Kogo?`],
+    [`Płatność odbywa się według {word}`, `wybor klienta`, `wyboru klienta`, `Czego?`],
+    [`Biuro doposażone według {word}`, `potrzeba najemcy`, `potrzeby najemcy`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Środki karne w razie {word}`, `naruszenie`, `naruszenia`, `Czego?`],
+    [`W razie {word}`, `odwołanie`, `odwołania`, `Czego?`],
+    [`Ubezpieczenie w razie {word}`, `wypadek`, `wypadku`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Być wśród {word}`, `znajomy l.mn.`, `znajomych`, `Kogo?`],
+    [`Wybór wśród {word}`, `tyle ludzi`, `tylu ludzi`, `Kogo?`],
+    [`Rywalizacja wśród {word}`, `kumpel l.mn.`, `kumpli`, `Kogo?`]
+  ),
+  dopełniaczPreposition(
+    [`W punktach wzdłuż {word}`, `cała trassa`, `całej trasy`, `Czego?`],
+    [`Przyszłość nie podąża wzdłuż {word}`, `pojedyńcza droga`, `pojedyńczej drogi`, `Czego?`],
+    [`płyń wzdłuż {word}`, `wybrzeże`, `wybrzeży`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Jestem z {word}`, `Urząd`, `Urzędu`, `Czego?`],
+    [`Jestem z {word}`, `Polska`, `Polski`, `Czego?`],
+    [`Jestem z {word}`, `przyszłość`, `przyszłości`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Wybrałam Ciebie zamiast {word}`, `oni`, `ich`, `Kogo?`],
+    [`Granatowy zamiast {word}`, `niebieski`, `niebieskiego`, `Czego?`],
+    [`Kłamstwo zamiast {word}`, `prawda`, `prawdy`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Nadajemy na żywo znad {word}`, `Zatoka Tokio`, `Zatoki Tokio`, `Czego?`],
+    [`Nadchodzi znad {word}`, `ocean`, `oceanu`, `Czego?`],
+    [`Spadło znad {word}`, `jej lewe ramię`, `jej lewego ramienia`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Stracił przytomność z powodu {word}`, `wysoka gorączka`, `wysokiej gorączki`, `Czego?`],
+    [`Zamierzasz umrzeć z powodu {word}`, `swój pokaz`, `swojego pokazu`, `Czego?`],
+    [`Opuściłem ją z powodu {word}`, `własny lęk l.mn.`, `własnych lęków`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`Stoi niebezpiecznie blisko {word}`, `duża kałuża`, `dużej kałuży`, `Czego?`],
+    [`Musisz pozostać blisko {word}`, `powierzchnia`, `powierzchni`, `Czego?`],
+    [`Jesteśmy blisko {word}`, `wyczerpanie zapasów`, `wyczerpania zapasów`, `Czego?`]
+  ),
+  dopełniaczPreposition(
+    [`W motelu niedaleko {word}`, `lotnisko`, `lotniska`, `Czego?`],
+    [`To znaleziono na skrzyżowaniu niedaleko {word}`, `te miejsce`, `tego miejsca`, `Czego?`],
+    [`Jestem niedaleko {word}`, `Ci`, `Ciebie`, `Kogo?`]
   ),
 
   // {
