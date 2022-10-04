@@ -41,6 +41,7 @@ const forCaseVerb =
   };
 
 const dopełniaczVerb = forCaseVerb("Dopełniacz");
+const celownikVerb = forCaseVerb("Celownik");
 
 const forCasePreposition =
   (caseName: string) =>
@@ -60,8 +61,9 @@ const forCasePreposition =
   };
 
 const dopełniaczPreposition = forCasePreposition("Dopełniacz");
+const celownikPreposition = forCasePreposition("Celownik");
 
-const casesSourceData: CardSourceData[] = [
+const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczVerb(
     [
       `Bać się {word}`,
@@ -73,14 +75,16 @@ const casesSourceData: CardSourceData[] = [
       [`pajak l.mn.`, `pajaków`, `Kogo?`],
       [`wonż`, `węża`, `Kogo?`],
       [`wysokość`, `wysokości`, `Czego?`],
+      [`ja`, `mnie`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
-    [`Brakuję mi {word}`, `Brakuję Ci {word}`, `Brakowało Ci {word}`],
+    [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`czas`, `czasu`, `Czego?`],
       [`siła l.mn.`, `sił`, `Czego?`],
+      [`one/one`, `ich/nich`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -94,6 +98,7 @@ const casesSourceData: CardSourceData[] = [
       [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
       [`rzecz l.mn.`, `rzeczy`, `Czego?`],
       [`dziecko`, `dziecka`, `Kogo?`],
+      [`on`, `jego/go/niego`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -107,6 +112,7 @@ const casesSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`ojciec`, `ojca`, `Kogo?`],
       [`pomoc`, `pomocy`, `Czego?`],
+      [`ona`, `jej/niej`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -115,6 +121,7 @@ const casesSourceData: CardSourceData[] = [
       [`pani`, `pani`, `Kogo?`],
       [`ojciec`, `ojca`, `Kogo?`],
       [`dziecko l.mn.`, `dzieci`, `Kogo?`],
+      [`my`, `nas`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -157,6 +164,7 @@ const casesSourceData: CardSourceData[] = [
       [`hasło`, `hasła`, `Czego?`],
       [`telefon`, `telefonu`, `Czego?`],
       [`czapka`, `czapki`, `Czego?`],
+      [`wy`, `was`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -171,9 +179,9 @@ const casesSourceData: CardSourceData[] = [
     // lots of usage, so 3 dicated cards
     [
       `Życzyć {word}`,
-      `Życzę Ci {word}`,
+      `Życzę ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem Ci {word}`,
+      `Życzyłem ci {word}`,
     ],
     [
       [`wielo sukcess l.mn.`, `wielu sukcesów`, `Czego?`],
@@ -184,9 +192,9 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczVerb(
     [
       `Życzyć {word}`,
-      `Życzę Ci {word}`,
+      `Życzę ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem Ci {word}`,
+      `Życzyłem ci {word}`,
     ],
     [
       [`szczęśliwy nowy rok`, `szczęśliwego nowego roku`, `Czego?`],
@@ -197,9 +205,9 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczVerb(
     [
       `Życzyć {word}`,
-      `Życzę Ci {word}`,
+      `Życzę ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem Ci {word}`,
+      `Życzyłem ci {word}`,
     ],
     [
       [`wszystko dobre`, `wszystkiego dobrego`, `Czego?`],
@@ -227,7 +235,7 @@ const casesSourceData: CardSourceData[] = [
       `środowiska`,
       `Czego?`,
     ],
-    [`Mam dla {word}`, `Ty`, `Ciebie`, `Kogo?`]
+    [`Mam dla {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
   dopełniaczPreposition(
     [`Srodki  do {word}`, `wykorzystanie`, `wykorzystania`, `Czego?`],
@@ -291,7 +299,7 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczPreposition(
     [`Cała załoga prócz {word} ewakuowała się`, `kapitan`, `kapitana`, `Kogo?`],
     [`Nie ma innego znaczenia prócz {word}`, `to`, `tego`, `Czego?`],
-    [`Nie lubię nikogo, prócz {word}`, `Ty`, `Ciebie`, `Kogo?`]
+    [`Nie lubię nikogo, prócz {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
   dopełniaczPreposition(
     [`Każdy ma samochód oprócz {word}`, `ja`, `mnie`, `Kogo?`],
@@ -473,7 +481,7 @@ const casesSourceData: CardSourceData[] = [
       `tego miejsca`,
       `Czego?`,
     ],
-    [`Jestem niedaleko {word}`, `Ty`, `Ciebie`, `Kogo?`]
+    [`Jestem niedaleko {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
 
   // {
@@ -496,6 +504,85 @@ const casesSourceData: CardSourceData[] = [
   //   id: counter++,
   //   template: () => ['','']
   // },
+];
+
+const celownikSourceData: CardSourceData[] = [
+  celownikVerb(
+    [
+      `Darować {word} tego.`,
+      `Daruję {word} tego.`,
+      `Darujesz {word} tego.`,
+      `Darowałem {word} tego.`,
+    ],
+    [
+      [`ty`, `ci`, `Komu?`],
+      [`on`, `jemu`, `Komu?`],
+      [`ona`, `jej`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Dawać {word}`,
+      `Daję {word}`,
+      `Dajesz {word}`,
+      `Dawałem {word}`,
+    ],
+    [
+      [`ja`, `mi/mnie`, `Komu?`],
+      [`ona`, `jej/niej`, `Komu?`],
+      [`oni/one`, `im`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Dokuczać {word}`,
+      `Dokuczam {word}`,
+      `Dokuczasz {word}`,
+      `Dokuczałem {word}`,
+    ],
+    [
+      [`ty`, `tobie/ci`, `Komu?`],
+      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`wy`, `wam`, `Komu?`],
+    ]
+  ),
+
+  celownikPreposition(
+    [`Dzięki {word} jestem żywy!`, `Bog`, `Bogu`, `Komu?`],
+    [`Znalazłem go dzięki {word} `, `ty`, `tobie`, `Komu?`],
+    [`Zostali wypuszczeni dzięki {word}!`, `starania ambasady`, `staraniom ambasady`, `Czemu?`]
+  ),
+  celownikPreposition(
+    [`Obłok zmierza prosto ku {word}`, `miasto`, `miastu`, `Czemu?`],
+    [`Wielki krok ku {word}`, `dorosłość`, `dorosłości`, `Czemu?`],
+    [`Pchnęła jego ku {word}`, `negatywne emocje`, `negatywnym emocjom`, `Czemu?`],
+    [`Nie żywię wrogich uczuć ku {word}`, `ty`, `tobie`, `Komu?`]
+  ),
+  celownikPreposition(
+    [`Idę naprzeciw {word}`, `system`, `systemowi`, `Czemu?`],
+    [`Postępy wychodzą naprzeciw {word}`, `oczekiwanie l.mn.`, `oczekiwaniom`, `Czemu?`],
+    [`Wyszedł naprzeciw {word}`, `stanowisko Rady`, `stanowisku Rady`, `Czemu?`]
+  ),
+  celownikPreposition(
+    [`Zrobiłam to na przekór {word}`, `tata`, `tacie`, `Komu?`],
+    [`Walczymy na przekór {word}`, ` wszystko`, ` wszystkiemu`, `Czemu?`],
+    [`Na przekór {word}`, `tradycja`, `tradycji`, `Czemu?`]
+  ),
+  celownikPreposition(
+    [`Zazdrość może zwrócić brata przeciw {word}`, `brat`, `bratu`, `Komu?`],
+    [`On jest przeciwko {word}`, `my`, `nam`, `Komu?`],
+    [`To jest sensowny argument przeciw {word}`, `moja opinia`, `mojej opinii`, `Czemu?`]
+  ),
+  celownikPreposition(
+    [`Postępuję wbrew {word}`, `logika`, `logice`, `Czemu?`],
+    [`Postępuję wbrew {word}`, `przepis l.mn.`, `przepisom`, `Czemu?`],
+    [`Przetrzymuje człowieka wbrew {word}`, `jego wola`, `jego woli`, `Czemu?`]
+  ),
+];
+
+const casesSourceData: CardSourceData[] = [
+  ...dopełniaczSourceData,
+  ...celownikSourceData
 ];
 
 export function getCaseData(
