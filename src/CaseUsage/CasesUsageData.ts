@@ -91,7 +91,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`czas`, `czasu`, `Czego?`],
       [`siła l.mn.`, `sił`, `Czego?`],
-      [`one/one`, `ich/nich`, `Kogo?`],
+      [`one/one`, `ich`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -105,7 +105,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
       [`rzecz l.mn.`, `rzeczy`, `Czego?`],
       [`dziecko`, `dziecka`, `Kogo?`],
-      [`on`, `jego/go/niego`, `Kogo?`],
+      [`on`, `jego/go`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -119,7 +119,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`ojciec`, `ojca`, `Kogo?`],
       [`pomoc`, `pomocy`, `Czego?`],
-      [`ona`, `jej/niej`, `Kogo?`],
+      [`ona`, `jej`, `Kogo?`],
     ]
   ),
   dopełniaczVerb(
@@ -233,7 +233,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     [
       `Mówimy "tak” dla {word}`,
       `wspólna polityka`,
-      ` wspólnej polityki`,
+      `wspólnej polityki`,
       `Czego?`,
     ],
     [
@@ -245,7 +245,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     [`Mam dla {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
   dopełniaczPreposition(
-    [`Srodki  do {word}`, `wykorzystanie`, `wykorzystania`, `Czego?`],
+    [`Srodki do {word}`, `wykorzystanie`, `wykorzystania`, `Czego?`],
     [`Nalewać do {word}`, `filiżanka`, `filiżanki`, `Czego?`],
     [`Kandydat do {word}`, `dołączenie`, `dołączenia`, `Czego?`]
   ),
@@ -536,7 +536,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`ja`, `mi/mnie`, `Komu?`],
-      [`ona`, `jej/niej`, `Komu?`],
+      [`ona`, `jej`, `Komu?`],
       [`oni/one`, `im`, `Komu?`],
     ]
   ),
@@ -549,8 +549,8 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`kot`, `kotu`, `Komu?`],
-      [`on`, `jemu/mu/niemu`, `Komu?`],
-      [`ona`, `jej/nie`, `Komu?`],
+      [`on`, `jemu/mu`, `Komu?`],
+      [`ona`, `jej`, `Komu?`],
     ]
   ),
   celownikVerb(
@@ -678,7 +678,7 @@ const celownikSourceData: CardSourceData[] = [
       `Podawałem rękę {word}`,
     ],
     [
-      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`on`, `jemu/mu`, `Komu?`],
       [`prezes`, `prezesowi`, `Komu?`],
       [`lekarz`, `lekarzowi`, `Komu?`],
     ]
@@ -717,8 +717,8 @@ const celownikSourceData: CardSourceData[] = [
       `Pożyczałem {word} pieniądze `,
     ],
     [
-      [`on`, `jemu/mu/niemu`, `Komu?`],
-      [`oni/one`, `im/nim`, `Komu?`],
+      [`on`, `jemu/mu`, `Komu?`],
+      [`oni/one`, `im`, `Komu?`],
       [`ta firma`, `tej firmie`, `Komu?`],
     ]
   ),
@@ -756,7 +756,7 @@ const celownikSourceData: CardSourceData[] = [
       `Przynosiłem {word} radość`,
     ],
     [
-      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`on`, `jemu/mu`, `Komu?`],
       [`dzieci`, `dzieciom`, `Komu?`],
       [`wszyscy`, `wszystkim`, `Komu?`],
     ]
@@ -833,7 +833,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`sędzia`, `sędzi`, `Komu?`],
-      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`on`, `jemu/mu`, `Komu?`],
       [`sobie`, `sobie`, `Komu?`],
     ]
   ),
