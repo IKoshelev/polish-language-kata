@@ -395,7 +395,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Powód według {word}`,
       `wiarygodne źródło l.mn.`,
       `wiarygodnych źródeł`,
-      `Kogo?`,
+      `Czego?`,
     ],
     [
       `Płatność odbywa się według {word}`,
@@ -490,27 +490,6 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Jestem niedaleko {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
-
-  // {
-  //   caseName: "Celownik",
-  //   id: counter++,
-  //   template: () => ['','']
-  // },
-  // {
-  //   caseName: "Biernik",
-  //   id: counter++,
-  //   template: () => ['','']
-  // },
-  // {
-  //   caseName: "Narzędnik",
-  //   id: counter++,
-  //   template: () => ['','']
-  // },
-  // {
-  //   caseName: "Miejscownik",
-  //   id: counter++,
-  //   template: () => ['','']
-  // },
 ];
 
 const celownikSourceData: CardSourceData[] = [
@@ -576,7 +555,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       [`ona`, `jej`, `Komu?`],
       [`to`, `temu`, `Czemu?`],
-      [`twoje zachowanie`, `twojemu zachowaniu`, `Komu?`],
+      [`twoje zachowanie`, `twojemu zachowaniu`, `Czemu?`],
     ]
   ),
   celownikVerb(
@@ -610,7 +589,7 @@ const celownikSourceData: CardSourceData[] = [
       `Kupować {word} prezent`,
       `Kupuję {word} prezent`,
       `Kupujesz {word} prezent`,
-      `Kupowałem {word} prezentfaaaaaaaaaa`,
+      `Kupowałem {word} prezent`,
     ],
     [
       [`ona`, `jej`, `Komu?`],
@@ -719,7 +698,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       [`on`, `jemu/mu`, `Komu?`],
       [`oni/one`, `im`, `Komu?`],
-      [`ta firma`, `tej firmie`, `Komu?`],
+      [`ta firma`, `tej firmie`, `Czemu?`],
     ]
   ),
   celownikVerb(
@@ -744,8 +723,8 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`każda twarz`, `każdej twarzy`, `Czemu?`],
-      [`lusterko`, `lusterku`, `Komu?`],
-      [`okno`, `oknu`, `Komu?`],
+      [`lusterko`, `lusterku`, `Czemu?`],
+      [`okno`, `oknu`, `Czemu?`],
     ]
   ),
   celownikVerb(
@@ -819,9 +798,9 @@ const celownikSourceData: CardSourceData[] = [
       `Szkodziłem {word}`,
     ],
     [
-      [`środowisko`, `środowisku`, `Komu?`],
-      [`społeczność`, `społeczności`, `Komu?`],
-      [`reputacja`, `reputacji`, `Komu?`],
+      [`środowisko`, `środowisku`, `Czemu?`],
+      [`społeczność`, `społeczności`, `Czemu?`],
+      [`reputacja`, `reputacji`, `Czemu?`],
     ]
   ),
   celownikVerb(
@@ -873,7 +852,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       [`Ania`, `Ani`, `Komu?`],
       [`pies`, `psu`, `Komu?`],
-      [`papuga`, `papuga`, `Komu?`],
+      [`papuga`, `papudze`, `Komu?`],
     ]
   ),
   celownikVerb(

@@ -60,7 +60,7 @@ export function CasesUsage() {
       return;
     }
 
-    const allCards = state.cards.filter((x) => !x.isTextOpened);
+    const allCards = state.cards.filter(x => activeSections.has(x.caseName)).filter((x) => !x.isTextOpened);
     if (allCards.length === 0) {
       setTimeout(() => {
         alert("Gratulacje!");
