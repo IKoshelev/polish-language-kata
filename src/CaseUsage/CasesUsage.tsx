@@ -13,7 +13,7 @@ import {
 } from "react-icons/md";
 import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
-import { Card, getCaseData } from "./CasesUsageData";
+import { Card, CaseName, cases, getCaseData } from "./CasesUsageData";
 
 const CASES_USAGE_STATE_QS_KEY = "cases-usage-state-key";
 
@@ -23,6 +23,10 @@ type CurrentState = {
   target?: number | undefined;
   hasSavedData: boolean;
   randomModeOn: boolean;
+  sections: {
+    name: CaseName;
+    active: boolean;
+  }[];
 };
 
 export function CasesUsage() {
@@ -33,6 +37,16 @@ export function CasesUsage() {
         timeout: 2000,
         target: undefined,
         hasSavedData: !!localStorage.getItem(CASES_USAGE_STATE_QS_KEY),
+        sections: [
+          {
+            name: cases.dopełniacz,
+            active: true,
+          },
+          {
+            name: cases.celownik,
+            active: true,
+          },
+        ],
         randomModeOn: false,
       } as CurrentState)
   );
@@ -138,6 +152,10 @@ export function CasesUsage() {
         </div>
       </td>
     </tr>
+  );
+
+  const activeSections = new Set(
+    state.sections.filter((x) => x.active).map((x) => x.name)
   );
 
   return (
@@ -277,6 +295,25 @@ export function CasesUsage() {
           </div>
         </button>
       </div>
+      <div className="subsections-std">
+        {state.sections.map((section) => {
+          return (
+            <div
+              key={section.name}
+              className="subsection-checkbox"
+              onClick={() =>
+                updateState((d) => {
+                  const s = d.sections.find((x) => x.name === section.name)!;
+                  s.active = !s?.active;
+                })
+              }
+            >
+              {section.name}
+              <span>{section.active === true ? "✔️" : " "}</span>
+            </div>
+          );
+        })}
+      </div>
       <div>
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia
@@ -288,7 +325,7 @@ export function CasesUsage() {
               <th>Użycie</th>
             </tr>
           </thead>
-          <tbody>{state.cards.map((card) => renderCardRow(card))}</tbody>
+          <tbody>{state.cards.filter(x => activeSections.has(x.caseName)).map((card) => renderCardRow(card))}</tbody>
         </table>
       </div>
     </div>

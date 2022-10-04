@@ -1,18 +1,25 @@
 import groupBy from "lodash.groupby";
 import { getRandomItem, shuffleAndReturnArr } from "../util";
 
+export const cases = {
+  dopełniacz: 'Dopełniacz',
+  celownik: 'Celownik'
+} as const;
+
+export type CaseName = typeof cases[keyof typeof cases];
+
 export type Card = {
   id: number;
   isCaseNameOpened: boolean;
   isTextOpened: boolean;
   isMarked: boolean;
-  caseName: string;
+  caseName: CaseName;
   textWhenOpened: string;
   textWhenClosed: string;
 };
 
 type CardSourceData = {
-  caseName: string;
+  caseName: CaseName;
   id: number;
   getRandomizedExample: () => [string, string];
 };
@@ -20,7 +27,7 @@ type CardSourceData = {
 let counter = 1;
 
 const forCaseVerb =
-  (caseName: string) =>
+  (caseName: CaseName) =>
   (
     templates: `${string}{word}${string}`[],
     words: [string, string, string][]
@@ -40,11 +47,11 @@ const forCaseVerb =
     };
   };
 
-const dopełniaczVerb = forCaseVerb("Dopełniacz");
-const celownikVerb = forCaseVerb("Celownik");
+const dopełniaczVerb = forCaseVerb(cases.dopełniacz);
+const celownikVerb = forCaseVerb(cases.celownik);
 
 const forCasePreposition =
-  (caseName: string) =>
+  (caseName: CaseName) =>
   (...templates: [`${string}{word}${string}`, string, string, string][]) => {
     return {
       caseName,
@@ -60,8 +67,8 @@ const forCasePreposition =
     };
   };
 
-const dopełniaczPreposition = forCasePreposition("Dopełniacz");
-const celownikPreposition = forCasePreposition("Celownik");
+const dopełniaczPreposition = forCasePreposition(cases.dopełniacz);
+const celownikPreposition = forCasePreposition(cases.celownik);
 
 const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczVerb(
@@ -511,11 +518,11 @@ const celownikSourceData: CardSourceData[] = [
     [
       `Darować {word} tego.`,
       `Daruję {word} tego.`,
-      `Daruje {word} tego.`,
+      `Darujesz {word} tego.`,
       `Darowałem {word} tego.`,
     ],
     [
-      [`ty`, `ci`, `Komu?`],
+      [`człowiek`, `człowiekowi`, `Komu?`],
       [`on`, `jemu`, `Komu?`],
       [`ona`, `jej`, `Komu?`],
     ]
@@ -537,13 +544,13 @@ const celownikSourceData: CardSourceData[] = [
     [
       `Dokuczać {word}`,
       `Dokuczam {word}`,
-      `Dokucza {word}`,
+      `Dokuczasz {word}`,
       `Dokuczałem {word}`,
     ],
     [
-      [`ty`, `tobie/ci`, `Komu?`],
+      [`kot`, `kotu`, `Komu?`],
       [`on`, `jemu/mu/niemu`, `Komu?`],
-      [`wy`, `wam`, `Komu?`],
+      [`ona`, `jej/nie`, `Komu?`],
     ]
   ),
   celownikVerb(
@@ -581,16 +588,16 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`drużyna`, `drużynie`, `Czemu?`],
-      [`wy`, `wam`, `Komu?`],
+      [`on`, `jemu`, `Komu?`],
       [`swój mąż`, `swojemu mężowi`, `Komu?`],
     ]
   ),
   celownikVerb(
     [
-      `Kraść {word}`,
-      `Kradnę {word}`,
-      `Kradniesz {word}`,
-      `Kradłem {word}`,
+      `Kraść {word} środki`,
+      `Kradnę {word} środki`,
+      `Kradniesz {word} środki`,
+      `Kradłem {word} środki`,
     ],
     [
       [`ludzie`, `ludziom`, `Komu?`],
@@ -600,10 +607,10 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikVerb(
     [
-      `Kupować {word}`,
-      `Kupuję {word}`,
-      `Kupujesz {word}`,
-      `Kupowałem {word}`,
+      `Kupować {word} prezent`,
+      `Kupuję {word} prezent`,
+      `Kupujesz {word} prezent`,
+      `Kupowałem {word} prezentfaaaaaaaaaa`,
     ],
     [
       [`ona`, `jej`, `Komu?`],
@@ -619,7 +626,7 @@ const celownikSourceData: CardSourceData[] = [
       `Mówiłem {word} o tym`,
     ],
     [
-      [`ty`, `ci`, `Komu?`],
+      [`przyjaciel`, `przyjacielowi`, `Komu?`],
       [`pani`, `pani`, `Komu?`],
       [`pan sędzia`, `panu sędzi`, `Komu?`],
     ]
@@ -652,10 +659,10 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikVerb(
     [
-      `Opowiadać {word}`,
-      `Opowiadam {word}`,
-      `Opowiadasz {word}`,
-      `Opowiadałem {word}`,
+      `Opowiadać {word} historii`,
+      `Opowiadam {word} historii`,
+      `Opowiadasz {word} historii`,
+      `Opowiadałem {word} historii`,
     ],
     [
       [`dziecko l.mn.`, `dzieciom`, `Komu?`],
@@ -782,10 +789,8 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikVerb(
     [
-      `Smakować {word}`,
-      `Smakuję {word}`,
-      `Smakujesz {word}`,
-      `Smakowałem {word}`,
+      `Mięso smakuję {word}`,
+      `Mięso smakowało {word}`,
     ],
     [
       [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
