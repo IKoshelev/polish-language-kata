@@ -46,6 +46,10 @@ export function CasesUsage() {
             name: cases.celownik,
             active: true,
           },
+          {
+            name: cases.biernik,
+            active: true,
+          },
         ],
         randomModeOn: false,
       } as CurrentState)

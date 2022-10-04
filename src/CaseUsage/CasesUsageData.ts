@@ -2,8 +2,9 @@ import groupBy from "lodash.groupby";
 import { getRandomItem, shuffleAndReturnArr } from "../util";
 
 export const cases = {
-  dopełniacz: 'Dopełniacz',
-  celownik: 'Celownik'
+  dopełniacz: "Dopełniacz",
+  celownik: "Celownik",
+  biernik: `Biernik`,
 } as const;
 
 export type CaseName = typeof cases[keyof typeof cases];
@@ -47,9 +48,6 @@ const forCaseVerb =
     };
   };
 
-const dopełniaczVerb = forCaseVerb(cases.dopełniacz);
-const celownikVerb = forCaseVerb(cases.celownik);
-
 const forCasePreposition =
   (caseName: CaseName) =>
   (...templates: [`${string}{word}${string}`, string, string, string][]) => {
@@ -67,8 +65,13 @@ const forCasePreposition =
     };
   };
 
+const dopełniaczVerb = forCaseVerb(cases.dopełniacz);
+const celownikVerb = forCaseVerb(cases.celownik);
+const biernikVerb = forCaseVerb(cases.biernik);
+
 const dopełniaczPreposition = forCasePreposition(cases.dopełniacz);
 const celownikPreposition = forCasePreposition(cases.celownik);
+const biernikPreposition = forCasePreposition(cases.biernik);
 
 const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczVerb(
@@ -507,12 +510,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikVerb(
-    [
-      `Dawać {word}`,
-      `Daję {word}`,
-      `Dajesz {word}`,
-      `Dawałem {word}`,
-    ],
+    [`Dawać {word}`, `Daję {word}`, `Dajesz {word}`, `Dawałem {word}`],
     [
       [`ja`, `mi/mnie`, `Komu?`],
       [`ona`, `jej`, `Komu?`],
@@ -676,12 +674,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikVerb(
-    [
-      `Pomagać {word}`,
-      `Pomagam {word}`,
-      `Pomagasz {word}`,
-      `Pomagałem {word}`,
-    ],
+    [`Pomagać {word}`, `Pomagam {word}`, `Pomagasz {word}`, `Pomagałem {word}`],
     [
       [`biedny l.mn.`, `biednym`, `Komu?`],
       [`zwierzęta`, `zwierzętom`, `Komu?`],
@@ -767,10 +760,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikVerb(
-    [
-      `Mięso smakuję {word}`,
-      `Mięso smakowało {word}`,
-    ],
+    [`Mięso smakuję {word}`, `Mięso smakowało {word}`],
     [
       [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
       [`wilk`, `wilkowi`, `Komu?`],
@@ -817,12 +807,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikVerb(
-    [
-      `Ufać {word}`,
-      `Ufam {word}`,
-      `Ufasz {word}`,
-      `Ufałem {word}`,
-    ],
+    [`Ufać {word}`, `Ufam {word}`, `Ufasz {word}`, `Ufałem {word}`],
     [
       [`niewłaściwe ludzie`, `niewłaściwym ludziom`, `Komu?`],
       [`dziennikarz l.mn.`, `dziennikarzom`, `Komu?`],
@@ -830,12 +815,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikVerb(
-    [
-      `Wierzyć {word}`,
-      `Wierzę {word}`,
-      `Wierzysz {word}`,
-      `Wierzyłem {word}`,
-    ],
+    [`Wierzyć {word}`, `Wierzę {word}`, `Wierzysz {word}`, `Wierzyłem {word}`],
     [
       [`Kamil`, `Kamilowi`, `Komu?`],
       [`dziennikarz l.mn.`, `dziennikarzom`, `Komu?`],
@@ -884,17 +864,32 @@ const celownikSourceData: CardSourceData[] = [
   celownikPreposition(
     [`Dzięki {word} jestem żywy!`, `Bog`, `Bogu`, `Komu?`],
     [`Znalazłem go dzięki {word} `, `ty`, `tobie`, `Komu?`],
-    [`Zostali wypuszczeni dzięki {word}!`, `starania ambasady`, `staraniom ambasady`, `Czemu?`]
+    [
+      `Zostali wypuszczeni dzięki {word}!`,
+      `starania ambasady`,
+      `staraniom ambasady`,
+      `Czemu?`,
+    ]
   ),
   celownikPreposition(
     [`Obłok zmierza prosto ku {word}`, `miasto`, `miastu`, `Czemu?`],
     [`Wielki krok ku {word}`, `dorosłość`, `dorosłości`, `Czemu?`],
-    [`Pchnęła jego ku {word}`, `negatywne emocje`, `negatywnym emocjom`, `Czemu?`],
+    [
+      `Pchnęła jego ku {word}`,
+      `negatywne emocje`,
+      `negatywnym emocjom`,
+      `Czemu?`,
+    ],
     [`Nie żywię wrogich uczuć ku {word}`, `ty`, `tobie`, `Komu?`]
   ),
   celownikPreposition(
     [`Idę naprzeciw {word}`, `system`, `systemowi`, `Czemu?`],
-    [`Postępy wychodzą naprzeciw {word}`, `oczekiwanie l.mn.`, `oczekiwaniom`, `Czemu?`],
+    [
+      `Postępy wychodzą naprzeciw {word}`,
+      `oczekiwanie l.mn.`,
+      `oczekiwaniom`,
+      `Czemu?`,
+    ],
     [`Wyszedł naprzeciw {word}`, `stanowisko Rady`, `stanowisku Rady`, `Czemu?`]
   ),
   celownikPreposition(
@@ -905,7 +900,12 @@ const celownikSourceData: CardSourceData[] = [
   celownikPreposition(
     [`Zazdrość może zwrócić brata przeciw {word}`, `brat`, `bratu`, `Komu?`],
     [`On jest przeciwko {word}`, `my`, `nam`, `Komu?`],
-    [`To jest sensowny argument przeciw {word}`, `moja opinia`, `mojej opinii`, `Czemu?`]
+    [
+      `To jest sensowny argument przeciw {word}`,
+      `moja opinia`,
+      `mojej opinii`,
+      `Czemu?`,
+    ]
   ),
   celownikPreposition(
     [`Postępuję wbrew {word}`, `logika`, `logice`, `Czemu?`],
@@ -914,9 +914,101 @@ const celownikSourceData: CardSourceData[] = [
   ),
 ];
 
+const biernikSourceData: CardSourceData[] = [
+  biernikVerb(
+    [`Mieć {word}`, `Mam {word}`, `Masz {word}`, `Miałem {word}`],
+    [
+      [`matka`, `matkę`, `Kogo?`],
+      [`dziadek`, `dziadka`, `Kogo?`],
+      [`babcia`, `babcię`, `Kogo?`],
+      [`czas`, `czas`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      `Lubić {word}`,
+      `Lubię {word}`,
+      `Lubisz {word}`,
+      `Lubiłem {word}`,
+    ],
+    [
+      [`wiele rzcecz l.mn.`, `wiele rzeczy`, `Co?`],
+      [`siebie`, `siebie`, `Kogo?`],
+      [`historia l.mn.`, `historie`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      `Kochać {word} i zamierzam ją poślubić`,
+      `Kocham {word} i zamierzam ją poślubić`,
+      `Kochasz {word} i zamierzam ją poślubić`,
+      `Kochałem {word} i zamierzam ją poślubić`,
+    ],
+    [
+      [`pańska córka`, `pańską córkę`, `Kogo?`],
+      [`Kasia`, `Kasię`, `Kogo?`],
+      [`ta barmenka`, `tę barmankę`, `Kogo?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      `Widzieć {word}`,
+      `Widzę {word}`,
+      `Widzisz {word}`,
+      `Widziałem {word}`,
+    ],
+    [
+      [`tamten samochód`, ``, `Co?`],
+      [`szersza perspektywa`, `szerszą perspektywę`, `Co?`],
+      [`on`, `jego`, `Kogo?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      `Jeść {word}`,
+      `Jem {word}`,
+      `Jesz {word}`,
+      `Jadłem {word}`,
+    ],
+    [
+      [`mięso`, `mięso`, `Co?`],
+      [`fasola`, `fasolę `, `Co?`],
+      [`ciasto l.mn.`, `ciasta`, `Co?`],
+      [`rysz`, `rysz`, `Co?`],
+      [`kasza`, `kaszę`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      ` {word}`,
+      ` {word}`,
+      ` {word}`,
+      ` {word}`,
+    ],
+    [
+      [``, ``, `Kogo?`],
+      [``, ``, `Kogo?`],
+      [``, ``, `Kogo?`],
+    ]
+  ),
+  biernikVerb(
+    [
+      ` {word}`,
+      ` {word}`,
+      ` {word}`,
+      ` {word}`,
+    ],
+    [
+      [``, ``, `Kogo?`],
+      [``, ``, `Kogo?`],
+      [``, ``, `Kogo?`],
+    ]
+  ),
+];
+
 const casesSourceData: CardSourceData[] = [
   ...dopełniaczSourceData,
-  ...celownikSourceData
+  ...celownikSourceData,
 ];
 
 export function getCaseData(

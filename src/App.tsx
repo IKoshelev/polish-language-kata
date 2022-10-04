@@ -135,18 +135,22 @@ function App() {
 
         <p>
           Potrzebujesz wyjaśnień gramatycznych? Zobacz:
-          <br />
-          <a href="https://polski.info/pl/grammar">
-            https://polski.info/pl/grammar
-          </a>
-          <br />
-          <a href="https://www.polskinawynos.com/?page_id=329">
-            https://www.polskinawynos.com/
-          </a>
+          <br /> {link("https://polski.info/pl/grammar", "https://polski.info/pl/")}
+          <br /> {link("https://www.polskinawynos.com/?page_id=329", " https://www.polskinawynos.com/")}
         </p>
 
         <p>
-          Kod dostępny jako open source: &nbsp;
+          Słowniki:
+          <br /> {link("https://pl.bab.la/")}
+          <br /> {link("https://context.reverso.net/t%C5%82umaczenie/", "https://context.reverso.net/")} (użycie słów)
+          <br /> {link("https://pl.wiktionary.org/")}
+          <br /> {link("https://odmiana.net/")}
+          <br /> {link("https://synonim.net/")}
+          <br /> {link(" https://pl.pons.com/t%C5%82umaczenie", " https://pl.pons.com/")}
+        </p>
+
+        <p>
+          Kod tej strony dostępny jako open source: &nbsp;
           <a href="https://github.com/IKoshelev/polish-language-kata">
             https://github.com/IKoshelev/polish-language-kata
           </a>
@@ -154,6 +158,12 @@ function App() {
       </dialog>
     );
   }
+}
+
+function link(url: string, text?: string){
+  return <a href={url}>
+    {text ?? url}
+</a>
 }
 
 export default App;
