@@ -273,7 +273,7 @@ const dopełniaczSourceData: CardSourceData[] = [
   ),
   dopełniaczPreposition(
     [`Siedzi naprzeciwko {word}`, `ja`, `mnie`, `Kogo?`],
-    [`Siedzieliśmy naprzeciwko {word}`, `siebie`, `siebie`, `Czego?`],
+    [`Siedzieliśmy naprzeciwko {word}`, `siebie`, `siebie`, `Kogo?`],
     [
       `Sklep naprzeciwko {word}`,
       `miejsce spotkania`,
@@ -546,7 +546,357 @@ const celownikSourceData: CardSourceData[] = [
       [`wy`, `wam`, `Komu?`],
     ]
   ),
-
+  celownikVerb(
+    [
+      `Dziękować {word}`,
+      `Dziękuję {word}`,
+      `Dziękujesz {word}`,
+      `Dziękowałem {word}`,
+    ],
+    [
+      [`brat`, `bratu`, `Komu?`],
+      [`dziennikarz `, `dziennikarzowi`, `Komu?`],
+      [`urzędnik`, `urzędnikowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Dziwić się {word}`,
+      `Dziwię się {word}`,
+      `Dziwisz się {word}`,
+      `Dziwiłem się {word}`,
+    ],
+    [
+      [`ona`, `jej`, `Komu?`],
+      [`to`, `temu`, `Czemu?`],
+      [`twoje zachowanie`, `twojemu zachowaniu`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Kibicować {word}`,
+      `Kibicuję {word}`,
+      `Kibicujesz {word}`,
+      `Kibicowałem {word}`,
+    ],
+    [
+      [`drużyna`, `drużynie`, `Czemu?`],
+      [`wy`, `wam`, `Komu?`],
+      [`swój mąż`, `swojemu mężowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Kraść {word}`,
+      `Kradnę {word}`,
+      `Kradniesz {word}`,
+      `Kradłem {word}`,
+    ],
+    [
+      [`ludzie`, `ludziom`, `Komu?`],
+      [`rząd`, `rządowi`, `Komu?`],
+      [`bogaci`, `bogatym`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Kupować {word}`,
+      `Kupuję {word}`,
+      `Kupujesz {word}`,
+      `Kupowałem {word}`,
+    ],
+    [
+      [`ona`, `jej`, `Komu?`],
+      [`żona`, `żonie`, `Komu?`],
+      [`mąż`, `mężowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Mówić {word} o tym`,
+      `Mówię {word} o tym`,
+      `Mówisz {word} o tym`,
+      `Mówiłem {word} o tym`,
+    ],
+    [
+      [`ty`, `ci`, `Komu?`],
+      [`pani`, `pani`, `Komu?`],
+      [`pan sędzia`, `panu sędzi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Oddawać datek {word}`,
+      `Oddaję datek {word}`,
+      `Oddajesz datek {word}`,
+      `Oddawałem datek {word}`,
+    ],
+    [
+      [`ksiądz`, `księdzu`, `Komu?`],
+      [`organizacja charytatywna`, `organizacji charytatywnej`, `Czemu?`],
+      [`uniwersytet`, `uniwersytetowi`, `Czemu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Odmawiać {word}`,
+      `Odmawiam {word}`,
+      `Odmawiasz {word}`,
+      `Odmawiałem {word}`,
+    ],
+    [
+      [`król`, `królowi`, `Komu?`],
+      [`książę`, `księciu`, `Komu?`],
+      [`księżniczka`, `księżniczce`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Opowiadać {word}`,
+      `Opowiadam {word}`,
+      `Opowiadasz {word}`,
+      `Opowiadałem {word}`,
+    ],
+    [
+      [`dziecko l.mn.`, `dzieciom`, `Komu?`],
+      [`turyst`, `turystom `, `Komu?`],
+      [`chłopiec`, `chłopcu`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Podawać rękę {word} `,
+      `Podaję rękę {word}`,
+      `Podajesz rękę {word}`,
+      `Podawałem rękę {word}`,
+    ],
+    [
+      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`prezes`, `prezesowi`, `Komu?`],
+      [`lekarz`, `lekarzowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Podobać się {word}`,
+      `Podobam się {word}`,
+      `Podobasz się {word}`,
+      `Podobałem się {word}`,
+    ],
+    [
+      [`kobieta`, `kobiecie`, `Komu?`],
+      [`mężczyzna`, `mężczyźnie`, `Komu?`],
+      [`dziewczyna l.mn.`, `dziewczynom`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Pomagać {word}`,
+      `Pomagam {word}`,
+      `Pomagasz {word}`,
+      `Pomagałem {word}`,
+    ],
+    [
+      [`biedny l.mn.`, `biednym`, `Komu?`],
+      [`zwierzęta`, `zwierzętom`, `Komu?`],
+      [`dzieci`, `dzieciom`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Pożyczać {word} pieniądze `,
+      `Pożyczam {word} pieniądze `,
+      `Pożyczasz {word} pieniądze `,
+      `Pożyczałem {word} pieniądze `,
+    ],
+    [
+      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`oni/one`, `im/nim`, `Komu?`],
+      [`ta firma`, `tej firmie`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Przedstawiać {word} pannę Weronikę`,
+      `Przedstawiam {word} pannę Weronikę`,
+      `Przedstawiasz {word} pannę Weronikę`,
+      `Przedstawiałem {word} pannę Weronikę`,
+    ],
+    [
+      [`Wasza Wysokość`, `Waszej Wysokości`, `Komu?`],
+      [`Państwo`, `Państwu`, `Komu?`],
+      [`wy`, `wam`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Przyglądać się {word}`,
+      `Przyglądam się {word}`,
+      `Przyglądasz się {word}`,
+      `Przyglądałem się {word}`,
+    ],
+    [
+      [`każda twarz`, `każdej twarzy`, `Czemu?`],
+      [`lusterko`, `lusterku`, `Komu?`],
+      [`okno`, `oknu`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Przynosić {word} radość`,
+      `Przynoszę {word} radość`,
+      `Przynosisz {word} radość`,
+      `Przynosiłem {word} radość`,
+    ],
+    [
+      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`dzieci`, `dzieciom`, `Komu?`],
+      [`wszyscy`, `wszystkim`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Przypominać {word} o spotkaniu`,
+      `Przypominam {word} o spotkaniu`,
+      `Przypominasz {word} o spotkaniu`,
+      `Przypominałem {word} o spotkaniu`,
+    ],
+    [
+      [`Marta`, `Marcie`, `Komu?`],
+      [`Jacek`, `Jackowi`, `Komu?`],
+      [`student`, `studentowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Rozdawać {word} słodycze`,
+      `Rozdaję {word} słodycze`,
+      `Rozdajesz {word} słodycze`,
+      `Rozdawałem {word} słodycze`,
+    ],
+    [
+      [`dzieci`, `dzieciom`, `Komu?`],
+      [`przechodni l.mn.`, `przechodnim`, `Komu?`],
+      [`pacjent l.mn.`, `pacjentom`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Smakować {word}`,
+      `Smakuję {word}`,
+      `Smakujesz {word}`,
+      `Smakowałem {word}`,
+    ],
+    [
+      [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
+      [`wilk`, `wilkowi`, `Komu?`],
+      [`tygrys`, `tygrysowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Sprzedawać {word} towary`,
+      `Sprzedaję {word} towary`,
+      `Sprzedajesz {word} towary`,
+      `Sprzedawałem {word} towary`,
+    ],
+    [
+      [`ludzie`, `ludziom`, `Komu?`],
+      [`klient`, `klientowi`, `Komu?`],
+      [`magazyn l.mn.`, `magazynom`, `Czemu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Szkodzić {word}`,
+      `Szkodzę {word}`,
+      `Szkodzisz {word}`,
+      `Szkodziłem {word}`,
+    ],
+    [
+      [`środowisko`, `środowisku`, `Komu?`],
+      [`społeczność`, `społeczności`, `Komu?`],
+      [`reputacja`, `reputacji`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Tłumaczyć {word} to`,
+      `Tłumaczę {word} to`,
+      `Tłumaczysz {word} to`,
+      `Tłumaczyłem {word} to`,
+    ],
+    [
+      [`sędzia`, `sędzi`, `Komu?`],
+      [`on`, `jemu/mu/niemu`, `Komu?`],
+      [`sobie`, `sobie`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Ufać {word}`,
+      `Ufam {word}`,
+      `Ufasz {word}`,
+      `Ufałem {word}`,
+    ],
+    [
+      [`niewłaściwe ludzie`, `niewłaściwym ludziom`, `Komu?`],
+      [`dziennikarz l.mn.`, `dziennikarzom`, `Komu?`],
+      [`lekarz`, `lekarzom`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Wierzyć {word}`,
+      `Wierzę {word}`,
+      `Wierzysz {word}`,
+      `Wierzyłem {word}`,
+    ],
+    [
+      [`Kamil`, `Kamilowi`, `Komu?`],
+      [`dziennikarz l.mn.`, `dziennikarzom`, `Komu?`],
+      [`lekarz`, `lekarzom`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Wybaczać {word}`,
+      `Wybaczam {word}`,
+      `Wybaczasz {word}`,
+      `Wybaczałem {word}`,
+    ],
+    [
+      [`Ania`, `Ani`, `Komu?`],
+      [`pies`, `psu`, `Komu?`],
+      [`papuga`, `papuga`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Nie zazdrościć {word}`,
+      `Nie zazdroszczę {word}`,
+      `Nie zazdrościsz {word}`,
+      `Nie zazdrości {word}`,
+    ],
+    [
+      [`nikt`, `nikomu`, `Komu?`],
+      [`Michał`, `Michałowi`, `Komu?`],
+      [`pracownik`, `pracownikowi`, `Komu?`],
+    ]
+  ),
+  celownikVerb(
+    [
+      `Życzyć {word} miłego dnia`,
+      `Życzę {word} miłego dnia`,
+      `Życzysz {word} miłego dnia`,
+      `Życzyłem {word} miłego dnia`,
+    ],
+    [
+      [`wszyscy`, `wszystkim`, `Komu?`],
+      [`kolega l.mn.`, `kolegom`, `Komu?`],
+      [`kolega`, `koledze`, `Komu?`],
+    ]
+  ),
   celownikPreposition(
     [`Dzięki {word} jestem żywy!`, `Bog`, `Bogu`, `Komu?`],
     [`Znalazłem go dzięki {word} `, `ty`, `tobie`, `Komu?`],
