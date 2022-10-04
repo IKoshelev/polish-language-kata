@@ -511,7 +511,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       `Darować {word} tego.`,
       `Daruję {word} tego.`,
-      `Darujesz {word} tego.`,
+      `Daruje {word} tego.`,
       `Darowałem {word} tego.`,
     ],
     [
@@ -537,7 +537,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       `Dokuczać {word}`,
       `Dokuczam {word}`,
-      `Dokuczasz {word}`,
+      `Dokucza {word}`,
       `Dokuczałem {word}`,
     ],
     [
