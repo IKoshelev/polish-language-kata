@@ -93,7 +93,7 @@ const casesSourceData: CardSourceData[] = [
     ]
   ),
   dopełniaczVerb(
-    [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
+    [`Brakuję mi {word}`, `Brakuję Ci {word}`, `Brakowało Ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`czas`, `czasu`, `Czego?`],
@@ -188,9 +188,9 @@ const casesSourceData: CardSourceData[] = [
     // lots of usage, so 3 dicated cards
     [
       `Życzyć {word}`,
-      `Życzę ci {word}`,
+      `Życzę Ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem ci {word}`,
+      `Życzyłem Ci {word}`,
     ],
     [
       [`wielo sukcess l.mn.`, `wielu sukcesów`, `Czego?`],
@@ -201,9 +201,9 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczVerb(
     [
       `Życzyć {word}`,
-      `Życzę ci {word}`,
+      `Życzę Ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem ci {word}`,
+      `Życzyłem Ci {word}`,
     ],
     [
       [`szczęśliwy nowy rok`, `szczęśliwego nowego roku`, `Czego?`],
@@ -214,9 +214,9 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczVerb(
     [
       `Życzyć {word}`,
-      `Życzę ci {word}`,
+      `Życzę Ci {word}`,
       `Życzysz mi {word}`,
-      `Życzyłem ci {word}`,
+      `Życzyłem Ci {word}`,
     ],
     [
       [`wszystko dobre`, `wszystkiego dobrego`, `Czego?`],
@@ -327,11 +327,21 @@ const casesSourceData: CardSourceData[] = [
   ),
   dopełniaczPreposition(
     [`Poziom poniżej {word}`, `norma`, `normy`, `Czego?`],
-    [`Prawdopodobieństwo poniżej {word}`, `pięc procent`, `pięciu procent`, `Czego?`],
+    [
+      `Prawdopodobieństwo poniżej {word}`,
+      `pięc procent`,
+      `pięciu procent`,
+      `Czego?`,
+    ],
     [`Boli mnie poniżej {word}`, `żebra`, `żeber`, `Czego?`]
   ),
   dopełniaczPreposition(
-    [`25 kilometrów powyżej {word}`, `dozwolona prędkość`, `dozwolonej prędkości`, `Czego?`],
+    [
+      `25 kilometrów powyżej {word}`,
+      `dozwolona prędkość`,
+      `dozwolonej prędkości`,
+      `Czego?`,
+    ],
     [`Wartość powyżej {word}`, `zakres`, `zakres`, `Czego?`],
     [`Przelewy powyżej {word}`, `pięc tysięcy`, `pięciu tysięcy`, `Czego?`],
     [`Przelewy powyżej {word}`, `dwa tysiące`, `dwóch tysięcy`, `Czego?`]
@@ -348,7 +358,12 @@ const casesSourceData: CardSourceData[] = [
     [`Ktoś spomiędzy {word}`, `wy`, `was`, `Kogo?`]
   ),
   dopełniaczPreposition(
-    [`Wybiera przewodniczącego spośród {word}`, `przedstawiciel l.mn.`, `przedstawicieli`, `Kogo?`],
+    [
+      `Wybiera przewodniczącego spośród {word}`,
+      `przedstawiciel l.mn.`,
+      `przedstawicieli`,
+      `Kogo?`,
+    ],
     [`Jesteś spośród {word}`, `kandydat l.mn.`, `kandydatów`, `Kogo?`],
     [`Największe spośród {word}`, `siedem mórz`, `siedmiu mórz`, `Czego?`]
   ),
@@ -370,12 +385,32 @@ const casesSourceData: CardSourceData[] = [
   dopełniaczPreposition(
     [`Dam wam oferty w ciągu {word}`, `godzina`, `godziny`, `Czego?`],
     [`Potrafię to zrobić w ciągu {word}`, `tydzień`, `tygodnia`, `Czego?`],
-    [`Posunięcia w ciągu {word}`, `ostatnie trzy dni`, `ostatnich trzech dni`, `Czego?`]
+    [
+      `Posunięcia w ciągu {word}`,
+      `ostatnie trzy dni`,
+      `ostatnich trzech dni`,
+      `Czego?`,
+    ]
   ),
   dopełniaczPreposition(
-    [`Powód według {word}`, `wiarygodne źródło l.mn.`, `wiarygodnych źródeł`, `Kogo?`],
-    [`Płatność odbywa się według {word}`, `wybor klienta`, `wyboru klienta`, `Czego?`],
-    [`Biuro doposażone według {word}`, `potrzeba najemcy`, `potrzeby najemcy`, `Czego?`]
+    [
+      `Powód według {word}`,
+      `wiarygodne źródło l.mn.`,
+      `wiarygodnych źródeł`,
+      `Kogo?`,
+    ],
+    [
+      `Płatność odbywa się według {word}`,
+      `wybor klienta`,
+      `wyboru klienta`,
+      `Czego?`,
+    ],
+    [
+      `Biuro doposażone według {word}`,
+      `potrzeba najemcy`,
+      `potrzeby najemcy`,
+      `Czego?`,
+    ]
   ),
   dopełniaczPreposition(
     [`Środki karne w razie {word}`, `naruszenie`, `naruszenia`, `Czego?`],
@@ -389,7 +424,12 @@ const casesSourceData: CardSourceData[] = [
   ),
   dopełniaczPreposition(
     [`W punktach wzdłuż {word}`, `cała trassa`, `całej trasy`, `Czego?`],
-    [`Przyszłość nie podąża wzdłuż {word}`, `pojedyńcza droga`, `pojedyńczej drogi`, `Czego?`],
+    [
+      `Przyszłość nie podąża wzdłuż {word}`,
+      `pojedyńcza droga`,
+      `pojedyńczej drogi`,
+      `Czego?`,
+    ],
     [`płyń wzdłuż {word}`, `wybrzeże`, `wybrzeży`, `Czego?`]
   ),
   dopełniaczPreposition(
@@ -408,19 +448,49 @@ const casesSourceData: CardSourceData[] = [
     [`Spadło znad {word}`, `jej lewe ramię`, `jej lewego ramienia`, `Czego?`]
   ),
   dopełniaczPreposition(
-    [`Stracił przytomność z powodu {word}`, `wysoka gorączka`, `wysokiej gorączki`, `Czego?`],
-    [`Zamierzasz umrzeć z powodu {word}`, `swój pokaz`, `swojego pokazu`, `Czego?`],
-    [`Opuściłem ją z powodu {word}`, `własny lęk l.mn.`, `własnych lęków`, `Czego?`]
+    [
+      `Stracił przytomność z powodu {word}`,
+      `wysoka gorączka`,
+      `wysokiej gorączki`,
+      `Czego?`,
+    ],
+    [
+      `Zamierzasz umrzeć z powodu {word}`,
+      `swój pokaz`,
+      `swojego pokazu`,
+      `Czego?`,
+    ],
+    [
+      `Opuściłem ją z powodu {word}`,
+      `własny lęk l.mn.`,
+      `własnych lęków`,
+      `Czego?`,
+    ]
   ),
   dopełniaczPreposition(
-    [`Stoi niebezpiecznie blisko {word}`, `duża kałuża`, `dużej kałuży`, `Czego?`],
+    [
+      `Stoi niebezpiecznie blisko {word}`,
+      `duża kałuża`,
+      `dużej kałuży`,
+      `Czego?`,
+    ],
     [`Musisz pozostać blisko {word}`, `powierzchnia`, `powierzchni`, `Czego?`],
-    [`Jesteśmy blisko {word}`, `wyczerpanie zapasów`, `wyczerpania zapasów`, `Czego?`]
+    [
+      `Jesteśmy blisko {word}`,
+      `wyczerpanie zapasów`,
+      `wyczerpania zapasów`,
+      `Czego?`,
+    ]
   ),
   dopełniaczPreposition(
     [`W motelu niedaleko {word}`, `lotnisko`, `lotniska`, `Czego?`],
-    [`To znaleziono na skrzyżowaniu niedaleko {word}`, `te miejsce`, `tego miejsca`, `Czego?`],
-    [`Jestem niedaleko {word}`, `Ci`, `Ciebie`, `Kogo?`]
+    [
+      `To znaleziono na skrzyżowaniu niedaleko {word}`,
+      `te miejsce`,
+      `tego miejsca`,
+      `Czego?`,
+    ],
+    [`Jestem niedaleko {word}`, `Ty`, `Ciebie`, `Kogo?`]
   ),
 
   // {
@@ -564,10 +634,8 @@ export function CasesUsage() {
 
   const renderCardRow = (card: Card) => (
     <tr key={card.id}>
-      <td
+      {/* <td
         className={classNames({
-          //target: card.id === state.target,
-          //marked: card.isMarked,
           closed: !card.isCaseNameOpened,
           opened: card.isCaseNameOpened,
         })}
@@ -581,7 +649,7 @@ export function CasesUsage() {
         <div className="case-usage-casename">
           {card.isCaseNameOpened ? card.caseName : "??????"}
         </div>
-      </td>
+      </td> */}
       <td
         className={classNames({
           target: card.id === state.target,
@@ -609,7 +677,17 @@ export function CasesUsage() {
         }}
       >
         <div className="case-usage-text">
-          {card.isTextOpened ? card.textWhenOpened : card.textWhenClosed}
+          {card.isTextOpened ? (
+            <>
+              {card.textWhenOpened} <br />
+              <span style={{ fontStyle: "italic" }}>{card.caseName}</span>
+            </>
+          ) : (
+            <>
+            {card.textWhenClosed} <br />
+            &nbsp;
+          </>
+          )}
         </div>
       </td>
     </tr>
@@ -760,7 +838,6 @@ export function CasesUsage() {
         <table className="table-std">
           <thead>
             <tr>
-              <th>Przypadek</th>
               <th>Użycie</th>
             </tr>
           </thead>
