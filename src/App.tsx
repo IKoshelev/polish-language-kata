@@ -49,11 +49,10 @@ function App() {
             [
               ["verbs", "Czasowniki"],
               ["cases-ending", "Przypadki (końcówki)"],
-              ["cases-usage", "Czasowniki + Przypadki"], 
+              ["cases-usage", "Przypadki (użycie)"], 
               ["numerals", "Liczebniki"],
             ] as [Mode, string][]
           ).map(([buttonMode, label]) => (
-
             <option key={buttonMode} value={buttonMode}>{label}</option>
           ))}
             
