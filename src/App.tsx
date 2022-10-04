@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.scss";
-import { CasesEndings } from "./CasesEndings";
-import { Numerals } from "./Numerals";
-import { Verbs } from "./Verbs";
+import { CasesEndings } from "./CaseEndings/CasesEndings";
+import { Numerals } from "./Numerals/Numerals";
+import { Verbs } from "./Verbs/Verbs";
 import dialogPolyfill from 'dialog-polyfill';
-import { CasesUsage } from "./CasesUsage";
+import { CasesUsage } from "./CaseUsage/CasesUsage";
 
 const modes = ["verbs", "cases-ending", "cases-usage", "numerals"] as const;
 
