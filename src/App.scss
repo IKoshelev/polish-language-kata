@@ -140,6 +140,8 @@ body {
 
 #cases-usage {
   .table-std {
+    width: 100vw;
+    max-width: 450px;
     tbody {
       td {
         // & > .case-usage-casename {
@@ -152,7 +154,6 @@ body {
           flex-grow: 1;
           font-size: 14px;
           min-height: 48px;
-          width: 450px;
         }
 
         & > .case-usage-translation {
