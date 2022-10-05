@@ -1168,6 +1168,7 @@ const biernikSourceData: CardSourceData[] = [
 const casesSourceData: CardSourceData[] = [
   ...dopełniaczSourceData,
   ...celownikSourceData,
+  ...biernikSourceData
 ];
 
 export function getCaseData(
