@@ -35,7 +35,7 @@ export function CasesUsage() {
     () =>
       ({
         cards: getCaseData(),
-        timeout: 2000,
+        timeout: 3000,
         target: undefined,
         hasSavedData: !!localStorage.getItem(CASES_USAGE_STATE_QS_KEY),
         sections: [
@@ -53,6 +53,10 @@ export function CasesUsage() {
           },
           {
             name: cases.narzędnik,
+            active: true,
+          },
+          {
+            name: cases.miejscownik,
             active: true,
           },
         ],

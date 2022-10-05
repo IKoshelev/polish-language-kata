@@ -6,6 +6,7 @@ export const cases = {
   celownik: `Celownik`,
   biernik: `Biernik`,
   narzędnik: `Narzędnik`,
+  miejscownik: `Miejscownik`
 } as const;
 
 export type CaseName = typeof cases[keyof typeof cases];
@@ -29,7 +30,7 @@ type CardSourceData = {
 
 let counter = 1;
 
-const forCaseVerb =
+const forCaseMatrixeChoice =
   (caseName: CaseName) =>
   (
     templates: `${string}{word}${string}`[],
@@ -51,7 +52,7 @@ const forCaseVerb =
     };
   };
 
-const forCasePreposition =
+const forCaseListChoice =
   (caseName: CaseName) =>
   (...templates: [`${string}{word}${string}`, string, string, string][]) => {
     return {
@@ -69,18 +70,20 @@ const forCasePreposition =
     };
   };
 
-const dopełniaczVerb = forCaseVerb(cases.dopełniacz);
-const celownikVerb = forCaseVerb(cases.celownik);
-const biernikVerb = forCaseVerb(cases.biernik);
-const narzędnikVerb = forCaseVerb(cases.narzędnik);
+const dopełniaczMatrixeChoice = forCaseMatrixeChoice(cases.dopełniacz);
+const celownikMatrixeChoice = forCaseMatrixeChoice(cases.celownik);
+const biernikMatrixeChoice = forCaseMatrixeChoice(cases.biernik);
+const narzędnikMatrixeChoice = forCaseMatrixeChoice(cases.narzędnik);
+const miejscownikMatrixeChoice = forCaseMatrixeChoice(cases.miejscownik);
 
-const dopełniaczPreposition = forCasePreposition(cases.dopełniacz);
-const celownikPreposition = forCasePreposition(cases.celownik);
-const biernikPreposition = forCasePreposition(cases.biernik);
-const narzędnikPreposition = forCasePreposition(cases.narzędnik);
+const dopełniaczListChoice = forCaseListChoice(cases.dopełniacz);
+const celownikListChoice = forCaseListChoice(cases.celownik);
+const biernikListChoice = forCaseListChoice(cases.biernik);
+const narzędnikListChoice = forCaseListChoice(cases.narzędnik);
+const miejscownikListChoice = forCaseListChoice(cases.miejscownik);
 
 const dopełniaczSourceData: CardSourceData[] = [
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Bać się {word}`,
       `Boję się {word}`,
@@ -94,7 +97,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`ja`, `mnie`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -103,7 +106,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`one/one`, `ich`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Pilnować {word}`,
       `Pilnuję {word}`,
@@ -117,7 +120,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`on`, `jego/go`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Potrzebować  {word}`,
       `Potrzebuje {word}`,
@@ -131,7 +134,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [`Słuchać {word}`, `Slucham {word}`, `Sluchasz {word}`, `Słuchałem {word}`],
     [
       [`pani`, `pani`, `Kogo?`],
@@ -140,7 +143,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`my`, `nas`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [`Szukać {word}`, `Szukam {word}`, `Szukasz {word}`, `Szukałem {word}`],
     [
       [`kot`, `kota`, `Kogo?`],
@@ -148,7 +151,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Uczyć się {word}`,
       `Uczę się {word}`,
@@ -161,7 +164,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`właściwe maniery`, `właściwych manier`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [`Używać {word}`, `Używam {word}`, `Używasz {word}`, `Używałem {word}`],
     [
       [`ten kryterium`, `tego kryterium`, `Czego?`],
@@ -169,7 +172,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`lek`, `leku`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Zapomniać {word}`,
       `Zapomniałem {word}`,
@@ -183,7 +186,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`wy`, `was`, `Kogo?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [`Żałować {word}`, `Żałuję {word}`, `Żałujesz {word}`, `Żałowałem {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -191,7 +194,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`zmarnowana szansa`, `zmarnowanej szansy`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     // lots of usage, so 3 dicated cards
     [
       `Życzyć {word}`,
@@ -205,7 +208,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pomyślna przyszłość`, `pomyślnej przyszłości`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -218,7 +221,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`odwaga`, `odwagi`, `Czego?`],
     ]
   ),
-  dopełniaczVerb(
+  dopełniaczMatrixeChoice(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -232,12 +235,12 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`wesołe świętą`, `wesołych świąt`, `Czego?`],
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Kawa bez {word}`, `cukier`, `cukru`, `Czego?`],
     [`Lek bez {word}`, `opakownie`, `opakowania`, `Czego?`],
     [`Działać bez {word}`, `wątpienie`, `wątpienia`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Obniżka dla {word}`, `obywatel l.mn.`, `obywateli`, `Kogo?`],
     [
       `Mówimy "tak” dla {word}`,
@@ -253,26 +256,26 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Mam dla {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Srodki do {word}`, `wykorzystanie`, `wykorzystania`, `Czego?`],
     [`Nalewać do {word}`, `filiżanka`, `filiżanki`, `Czego?`],
     [`Kandydat do {word}`, `dołączenie`, `dołączenia`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Podróż dookola {word}`, `świat`, `świata`, `Czego?`],
     [`Skóra dookoła {word}`, `rana`, `rany`, `Czego?`],
     [`Rośliny dookoła {word}`, `my`, `nas`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Stał obok {word}`, `on`, `niego`, `Kogo?`],
     [`Siadaj obok {word}`, `ja`, `mnie`, `Kogo?`],
     [`Siedzieć obok moich {word}`, `rodzice`, `rodziców`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Stał kolo {word}`, `dom`, `domu`, `Czego?`],
     [`Stał kolo {word}`, `ja`, `mnie`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Kocham cię, mimo {word}`, `twoje błędy`, `twoich błędów`, `Czego?`],
     [
       `Sytuacja ta zaistniała mimo {word}`,
@@ -287,7 +290,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Siedzi naprzeciwko {word}`, `ja`, `mnie`, `Kogo?`],
     [`Siedzieliśmy naprzeciwko {word}`, `siebie`, `siebie`, `Kogo?`],
     [
@@ -297,7 +300,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Mieszkam tutaj od {word}`, `lata`, `lat`, `Czego?`],
     [`Wiadomości od {word}`, `siostra`, `siostry`, `Kogo?`],
     [
@@ -307,22 +310,22 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Egzamin trwa oklo {word}`, `cztery godziny`, `czterech godzin`, `Czego?`],
     [`Miała okolo {word}`, `dwadzieścia lat`, `dwudziestu lat`, `Czego?`],
     [`Miał okolo {word}`, `pięćdziesiąt lat`, `pięćdziesięciu lat`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Cała załoga prócz {word} ewakuowała się`, `kapitan`, `kapitana`, `Kogo?`],
     [`Nie ma innego znaczenia prócz {word}`, `to`, `tego`, `Czego?`],
     [`Nie lubię nikogo, prócz {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Każdy ma samochód oprócz {word}`, `ja`, `mnie`, `Kogo?`],
     [`Nie przepuszczaj nikogo oprócz {word}`, `on`, `niego`, `Kogo?`],
     [`Wszystkie oprócz {word}`, `jedna`, `jednej`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Nauczyłam się tego podczas {word}`, `warsztaty`, `warsztatów`, `Czego?`],
     [
       `Wystąpił problem podczas {word}`,
@@ -332,7 +335,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Opieka lekarska podczas {word}`, `ciąża`, `ciąży`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Poziom poniżej {word}`, `norma`, `normy`, `Czego?`],
     [
       `Prawdopodobieństwo poniżej {word}`,
@@ -342,7 +345,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Boli mnie poniżej {word}`, `żebra`, `żeber`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [
       `25 kilometrów powyżej {word}`,
       `dozwolona prędkość`,
@@ -353,18 +356,18 @@ const dopełniaczSourceData: CardSourceData[] = [
     [`Przelewy powyżej {word}`, `pięc tysięcy`, `pięciu tysięcy`, `Czego?`],
     [`Przelewy powyżej {word}`, `dwa tysiące`, `dwóch tysięcy`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Wyszedł spod {word}`, `kontrola`, `kontroli`, `Czego?`],
     [`Wyszła spod {word}`, `kontrola`, `kontroli`, `Czego?`],
     [`Próbki skóry spod {word}`, `jej paznokci`, `jej paznokci`, `Czego?`],
     [`Wyrwę się spod {word}`, `to wszystkie`, `tego wszystkiego`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Wybieram spomiędzy {word}`, `cztery opcji`, `czterech opcji`, `Czego?`],
     [`Brud spomiędzy {word}`, `płytka l.mn.`, `płytek`, `Czego?`],
     [`Ktoś spomiędzy {word}`, `wy`, `was`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [
       `Wybiera przewodniczącego spośród {word}`,
       `przedstawiciel l.mn.`,
@@ -374,22 +377,22 @@ const dopełniaczSourceData: CardSourceData[] = [
     [`Jesteś spośród {word}`, `kandydat l.mn.`, `kandydatów`, `Kogo?`],
     [`Największe spośród {word}`, `siedem mórz`, `siedmiu mórz`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Powiedz komuś spoza {word}`, `rodzina`, `rodziny`, `Czego?`],
     [`Klienci spoza {word}`, `terytorium kraju`, `terytorium kraju`, `Czego?`],
     [`Szukamy kogoś, spoza {word}`, `społeczeństwo`, `społeczeństwa`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Kanapka sprzed {word}`, `trzy dni`, `trzech dni`, `Czego?`],
     [`To model sprzed {word}`, `rok`, `roku`, `Czego?`],
     [`Został skradziony sprzed {word}`, `nasze nosy`, `naszych nosów`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Jestem u {word}`, `dentysta`, `dentysty`, `Kogo?`],
     [`Jestem u {word}`, `ja`, `siebie`, `Kogo?`],
     [`Umówić wizytę u {word}`, `lekarz`, `lekarza`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Dam wam oferty w ciągu {word}`, `godzina`, `godziny`, `Czego?`],
     [`Potrafię to zrobić w ciągu {word}`, `tydzień`, `tygodnia`, `Czego?`],
     [
@@ -399,7 +402,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [
       `Powód według {word}`,
       `wiarygodne źródło l.mn.`,
@@ -419,17 +422,17 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Środki karne w razie {word}`, `naruszenie`, `naruszenia`, `Czego?`],
     [`W razie {word}`, `odwołanie`, `odwołania`, `Czego?`],
     [`Ubezpieczenie w razie {word}`, `wypadek`, `wypadku`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Być wśród {word}`, `znajomy l.mn.`, `znajomych`, `Kogo?`],
     [`Wybór wśród {word}`, `tyle ludzi`, `tylu ludzi`, `Kogo?`],
     [`Rywalizacja wśród {word}`, `kumpel l.mn.`, `kumpli`, `Kogo?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`W punktach wzdłuż {word}`, `cała trassa`, `całej trasy`, `Czego?`],
     [
       `Przyszłość nie podąża wzdłuż {word}`,
@@ -439,22 +442,22 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`płyń wzdłuż {word}`, `wybrzeże`, `wybrzeży`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Jestem z {word}`, `Urząd`, `Urzędu`, `Czego?`],
     [`Jestem z {word}`, `Polska`, `Polski`, `Czego?`],
     [`Jestem z {word}`, `przyszłość`, `przyszłości`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Wybrałam Ciebie zamiast {word}`, `oni`, `ich`, `Kogo?`],
     [`Granatowy zamiast {word}`, `niebieski`, `niebieskiego`, `Czego?`],
     [`Kłamstwo zamiast {word}`, `prawda`, `prawdy`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`Nadajemy na żywo znad {word}`, `Zatoka Tokio`, `Zatoki Tokio`, `Czego?`],
     [`Nadchodzi znad {word}`, `ocean`, `oceanu`, `Czego?`],
     [`Spadło znad {word}`, `jej lewe ramię`, `jej lewego ramienia`, `Czego?`]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [
       `Stracił przytomność z powodu {word}`,
       `wysoka gorączka`,
@@ -474,7 +477,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [
       `Stoi niebezpiecznie blisko {word}`,
       `duża kałuża`,
@@ -489,7 +492,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Czego?`,
     ]
   ),
-  dopełniaczPreposition(
+  dopełniaczListChoice(
     [`W motelu niedaleko {word}`, `lotnisko`, `lotniska`, `Czego?`],
     [
       `To znaleziono na skrzyżowaniu niedaleko {word}`,
@@ -502,7 +505,7 @@ const dopełniaczSourceData: CardSourceData[] = [
 ];
 
 const celownikSourceData: CardSourceData[] = [
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Darować {word} tego.`,
       `Daruję {word} tego.`,
@@ -515,7 +518,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [`Dawać {word}`, `Daję {word}`, `Dajesz {word}`, `Dawałem {word}`],
     [
       [`ja`, `mi/mnie`, `Komu?`],
@@ -523,7 +526,7 @@ const celownikSourceData: CardSourceData[] = [
       [`oni/one`, `im`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Dokuczać {word}`,
       `Dokuczam {word}`,
@@ -536,7 +539,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Dziękować {word}`,
       `Dziękuję {word}`,
@@ -549,7 +552,7 @@ const celownikSourceData: CardSourceData[] = [
       [`urzędnik`, `urzędnikowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Dziwić się {word}`,
       `Dziwię się {word}`,
@@ -562,7 +565,7 @@ const celownikSourceData: CardSourceData[] = [
       [`twoje zachowanie`, `twojemu zachowaniu`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Kibicować {word}`,
       `Kibicuję {word}`,
@@ -575,7 +578,7 @@ const celownikSourceData: CardSourceData[] = [
       [`swój mąż`, `swojemu mężowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Kraść {word} środki`,
       `Kradnę {word} środki`,
@@ -588,7 +591,7 @@ const celownikSourceData: CardSourceData[] = [
       [`bogaci`, `bogatym`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Kupować {word} prezent`,
       `Kupuję {word} prezent`,
@@ -601,7 +604,7 @@ const celownikSourceData: CardSourceData[] = [
       [`mąż`, `mężowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Mówić {word} o tym`,
       `Mówię {word} o tym`,
@@ -614,7 +617,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pan sędzia`, `panu sędzi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Oddawać datek {word}`,
       `Oddaję datek {word}`,
@@ -627,7 +630,7 @@ const celownikSourceData: CardSourceData[] = [
       [`uniwersytet`, `uniwersytetowi`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Odmawiać {word}`,
       `Odmawiam {word}`,
@@ -640,7 +643,7 @@ const celownikSourceData: CardSourceData[] = [
       [`księżniczka`, `księżniczce`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Opowiadać {word} historii`,
       `Opowiadam {word} historii`,
@@ -653,7 +656,7 @@ const celownikSourceData: CardSourceData[] = [
       [`chłopiec`, `chłopcu`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Podawać rękę {word}`,
       `Podaję rękę {word}`,
@@ -666,7 +669,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Podobać się {word}`,
       `Podobam się {word}`,
@@ -679,7 +682,7 @@ const celownikSourceData: CardSourceData[] = [
       [`dziewczyna l.mn.`, `dziewczynom`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [`Pomagać {word}`, `Pomagam {word}`, `Pomagasz {word}`, `Pomagałem {word}`],
     [
       [`biedny l.mn.`, `biednym`, `Komu?`],
@@ -687,7 +690,7 @@ const celownikSourceData: CardSourceData[] = [
       [`dzieci`, `dzieciom`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Pożyczać {word} pieniądze`,
       `Pożyczam {word} pieniądze`,
@@ -700,7 +703,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ta firma`, `tej firmie`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Przedstawiać {word} pannę Weronikę`,
       `Przedstawiam {word} pannę Weronikę`,
@@ -713,7 +716,7 @@ const celownikSourceData: CardSourceData[] = [
       [`wy`, `wam`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Przyglądać się {word}`,
       `Przyglądam się {word}`,
@@ -726,7 +729,7 @@ const celownikSourceData: CardSourceData[] = [
       [`okno`, `oknu`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Przynosić {word} radość`,
       `Przynoszę {word} radość`,
@@ -739,7 +742,7 @@ const celownikSourceData: CardSourceData[] = [
       [`wszyscy`, `wszystkim`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Przypominać {word} o spotkaniu`,
       `Przypominam {word} o spotkaniu`,
@@ -752,7 +755,7 @@ const celownikSourceData: CardSourceData[] = [
       [`student`, `studentowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Rozdawać {word} słodycze`,
       `Rozdaję {word} słodycze`,
@@ -765,7 +768,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pacjent l.mn.`, `pacjentom`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [`Mięso smakuję {word}`, `Mięso smakowało {word}`],
     [
       [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
@@ -773,7 +776,7 @@ const celownikSourceData: CardSourceData[] = [
       [`tygrys`, `tygrysowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Sprzedawać {word} towary`,
       `Sprzedaję {word} towary`,
@@ -786,7 +789,7 @@ const celownikSourceData: CardSourceData[] = [
       [`magazyn l.mn.`, `magazynom`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Szkodzić {word}`,
       `Szkodzę {word}`,
@@ -799,7 +802,7 @@ const celownikSourceData: CardSourceData[] = [
       [`reputacja`, `reputacji`, `Czemu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Tłumaczyć {word} to`,
       `Tłumaczę {word} to`,
@@ -812,7 +815,7 @@ const celownikSourceData: CardSourceData[] = [
       [`sobie`, `sobie`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [`Ufać {word}`, `Ufam {word}`, `Ufasz {word}`, `Ufałem {word}`],
     [
       [`niewłaściwe ludzie`, `niewłaściwym ludziom`, `Komu?`],
@@ -820,7 +823,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzom`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [`Wierzyć {word}`, `Wierzę {word}`, `Wierzysz {word}`, `Wierzyłem {word}`],
     [
       [`Kamil`, `Kamilowi`, `Komu?`],
@@ -828,7 +831,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzom`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Wybaczać {word}`,
       `Wybaczam {word}`,
@@ -841,7 +844,7 @@ const celownikSourceData: CardSourceData[] = [
       [`papuga`, `papudze`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Nie zazdrościć {word}`,
       `Nie zazdroszczę {word}`,
@@ -854,7 +857,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pracownik`, `pracownikowi`, `Komu?`],
     ]
   ),
-  celownikVerb(
+  celownikMatrixeChoice(
     [
       `Życzyć {word} miłego dnia`,
       `Życzę {word} miłego dnia`,
@@ -867,7 +870,7 @@ const celownikSourceData: CardSourceData[] = [
       [`kolega`, `koledze`, `Komu?`],
     ]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Dzięki {word} jestem żywy!`, `Bog`, `Bogu`, `Komu?`],
     [`Znalazłem go dzięki {word}`, `ty`, `tobie`, `Komu?`],
     [
@@ -877,7 +880,7 @@ const celownikSourceData: CardSourceData[] = [
       `Czemu?`,
     ]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Obłok zmierza prosto ku {word}`, `miasto`, `miastu`, `Czemu?`],
     [`Wielki krok ku {word}`, `dorosłość`, `dorosłości`, `Czemu?`],
     [
@@ -888,7 +891,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [`Nie żywię wrogich uczuć ku {word}`, `ty`, `tobie`, `Komu?`]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Idę naprzeciw {word}`, `system`, `systemowi`, `Czemu?`],
     [
       `Postępy wychodzą naprzeciw {word}`,
@@ -898,12 +901,12 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [`Wyszedł naprzeciw {word}`, `stanowisko Rady`, `stanowisku Rady`, `Czemu?`]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Zrobiłam to na przekór {word}`, `tata`, `tacie`, `Komu?`],
     [`Walczymy na przekór {word}`, `wszystko`, `wszystkiemu`, `Czemu?`],
     [`Na przekór {word}`, `tradycja`, `tradycji`, `Czemu?`]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Zazdrość może zwrócić brata przeciw {word}`, `brat`, `bratu`, `Komu?`],
     [`On jest przeciwko {word}`, `my`, `nam`, `Komu?`],
     [
@@ -913,7 +916,7 @@ const celownikSourceData: CardSourceData[] = [
       `Czemu?`,
     ]
   ),
-  celownikPreposition(
+  celownikListChoice(
     [`Postępuję wbrew {word}`, `logika`, `logice`, `Czemu?`],
     [`Postępuję wbrew {word}`, `przepis l.mn.`, `przepisom`, `Czemu?`],
     [`Przetrzymuje człowieka wbrew {word}`, `jego wola`, `jego woli`, `Czemu?`]
@@ -921,7 +924,7 @@ const celownikSourceData: CardSourceData[] = [
 ];
 
 const biernikSourceData: CardSourceData[] = [
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Mieć {word}`, `Mam {word}`, `Masz {word}`, `Miałem {word}`],
     [
       [`matka`, `matkę`, `Kogo?`],
@@ -930,7 +933,7 @@ const biernikSourceData: CardSourceData[] = [
       [`czas`, `czas`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Lubić {word}`, `Lubię {word}`, `Lubisz {word}`, `Lubiłem {word}`],
     [
       [`wiele rzcecz l.mn.`, `wiele rzeczy`, `Co?`],
@@ -938,7 +941,7 @@ const biernikSourceData: CardSourceData[] = [
       [`historia l.mn.`, `historie`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [
       `Kochać {word} i zamierzam ją poślubić`,
       `Kocham {word} i zamierzam ją poślubić`,
@@ -951,7 +954,7 @@ const biernikSourceData: CardSourceData[] = [
       [`ta barmenka`, `tę barmankę`, `Kogo?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Widzieć {word}`, `Widzę {word}`, `Widzisz {word}`, `Widziałem {word}`],
     [
       [`tamten samochód`, ``, `Co?`],
@@ -959,7 +962,7 @@ const biernikSourceData: CardSourceData[] = [
       [`on`, `jego`, `Kogo?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Jeść {word}`, `Jem {word}`, `Jesz {word}`, `Jadłem {word}`],
     [
       [`mięso`, `mięso`, `Co?`],
@@ -969,7 +972,7 @@ const biernikSourceData: CardSourceData[] = [
       [`kasza`, `kaszę`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Pić {word}`, `Piję {word}`, `Pijesz {word}`, `Piłem {word}`],
     [
       [`krew`, `krew`, `Co?`],
@@ -977,7 +980,7 @@ const biernikSourceData: CardSourceData[] = [
       [`szampan`, `szampana`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Znać {word}`, `Znam {word}`, `Znasz {word}`, `Znałem {word}`],
     [
       [`ich sekret`, `ich sekre`, `Co?`],
@@ -985,7 +988,7 @@ const biernikSourceData: CardSourceData[] = [
       [`polskie prawo`, `polskie prawo`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Czytać {word}`, `Czytam {word}`, `Czytasz {word}`, `Czytałem {word}`],
     [
       [`wiadomość l.mn. w internecie`, `wiadomości w internecie`, `Co?`],
@@ -993,7 +996,7 @@ const biernikSourceData: CardSourceData[] = [
       [`książka w telefonie`, `książkę w telefonie`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Pisać {word}`, `Piszę {word}`, `Piszesz {word}`, `Pisałem {word}`],
     [
       [`mail do szefa`, `maila do szefa`, `Co?`],
@@ -1001,7 +1004,7 @@ const biernikSourceData: CardSourceData[] = [
       [`coś na ścianie`, `coś na ścianie`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [
       `Sprzątać {word}`,
       `Sprzątam {word}`,
@@ -1014,7 +1017,7 @@ const biernikSourceData: CardSourceData[] = [
       [`cudze bałagany`, `cudze bałagany`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Oglądać {word}`, `Oglądam {word}`, `Oglądasz {word}`, `Oglądałem {word}`],
     [
       [`film`, `film`, `Co?`],
@@ -1022,7 +1025,7 @@ const biernikSourceData: CardSourceData[] = [
       [`zdjęcia`, `zdjęcia`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Kupować {word}`, `Kupuję {word}`, `Kupujesz {word}`, `Kupowałem {word}`],
     [
       [`prezenty swoim kochankom`, `prezenty swoim kochankom`, `Co?`],
@@ -1030,7 +1033,7 @@ const biernikSourceData: CardSourceData[] = [
       [`ubrania w dziale dla dzieci`, `ubrania w dziale dla dzieci`, `Co?`],
     ]
   ),
-  biernikVerb(
+  biernikMatrixeChoice(
     [`Gotować {word}`, `Gotuję {word}`, `Gotujesz {word}`, `Gotowałem {word}`],
     [
       [`kolacja dla wszystkich`, `kolację dla wszystkich`, `Co?`],
@@ -1038,7 +1041,7 @@ const biernikSourceData: CardSourceData[] = [
       [`lunch`, `lunch`, `Co?`],
     ]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Jechaliśmy przez {word}`, `tunel w górże`, `tunel w górże`, `Co?`],
     [
       `Skuteczność nabycia majątku przez {word}`,
@@ -1048,7 +1051,7 @@ const biernikSourceData: CardSourceData[] = [
     ],
     [`Zbyt martwisz się przez {word}`, `on`, `niego`, `Kogo?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [
       `Jednakowe traktowanie pracowników bez względu na {word}`,
       `narodowość`,
@@ -1063,7 +1066,7 @@ const biernikSourceData: CardSourceData[] = [
       `Co?`,
     ]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [
       `Wybraliśmy biurowiec ze względu na jego {word}`,
       `dogodna lokalizacja`,
@@ -1078,12 +1081,12 @@ const biernikSourceData: CardSourceData[] = [
     ],
     [`Zostałem w domu ze względu na {word}`, `pogoda`, `pogodę`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Współpracuje z FBI w zamian za {word}`, `immunitet`, `immunitet`, `Co?`],
     [`W zamian za {word}`, `pomoc`, `pomoc`, `Co?`],
     [`Milion dolarów w zamian za {word}`, `dusza`, `duszę`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [
       `Z uwagi na {word}`,
       `trudna sytuacja epidemiczna`,
@@ -1103,34 +1106,34 @@ const biernikSourceData: CardSourceData[] = [
       `Co?`,
     ]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Patrzy na {word}`, `ściana`, `ścianę`, `Co?`],
     [`Pajak wlazł na {word}`, `sufit`, `sufit`, `Co?`],
     [`Odrzucił koc na {word}`, `podłoga`, `podłogę`, `Kogo?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Chodzi o {word}`, `pieniądz l.mn.`, `pieniądze`, `Co?`],
     [`Spierać się o {word}`, `oczywiste rzeczy`, `oczywiste rzeczy`, `Co?`],
     [`Szef pyta o {word}`, `jakość produktów`, `jakość produktów`, `Co?`],
     [`Szef pyta o {word}`, `ten projekt`, `ten projekt`, `Co?`],
     [`Szef pyta o {word}`, `jego zdanie`, `jego zdanie`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Posłałem po {word}`, `on`, `niego`, `Kogo?`],
     [`Poszłam po {word}`, `lekarz`, `lekarza`, `Kogo?`],
     [`Jedzie po {word}`, `Maciej`, `Macieja`, `Kogo?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Poszedł pod {word}`, `prysznic`, `prysznic`, `Co?`],
     [`Idź prosto pod {word}`, `most`, `most`, `Co?`],
     [`Chodź tu... pod {word}`, `drzewo`, `drzewo`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`A jutro rano jedziemy nad {word}`, `morze`, `morze`, `Co?`],
     [`Ruszam nad {word}`, `jezioro`, `jezioro`, `Co?`],
     [`Pojechałem nad {word}`, `rzekę`, `rzekę`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Sprzedałem ponad {word}`, `milion sztuk`, `milion sztuk`, `Co?`],
     [`Czekałem ponad {word}`, `godzina`, `godzinę`, `Co?`],
     [
@@ -1140,12 +1143,12 @@ const biernikSourceData: CardSourceData[] = [
       `Co?`,
     ]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Dałem czterdzieści tysięcy za {word}`, `samochód`, `samochód`, `Co?`],
     [`Nie możemy podejmować decyzji za {word}`, `ona`, `nią`, `Kogo?`],
     [`Zapłacę ci za {word} kiedy wrócę`, `on`, `niego`, `Kogo?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Zajechali przed {word}`, `budynek`, `budynek`, `Co?`],
     [
       `Zamiast przed {word} trafiła do zakładu karnego`,
@@ -1155,16 +1158,16 @@ const biernikSourceData: CardSourceData[] = [
     ],
     [`Znów trafię przed {word}`, `sędzia`, `sędzię`, `Kogo?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`On nie wszedł między {word}`, `my`, `nas`, `Kogo?`],
     [`Włożył ją między {word}`, `pośladek l.mn.`, `pośladki`, `Co?`],
     [`Dzielenie tekstu między {word}`, `kolumny`, `kolumny`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Wyszłaś poza {word}, prawda?`, `mur`, `mur`, `Co?`],
     [`Poza {word} miasta`, `granica`, `granicę`, `Co?`]
   ),
-  biernikPreposition(
+  biernikListChoice(
     [`Patrzał w moje {word}`, `oko l.mn.`, `oczy`, `Co?`],
     [`Musisz wkroczyć w {word}`, `pustka`, `pustkę`, `Co?`],
     [`Leci w {word}`, `niebo`, `niebo`, `Co?`]
@@ -1172,7 +1175,7 @@ const biernikSourceData: CardSourceData[] = [
 ];
 
 const narzędniSourcseData: CardSourceData[] = [
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Bawić się {word}`,
       `Bawię się {word}`,
@@ -1185,7 +1188,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`rzecz l.mn.`, `rzeczami`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Chwalić się {word}`,
       `Chwalę się {word}`,
@@ -1199,7 +1202,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Cieszyć się {word}`,
       `Cieszę się {word}`,
@@ -1213,7 +1216,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Interesować się {word}`,
       `Interesuję się {word}`,
@@ -1227,7 +1230,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Kierować {word}`,
       `Kieruję {word}`,
@@ -1243,7 +1246,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Martwić się {word}`,
       `Martwię się {word}`,
@@ -1257,7 +1260,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Męczyć się {word}`,
       `Męczę się {word}`,
@@ -1271,7 +1274,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Opiekować się {word}`,
       `Opiekuję się {word}`,
@@ -1284,7 +1287,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`pies l.mn.`, `psami`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Pachnieć {word}`,
       `Pachnę się {word}`,
@@ -1297,7 +1300,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`lipa`, `lipą`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Przejmować się {word}`,
       `Przejmuję się {word}`,
@@ -1310,7 +1313,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`los kraju`, `losem kraju`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Rządzić {word}`,
       `Rządzę się {word}`,
@@ -1323,7 +1326,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`ludzkie serce`, `ludzkim sercem`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Smarować {word}`,
       `Smaruję {word}`,
@@ -1336,7 +1339,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`maść`, `maścią`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Stresować się {word}`,
       `Stresuje się {word}`,
@@ -1349,7 +1352,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`szkoła`, `szkołą`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Zachwycać się {word}`,
       `Zachwycam się {word}`,
@@ -1362,7 +1365,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`malarstwo`, `malarstwem`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Zajmować się {word}`,
       `Zajmuję się {word}`,
@@ -1375,7 +1378,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`rysunek i projektowanie`, `rysunkiem i projektowaniem`, `Czym?`],
     ]
   ),
-  narzędnikVerb(
+  narzędnikMatrixeChoice(
     [
       `Zarażać się {word}`,
       `Zarażam się {word}`,
@@ -1388,12 +1391,12 @@ const narzędniSourcseData: CardSourceData[] = [
       [`choroba`, `chorobą`, `Czym?`],
     ]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`Piję latte z {word}`, `mleko`, `mlekiem`, `Czym?`],
     [`Idę na spacer z {word}`, `pies`, `psem`, `Kim?`],
     [`Żyję z {word}`, `siostra`, `siostrą`, `Kim?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [
       `Zarządzam krótką przerwę przed {word}`,
       `następna sprawa`,
@@ -1403,17 +1406,17 @@ const narzędniSourcseData: CardSourceData[] = [
     [`Postanowiłam ochronić moje dziecko przed {word}`, `zło`, `złem`, `Czym?`],
     [`Rodzice trzymali przed {word} straszną tajemnicę`, `my`, `nami`, `Czym?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`Chowa się za {word}`, `ściana`, `ścianą`, `Czym?`],
     [`Zamknąłem za {word} drzwi`, `ona`, `nią`, `Kim?`],
     [`Myslalem, że stoi za {word}`, `ja`, `mną`, `Kim?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`W domu nad {word}`, `morze`, `morzem`, `Czym?`],
     [`Lubi spacerować nad {word}`, `jezioro`, `jeziorem`, `Czym?`],
     [`Smok leci nad {word}`, `miasto`, `miastem`, `Czym?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`Mieszkanie było pod {word}`, `dach`, `dachem`, `Czym?`],
     [
       `Pod {word} to kultowe miejsce spotkań`,
@@ -1428,7 +1431,7 @@ const narzędniSourcseData: CardSourceData[] = [
       `Czym?`,
     ]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [
       `Stał między {word}`,
       `pielęgniarka i lekarz`,
@@ -1443,12 +1446,12 @@ const narzędniSourcseData: CardSourceData[] = [
       `Kim?`,
     ]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`Reprezentant naszego kraju poza {word}`, `granicr`, `granicam`, `Czym?`],
     [`To jego pierwsza podróż poza {word}`, `ojczyzna`, `ojczyzną`, `Czym?`],
     [`Świat poza {word} jest iluzją`, `te mury`, `tymi murami`, `Czym?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [
       `To nic w porównaniu z {word} za dziecko`,
       `odpowiedzialność`,
@@ -1463,7 +1466,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ],
     [`Wyglądam bardzo dobrze, w porównaniu z {word}`, `oni`, `nimi`, `Kim?`]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [`Są poszukiwani w związku z {word}`, `morderstwo`, `morderstwem`, `Czym?`],
     [`W związku z projektem {word}`, `elektrownia`, `elektrowni`, `Czym?`],
     [
@@ -1473,7 +1476,7 @@ const narzędniSourcseData: CardSourceData[] = [
       `Czym?`,
     ]
   ),
-  narzędnikPreposition(
+  narzędnikListChoice(
     [
       `Wykonaj zadanie konkursowe zgodnie z {word}`,
       `regulamin`,
@@ -1490,11 +1493,16 @@ const narzędniSourcseData: CardSourceData[] = [
   ),
 ];
 
+const miejscownikSourceData: CardSourceData[] = [
+
+];
+
 const casesSourceData: CardSourceData[] = [
   ...dopełniaczSourceData,
   ...celownikSourceData,
   ...biernikSourceData,
   ...narzędniSourcseData,
+  ...miejscownikSourceData
 ];
 
 export function getCaseData(
