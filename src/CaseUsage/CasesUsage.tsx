@@ -51,6 +51,10 @@ export function CasesUsage() {
             name: cases.biernik,
             active: true,
           },
+          {
+            name: cases.narzędnik,
+            active: true,
+          },
         ],
         randomModeOn: false,
       } as CurrentState)

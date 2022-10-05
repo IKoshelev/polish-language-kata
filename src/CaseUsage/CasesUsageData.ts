@@ -2,9 +2,10 @@ import groupBy from "lodash.groupby";
 import { getRandomItem, shuffleAndReturnArr } from "../util";
 
 export const cases = {
-  dopełniacz: "Dopełniacz",
-  celownik: "Celownik",
+  dopełniacz: `Dopełniacz`,
+  celownik: `Celownik`,
   biernik: `Biernik`,
+  narzędnik: `Narzędnik`,
 } as const;
 
 export type CaseName = typeof cases[keyof typeof cases];
@@ -71,10 +72,12 @@ const forCasePreposition =
 const dopełniaczVerb = forCaseVerb(cases.dopełniacz);
 const celownikVerb = forCaseVerb(cases.celownik);
 const biernikVerb = forCaseVerb(cases.biernik);
+const narzędnikVerb = forCaseVerb(cases.narzędnik);
 
 const dopełniaczPreposition = forCasePreposition(cases.dopełniacz);
 const celownikPreposition = forCasePreposition(cases.celownik);
 const biernikPreposition = forCasePreposition(cases.biernik);
+const narzędnikPreposition = forCasePreposition(cases.narzędnik);
 
 const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczVerb(
@@ -108,7 +111,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Pilnowałem {word}`,
     ],
     [
-      [`własny interes l. mn.`, ` własnych interesów`, `Czego?`],
+      [`własny interes l. mn.`, `własnych interesów`, `Czego?`],
       [`rzecz l.mn.`, `rzeczy`, `Czego?`],
       [`dziecko`, `dziecka`, `Kogo?`],
       [`on`, `jego/go`, `Kogo?`],
@@ -353,7 +356,7 @@ const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczPreposition(
     [`Wyszedł spod {word}`, `kontrola`, `kontroli`, `Czego?`],
     [`Wyszła spod {word}`, `kontrola`, `kontroli`, `Czego?`],
-    [`Próbki skóry spod {word}`, `jej paznokci`, ` jej paznokci`, `Czego?`],
+    [`Próbki skóry spod {word}`, `jej paznokci`, `jej paznokci`, `Czego?`],
     [`Wyrwę się spod {word}`, `to wszystkie`, `tego wszystkiego`, `Czego?`]
   ),
   dopełniaczPreposition(
@@ -542,7 +545,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`brat`, `bratu`, `Komu?`],
-      [`dziennikarz `, `dziennikarzowi`, `Komu?`],
+      [`dziennikarz`, `dziennikarzowi`, `Komu?`],
       [`urzędnik`, `urzędnikowi`, `Komu?`],
     ]
   ),
@@ -646,13 +649,13 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`dziecko l.mn.`, `dzieciom`, `Komu?`],
-      [`turyst`, `turystom `, `Komu?`],
+      [`turyst`, `turystom`, `Komu?`],
       [`chłopiec`, `chłopcu`, `Komu?`],
     ]
   ),
   celownikVerb(
     [
-      `Podawać rękę {word} `,
+      `Podawać rękę {word}`,
       `Podaję rękę {word}`,
       `Podajesz rękę {word}`,
       `Podawałem rękę {word}`,
@@ -686,10 +689,10 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikVerb(
     [
-      `Pożyczać {word} pieniądze `,
-      `Pożyczam {word} pieniądze `,
-      `Pożyczasz {word} pieniądze `,
-      `Pożyczałem {word} pieniądze `,
+      `Pożyczać {word} pieniądze`,
+      `Pożyczam {word} pieniądze`,
+      `Pożyczasz {word} pieniądze`,
+      `Pożyczałem {word} pieniądze`,
     ],
     [
       [`on`, `jemu/mu`, `Komu?`],
@@ -866,7 +869,7 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikPreposition(
     [`Dzięki {word} jestem żywy!`, `Bog`, `Bogu`, `Komu?`],
-    [`Znalazłem go dzięki {word} `, `ty`, `tobie`, `Komu?`],
+    [`Znalazłem go dzięki {word}`, `ty`, `tobie`, `Komu?`],
     [
       `Zostali wypuszczeni dzięki {word}!`,
       `starania ambasady`,
@@ -897,7 +900,7 @@ const celownikSourceData: CardSourceData[] = [
   ),
   celownikPreposition(
     [`Zrobiłam to na przekór {word}`, `tata`, `tacie`, `Komu?`],
-    [`Walczymy na przekór {word}`, ` wszystko`, ` wszystkiemu`, `Czemu?`],
+    [`Walczymy na przekór {word}`, `wszystko`, `wszystkiemu`, `Czemu?`],
     [`Na przekór {word}`, `tradycja`, `tradycji`, `Czemu?`]
   ),
   celownikPreposition(
@@ -960,7 +963,7 @@ const biernikSourceData: CardSourceData[] = [
     [`Jeść {word}`, `Jem {word}`, `Jesz {word}`, `Jadłem {word}`],
     [
       [`mięso`, `mięso`, `Co?`],
-      [`fasola`, `fasolę `, `Co?`],
+      [`fasola`, `fasolę`, `Co?`],
       [`ciasto l.mn.`, `ciasta`, `Co?`],
       [`rysz`, `rysz`, `Co?`],
       [`kasza`, `kaszę`, `Co?`],
@@ -1064,7 +1067,7 @@ const biernikSourceData: CardSourceData[] = [
     [
       `Wybraliśmy biurowiec ze względu na jego {word}`,
       `dogodna lokalizacja`,
-      `dogodną lokalizację `,
+      `dogodną lokalizację`,
       `Co?`,
     ],
     [
@@ -1089,7 +1092,7 @@ const biernikSourceData: CardSourceData[] = [
     ],
     [
       `Z uwagi na {word}`,
-      `brak łączności komórkowej `,
+      `brak łączności komórkowej`,
       `brak łączności komórkowej`,
       `Co?`,
     ],
@@ -1140,12 +1143,12 @@ const biernikSourceData: CardSourceData[] = [
   biernikPreposition(
     [`Dałem czterdzieści tysięcy za {word}`, `samochód`, `samochód`, `Co?`],
     [`Nie możemy podejmować decyzji za {word}`, `ona`, `nią`, `Kogo?`],
-    [`Zapłacę ci za {word} kiedy wrócę `, `on`, `niego`, `Kogo?`]
+    [`Zapłacę ci za {word} kiedy wrócę`, `on`, `niego`, `Kogo?`]
   ),
   biernikPreposition(
     [`Zajechali przed {word}`, `budynek`, `budynek`, `Co?`],
     [
-      `Zamiast przed {word} trafiła do zakładu karnego `,
+      `Zamiast przed {word} trafiła do zakładu karnego`,
       `ołtarz`,
       `ołtarz`,
       `Co?`,
@@ -1158,8 +1161,8 @@ const biernikSourceData: CardSourceData[] = [
     [`Dzielenie tekstu między {word}`, `kolumny`, `kolumny`, `Co?`]
   ),
   biernikPreposition(
-    [`Wyszłaś poza {word}, prawda? `, `mur`, `mur`, `Co?`],
-    [`Poza {word} miasta`, `granica`, `granicę`, `Co?`],
+    [`Wyszłaś poza {word}, prawda?`, `mur`, `mur`, `Co?`],
+    [`Poza {word} miasta`, `granica`, `granicę`, `Co?`]
   ),
   biernikPreposition(
     [`Patrzał w moje {word}`, `oko l.mn.`, `oczy`, `Co?`],
@@ -1168,10 +1171,330 @@ const biernikSourceData: CardSourceData[] = [
   ),
 ];
 
+const narzędniSourcseData: CardSourceData[] = [
+  narzędnikVerb(
+    [
+      `Bawić się {word}`,
+      `Bawię się {word}`,
+      `Bawisz się {word}`,
+      `Bawiłem się {word}`,
+    ],
+    [
+      [`oni`, `nimi`, `Czym?`],
+      [`zabawki`, `zabawkami`, `Czym?`],
+      [`rzecz l.mn.`, `rzeczami`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Chwalić się {word}`,
+      `Chwalę się {word}`,
+      `Chwalisz się {word}`,
+      `Chwaliłem się {word}`,
+    ],
+    [
+      [`swoje auto`, `swoim autem`, `Czym?`],
+      [`sukces l.mn.`, `sukcesami`, `Czym?`],
+      [`wygranie`, `wygraniem`, `Czym?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Cieszyć się {word}`,
+      `Cieszę się {word}`,
+      `Cieszysz się {word}`,
+      `Cieszyłem się {word}`,
+    ],
+    [
+      [`umiejętność`, `umiejętnością`, `Czym?`],
+      [`wysoka reputacja`, `wysoką reputacją`, `Czym?`],
+      [`zaufanie ministra`, `zaufaniem ministra`, `Czym?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Interesować się {word}`,
+      `Interesuję się {word}`,
+      `Interesujesz się {word}`,
+      `Interesowałem się {word}`,
+    ],
+    [
+      [`wielo rzeczy`, `wieloma rzeczami`, `Czym?`],
+      [`taki dom l.mn.`, `takimi domami`, `Czym?`],
+      [`nauka`, `nauką`, `Czym?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Kierować {word}`,
+      `Kieruję {word}`,
+      `Kierujesz {word}`,
+      `Kierowałem {word}`,
+    ],
+    [
+      [`poszukiwania`, `poszukiwaniami`, `Czym?`],
+      [`wszystko`, `wszystkim`, `Czym?`],
+      [`serce mężczyzny`, `sercami mężczyzn`, `Czym?`],
+      [`firmą`, `firma`, `Czym?`],
+      [`ludzie`, `ludźmi`, `Kim?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Martwić się {word}`,
+      `Martwię się {word}`,
+      `Martwisz się {word}`,
+      `Martwiłem się {word}`,
+    ],
+    [
+      [`ich zachowanie`, `ich zachowaniem`, `Czym?`],
+      [`sytuacja`, `sytuacją`, `Czym?`],
+      [`przyszłość`, `przyszłością`, `Czym?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Męczyć się {word}`,
+      `Męczę się {word}`,
+      `Męczysz się {word}`,
+      `Męczyłem się {word}`,
+    ],
+    [
+      [`ćwiczenie`, `ćwiczeniem`, `Czym?`],
+      [`trzy zmarnowane lata`, `trzema zmarnowanymi latami`, `Czym?`],
+      [`czekanie`, `czekaniem`, `Czym?`],
+    ]
+  ),
+
+  narzędnikVerb(
+    [
+      `Opiekować się {word}`,
+      `Opiekuję się {word}`,
+      `Opiekujesz się {word}`,
+      `Opiekowałem się {word}`,
+    ],
+    [
+      [`dzieci`, `dziećmi`, `Czym?`],
+      [`one`, `nimi`, `Kym?`],
+      [`pies l.mn.`, `psami`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Pachnieć {word}`,
+      `Pachnę się {word}`,
+      `Pachniesz się {word}`,
+      `Pachniałem się {word}`,
+    ],
+    [
+      [`specjalne perfumy`, `specjalnymi perfumami`, `Czym?`],
+      [`take zapachy ekskluzywne`, `takimi zapachami ekskluzywnymi`, `Czym?`],
+      [`lipa`, `lipą`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Przejmować się {word}`,
+      `Przejmuję się {word}`,
+      `Przejmujesz się {word}`,
+      `Przejmowałem się {word}`,
+    ],
+    [
+      [`on`, `nim`, `Kim?`],
+      [`ona`, `nią`, `Kim?`],
+      [`los kraju`, `losem kraju`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Rządzić {word}`,
+      `Rządzę się {word}`,
+      `Rządzisz się {word}`,
+      `Rządziłem się {word}`,
+    ],
+    [
+      [`nasz kraj`, `naszym krajem`, `Czym?`],
+      [`one`, `nimi`, `Kim?`],
+      [`ludzkie serce`, `ludzkim sercem`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Smarować {word}`,
+      `Smaruję {word}`,
+      `Smarujesz {word}`,
+      `Smarowałem {word}`,
+    ],
+    [
+      [`masło`, `masłem`, `Czym?`],
+      [`masełko`, `masełkiem`, `Czym?`],
+      [`maść`, `maścią`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Stresować się {word}`,
+      `Stresuje się {word}`,
+      `Stresujes się {word}`,
+      `Stresowałem się {word}`,
+    ],
+    [
+      [`spotkanie`, `spotkaniem`, `Czym?`],
+      [`mecz`, `meczem`, `Czym?`],
+      [`szkoła`, `szkołą`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Zachwycać się {word}`,
+      `Zachwycam się {word}`,
+      `Zachwycasz się {word}`,
+      `Zachwycałem się {word}`,
+    ],
+    [
+      [`krajobraz`, `krajobrazem`, `Czym?`],
+      [`cudowna reklama`, `cudowną reklamą`, `Czym?`],
+      [`malarstwo`, `malarstwem`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Zajmować się {word}`,
+      `Zajmuję się {word}`,
+      `Zajmujesz się {word}`,
+      `Zajmowałem się {word}`,
+    ],
+    [
+      [`doradztwo`, `doradztwem`, `Czym?`],
+      [`sprawy finansowe`, `sprawami finansowymi`, `Czym?`],
+      [`rysunek i projektowanie`, `rysunkiem i projektowaniem`, `Czym?`],
+    ]
+  ),
+  narzędnikVerb(
+    [
+      `Zarażać się {word}`,
+      `Zarażam się {word}`,
+      `Zarażasz się {word}`,
+      `Zarażałem się {word}`,
+    ],
+    [
+      [`koronavirus`, `koronavirusem`, `Czym?`],
+      [`grypa`, `grypą`, `Czym?`],
+      [`choroba`, `chorobą`, `Czym?`],
+    ]
+  ),
+  narzędnikPreposition(
+    [`Piję latte z {word}`, `mleko`, `mlekiem`, `Czym?`],
+    [`Idę na spacer z {word}`, `pies`, `psem`, `Kim?`],
+    [`Żyję z {word}`, `siostra`, `siostrą`, `Kim?`]
+  ),
+  narzędnikPreposition(
+    [
+      `Zarządzam krótką przerwę przed {word}`,
+      `następna sprawa`,
+      `następną sprawą`,
+      `Czym?`,
+    ],
+    [`Postanowiłam ochronić moje dziecko przed {word}`, `zło`, `złem`, `Czym?`],
+    [`Rodzice trzymali przed {word} straszną tajemnicę`, `my`, `nami`, `Czym?`]
+  ),
+  narzędnikPreposition(
+    [`Chowa się za {word}`, `ściana`, `ścianą`, `Czym?`],
+    [`Zamknąłem za {word} drzwi`, `ona`, `nią`, `Kim?`],
+    [`Myslalem, że stoi za {word}`, `ja`, `mną`, `Kim?`]
+  ),
+  narzędnikPreposition(
+    [`W domu nad {word}`, `morze`, `morzem`, `Czym?`],
+    [`Lubi spacerować nad {word}`, `jezioro`, `jeziorem`, `Czym?`],
+    [`Smok leci nad {word}`, `miasto`, `miastem`, `Czym?`]
+  ),
+  narzędnikPreposition(
+    [`Mieszkanie było pod {word}`, `dach`, `dachem`, `Czym?`],
+    [
+      `Pod {word} to kultowe miejsce spotkań`,
+      `Papuga l.mn.`,
+      `Papugami`,
+      `Kim?`,
+    ],
+    [
+      `Surfuj bezpiecznie pod {word} doświadczonego instruktora`,
+      `oko`,
+      `okeim`,
+      `Czym?`,
+    ]
+  ),
+  narzędnikPreposition(
+    [
+      `Stał między {word}`,
+      `pielęgniarka i lekarz`,
+      `pielęgniarką i lekarzem`,
+      `Kim?`,
+    ],
+    [`Muszę wybierać między {word}`, `ty i ona`, `tobą i nią`, `Kim?`],
+    [
+      `Niełatwo wybrać między dwoma świetnymi {word}`,
+      `facet l.mn.`,
+      `facetami`,
+      `Kim?`,
+    ]
+  ),
+  narzędnikPreposition(
+    [`Reprezentant naszego kraju poza {word}`, `granicr`, `granicam`, `Czym?`],
+    [`To jego pierwsza podróż poza {word}`, `ojczyzna`, `ojczyzną`, `Czym?`],
+    [`Świat poza {word} jest iluzją`, `te mury`, `tymi murami`, `Czym?`]
+  ),
+  narzędnikPreposition(
+    [
+      `To nic w porównaniu z {word} za dziecko`,
+      `odpowiedzialność`,
+      `odpowiedzialnością`,
+      `Czym?`,
+    ],
+    [
+      `Umowa jest znaczącym krokiem naprzód w porównaniu z {word}`,
+      `poprzednia wersja`,
+      `poprzednią wersją`,
+      `Czym?`,
+    ],
+    [`Wyglądam bardzo dobrze, w porównaniu z {word}`, `oni`, `nimi`, `Kim?`]
+  ),
+  narzędnikPreposition(
+    [`Są poszukiwani w związku z {word}`, `morderstwo`, `morderstwem`, `Czym?`],
+    [`W związku z projektem {word}`, `elektrownia`, `elektrowni`, `Czym?`],
+    [
+      `Chciałby omówić kilka punktów w związku z {word}`,
+      `zaistniała sytuacja`,
+      `zaistniałą sytuacją`,
+      `Czym?`,
+    ]
+  ),
+  narzędnikPreposition(
+    [
+      `Wykonaj zadanie konkursowe zgodnie z {word}`,
+      `regulamin`,
+      `regulaminem`,
+      `Czym?`,
+    ],
+    [
+      `Pochowaliśmy jej ciało zgodnie z {word}`,
+      `nasze zwyczaje`,
+      `naszymi zwyczajami`,
+      `Czym?`,
+    ],
+    [`Gotowałem zgodnie z {word}`, `przepis`, `przepisem`, `Czym?`]
+  ),
+];
+
 const casesSourceData: CardSourceData[] = [
   ...dopełniaczSourceData,
   ...celownikSourceData,
-  ...biernikSourceData
+  ...biernikSourceData,
+  ...narzędniSourcseData,
 ];
 
 export function getCaseData(
@@ -1212,7 +1535,7 @@ export function getCaseData(
         isMarked: false,
         textWhenOpened: texts[1],
         textWhenClosed: texts[0],
-        textBare: texts[2]
+        textBare: texts[2],
       };
 
       cardsInThisCase.push(s);
