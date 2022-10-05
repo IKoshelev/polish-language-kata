@@ -83,6 +83,26 @@ const narzędnikListChoice = forCaseListChoice(cases.narzędnik);
 const miejscownikListChoice = forCaseListChoice(cases.miejscownik);
 
 const dopełniaczSourceData: CardSourceData[] = [
+  dopełniaczListChoice(
+    [`{word}`, `1 styczeń 2000`, `pierwszego stycznia dwutysięcznego roku`, `Czego?`],
+    [`{word}`, `10 luty 1965`, `dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`, `Czego?`],
+    [`{word}`, `31 grudzień 1999`, `trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Kogo?`]
+  ),
+  dopełniaczListChoice(
+    [`{word}`, `12 marzec 1987`, `dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`, `Czego?`],
+    [`{word}`, `20 kwiecień 1992`, `dwudziestego kwietnia tysiąc dziewięćset dziewięćdziesiątego drugiego roku`, `Czego?`],
+    [`{word}`, `15 maj 1943`, `piętnastego maja tysiąc dziewięćset czterdziestego trzeciego roku`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`{word}`, `18 czerwiec 2005`, `osiemnastego czerwca dwa tysiące piątego roku`, `Czego?`],
+    [`{word}`, `28 lipiec 2021`, `dwudziestego ósmego lipca dwa tysiące dwudziestego pierwszego roku`, `Czego?`],
+    [`{word}`, `25 sierpień 1832`, `dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`{word}`, `30 wrzesień 2012`, `trzydziestego wrzesnia dwa tysiące dwunastego roku`, `Czego?`],
+    [`{word}`, `4 październik 1900`, `czwarte października tysiąc dziewięćsetnego roku`, `Czego?`],
+    [`{word}`, `11 listopad 1918`, `jedenastego listopada tysiąc dziewięćset osiemnastego roku`, `Czego?`]
+  ),
   dopełniaczMatrixeChoice(
     [
       `Bać się {word}`,
