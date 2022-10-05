@@ -545,6 +545,9 @@ const dopełniaczSourceData: CardSourceData[] = [
 ];
 
 const celownikSourceData: CardSourceData[] = [
+  celownikListChoice(
+    [`Miło {word}`, `ja`, `mi`, `Komu?`]
+    ),
   celownikMatrixeChoice(
     [
       `Darować {word} tego.`,
@@ -1215,6 +1218,81 @@ const biernikSourceData: CardSourceData[] = [
 ];
 
 const narzędniSourcseData: CardSourceData[] = [
+  narzędnikMatrixeChoice(
+    [
+      `Być {word}`,
+      `Jestem {word}`,
+      `Seteś {word}`,
+      `Byłem {word}`,
+    ],
+    [
+      [`student`, `studentem`, `Kim?`],
+      [`świadek`, `świadkiem`, `Czym?`],
+      [`chłopiec`, `chłopcem`, `Czym?`],
+    ]
+  ),
+  narzędnikMatrixeChoice(
+    [
+      `Jechać {word}`,
+      `Jadę {word}`,
+      `Jedziesz {word}`,
+      `Jechałem {word}`,
+    ],
+    [
+      [`droga nr 5 `, `drogą nr 5 `, `Czym?`],
+      [`samochód`, `samochodem`, `Czym?`],
+      [`rower`, `rowerem`, `Czym?`],
+    ]
+  ),
+  narzędnikMatrixeChoice(
+    [
+      `Pisać {word}`,
+      `Piszę {word}`,
+      `Piszesz {word}`,
+      `Pisałem {word}`,
+    ],
+    [
+      [`długopis`, `długopisem`, `Czym?`],
+      [`ołówek`, `ołówkiem`, `Czym?`]
+    ]
+  ),
+  narzędnikMatrixeChoice(
+    [
+      `Iść z {word}`,
+      `Idę z {word}`,
+      `Idziesz z {word}`,
+      `Szedłem z {word}`,
+    ],
+    [
+      [`on`, `nim`, `Kim?`],
+      [`ona`, `nią`, `Kim?`],
+      [`brat`, `bratem`, `Kim?`],
+    ]
+  ),
+  narzędnikMatrixeChoice(
+    [
+      `Rozmawiać z {word}`,
+      `Rozmawiam z {word}`,
+      `Rozmawiasz z {word}`,
+      `Rozmawiałem z {word}`,
+    ],
+    [
+      [`trener`, `trenerem `, `Kim?`],
+      [`siostra`, `siostrą`, `Kim?`],
+      [`babcia`, `babcią`, `Kim?`],
+    ]
+  ),
+  narzędnikListChoice(
+    [`Którędy jechać? {word}`, `tunel`, `tunelem`, `Czym?`],
+    [`Którędy iść? Idź {word}`, `ta ulica`, `tą ulicą`, `Czym?`],
+  ),
+  narzędnikListChoice(
+    [`Kiedy to będzie? {word}`, `wieczór`, `wieczorem`, `Czym?`],
+    [`Kiedy to będzie? {word}`, `żima`, `zimą`, `Czym?`],
+  ),
+  narzędnikListChoice(
+    [`Jak iść? {word}`, `zdecydowany krok`, `zdecydowanym krokiem`, `Czym?`],
+  ),
   narzędnikMatrixeChoice(
     [
       `Bawić się {word}`,
