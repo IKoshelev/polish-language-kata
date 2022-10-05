@@ -17,12 +17,13 @@ export type Card = {
   caseName: CaseName;
   textWhenOpened: string;
   textWhenClosed: string;
+  textBare: string;
 };
 
 type CardSourceData = {
   caseName: CaseName;
   id: number;
-  getRandomizedExample: () => [string, string];
+  getRandomizedExample: () => [string, string, string];
 };
 
 let counter = 1;
@@ -43,7 +44,8 @@ const forCaseVerb =
         return [
           template.replace("{word}", `(${closed})`),
           template.replace("{word}", `(${question}) ${opened}`),
-        ] as [string, string];
+          template.replace("{word}", `${opened}`),
+        ] as [string, string, string];
       },
     };
   };
@@ -60,7 +62,8 @@ const forCasePreposition =
         return [
           template.replace("{word}", `(${closed})`),
           template.replace("{word}", `(${question}) ${opened}`),
-        ] as [string, string];
+          template.replace("{word}", `${opened}`),
+        ] as [string, string, string];
       },
     };
   };
@@ -1209,6 +1212,7 @@ export function getCaseData(
         isMarked: false,
         textWhenOpened: texts[1],
         textWhenClosed: texts[0],
+        textBare: texts[2]
       };
 
       cardsInThisCase.push(s);

@@ -8,8 +8,8 @@ import {
 import {
   MdAvTimer,
   MdFlipToBack,
-  MdFlipToFront,
   MdShuffle,
+  MdOutlineTranslate,
 } from "react-icons/md";
 import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
@@ -64,7 +64,9 @@ export function CasesUsage() {
       return;
     }
 
-    const allCards = state.cards.filter(x => activeSections.has(x.caseName)).filter((x) => !x.isTextOpened);
+    const allCards = state.cards
+      .filter((x) => activeSections.has(x.caseName))
+      .filter((x) => !x.isTextOpened);
     if (allCards.length === 0) {
       setTimeout(() => {
         alert("Gratulacje!");
@@ -154,6 +156,17 @@ export function CasesUsage() {
             </>
           )}
         </div>
+        <div className="case-usage-translation">
+          <a
+            target="_blank"
+            href={`https://www.bing.com/TRANSLATOR?${getQSforBingTranslator(
+              card.textBare
+            )}`}
+            onClick={(e) => { e.stopPropagation()}}
+          >
+            <MdOutlineTranslate />
+          </a>
+        </div>
       </td>
     </tr>
   );
@@ -175,7 +188,7 @@ export function CasesUsage() {
         >
           <div className="text">otworzyć wszystkie</div>
           <div className="icon">
-            <MdFlipToFront />
+            <MdOutlineTranslate />
           </div>
         </button>
         <button
@@ -329,9 +342,19 @@ export function CasesUsage() {
               <th>Użycie</th>
             </tr>
           </thead>
-          <tbody>{state.cards.filter(x => activeSections.has(x.caseName)).map((card) => renderCardRow(card))}</tbody>
+          <tbody>
+            {state.cards
+              .filter((x) => activeSections.has(x.caseName))
+              .map((card) => renderCardRow(card))}
+          </tbody>
         </table>
       </div>
     </div>
   );
+
+  function getQSforBingTranslator(text: string) {
+    const params = new URLSearchParams();
+    params.set("text", text);
+    return params.toString();
+  }
 }
