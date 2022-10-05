@@ -10,6 +10,7 @@ import {
   MdFlipToBack,
   MdShuffle,
   MdOutlineTranslate,
+  MdFlipToFront,
 } from "react-icons/md";
 import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
@@ -162,7 +163,9 @@ export function CasesUsage() {
             href={`https://www.bing.com/TRANSLATOR?${getQSforBingTranslator(
               card.textBare
             )}`}
-            onClick={(e) => { e.stopPropagation()}}
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
           >
             <MdOutlineTranslate />
           </a>
@@ -188,7 +191,7 @@ export function CasesUsage() {
         >
           <div className="text">otworzyć wszystkie</div>
           <div className="icon">
-            <MdOutlineTranslate />
+            <MdFlipToFront />
           </div>
         </button>
         <button
