@@ -84,24 +84,44 @@ const miejscownikListChoice = forCaseListChoice(cases.miejscownik);
 
 const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczListChoice(
-    [`{word}`, `1 styczeń 2000`, `pierwszego stycznia dwutysięcznego roku`, `Czego?`],
-    [`{word}`, `10 luty 1965`, `dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`, `Czego?`],
-    [`{word}`, `31 grudzień 1999`, `trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Kogo?`]
+    [`{word}`, `1 styczeń 2000`, `Pierwszego stycznia dwutysięcznego roku`, `Czego?`],
+    [`{word}`, `10 luty 1965`, `Dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`, `Czego?`],
+    [`{word}`, `31 grudzień 1999`, `Trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Kogo?`]
   ),
   dopełniaczListChoice(
-    [`{word}`, `12 marzec 1987`, `dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`, `Czego?`],
-    [`{word}`, `20 kwiecień 1992`, `dwudziestego kwietnia tysiąc dziewięćset dziewięćdziesiątego drugiego roku`, `Czego?`],
-    [`{word}`, `15 maj 1943`, `piętnastego maja tysiąc dziewięćset czterdziestego trzeciego roku`, `Czego?`]
+    [`{word}`, `12 marzec 1987`, `Dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`, `Czego?`],
+    [`{word}`, `20 kwiecień 1992`, `Dwudziestego kwietnia tysiąc dziewięćset dziewięćdziesiątego drugiego roku`, `Czego?`],
+    [`{word}`, `15 maj 1943`, `Piętnastego maja tysiąc dziewięćset czterdziestego trzeciego roku`, `Czego?`]
   ),
   dopełniaczListChoice(
-    [`{word}`, `18 czerwiec 2005`, `osiemnastego czerwca dwa tysiące piątego roku`, `Czego?`],
-    [`{word}`, `28 lipiec 2021`, `dwudziestego ósmego lipca dwa tysiące dwudziestego pierwszego roku`, `Czego?`],
-    [`{word}`, `25 sierpień 1832`, `dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`, `Czego?`]
+    [`{word}`, `18 czerwiec 2005`, `Osiemnastego czerwca dwa tysiące piątego roku`, `Czego?`],
+    [`{word}`, `28 lipiec 2021`, `Dwudziestego ósmego lipca dwa tysiące dwudziestego pierwszego roku`, `Czego?`],
+    [`{word}`, `25 sierpień 1832`, `Dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`, `Czego?`]
   ),
   dopełniaczListChoice(
-    [`{word}`, `30 wrzesień 2012`, `trzydziestego wrzesnia dwa tysiące dwunastego roku`, `Czego?`],
-    [`{word}`, `4 październik 1900`, `czwarte października tysiąc dziewięćsetnego roku`, `Czego?`],
-    [`{word}`, `11 listopad 1918`, `jedenastego listopada tysiąc dziewięćset osiemnastego roku`, `Czego?`]
+    [`{word}`, `30 wrzesień 2012`, `Trzydziestego wrzesnia dwa tysiące dwunastego roku`, `Czego?`],
+    [`{word}`, `4 październik 1900`, `Czwarte października tysiąc dziewięćsetnego roku`, `Czego?`],
+    [`{word}`, `11 listopad 1918`, `Jedenastego listopada tysiąc dziewięćset osiemnastego roku`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`Pudełko {word}`, `czekoladka l.mn.`, `czekoladek`, `Czego?`],
+    [`Puszka {word}`, `piwo`, `piwa`, `Czego?`],
+    [`Paczka {word}`, `cukier`, `cukru`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`Talerz {word}`, `zupa`, `zupy`, `Czego?`],
+    [`Kubek {word}`, `kawa`, `kawy`, `Czego?`],
+    [`Garnek {word}`, `woda`, `wody`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`Metr {word}`, `tapeta`, `tapety`, `Czego?`],
+    [`Kilogram {word}`, `herbata`, `herbaty`, `Czego?`],
+    [`Metr szescienny {word}`, `próżnia`, `próżni`, `Czego?`]
+  ),
+  dopełniaczListChoice(
+    [`Pięć {word}`, `rok`, `lat`, `Czego?`],
+    [`Dziewięć {word}`, `życie`, `żyć`, `Czego?`],
+    [`Sto {word}`, `obiekt`, `obiektów`, `Czego?`]
   ),
   dopełniaczMatrixeChoice(
     [
