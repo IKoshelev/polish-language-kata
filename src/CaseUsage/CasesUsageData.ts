@@ -925,12 +925,7 @@ const biernikSourceData: CardSourceData[] = [
     ]
   ),
   biernikVerb(
-    [
-      `Lubić {word}`,
-      `Lubię {word}`,
-      `Lubisz {word}`,
-      `Lubiłem {word}`,
-    ],
+    [`Lubić {word}`, `Lubię {word}`, `Lubisz {word}`, `Lubiłem {word}`],
     [
       [`wiele rzcecz l.mn.`, `wiele rzeczy`, `Co?`],
       [`siebie`, `siebie`, `Kogo?`],
@@ -951,12 +946,7 @@ const biernikSourceData: CardSourceData[] = [
     ]
   ),
   biernikVerb(
-    [
-      `Widzieć {word}`,
-      `Widzę {word}`,
-      `Widzisz {word}`,
-      `Widziałem {word}`,
-    ],
+    [`Widzieć {word}`, `Widzę {word}`, `Widzisz {word}`, `Widziałem {word}`],
     [
       [`tamten samochód`, ``, `Co?`],
       [`szersza perspektywa`, `szerszą perspektywę`, `Co?`],
@@ -964,12 +954,7 @@ const biernikSourceData: CardSourceData[] = [
     ]
   ),
   biernikVerb(
-    [
-      `Jeść {word}`,
-      `Jem {word}`,
-      `Jesz {word}`,
-      `Jadłem {word}`,
-    ],
+    [`Jeść {word}`, `Jem {word}`, `Jesz {word}`, `Jadłem {word}`],
     [
       [`mięso`, `mięso`, `Co?`],
       [`fasola`, `fasolę `, `Co?`],
@@ -979,30 +964,204 @@ const biernikSourceData: CardSourceData[] = [
     ]
   ),
   biernikVerb(
+    [`Pić {word}`, `Piję {word}`, `Pijesz {word}`, `Piłem {word}`],
     [
-      ` {word}`,
-      ` {word}`,
-      ` {word}`,
-      ` {word}`,
-    ],
+      [`krew`, `krew`, `Co?`],
+      [`piwo, wino, wódka`, `piwo, wino, wódkę`, `Co?`],
+      [`szampan`, `szampana`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [`Znać {word}`, `Znam {word}`, `Znasz {word}`, `Znałem {word}`],
     [
-      [``, ``, `Kogo?`],
-      [``, ``, `Kogo?`],
-      [``, ``, `Kogo?`],
+      [`ich sekret`, `ich sekre`, `Co?`],
+      [`strach przed przegraną`, `strach przed przegraną`, `Co?`],
+      [`polskie prawo`, `polskie prawo`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [`Czytać {word}`, `Czytam {word}`, `Czytasz {word}`, `Czytałem {word}`],
+    [
+      [`wiadomość l.mn. w internecie`, `wiadomości w internecie`, `Co?`],
+      [`komentarz l.mn. na tej stronie`, `komentarzy na tej stronie`, `Co?`],
+      [`książka w telefonie`, `książkę w telefonie`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [`Pisać {word}`, `Piszę {word}`, `Piszesz {word}`, `Pisałem {word}`],
+    [
+      [`mail do szefa`, `maila do szefa`, `Co?`],
+      [`list do tej gazety`, `list do tej gazety`, `Co?`],
+      [`coś na ścianie`, `coś na ścianie`, `Co?`],
     ]
   ),
   biernikVerb(
     [
-      ` {word}`,
-      ` {word}`,
-      ` {word}`,
-      ` {word}`,
+      `Sprzątać {word}`,
+      `Sprzątam {word}`,
+      `Sprzątasz {word}`,
+      `Sprzątałem {word}`,
     ],
     [
-      [``, ``, `Kogo?`],
-      [``, ``, `Kogo?`],
-      [``, ``, `Kogo?`],
+      [`mieszkanie`, `mieszkanie`, `Co?`],
+      [`biurko`, `biurko`, `Co?`],
+      [`cudze bałagany`, `cudze bałagany`, `Co?`],
     ]
+  ),
+  biernikVerb(
+    [`Oglądać {word}`, `Oglądam {word}`, `Oglądasz {word}`, `Oglądałem {word}`],
+    [
+      [`film`, `film`, `Co?`],
+      [`pacjent`, `pacjenta`, `Kogo?`],
+      [`zdjęcia`, `zdjęcia`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [`Kupować {word}`, `Kupuję {word}`, `Kupujesz {word}`, `Kupowałem {word}`],
+    [
+      [`prezenty swoim kochankom`, `prezenty swoim kochankom`, `Co?`],
+      [`różna rzecz`, `różne rzeczy`, `Co?`],
+      [`ubrania w dziale dla dzieci`, `ubrania w dziale dla dzieci`, `Co?`],
+    ]
+  ),
+  biernikVerb(
+    [`Gotować {word}`, `Gotuję {word}`, `Gotujesz {word}`, `Gotowałem {word}`],
+    [
+      [`kolacja dla wszystkich`, `kolację dla wszystkich`, `Co?`],
+      [`śniadanie`, `śniadanie`, `Co?`],
+      [`lunch`, `lunch`, `Co?`],
+    ]
+  ),
+  biernikPreposition(
+    [`Jechaliśmy przez {word}`, `tunel w górże`, `tunel w górże`, `Co?`],
+    [
+      `Skuteczność nabycia majątku przez {word}`,
+      `osoba trzecia`,
+      `osobę trzecią`,
+      `Kogo?`,
+    ],
+    [`Zbyt martwisz się przez {word}`, `on`, `niego`, `Kogo?`]
+  ),
+  biernikPreposition(
+    [
+      `Jednakowe traktowanie pracowników bez względu na {word}`,
+      `narodowość`,
+      `narodowość`,
+      `Co?`,
+    ],
+    [`Wyruszamy bez względu na {word}`, `ich gotowość`, `ich gotowość`, `Co?`],
+    [
+      `Odpowiedzialność bez względu na {word}`,
+      `stanowisko`,
+      `stanowisko`,
+      `Co?`,
+    ]
+  ),
+  biernikPreposition(
+    [
+      `Wybraliśmy biurowiec ze względu na jego {word}`,
+      `dogodna lokalizacja`,
+      `dogodną lokalizację `,
+      `Co?`,
+    ],
+    [
+      `Poszedł na urlop ze względu na {word}`,
+      `problem osobisty l.mn.`,
+      `problemy osobiste`,
+      `Co?`,
+    ],
+    [`Zostałem w domu ze względu na {word}`, `pogoda`, `pogodę`, `Co?`]
+  ),
+  biernikPreposition(
+    [`Współpracuje z FBI w zamian za {word}`, `immunitet`, `immunitet`, `Co?`],
+    [`W zamian za {word}`, `pomoc`, `pomoc`, `Co?`],
+    [`Milion dolarów w zamian za {word}`, `dusza`, `duszę`, `Co?`]
+  ),
+  biernikPreposition(
+    [
+      `Z uwagi na {word}`,
+      `trudna sytuacja epidemiczna`,
+      `trudną sytuację epidemiczną`,
+      `Co?`,
+    ],
+    [
+      `Z uwagi na {word}`,
+      `brak łączności komórkowej `,
+      `brak łączności komórkowej`,
+      `Co?`,
+    ],
+    [
+      `Może tam pracować z uwagi na {word}`,
+      `umiejętność l.mn.`,
+      `umiejętności`,
+      `Co?`,
+    ]
+  ),
+  biernikPreposition(
+    [`Patrzy na {word}`, `ściana`, `ścianę`, `Co?`],
+    [`Pajak wlazł na {word}`, `sufit`, `sufit`, `Co?`],
+    [`Odrzucił koc na {word}`, `podłoga`, `podłogę`, `Kogo?`]
+  ),
+  biernikPreposition(
+    [`Chodzi o {word}`, `pieniądz l.mn.`, `pieniądze`, `Co?`],
+    [`Spierać się o {word}`, `oczywiste rzeczy`, `oczywiste rzeczy`, `Co?`],
+    [`Szef pyta o {word}`, `jakość produktów`, `jakość produktów`, `Co?`],
+    [`Szef pyta o {word}`, `ten projekt`, `ten projekt`, `Co?`],
+    [`Szef pyta o {word}`, `jego zdanie`, `jego zdanie`, `Co?`]
+  ),
+  biernikPreposition(
+    [`Posłałem po {word}`, `on`, `niego`, `Kogo?`],
+    [`Poszłam po {word}`, `lekarz`, `lekarza`, `Kogo?`],
+    [`Jedzie po {word}`, `Maciej`, `Macieja`, `Kogo?`]
+  ),
+  biernikPreposition(
+    [`Poszedł pod {word}`, `prysznic`, `prysznic`, `Co?`],
+    [`Idź prosto pod {word}`, `most`, `most`, `Co?`],
+    [`Chodź tu... pod {word}`, `drzewo`, `drzewo`, `Co?`]
+  ),
+  biernikPreposition(
+    [`A jutro rano jedziemy nad {word}`, `morze`, `morze`, `Co?`],
+    [`Ruszam nad {word}`, `jezioro`, `jezioro`, `Co?`],
+    [`Pojechałem nad {word}`, `rzekę`, `rzekę`, `Co?`]
+  ),
+  biernikPreposition(
+    [`Sprzedałem ponad {word}`, `milion sztuk`, `milion sztuk`, `Co?`],
+    [`Czekałem ponad {word}`, `godzina`, `godzinę`, `Co?`],
+    [
+      `Dobro firmy ponad {word}`,
+      `uczucie osobiste l.mn.`,
+      `uczucia osobiste`,
+      `Co?`,
+    ]
+  ),
+  biernikPreposition(
+    [`Dałem czterdzieści tysięcy za {word}`, `samochód`, `samochód`, `Co?`],
+    [`Nie możemy podejmować decyzji za {word}`, `ona`, `nią`, `Kogo?`],
+    [`Zapłacę ci za {word} kiedy wrócę `, `on`, `niego`, `Kogo?`]
+  ),
+  biernikPreposition(
+    [`Zajechali przed {word}`, `budynek`, `budynek`, `Co?`],
+    [
+      `Zamiast przed {word} trafiła do zakładu karnego `,
+      `ołtarz`,
+      `ołtarz`,
+      `Co?`,
+    ],
+    [`Znów trafię przed {word}`, `sędzia`, `sędzię`, `Kogo?`]
+  ),
+  biernikPreposition(
+    [`On nie wszedł między {word}`, `my`, `nas`, `Kogo?`],
+    [`Włożył ją między {word}`, `pośladek l.mn.`, `pośladki`, `Co?`],
+    [`Dzielenie tekstu między {word}`, `kolumny`, `kolumny`, `Co?`]
+  ),
+  biernikPreposition(
+    [`Wyszłaś poza {word}, prawda? `, `mur`, `mur`, `Co?`],
+    [`Poza {word} miasta`, `granica`, `granicę`, `Co?`],
+  ),
+  biernikPreposition(
+    [`Patrzał w moje {word}`, `oko l.mn.`, `oczy`, `Co?`],
+    [`Musisz wkroczyć w {word}`, `pustka`, `pustkę`, `Co?`],
+    [`Leci w {word}`, `niebo`, `niebo`, `Co?`]
   ),
 ];
 
