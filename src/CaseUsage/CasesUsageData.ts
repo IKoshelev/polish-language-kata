@@ -6,7 +6,7 @@ export const cases = {
   celownik: `Celownik`,
   biernik: `Biernik`,
   narzędnik: `Narzędnik`,
-  miejscownik: `Miejscownik`
+  miejscownik: `Miejscownik`,
 } as const;
 
 export type CaseName = typeof cases[keyof typeof cases];
@@ -30,7 +30,7 @@ type CardSourceData = {
 
 let counter = 1;
 
-const forCaseMatrixeChoice =
+const forCaseMatrixChoice =
   (caseName: CaseName) =>
   (
     templates: `${string}{word}${string}`[],
@@ -70,11 +70,11 @@ const forCaseListChoice =
     };
   };
 
-const dopełniaczMatrixeChoice = forCaseMatrixeChoice(cases.dopełniacz);
-const celownikMatrixeChoice = forCaseMatrixeChoice(cases.celownik);
-const biernikMatrixeChoice = forCaseMatrixeChoice(cases.biernik);
-const narzędnikMatrixeChoice = forCaseMatrixeChoice(cases.narzędnik);
-const miejscownikMatrixeChoice = forCaseMatrixeChoice(cases.miejscownik);
+const dopełniaczMatrixChoice = forCaseMatrixChoice(cases.dopełniacz);
+const celownikMatrixChoice = forCaseMatrixChoice(cases.celownik);
+const biernikMatrixChoice = forCaseMatrixChoice(cases.biernik);
+const narzędnikMatrixChoice = forCaseMatrixChoice(cases.narzędnik);
+const miejscownikMatrixChoice = forCaseMatrixChoice(cases.miejscownik);
 
 const dopełniaczListChoice = forCaseListChoice(cases.dopełniacz);
 const celownikListChoice = forCaseListChoice(cases.celownik);
@@ -84,24 +84,84 @@ const miejscownikListChoice = forCaseListChoice(cases.miejscownik);
 
 const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczListChoice(
-    [`{word}`, `1 styczeń 2000`, `Pierwszego stycznia dwutysięcznego roku`, `Czego?`],
-    [`{word}`, `10 luty 1965`, `Dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`, `Czego?`],
-    [`{word}`, `31 grudzień 1999`, `Trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Czego?`]
+    [
+      `{word}`,
+      `1 styczeń 2000`,
+      `Pierwszego stycznia dwutysięcznego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `10 luty 1965`,
+      `Dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `31 grudzień 1999`,
+      `Trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`,
+      `Czego?`,
+    ]
   ),
   dopełniaczListChoice(
-    [`{word}`, `12 marzec 1987`, `Dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`, `Czego?`],
-    [`{word}`, `20 kwiecień 1992`, `Dwudziestego kwietnia tysiąc dziewięćset dziewięćdziesiątego drugiego roku`, `Czego?`],
-    [`{word}`, `15 maj 1943`, `Piętnastego maja tysiąc dziewięćset czterdziestego trzeciego roku`, `Czego?`]
+    [
+      `{word}`,
+      `12 marzec 1987`,
+      `Dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `20 kwiecień 1992`,
+      `Dwudziestego kwietnia tysiąc dziewięćset dziewięćdziesiątego drugiego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `15 maj 1943`,
+      `Piętnastego maja tysiąc dziewięćset czterdziestego trzeciego roku`,
+      `Czego?`,
+    ]
   ),
   dopełniaczListChoice(
-    [`{word}`, `18 czerwiec 2005`, `Osiemnastego czerwca dwa tysiące piątego roku`, `Czego?`],
-    [`{word}`, `28 lipiec 2021`, `Dwudziestego ósmego lipca dwa tysiące dwudziestego pierwszego roku`, `Czego?`],
-    [`{word}`, `25 sierpień 1832`, `Dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`, `Czego?`]
+    [
+      `{word}`,
+      `18 czerwiec 2005`,
+      `Osiemnastego czerwca dwa tysiące piątego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `28 lipiec 2021`,
+      `Dwudziestego ósmego lipca dwa tysiące dwudziestego pierwszego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `25 sierpień 1832`,
+      `Dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`,
+      `Czego?`,
+    ]
   ),
   dopełniaczListChoice(
-    [`{word}`, `30 wrzesień 2012`, `Trzydziestego wrzesnia dwa tysiące dwunastego roku`, `Czego?`],
-    [`{word}`, `4 październik 1900`, `Czwarte października tysiąc dziewięćsetnego roku`, `Czego?`],
-    [`{word}`, `11 listopad 1918`, `Jedenastego listopada tysiąc dziewięćset osiemnastego roku`, `Czego?`]
+    [
+      `{word}`,
+      `30 wrzesień 2012`,
+      `Trzydziestego wrzesnia dwa tysiące dwunastego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `4 październik 1900`,
+      `Czwarte października tysiąc dziewięćsetnego roku`,
+      `Czego?`,
+    ],
+    [
+      `{word}`,
+      `11 listopad 1918`,
+      `Jedenastego listopada tysiąc dziewięćset osiemnastego roku`,
+      `Czego?`,
+    ]
   ),
   dopełniaczListChoice(
     [`Pudełko {word}`, `czekoladka l.mn.`, `czekoladek`, `Czego?`],
@@ -123,7 +183,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     [`Dziewięć {word}`, `życie`, `żyć`, `Czego?`],
     [`Sto {word}`, `obiekt`, `obiektów`, `Czego?`]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Bać się {word}`,
       `Boję się {word}`,
@@ -137,7 +197,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`ja`, `mnie`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [`Brakuję mi {word}`, `Brakuję ci {word}`, `Brakowało ci {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -146,7 +206,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`one/one`, `ich`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Pilnować {word}`,
       `Pilnuję {word}`,
@@ -160,7 +220,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`on`, `jego/go`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Potrzebować  {word}`,
       `Potrzebuje {word}`,
@@ -174,7 +234,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [`Słuchać {word}`, `Slucham {word}`, `Sluchasz {word}`, `Słuchałem {word}`],
     [
       [`pani`, `pani`, `Kogo?`],
@@ -183,7 +243,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`my`, `nas`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [`Szukać {word}`, `Szukam {word}`, `Szukasz {word}`, `Szukałem {word}`],
     [
       [`kot`, `kota`, `Kogo?`],
@@ -191,7 +251,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Uczyć się {word}`,
       `Uczę się {word}`,
@@ -204,7 +264,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`właściwe maniery`, `właściwych manier`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [`Używać {word}`, `Używam {word}`, `Używasz {word}`, `Używałem {word}`],
     [
       [`ten kryterium`, `tego kryterium`, `Czego?`],
@@ -212,7 +272,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`lek`, `leku`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Zapomniać {word}`,
       `Zapomniałem {word}`,
@@ -226,7 +286,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`wy`, `was`, `Kogo?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [`Żałować {word}`, `Żałuję {word}`, `Żałujesz {word}`, `Żałowałem {word}`],
     [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
@@ -234,7 +294,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`zmarnowana szansa`, `zmarnowanej szansy`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     // lots of usage, so 3 dicated cards
     [
       `Życzyć {word}`,
@@ -248,7 +308,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pomyślna przyszłość`, `pomyślnej przyszłości`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -261,7 +321,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`odwaga`, `odwagi`, `Czego?`],
     ]
   ),
-  dopełniaczMatrixeChoice(
+  dopełniaczMatrixChoice(
     [
       `Życzyć {word}`,
       `Życzę ci {word}`,
@@ -542,13 +602,25 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Jestem niedaleko {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
+  celownikMatrixChoice(
+    [`Widzi {word}`],
+    [
+      [`ja`, `mnie`, `Kogo?`],
+      [`ty`, `ciebie`, `Kogo?`],
+      [`on`, `jego`, `Kogo?`],
+      [`ona`, `jej`, `Kogo?`],
+      [`ono`, `jego`, `Kogo?`],
+      [`my`, `nas`, `Kogo?`],
+      [`wy`, `was`, `Kogo?`],
+      [`oni`, `ich`, `Kogo?`],
+      [`one`, `ich`, `Kogo?`],
+    ]
+  ),
 ];
 
 const celownikSourceData: CardSourceData[] = [
-  celownikListChoice(
-    [`Miło {word}`, `ja`, `mi`, `Komu?`]
-    ),
-  celownikMatrixeChoice(
+  celownikListChoice([`Miło {word}`, `ja`, `mi`, `Komu?`]),
+  celownikMatrixChoice(
     [
       `Darować {word} tego.`,
       `Daruję {word} tego.`,
@@ -561,7 +633,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [`Dawać {word}`, `Daję {word}`, `Dajesz {word}`, `Dawałem {word}`],
     [
       [`ja`, `mi/mnie`, `Komu?`],
@@ -569,7 +641,7 @@ const celownikSourceData: CardSourceData[] = [
       [`oni/one`, `im`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Dokuczać {word}`,
       `Dokuczam {word}`,
@@ -582,7 +654,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ona`, `jej`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Dziękować {word}`,
       `Dziękuję {word}`,
@@ -595,7 +667,7 @@ const celownikSourceData: CardSourceData[] = [
       [`urzędnik`, `urzędnikowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Dziwić się {word}`,
       `Dziwię się {word}`,
@@ -608,7 +680,7 @@ const celownikSourceData: CardSourceData[] = [
       [`twoje zachowanie`, `twojemu zachowaniu`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Kibicować {word}`,
       `Kibicuję {word}`,
@@ -621,7 +693,7 @@ const celownikSourceData: CardSourceData[] = [
       [`swój mąż`, `swojemu mężowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Kraść {word} środki`,
       `Kradnę {word} środki`,
@@ -634,7 +706,7 @@ const celownikSourceData: CardSourceData[] = [
       [`bogaci`, `bogatym`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Kupować {word} prezent`,
       `Kupuję {word} prezent`,
@@ -647,7 +719,7 @@ const celownikSourceData: CardSourceData[] = [
       [`mąż`, `mężowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Mówić {word} o tym`,
       `Mówię {word} o tym`,
@@ -660,7 +732,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pan sędzia`, `panu sędzi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Oddawać datek {word}`,
       `Oddaję datek {word}`,
@@ -673,7 +745,7 @@ const celownikSourceData: CardSourceData[] = [
       [`uniwersytet`, `uniwersytetowi`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Odmawiać {word}`,
       `Odmawiam {word}`,
@@ -686,7 +758,7 @@ const celownikSourceData: CardSourceData[] = [
       [`księżniczka`, `księżniczce`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Opowiadać {word} historii`,
       `Opowiadam {word} historii`,
@@ -699,7 +771,7 @@ const celownikSourceData: CardSourceData[] = [
       [`chłopiec`, `chłopcu`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Podawać rękę {word}`,
       `Podaję rękę {word}`,
@@ -712,7 +784,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Podobać się {word}`,
       `Podobam się {word}`,
@@ -725,7 +797,7 @@ const celownikSourceData: CardSourceData[] = [
       [`dziewczyna l.mn.`, `dziewczynom`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [`Pomagać {word}`, `Pomagam {word}`, `Pomagasz {word}`, `Pomagałem {word}`],
     [
       [`biedny l.mn.`, `biednym`, `Komu?`],
@@ -733,7 +805,7 @@ const celownikSourceData: CardSourceData[] = [
       [`dzieci`, `dzieciom`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Pożyczać {word} pieniądze`,
       `Pożyczam {word} pieniądze`,
@@ -746,7 +818,7 @@ const celownikSourceData: CardSourceData[] = [
       [`ta firma`, `tej firmie`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Przedstawiać {word} pannę Weronikę`,
       `Przedstawiam {word} pannę Weronikę`,
@@ -759,7 +831,7 @@ const celownikSourceData: CardSourceData[] = [
       [`wy`, `wam`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Przyglądać się {word}`,
       `Przyglądam się {word}`,
@@ -772,7 +844,7 @@ const celownikSourceData: CardSourceData[] = [
       [`okno`, `oknu`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Przynosić {word} radość`,
       `Przynoszę {word} radość`,
@@ -785,7 +857,7 @@ const celownikSourceData: CardSourceData[] = [
       [`wszyscy`, `wszystkim`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Przypominać {word} o spotkaniu`,
       `Przypominam {word} o spotkaniu`,
@@ -798,7 +870,7 @@ const celownikSourceData: CardSourceData[] = [
       [`student`, `studentowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Rozdawać {word} słodycze`,
       `Rozdaję {word} słodycze`,
@@ -811,7 +883,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pacjent l.mn.`, `pacjentom`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [`Mięso smakuję {word}`, `Mięso smakowało {word}`],
     [
       [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
@@ -819,7 +891,7 @@ const celownikSourceData: CardSourceData[] = [
       [`tygrys`, `tygrysowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Sprzedawać {word} towary`,
       `Sprzedaję {word} towary`,
@@ -832,7 +904,7 @@ const celownikSourceData: CardSourceData[] = [
       [`magazyn l.mn.`, `magazynom`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Szkodzić {word}`,
       `Szkodzę {word}`,
@@ -845,7 +917,7 @@ const celownikSourceData: CardSourceData[] = [
       [`reputacja`, `reputacji`, `Czemu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Tłumaczyć {word} to`,
       `Tłumaczę {word} to`,
@@ -858,7 +930,7 @@ const celownikSourceData: CardSourceData[] = [
       [`sobie`, `sobie`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [`Ufać {word}`, `Ufam {word}`, `Ufasz {word}`, `Ufałem {word}`],
     [
       [`niewłaściwe ludzie`, `niewłaściwym ludziom`, `Komu?`],
@@ -866,7 +938,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzom`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [`Wierzyć {word}`, `Wierzę {word}`, `Wierzysz {word}`, `Wierzyłem {word}`],
     [
       [`Kamil`, `Kamilowi`, `Komu?`],
@@ -874,7 +946,7 @@ const celownikSourceData: CardSourceData[] = [
       [`lekarz`, `lekarzom`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Wybaczać {word}`,
       `Wybaczam {word}`,
@@ -887,7 +959,7 @@ const celownikSourceData: CardSourceData[] = [
       [`papuga`, `papudze`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Nie zazdrościć {word}`,
       `Nie zazdroszczę {word}`,
@@ -900,7 +972,7 @@ const celownikSourceData: CardSourceData[] = [
       [`pracownik`, `pracownikowi`, `Komu?`],
     ]
   ),
-  celownikMatrixeChoice(
+  celownikMatrixChoice(
     [
       `Życzyć {word} miłego dnia`,
       `Życzę {word} miłego dnia`,
@@ -964,10 +1036,24 @@ const celownikSourceData: CardSourceData[] = [
     [`Postępuję wbrew {word}`, `przepis l.mn.`, `przepisom`, `Czemu?`],
     [`Przetrzymuje człowieka wbrew {word}`, `jego wola`, `jego woli`, `Czemu?`]
   ),
+  celownikMatrixChoice(
+    [`Ufa {word}`],
+    [
+      [`ja`, `mnie`, `Komu?`],
+      [`ty`, `tobie`, `Komu?`],
+      [`on`, `jemu`, `Komu?`],
+      [`ona`, `jej`, `Komu?`],
+      [`ono`, `jemu`, `Komu?`],
+      [`my`, `nam`, `Komu?`],
+      [`wy`, `wam`, `Komu?`],
+      [`oni`, `im`, `Komu?`],
+      [`one`, `im`, `Komu?`],
+    ]
+  ),
 ];
 
 const biernikSourceData: CardSourceData[] = [
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Mieć {word}`, `Mam {word}`, `Masz {word}`, `Miałem {word}`],
     [
       [`matka`, `matkę`, `Kogo?`],
@@ -976,7 +1062,7 @@ const biernikSourceData: CardSourceData[] = [
       [`czas`, `czas`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Lubić {word}`, `Lubię {word}`, `Lubisz {word}`, `Lubiłem {word}`],
     [
       [`wiele rzcecz l.mn.`, `wiele rzeczy`, `Co?`],
@@ -984,7 +1070,7 @@ const biernikSourceData: CardSourceData[] = [
       [`historia l.mn.`, `historie`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [
       `Kochać {word} i zamierzam ją poślubić`,
       `Kocham {word} i zamierzam ją poślubić`,
@@ -997,7 +1083,7 @@ const biernikSourceData: CardSourceData[] = [
       [`ta barmenka`, `tę barmankę`, `Kogo?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Widzieć {word}`, `Widzę {word}`, `Widzisz {word}`, `Widziałem {word}`],
     [
       [`tamten samochód`, ``, `Co?`],
@@ -1005,7 +1091,7 @@ const biernikSourceData: CardSourceData[] = [
       [`on`, `jego`, `Kogo?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Jeść {word}`, `Jem {word}`, `Jesz {word}`, `Jadłem {word}`],
     [
       [`mięso`, `mięso`, `Co?`],
@@ -1015,7 +1101,7 @@ const biernikSourceData: CardSourceData[] = [
       [`kasza`, `kaszę`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Pić {word}`, `Piję {word}`, `Pijesz {word}`, `Piłem {word}`],
     [
       [`krew`, `krew`, `Co?`],
@@ -1023,7 +1109,7 @@ const biernikSourceData: CardSourceData[] = [
       [`szampan`, `szampana`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Znać {word}`, `Znam {word}`, `Znasz {word}`, `Znałem {word}`],
     [
       [`ich sekret`, `ich sekre`, `Co?`],
@@ -1031,7 +1117,7 @@ const biernikSourceData: CardSourceData[] = [
       [`polskie prawo`, `polskie prawo`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Czytać {word}`, `Czytam {word}`, `Czytasz {word}`, `Czytałem {word}`],
     [
       [`wiadomość l.mn. w internecie`, `wiadomości w internecie`, `Co?`],
@@ -1039,7 +1125,7 @@ const biernikSourceData: CardSourceData[] = [
       [`książka w telefonie`, `książkę w telefonie`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Pisać {word}`, `Piszę {word}`, `Piszesz {word}`, `Pisałem {word}`],
     [
       [`mail do szefa`, `maila do szefa`, `Co?`],
@@ -1047,7 +1133,7 @@ const biernikSourceData: CardSourceData[] = [
       [`coś na ścianie`, `coś na ścianie`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [
       `Sprzątać {word}`,
       `Sprzątam {word}`,
@@ -1060,7 +1146,7 @@ const biernikSourceData: CardSourceData[] = [
       [`cudze bałagany`, `cudze bałagany`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Oglądać {word}`, `Oglądam {word}`, `Oglądasz {word}`, `Oglądałem {word}`],
     [
       [`film`, `film`, `Co?`],
@@ -1068,7 +1154,7 @@ const biernikSourceData: CardSourceData[] = [
       [`zdjęcia`, `zdjęcia`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Kupować {word}`, `Kupuję {word}`, `Kupujesz {word}`, `Kupowałem {word}`],
     [
       [`prezenty swoim kochankom`, `prezenty swoim kochankom`, `Co?`],
@@ -1076,7 +1162,7 @@ const biernikSourceData: CardSourceData[] = [
       [`ubrania w dziale dla dzieci`, `ubrania w dziale dla dzieci`, `Co?`],
     ]
   ),
-  biernikMatrixeChoice(
+  biernikMatrixChoice(
     [`Gotować {word}`, `Gotuję {word}`, `Gotujesz {word}`, `Gotowałem {word}`],
     [
       [`kolacja dla wszystkich`, `kolację dla wszystkich`, `Co?`],
@@ -1215,61 +1301,55 @@ const biernikSourceData: CardSourceData[] = [
     [`Musisz wkroczyć w {word}`, `pustka`, `pustkę`, `Co?`],
     [`Leci w {word}`, `niebo`, `niebo`, `Co?`]
   ),
+  biernikMatrixChoice(
+    [`Pyta o {word}`],
+    [
+      [`ja`, `mnie`, `Kogo?`],
+      [`ty`, `ciebie`, `Kogo?`],
+      [`on`, `niego`, `Kogo?`],
+      [`ona`, `nią`, `Kogo?`],
+      [`ono`, `nie`, `Kogo?`],
+      [`my`, `nas`, `Kogo?`],
+      [`wy`, `was`, `Kogo?`],
+      [`oni`, `nich`, `Kogo?`],
+      [`one`, `nie`, `Kogo?`],
+    ]
+  ),
 ];
 
 const narzędniSourcseData: CardSourceData[] = [
-  narzędnikMatrixeChoice(
-    [
-      `Być {word}`,
-      `Jestem {word}`,
-      `Seteś {word}`,
-      `Byłem {word}`,
-    ],
+  narzędnikMatrixChoice(
+    [`Być {word}`, `Jestem {word}`, `Seteś {word}`, `Byłem {word}`],
     [
       [`student`, `studentem`, `Kim?`],
       [`świadek`, `świadkiem`, `Czym?`],
       [`chłopiec`, `chłopcem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
+    [`Jechać {word}`, `Jadę {word}`, `Jedziesz {word}`, `Jechałem {word}`],
     [
-      `Jechać {word}`,
-      `Jadę {word}`,
-      `Jedziesz {word}`,
-      `Jechałem {word}`,
-    ],
-    [
-      [`droga nr 5 `, `drogą nr 5 `, `Czym?`],
+      [`droga nr 5`, `drogą nr 5`, `Czym?`],
       [`samochód`, `samochodem`, `Czym?`],
       [`rower`, `rowerem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
-    [
-      `Pisać {word}`,
-      `Piszę {word}`,
-      `Piszesz {word}`,
-      `Pisałem {word}`,
-    ],
+  narzędnikMatrixChoice(
+    [`Pisać {word}`, `Piszę {word}`, `Piszesz {word}`, `Pisałem {word}`],
     [
       [`długopis`, `długopisem`, `Czym?`],
-      [`ołówek`, `ołówkiem`, `Czym?`]
+      [`ołówek`, `ołówkiem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
-    [
-      `Iść z {word}`,
-      `Idę z {word}`,
-      `Idziesz z {word}`,
-      `Szedłem z {word}`,
-    ],
+  narzędnikMatrixChoice(
+    [`Iść z {word}`, `Idę z {word}`, `Idziesz z {word}`, `Szedłem z {word}`],
     [
       [`on`, `nim`, `Kim?`],
       [`ona`, `nią`, `Kim?`],
       [`brat`, `bratem`, `Kim?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Rozmawiać z {word}`,
       `Rozmawiam z {word}`,
@@ -1277,23 +1357,26 @@ const narzędniSourcseData: CardSourceData[] = [
       `Rozmawiałem z {word}`,
     ],
     [
-      [`trener`, `trenerem `, `Kim?`],
+      [`trener`, `trenerem`, `Kim?`],
       [`siostra`, `siostrą`, `Kim?`],
       [`babcia`, `babcią`, `Kim?`],
     ]
   ),
   narzędnikListChoice(
     [`Którędy jechać? {word}`, `tunel`, `tunelem`, `Czym?`],
-    [`Którędy iść? Idź {word}`, `ta ulica`, `tą ulicą`, `Czym?`],
+    [`Którędy iść? Idź {word}`, `ta ulica`, `tą ulicą`, `Czym?`]
   ),
   narzędnikListChoice(
     [`Kiedy to będzie? {word}`, `wieczór`, `wieczorem`, `Czym?`],
-    [`Kiedy to będzie? {word}`, `żima`, `zimą`, `Czym?`],
+    [`Kiedy to będzie? {word}`, `żima`, `zimą`, `Czym?`]
   ),
-  narzędnikListChoice(
-    [`Jak iść? {word}`, `zdecydowany krok`, `zdecydowanym krokiem`, `Czym?`],
-  ),
-  narzędnikMatrixeChoice(
+  narzędnikListChoice([
+    `Jak iść? {word}`,
+    `zdecydowany krok`,
+    `zdecydowanym krokiem`,
+    `Czym?`,
+  ]),
+  narzędnikMatrixChoice(
     [
       `Bawić się {word}`,
       `Bawię się {word}`,
@@ -1306,7 +1389,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`rzecz l.mn.`, `rzeczami`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Chwalić się {word}`,
       `Chwalę się {word}`,
@@ -1320,7 +1403,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Cieszyć się {word}`,
       `Cieszę się {word}`,
@@ -1334,7 +1417,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Interesować się {word}`,
       `Interesuję się {word}`,
@@ -1348,7 +1431,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Kierować {word}`,
       `Kieruję {word}`,
@@ -1364,7 +1447,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Martwić się {word}`,
       `Martwię się {word}`,
@@ -1378,7 +1461,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Męczyć się {word}`,
       `Męczę się {word}`,
@@ -1392,7 +1475,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
 
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Opiekować się {word}`,
       `Opiekuję się {word}`,
@@ -1405,7 +1488,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`pies l.mn.`, `psami`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Pachnieć {word}`,
       `Pachnę się {word}`,
@@ -1418,7 +1501,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`lipa`, `lipą`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Przejmować się {word}`,
       `Przejmuję się {word}`,
@@ -1431,7 +1514,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`los kraju`, `losem kraju`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Rządzić {word}`,
       `Rządzę się {word}`,
@@ -1444,7 +1527,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`ludzkie serce`, `ludzkim sercem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Smarować {word}`,
       `Smaruję {word}`,
@@ -1457,7 +1540,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`maść`, `maścią`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Stresować się {word}`,
       `Stresuje się {word}`,
@@ -1470,7 +1553,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`szkoła`, `szkołą`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Zachwycać się {word}`,
       `Zachwycam się {word}`,
@@ -1483,7 +1566,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`malarstwo`, `malarstwem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Zajmować się {word}`,
       `Zajmuję się {word}`,
@@ -1496,7 +1579,7 @@ const narzędniSourcseData: CardSourceData[] = [
       [`rysunek i projektowanie`, `rysunkiem i projektowaniem`, `Czym?`],
     ]
   ),
-  narzędnikMatrixeChoice(
+  narzędnikMatrixChoice(
     [
       `Zarażać się {word}`,
       `Zarażam się {word}`,
@@ -1609,6 +1692,20 @@ const narzędniSourcseData: CardSourceData[] = [
     ],
     [`Gotowałem zgodnie z {word}`, `przepis`, `przepisem`, `Czym?`]
   ),
+  narzędnikMatrixChoice(
+    [`Opiekuje się {word}`],
+    [
+      [`ja`, `mną`, `Kim?`],
+      [`ty`, `tobą`, `Kim?`],
+      [`on`, `nim`, `Kim?`],
+      [`ona`, `nią`, `Kim?`],
+      [`ono`, `nim`, `Kim?`],
+      [`my`, `nami`, `Kim?`],
+      [`wy`, `wami`, `Kim?`],
+      [`oni`, `nimi`, `Kim?`],
+      [`one`, `nimi`, `Kim?`],
+    ]
+  ),
 ];
 
 const miejscownikSourceData: CardSourceData[] = [
@@ -1631,11 +1728,14 @@ const miejscownikSourceData: CardSourceData[] = [
     [`Te misato znajduje się na {word}`, `zachód`, `zachodzie`, `Czym?`],
     [`Te misato znajduje się na {word}`, `schód`, `schodzie`, `Czym?`],
     [`Te misato znajduje się na {word}`, `północ`, `północy`, `Czym?`],
-    [`Te misato znajduje się na {word}`, `południe`, `południu`, `Czym?`],
+    [`Te misato znajduje się na {word}`, `południe`, `południu`, `Czym?`]
   ),
-  miejscownikListChoice(
-    [`Studiuję na {word}`, `uniwersytet`, `uniwersytecie`, `Czym?`]
-  ),
+  miejscownikListChoice([
+    `Studiuję na {word}`,
+    `uniwersytet`,
+    `uniwersytecie`,
+    `Czym?`,
+  ]),
   miejscownikListChoice(
     [`Myśle o {word}`, `ja`, `mnie`, `Kim?`],
     [`Myśle o {word}`, `ty`, `tobie`, `Kim?`],
@@ -1644,7 +1744,7 @@ const miejscownikSourceData: CardSourceData[] = [
   ),
   miejscownikListChoice(
     [`Po {word} idę do pracy`, `śniadanie`, `śniadaniu`, `Czym?`],
-    [`Po {word} biorę prysznic `, `spacer`, `spacerze`, `Czym?`],
+    [`Po {word} biorę prysznic`, `spacer`, `spacerze`, `Czym?`],
     [`Po {word} idę do domu`, `zakończenie`, `zakończeniu`, `Czym?`]
   ),
   miejscownikListChoice(
@@ -1655,7 +1755,169 @@ const miejscownikSourceData: CardSourceData[] = [
   miejscownikListChoice(
     [`Trzymasz go w {word}`, `ta szafa`, `tej szafie`, `Czym?`],
     [`Masz w {word} tylko jedno`, `głowa`, `glowie`, `Czym?`],
-    [`To co mieliśmy w {word} teraz jest niemożliwe`, `plan l.mn.`, `planach`, `Czym?`]
+    [
+      `To co mieliśmy w {word} teraz jest niemożliwe`,
+      `plan l.mn.`,
+      `planach`,
+      `Czym?`,
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Dyskutować o {word}`,
+      `Dyskutuję o {word}`,
+      `Dyskutujesz o {word}`,
+      `Dyskutowałem o {word}`,
+    ],
+    [
+      [`polityka`, `polityce`, `Czym?`],
+      [`cel l.mn.`, `celach`, `Czym?`],
+      [`strategia`, `strategii`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Marzyć o {word}`,
+      `Marzę o {word}`,
+      `Marzysz o {word}`,
+      `Marzyłem o {word}`,
+    ],
+    [
+      [`on`, `nim`, `Kim?`],
+      [`ona`, `niej`, `Kim?`],
+      [`wystawa`, `wystawie`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Myśleć o {word}`,
+      `Myślę o {word}`,
+      `Myślisz o {word}`,
+      `Myślałem o {word}`,
+    ],
+    [
+      [`on`, `nas`, `Kim?`],
+      [`ona`, `was`, `Kim?`],
+      [`one/oni`, `nich`, `Kim?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Pamiętać o {word}`,
+      `Pamiętam o {word}`,
+      `Pamiętasz o {word}`,
+      `Pamiętałem o {word}`,
+    ],
+    [
+      [`moj test na prawo jazdy`, `moim teście na prawo jazdy`, `Czym?`],
+      [`urodziny taty`, `urodzinach taty`, `Czym?`],
+      [`dzisiejszy wieczór`, `dzisiejszym wieczorze`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Rozmawiać o {word}`,
+      `Rozmawiam o {word}`,
+      `Rozmawiasz o {word}`,
+      `Rozmawiałem o {word}`,
+    ],
+    [
+      [`to`, `tym`, `Czym?`],
+      [`plany`, `planach`, `Czym?`],
+      [`sprawa`, `sprawie`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Zapominać o {word}`,
+      `Zapominam o {word}`,
+      `Zapominasz o {word}`,
+      `Zapominałem o {word}`,
+    ],
+    [
+      [`problemy`, `problemach`, `Czym?`],
+      [`słodycze`, `słodyczy`, `Czym?`],
+      [`klauzula w kontrakcie`, `klauzuli w kontrakcie`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Chodzić po {word}`,
+      `Chodzę po {word}`,
+      `Chodzisz po {word}`,
+      `Chodziłem po {word}`,
+    ],
+    [
+      [`ta ulica`, `tej ulicy`, `Czym?`],
+      [`Księżyc`, `Księżycu`, `Czym?`],
+      [`park`, `parku`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Jeździć po {word}`,
+      `Jeżdżę po {word}`,
+      `Jeździsz po {word}`,
+      `Jeździłem po {word}`,
+    ],
+    [
+      [`droga`, `drodze`, `Czym?`],
+      [`trasa`, `trasie`, `Czym?`],
+      [`świat`, `świecie`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Odpoczywać po {word}`,
+      `Odpoczywam po {word}`,
+      `Odpoczywasz po {word}`,
+      `Odpoczywałem po {word}`,
+    ],
+    [
+      [`trening`, `treningu`, `Czym?`],
+      [`egzamin`, `egzaminie`, `Czym?`],
+      [`praca`, `pracy`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Podróżować po {word}`,
+      `Podróżuję po {word}`,
+      `Podróżujesz po {word}`,
+      `Podróżowałem po {word}`,
+    ],
+    [
+      [`morzac`, `morzach`, `Czym?`],
+      [`kraj`, `kraju`, `Czym?`],
+      [`Europa`, `Europie`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [
+      `Spacerować po {word}`,
+      `Spaceruję po {word}`,
+      `Spacerujesz po {word}`,
+      `Spacerowałem po {word}`,
+    ],
+    [
+      [`Paryż`, `Paryżu`, `Czym?`],
+      [`miasto`, `mieście`, `Czym?`],
+      [`ulice`, `ulicach`, `Czym?`],
+    ]
+  ),
+  miejscownikMatrixChoice(
+    [`Mysli o {word}`],
+    [
+      [`ja`, `mnie`, `Kim?`],
+      [`ty`, `tobie`, `Kim?`],
+      [`on`, `nim`, `Kim?`],
+      [`ona`, `niej`, `Kim?`],
+      [`ono`, `nim`, `Kim?`],
+      [`my`, `nas`, `Kim?`],
+      [`wy`, `was`, `Kim?`],
+      [`oni`, `nich`, `Kim?`],
+      [`one`, `nich`, `Kim?`],
+    ]
   ),
 ];
 
@@ -1664,7 +1926,7 @@ const casesSourceData: CardSourceData[] = [
   ...celownikSourceData,
   ...biernikSourceData,
   ...narzędniSourcseData,
-  ...miejscownikSourceData
+  ...miejscownikSourceData,
 ];
 
 export function getCaseData(
