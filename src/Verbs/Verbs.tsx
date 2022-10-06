@@ -7,7 +7,7 @@ import {
   MdFlipToFront,
   MdShuffle,
 } from "react-icons/md";
-import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import { GiCardExchange, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import {
   attemptGetDataByQSKey,
   entries,
@@ -222,10 +222,10 @@ export function Verbs() {
           }}
         >
           <div className="text">
-            tasować <br /> <i>zachowuje zaznaczone kartki</i>
+            tasować
           </div>
           <div className="icon">
-            <MdShuffle />
+            <GiCardExchange />
           </div>
         </button>
         <button

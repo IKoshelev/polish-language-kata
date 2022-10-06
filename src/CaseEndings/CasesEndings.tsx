@@ -11,7 +11,7 @@ import {
   MdFlipToFront,
   MdShuffle,
 } from "react-icons/md";
-import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import { GiCardDraw, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
 import {
   basicCaseData,
@@ -192,11 +192,11 @@ export function CasesEndings() {
           }
         >
           <div className="text">
-            tasować <br /> <i>dodaje trudniejsze słowa</i> <br />{" "}
+            wygenerować <br /> <i>dodaje trudniejsze słowa</i> <br />{" "}
             <i>zachowuje zaznaczone kartki</i>
           </div>
           <div className="icon">
-            <MdShuffle />
+            <GiCardDraw />
           </div>
         </button>
         <button

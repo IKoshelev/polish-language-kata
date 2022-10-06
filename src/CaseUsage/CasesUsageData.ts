@@ -86,7 +86,7 @@ const dopełniaczSourceData: CardSourceData[] = [
   dopełniaczListChoice(
     [`{word}`, `1 styczeń 2000`, `Pierwszego stycznia dwutysięcznego roku`, `Czego?`],
     [`{word}`, `10 luty 1965`, `Dziesiątego lutego tysiąc dziewięćset sześćdziesiątego piątego roku`, `Czego?`],
-    [`{word}`, `31 grudzień 1999`, `Trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Kogo?`]
+    [`{word}`, `31 grudzień 1999`, `Trzydziestego pierwszego grudnia tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku`, `Czego?`]
   ),
   dopełniaczListChoice(
     [`{word}`, `12 marzec 1987`, `Dwunastego marca tysiąc dziewięćset osiemdziesiątego siódmego roku`, `Czego?`],
@@ -1612,7 +1612,51 @@ const narzędniSourcseData: CardSourceData[] = [
 ];
 
 const miejscownikSourceData: CardSourceData[] = [
-
+  miejscownikListChoice(
+    [`O {word} idę na spacer`, `dziewiąta`, `dziewiątej`, `Czym?`],
+    [`Jest 20 minut po {word}`, `szósta`, `szóstej`, `Czym?`],
+    [`10 lat po {word}`, `ślub`, `ślubie`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Pracuję w {word}`, `szpital`, `szpitalu`, `Czym?`],
+    [`Jestem w {word}`, `dobra forma`, `dobrej formie`, `Czym?`],
+    [`Mieszkam na {word}`, `wieś`, `wsi`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Kubek stoi na {word}`, `stół`, `stole`, `Czym?`],
+    [`Kot leży na {word}`, `podłoga`, `podłodze`, `Czym?`],
+    [`Drzewo leży na {word}`, `ziemia`, `ziemi`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Te misato znajduje się na {word}`, `zachód`, `zachodzie`, `Czym?`],
+    [`Te misato znajduje się na {word}`, `schód`, `schodzie`, `Czym?`],
+    [`Te misato znajduje się na {word}`, `północ`, `północy`, `Czym?`],
+    [`Te misato znajduje się na {word}`, `południe`, `południu`, `Czym?`],
+  ),
+  miejscownikListChoice(
+    [`Studiuję na {word}`, `uniwersytet`, `uniwersytecie`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Myśle o {word}`, `ja`, `mnie`, `Kim?`],
+    [`Myśle o {word}`, `ty`, `tobie`, `Kim?`],
+    [`Myśle o {word}`, `on`, `nim`, `Kim?`],
+    [`Myśle o {word}`, `ona`, `niej`, `Kim?`]
+  ),
+  miejscownikListChoice(
+    [`Po {word} idę do pracy`, `śniadanie`, `śniadaniu`, `Czym?`],
+    [`Po {word} biorę prysznic `, `spacer`, `spacerze`, `Czym?`],
+    [`Po {word} idę do domu`, `zakończenie`, `zakończeniu`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Przy {word}`, `planowanie`, `planowaniu`, `Czym?`],
+    [`Obserwuj mistrza przy {word}`, `praca`, `pracy`, `Czym?`],
+    [`Jesteśmy przy  {word}`, `budynek`, `budynku`, `Czym?`]
+  ),
+  miejscownikListChoice(
+    [`Trzymasz go w {word}`, `ta szafa`, `tej szafie`, `Czym?`],
+    [`Masz w {word} tylko jedno`, `głowa`, `glowie`, `Czym?`],
+    [`To co mieliśmy w {word} teraz jest niemożliwe`, `plan l.mn.`, `planach`, `Czym?`]
+  ),
 ];
 
 const casesSourceData: CardSourceData[] = [

@@ -3,6 +3,7 @@ import { useImmer } from "use-immer";
 import {
   attemptGetDataByQSKey,
   getRandomItem,
+  shuffleAndReturnArr,
   whichSideOfElementWasClicked,
 } from "../util";
 import {
@@ -12,7 +13,7 @@ import {
   MdOutlineTranslate,
   MdFlipToFront,
 } from "react-icons/md";
-import { GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import { GiCardDraw, GiCardExchange, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
 import { Card, CaseName, cases, getCaseData } from "./CasesUsageData";
 
@@ -233,18 +234,33 @@ export function CasesUsage() {
         <button
           onClick={() =>
             updateState((d) => {
-              d.cards = getCaseData(10, false, d.cards);
+              d.cards = shuffleAndReturnArr(d.cards);
               d.target = undefined;
             })
           }
         >
           <div className="text">
-            wygenerować 10
+            tasować
+          </div>
+          <div className="icon">
+            <GiCardExchange />
+          </div>
+        </button>
+        <button
+          onClick={() =>
+            updateState((d) => {
+              d.cards = getCaseData(10, true, d.cards);
+              d.target = undefined;
+            })
+          }
+        >
+          <div className="text">
+            wygenerować po 10
             <br />
             <i>zachowuje zaznaczone kartki</i>
           </div>
           <div className="icon">
-            <MdShuffle />
+            <GiCardDraw />
           </div>
         </button>
         <button
@@ -261,7 +277,7 @@ export function CasesUsage() {
             <i>zachowuje zaznaczone kartki</i>
           </div>
           <div className="icon">
-            <MdShuffle />
+            <GiCardDraw />
           </div>
         </button>
         <button
