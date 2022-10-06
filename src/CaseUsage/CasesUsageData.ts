@@ -259,7 +259,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Uczyłem się {word}`,
     ],
     [
-      [`jezyk polski`, `jezyka polskiego`, `Czego?`],
+      [`język polski`, `języka polskiego`, `Czego?`],
       [`historia Polski`, `historii Polski`, `Czego?`],
       [`właściwe maniery`, `właściwych manier`, `Czego?`],
     ]
@@ -840,7 +840,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`każda twarz`, `każdej twarzy`, `Czemu?`],
-      [`lusterko`, `lusterku`, `Czemu?`],
+      [`architektura i krajobrazy l.mn.`, `architekturze i krajobrazom`, `Czemu?`],
       [`okno`, `oknu`, `Czemu?`],
     ]
   ),
@@ -1441,7 +1441,7 @@ const narzędniSourcseData: CardSourceData[] = [
     [
       [`poszukiwania`, `poszukiwaniami`, `Czym?`],
       [`wszystko`, `wszystkim`, `Czym?`],
-      [`serce mężczyzny`, `sercami mężczyzn`, `Czym?`],
+      [`serce mężczyzny l.mn.`, `sercami mężczyzn`, `Czym?`],
       [`firmą`, `firma`, `Czym?`],
       [`ludzie`, `ludźmi`, `Kim?`],
     ]
@@ -1517,9 +1517,9 @@ const narzędniSourcseData: CardSourceData[] = [
   narzędnikMatrixChoice(
     [
       `Rządzić {word}`,
-      `Rządzę się {word}`,
-      `Rządzisz się {word}`,
-      `Rządziłem się {word}`,
+      `Rządzę {word}`,
+      `Rządzisz {word}`,
+      `Rządziłem {word}`,
     ],
     [
       [`nasz kraj`, `naszym krajem`, `Czym?`],
@@ -1544,7 +1544,7 @@ const narzędniSourcseData: CardSourceData[] = [
     [
       `Stresować się {word}`,
       `Stresuje się {word}`,
-      `Stresujes się {word}`,
+      `Stresujesz się {word}`,
       `Stresowałem się {word}`,
     ],
     [
@@ -1648,7 +1648,7 @@ const narzędniSourcseData: CardSourceData[] = [
     ]
   ),
   narzędnikListChoice(
-    [`Reprezentant naszego kraju poza {word}`, `granicr`, `granicam`, `Czym?`],
+    [`Reprezentant naszego kraju poza {word}`, `granica l.mn.`, `granicami`, `Czym?`],
     [`To jego pierwsza podróż poza {word}`, `ojczyzna`, `ojczyzną`, `Czym?`],
     [`Świat poza {word} jest iluzją`, `te mury`, `tymi murami`, `Czym?`]
   ),
@@ -1669,7 +1669,7 @@ const narzędniSourcseData: CardSourceData[] = [
   ),
   narzędnikListChoice(
     [`Są poszukiwani w związku z {word}`, `morderstwo`, `morderstwem`, `Czym?`],
-    [`W związku z projektem {word}`, `elektrownia`, `elektrowni`, `Czym?`],
+    [`W związku z {word} elektrowni`, `projekt`, `projektem`, `Czym?`],
     [
       `Chciałby omówić kilka punktów w związku z {word}`,
       `zaistniała sytuacja`,
