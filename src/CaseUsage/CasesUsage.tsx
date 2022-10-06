@@ -9,11 +9,23 @@ import {
 import {
   MdAvTimer,
   MdFlipToBack,
-  MdShuffle,
   MdOutlineTranslate,
   MdFlipToFront,
 } from "react-icons/md";
-import { GiCardDraw, GiCardExchange, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import {
+  CgPlayTrackNextR,
+  CgPlayTrackPrevR
+} from "react-icons/cg"
+import {
+  GiCardDraw,
+  GiCardExchange,
+  GiCardRandom,
+  GiLoad,
+  GiSave,
+} from "react-icons/gi";
+import {
+  RiFilterLine, RiFilterOffLine
+}from "react-icons/ri";
 import classNames from "classnames";
 import { Card, CaseName, cases, getCaseData } from "./CasesUsageData";
 
@@ -22,9 +34,11 @@ const CASES_USAGE_STATE_QS_KEY = "cases-usage-state-key";
 type CurrentState = {
   cards: Card[];
   timeout: number;
+  previousTarget?: number | undefined;
   target?: number | undefined;
   hasSavedData: boolean;
   randomModeOn: boolean;
+  onlyShowMarked: boolean;
   sections: {
     name: CaseName;
     active: boolean;
@@ -37,6 +51,7 @@ export function CasesUsage() {
       ({
         cards: getCaseData(),
         timeout: 3000,
+        previousTarget: undefined,
         target: undefined,
         hasSavedData: !!localStorage.getItem(CASES_USAGE_STATE_QS_KEY),
         sections: [
@@ -62,7 +77,17 @@ export function CasesUsage() {
           },
         ],
         randomModeOn: false,
+        onlyShowMarked: false,
       } as CurrentState)
+  );
+
+  const activeSections = new Set(
+    state.sections.filter((x) => x.active).map((x) => x.name)
+  );
+
+  const visibleCards = state.cards.filter(
+    (x) =>
+      activeSections.has(x.caseName) && (!state.onlyShowMarked || x.isMarked)
   );
 
   useEffect(() => {
@@ -74,9 +99,7 @@ export function CasesUsage() {
       return;
     }
 
-    const allCards = state.cards
-      .filter((x) => activeSections.has(x.caseName))
-      .filter((x) => !x.isTextOpened);
+    const allCards = visibleCards.filter((x) => !x.isTextOpened);
     if (allCards.length === 0) {
       setTimeout(() => {
         alert("Gratulacje!");
@@ -110,7 +133,7 @@ export function CasesUsage() {
   }, [state.randomModeOn, state.target]);
 
   const renderCardRow = (card: Card) => (
-    <tr key={card.id}>
+    <tr key={card.id} id={`card-${card.id}`}>
       {/* <td
         className={classNames({
           closed: !card.isCaseNameOpened,
@@ -147,6 +170,7 @@ export function CasesUsage() {
                 cardUpdate.isCaseNameOpened = true;
               }
               if (cardUpdate.id === state.target) {
+                d.previousTarget = d.target;
                 d.target = undefined;
               }
             }
@@ -181,10 +205,6 @@ export function CasesUsage() {
         </div>
       </td>
     </tr>
-  );
-
-  const activeSections = new Set(
-    state.sections.filter((x) => x.active).map((x) => x.name)
   );
 
   return (
@@ -239,9 +259,7 @@ export function CasesUsage() {
             })
           }
         >
-          <div className="text">
-            tasować
-          </div>
+          <div className="text">tasować</div>
           <div className="icon">
             <GiCardExchange />
           </div>
@@ -360,20 +378,73 @@ export function CasesUsage() {
       </div>
       <div>
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
-        zaznaczenia
+        zaznaczenia.
+        <br/><MdOutlineTranslate /> - pokażać tłumaczenie w Bing Translator
+        <br/><RiFilterLine/> - pokażać tylko zaznaczone
+        <br/><CgPlayTrackPrevR/> - przejść do poprzedniej kartki
+        <br/><CgPlayTrackNextR/> - przejść do aktualnej kartki
       </div>
       <div className="table-container-std">
+        <div id="quick-menu">
+          <button
+            title="pokaż tylko zaznaczone"
+            className={classNames('filter-marked', {
+              active: state.onlyShowMarked
+            })}
+            onClick={() => {
+              updateState((d) => {
+                d.onlyShowMarked = !d.onlyShowMarked;
+              });
+            }}
+          >
+            {state.onlyShowMarked ? <RiFilterOffLine/> : <RiFilterLine/> }
+          </button>
+          <button
+            title="przejdź do poprzedniej kartki"
+            onClick={() => {
+              const target = window.document.querySelector(
+                `#card-${state.previousTarget}`
+              );
+              if (!target) {
+                return;
+              }
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
+              });
+            }}
+            disabled={!state.previousTarget}
+          >
+            <CgPlayTrackPrevR/>
+          </button>
+          <button
+            title="przejdź do aktualnej kartki"
+            onClick={() => {
+              const target = window.document.querySelector(
+                `#card-${state.target}`
+              );
+              if (!target) {
+                return;
+              }
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
+              });
+            }}
+            disabled={!state.target}
+          >
+            <CgPlayTrackNextR/>
+          </button>
+        </div>
         <table className="table-std">
           <thead>
             <tr>
               <th>Użycie</th>
             </tr>
           </thead>
-          <tbody>
-            {state.cards
-              .filter((x) => activeSections.has(x.caseName))
-              .map((card) => renderCardRow(card))}
-          </tbody>
+          <tbody>{visibleCards.map((card) => renderCardRow(card))}</tbody>
         </table>
       </div>
     </div>

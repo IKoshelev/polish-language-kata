@@ -1086,7 +1086,7 @@ const biernikSourceData: CardSourceData[] = [
   biernikMatrixChoice(
     [`Widzieć {word}`, `Widzę {word}`, `Widzisz {word}`, `Widziałem {word}`],
     [
-      [`tamten samochód`, ``, `Co?`],
+      [`tamten samochód`, `tamten samochód`, `Co?`],
       [`szersza perspektywa`, `szerszą perspektywę`, `Co?`],
       [`on`, `jego`, `Kogo?`],
     ]
@@ -1796,8 +1796,8 @@ const miejscownikSourceData: CardSourceData[] = [
       `Myślałem o {word}`,
     ],
     [
-      [`on`, `nas`, `Kim?`],
-      [`ona`, `was`, `Kim?`],
+      [`my`, `nas`, `Kim?`],
+      [`wy`, `was`, `Kim?`],
       [`one/oni`, `nich`, `Kim?`],
     ]
   ),

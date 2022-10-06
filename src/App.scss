@@ -139,6 +139,31 @@ body {
 }
 
 #cases-usage {
+
+  #quick-menu {
+    position: fixed;
+    width: 100vw;
+    max-width: 450px;
+    bottom: 5px;
+
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      width: 120px;
+      height: 50px;
+
+      svg {
+        width: 45px;
+        height: 45px;
+      }
+
+      &.filter-marked.active {
+        color: orange;
+      }
+    }
+  }
+
   .table-std {
     width: 100vw;
     max-width: 450px;
