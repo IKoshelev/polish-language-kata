@@ -1072,10 +1072,10 @@ const biernikSourceData: CardSourceData[] = [
   ),
   biernikMatrixChoice(
     [
-      `Kochać {word} i zamierzam ją poślubić`,
+      `Kochać {word} i zamierzać ją poślubić`,
       `Kocham {word} i zamierzam ją poślubić`,
-      `Kochasz {word} i zamierzam ją poślubić`,
-      `Kochałem {word} i zamierzam ją poślubić`,
+      `Kochasz {word} i zamierzasz ją poślubić`,
+      `Kochałem {word} i zamierzałem ją poślubić`,
     ],
     [
       [`pańska córka`, `pańską córkę`, `Kogo?`],
@@ -1128,7 +1128,7 @@ const biernikSourceData: CardSourceData[] = [
   biernikMatrixChoice(
     [`Pisać {word}`, `Piszę {word}`, `Piszesz {word}`, `Pisałem {word}`],
     [
-      [`mail do szefa`, `maila do szefa`, `Co?`],
+      [`mail do szefa`, `mail do szefa`, `Co?`],
       [`list do tej gazety`, `list do tej gazety`, `Co?`],
       [`coś na ścianie`, `coś na ścianie`, `Co?`],
     ]
