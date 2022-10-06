@@ -884,7 +884,7 @@ const celownikSourceData: CardSourceData[] = [
     ]
   ),
   celownikMatrixChoice(
-    [`Mięso smakuję {word}`, `Mięso smakowało {word}`],
+    [`Mięso smakuje {word}`, `Mięso smakowało {word}`],
     [
       [`niedźwiedź`, `niedźwiedziowi`, `Komu?`],
       [`wilk`, `wilkowi`, `Komu?`],
