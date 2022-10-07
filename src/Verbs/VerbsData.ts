@@ -609,7 +609,7 @@ export const sourceData = {
       "gdybyś miała - zrobiłabyś",
       "gdyby miał - zrobiłby",
       "gdyby miała -zrobiłaby",
-      "gdyby miało- zrobiłoby",
+      "gdyby miało - zrobiłoby",
       "gdybyśmy mieli - zrobilibyśmy",
       "gdybyśmy miały - zrobiłybyśmy",
       "gdybyście mieli - zrobilibyście",

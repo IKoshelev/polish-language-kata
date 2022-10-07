@@ -139,7 +139,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     [
       `{word}`,
       `25 sierpień 1832`,
-      `Dwudziestego piątego sierpnia tysiąc osiemsetnego trzydziestego drugiego roku`,
+      `Dwudziestego piątego sierpnia tysiąc osiemset trzydziestego drugiego roku`,
       `Czego?`,
     ]
   ),
@@ -548,7 +548,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     [`Jestem z {word}`, `przyszłość`, `przyszłości`, `Czego?`]
   ),
   dopełniaczListChoice(
-    [`Wybrałam Ciebie zamiast {word}`, `oni`, `ich`, `Kogo?`],
+    [`Wybrałam ciebie zamiast {word}`, `oni`, `ich`, `Kogo?`],
     [`Granatowy zamiast {word}`, `niebieski`, `niebieskiego`, `Czego?`],
     [`Kłamstwo zamiast {word}`, `prawda`, `prawdy`, `Czego?`]
   ),
@@ -767,7 +767,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`dziecko l.mn.`, `dzieciom`, `Komu?`],
-      [`turyst`, `turystom`, `Komu?`],
+      [`turyst l.mn.`, `turystom`, `Komu?`],
       [`chłopiec`, `chłopcu`, `Komu?`],
     ]
   ),
@@ -935,7 +935,7 @@ const celownikSourceData: CardSourceData[] = [
     [
       [`niewłaściwe ludzie`, `niewłaściwym ludziom`, `Komu?`],
       [`dziennikarz l.mn.`, `dziennikarzom`, `Komu?`],
-      [`lekarz`, `lekarzom`, `Komu?`],
+      [`lekarz`, `lekarzowi`, `Komu?`],
     ]
   ),
   celownikMatrixChoice(
@@ -1327,7 +1327,7 @@ const biernikSourceData: CardSourceData[] = [
 
 const narzędniSourcseData: CardSourceData[] = [
   narzędnikMatrixChoice(
-    [`Być {word}`, `Jestem {word}`, `Seteś {word}`, `Byłem {word}`],
+    [`Być {word}`, `Jestem {word}`, `Jesteś {word}`, `Byłem {word}`],
     [
       [`student`, `studentem`, `Kim?`],
       [`świadek`, `świadkiem`, `Czym?`],
