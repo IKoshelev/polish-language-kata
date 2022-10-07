@@ -552,8 +552,8 @@ export const sourceData = {
       ...x(2, "_"),
       ...x(2, "pracuj"),
       ...x(3, "niech pracuje"),
+      ...x(2, "pracujmy"),
       ...x(2, "pracujcie"),
-      ...x(2, "piszcie"),
       ...x(2, "niech pracują"),
       "Tryb rozkazujący"
     ),

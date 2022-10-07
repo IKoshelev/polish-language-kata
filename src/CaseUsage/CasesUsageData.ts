@@ -1170,6 +1170,14 @@ const biernikSourceData: CardSourceData[] = [
       [`lunch`, `lunch`, `Co?`],
     ]
   ),
+  biernikMatrixChoice(
+    [`Spowodować {word}`, `Spowoduję {word}`, `Spowoduje {word}`, `Spowodowało {word}`],
+    [
+      [`utrata przytomności`, `utratę przytomności`, `Co?`],
+      [`kłopoty`, `kłopoty`, `Co?`],
+      [`kolejny wypadek`,`kolejny wypadek`,`Co?`]
+    ]
+  ),
   biernikListChoice(
     [`Jechaliśmy przez {word}`, `tunel w górże`, `tunel w górże`, `Co?`],
     [
