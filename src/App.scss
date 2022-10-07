@@ -101,6 +101,7 @@ body {
 #verbs,
 #cases-endings,
 #cases-usage,
+#zaimki,
 #numerals {
   & > * {
     margin-top: 15px;
@@ -139,7 +140,6 @@ body {
 }
 
 #cases-usage {
-
   #quick-menu {
     position: fixed;
     width: 100vw;
@@ -173,7 +173,7 @@ body {
         //   min-width: 150px;
         // }
 
-        display: flex;;
+        display: flex;
 
         & > .case-usage-text {
           flex-grow: 1;
@@ -204,6 +204,43 @@ body {
         & > div {
           min-height: 40px;
           width: 200px;
+        }
+      }
+    }
+  }
+}
+
+#zaimki {
+  .pre-table-menu {
+    display: flex;
+    button {
+      width: 150px;
+      height: 40px;
+      margin: 2px;
+      display: flex;
+      align-items: center;
+
+      div.text {
+        flex-grow: 1;
+      }
+
+      div.icon {
+        flex-grow: 0;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .table-std {
+    white-space: break-spaces;
+    tbody {
+      td {
+        & > div {
+          min-height: 50px;
+          width: 160px;
         }
       }
     }
