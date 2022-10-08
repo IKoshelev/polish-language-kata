@@ -1,3 +1,5 @@
+import { current } from "immer";
+import { CaseName } from "../CaseUsage/CasesUsageData";
 import { entries, shuffleAndReturnArr } from "../util";
 
 export type Card = {
@@ -209,7 +211,7 @@ export function prepareZaimkiWithDeclensionCards(
   }
 }
 
-const formsOdmiana = [
+export const formsOdmiana = [
   "męski",
   "żeński",
   "nijaki",
@@ -254,7 +256,7 @@ export const cases = [
 
 export type Cases = typeof cases[number];
 
-const zaimkiDzierżawczeSource = {
+const zaimkiWithOdmianaSource = {
   "mój, twój, swój": {
     [`Mianownik, Wolacz`]: formsOdmianaDict(
       `Kto?`,
@@ -938,3 +940,48 @@ const zaimkiDzierżawczeSource = {
     ),
   },
 } as const;
+
+
+export function prepareZaimkiWithOdmianaCards(
+  shuffle = false
+): Record<string, { caseName: string, cards: Card[] }[]> {
+  const data = entries(zaimkiWithOdmianaSource).reduce((prev, [word, data]) => {
+    prev[word] = entries(data).map(
+      ([caseName, caseData]) => ({
+        caseName,
+        cards: entries(caseData.data).map(([form, answer]) =>
+          mapToCard(form, answer, caseData.word, caseData.question, caseData.template)
+        ),
+      })
+    );
+    return prev;
+  },
+  {} as Record<string, { caseName: string, cards: Card[] }[]>);
+  
+  if (shuffle) {
+    for (const arr of Object.values(data)){
+      shuffleAndReturnArr(arr);
+    }
+  }
+
+  return data;
+
+  function mapToCard(
+    form: string,
+    answer: string,
+    word: string,
+    question: string,
+    template: string
+  ) {
+    return {
+      id: Math.random(),
+      isMarked: false,
+      isOpened: false,
+      textWhenClosed: template.replace("{word}", `(${word}, ${form})`),
+      textWhenOpened: template.replace(
+        "{word}",
+        `${answer}` //(${question}) \r\n 
+      ),
+    } as Card;
+  }
+}

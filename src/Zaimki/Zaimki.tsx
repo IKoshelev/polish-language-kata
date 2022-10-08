@@ -18,13 +18,16 @@ import {
 import {
   Card,
   formsDeclension,
+  formsOdmiana,
   prepareZaimkiWithDeclensionCards,
+  prepareZaimkiWithOdmianaCards,
 } from "./ZaimkiData";
 
 const ZAIMKI_STATE_QS_KEY = "zaimki-state-key";
 
 type CurrentState = {
   zaimkiWithDeclension: ReturnType<typeof prepareZaimkiWithDeclensionCards>;
+  zaimkiWithOdmiana: ReturnType<typeof prepareZaimkiWithOdmianaCards>;
   timeout: number;
   target?: number | undefined;
   randomModeOn: boolean;
@@ -32,7 +35,12 @@ type CurrentState = {
 };
 
 function getAllCards(state: CurrentState): Card[] {
-  return state.zaimkiWithDeclension.flatMap((x) => x.cards);
+  return [
+    ...state.zaimkiWithDeclension.flatMap((x) => x.cards),
+    ...Object.values(state.zaimkiWithOdmiana)
+      .flatMap((x) => x)
+      .flatMap((x) => x.cards),
+  ];
 }
 
 export function Zaimki() {
@@ -40,6 +48,7 @@ export function Zaimki() {
     () =>
       ({
         zaimkiWithDeclension: prepareZaimkiWithDeclensionCards(),
+        zaimkiWithOdmiana: prepareZaimkiWithOdmianaCards(),
         timeout: 2000,
         target: undefined,
         randomModeOn: false,
@@ -170,6 +179,7 @@ export function Zaimki() {
           onClick={() => {
             updateState((d) => {
               d.zaimkiWithDeclension = prepareZaimkiWithDeclensionCards(true);
+              d.zaimkiWithOdmiana = prepareZaimkiWithOdmianaCards(true);
               d.target = undefined;
             });
           }}
@@ -239,9 +249,7 @@ export function Zaimki() {
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia
       </div>
-      <div className="section-name">
-        Zaimki rzeczowne
-      </div>
+      <div className="section-name">Zaimki rzeczowne</div>
       <div className="pre-table-menu">
         <button
           onClick={() =>
@@ -292,6 +300,73 @@ export function Zaimki() {
           </tbody>
         </table>
       </div>
+      {
+        entries(state.zaimkiWithOdmiana).map(([word, data]) => renderZaimkiOdmiana(word, data))
+      }
     </div>
   );
+
+  function renderZaimkiOdmiana(
+    word: string,
+    data: {
+      caseName: string;
+      cards: Card[];
+    }[]
+  ) {
+    return (
+      <React.Fragment key={word}>
+        <div className="section-name">{word}</div>
+        <div className="pre-table-menu">
+          <button
+            onClick={() =>
+              updateState((d) => {
+                d.zaimkiWithOdmiana[word]
+                  .flatMap((x) => x.cards)
+                  .forEach((x) => (x.isOpened = true));
+              })
+            }
+          >
+            <div className="text">otworzyć sekcje</div>
+            <div className="icon">
+              <MdFlipToFront />
+            </div>
+          </button>
+          <button
+            onClick={() =>
+              updateState((d) => {
+                d.zaimkiWithOdmiana[word]
+                  .flatMap((x) => x.cards)
+                  .forEach((x) => (x.isOpened = false));
+              })
+            }
+          >
+            <div className="text">zamknąć sekcje</div>
+            <div className="icon">
+              <MdFlipToBack />
+            </div>
+          </button>
+        </div>
+        <div className="table-container-std">
+          <table className="table-std">
+            <thead>
+              <tr>
+                <th></th>
+                {formsOdmiana.map((x) => (
+                  <th key={x}>{x}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((caseData) => (
+                <tr key={caseData.caseName}>
+                  <td key={caseData.caseName}>{caseData.caseName}</td>
+                  {caseData.cards.map(renderCardCell)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
