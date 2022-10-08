@@ -211,6 +211,11 @@ body {
 }
 
 #zaimki {
+  .section-name {
+    font-weight: bold;
+    font-size: 1.2em;;
+  }
+
   .pre-table-menu {
     display: flex;
     button {

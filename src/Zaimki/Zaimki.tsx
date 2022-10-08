@@ -239,6 +239,9 @@ export function Zaimki() {
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia
       </div>
+      <div className="section-name">
+        Zaimki rzeczowne
+      </div>
       <div className="pre-table-menu">
         <button
           onClick={() =>
