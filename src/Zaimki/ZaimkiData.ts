@@ -221,29 +221,38 @@ export const formsOdmiana = [
 
 export type FormsOdmiana = typeof formsOdmiana[number];
 
-function formsOdmianaDict<T>(
-  question: string,
-  word: string,
-  template: `${string}{word}${string}`,
-  m: T,
-  f: T,
-  n: T,
-  mo: T,
-  mno: T
-) {
-  return {
-    question,
-    template,
-    word,
-    data: {
-      męski: m,
-      żeński: f,
-      nijaki: n,
-      męskoosobowy: mo,
-      "męski nieosobowy": mno,
-    },
+const baseOdmiana =
+  <T>(base_m: T, base_f: T, base_n: T, base_mo: T, base_mno: T) =>
+  (
+    question: string,
+    word: string,
+    template: `${string}{word}${string}`,
+    m: T,
+    f: T,
+    n: T,
+    mo: T,
+    mno: T
+  ) => {
+    return {
+      question,
+      template,
+      word,
+      base: {
+        męski: base_m,
+        żeński: base_f,
+        nijaki: base_n,
+        męskoosobowy: base_mo,
+        "męski nieosobowy": base_mno,
+      },
+      data: {
+        męski: m,
+        żeński: f,
+        nijaki: n,
+        męskoosobowy: mo,
+        "męski nieosobowy": mno,
+      },
+    };
   };
-}
 
 export const cases = [
   "Mianownik, Wolacz",
@@ -256,19 +265,107 @@ export const cases = [
 
 export type Cases = typeof cases[number];
 
+const formsOdmianaKto = baseOdmiana(
+  "mój, twój, swój",
+  "moja, twoja, swoja",
+  "moje, twoje, swoje",
+  "moi, twoi, swoi",
+  "moje, twoje, swoje"
+);
+
+const formsOdmianaNasz = baseOdmiana(
+  "nasz, wasz",
+  "nasza, wasza",
+  "nasze, wasze",
+  "nasi, wasi",
+  "nasze, wasze"
+);
+
+const formsOdmianaCzyj = baseOdmiana(
+  "czyj, niczyj",
+  "czyja, niczyja",
+  "czyje, niczyje",
+  "czyi, niczyi",
+  "czyje, niczyje"
+);
+
+const formsOdmianaTen = baseOdmiana(
+  "ten",
+  "ta",
+  "to",
+  "ci",
+  "te"
+);
+
+const formsOdmianaTamten = baseOdmiana(
+  "tamten",
+  "tamta",
+  "tamto",
+  "tamci",
+  "tamte"
+);
+
+const formsOdmianaOw = baseOdmiana(
+  "ów",
+  "owa",
+  "owo",
+  "owi",
+  "owe"
+);
+
+const formsOdmianaTaki = baseOdmiana(
+  "taki",
+  "taka",
+  "takie",
+  "tacy",
+  "takie"
+);
+
+const formsOdmianaKtory = baseOdmiana(
+  "który",
+  "która",
+  "które",
+  "którzy",
+  "które"
+);
+
+const formsOdmianaJaki = baseOdmiana(
+  "jaki",
+  "jaka",
+  "jakie",
+  "jacy",
+  "jakie"
+);
+
+const formsOdmianaKazdy = baseOdmiana(
+  "każdy",
+  "każda",
+  "każde",
+  "wszyscy",
+  "wszystkie"
+);
+
+const formsOdmianaZaden = baseOdmiana(
+  "żaden",
+  "żadna",
+  "żadne",
+  "żadni",
+  "żadne"
+);
+
 const zaimkiWithOdmianaSource = {
   "mój, twój, swój": {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaKto(
       `Kto?`,
       "mój, twój, swój",
-      `To {word}`, 
+      `To {word}`,
       "mój, twój, swój",
       "moja, twoja, swoja",
       "moje, twoje, swoje",
       "moi, twoi, swoi",
       "moje, twoje, swoje"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaKto(
       `Kogo?`,
       "mój, twój, swój",
       `Szuka {word}`,
@@ -278,7 +375,7 @@ const zaimkiWithOdmianaSource = {
       "moich, twoich, swoich",
       "moich, twoich, swoich"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaKto(
       `Komu?`,
       "mój, twój, swój",
       `Daje {word}`,
@@ -288,7 +385,7 @@ const zaimkiWithOdmianaSource = {
       "moim, twoim, swoim",
       "moim, twoim, swoim"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaKto(
       `Kogo?`,
       "mój, twój, swój",
       `Zna {word}`,
@@ -298,7 +395,7 @@ const zaimkiWithOdmianaSource = {
       "moich, twoich, swoich",
       "moje, twoje, swoje"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaKto(
       `Kim?`,
       "mój, twój, swój",
       `Interesue się {word}`,
@@ -308,7 +405,7 @@ const zaimkiWithOdmianaSource = {
       "moimi, twoimi, swoimi",
       "moimi, twoimi, swoimi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaKto(
       `Kim?`,
       "mój, twój, swój",
       `Myśle o {word}`,
@@ -320,7 +417,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   "nasz, wasz": {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaNasz(
       `Kto?`,
       "nasz, wasz",
       `To {word}`,
@@ -330,7 +427,7 @@ const zaimkiWithOdmianaSource = {
       "nasi, wasi",
       "nasze, wasze"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaNasz(
       `Kogo?`,
       "nasz, wasz",
       `Szuka {word}`,
@@ -340,7 +437,7 @@ const zaimkiWithOdmianaSource = {
       "naszych, waszych",
       "naszych, waszych"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaNasz(
       `Komu?`,
       "nasz, wasz",
       `Daje {word}`,
@@ -350,7 +447,7 @@ const zaimkiWithOdmianaSource = {
       "naszym, waszym",
       "naszym, waszym"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaNasz(
       `Kogo?`,
       "nasz, wasz",
       `Zna {word}`,
@@ -360,7 +457,7 @@ const zaimkiWithOdmianaSource = {
       "naszych, waszych",
       "nasze, wasze"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaNasz(
       `Kim?`,
       "nasz, wasz",
       `Interesue się {word}`,
@@ -370,7 +467,7 @@ const zaimkiWithOdmianaSource = {
       "naszymi, waszymi",
       "naszymi, waszymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaNasz(
       `Kim?`,
       "nasz, wasz",
       `Myśle o {word}`,
@@ -382,7 +479,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   "czyj, niczyj": {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaCzyj(
       `Kto?`,
       "czyj, niczyj",
       `To {word}`,
@@ -392,7 +489,7 @@ const zaimkiWithOdmianaSource = {
       "czyi, niczyi",
       "czyje, niczyje"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaCzyj(
       `Kogo?`,
       "czyj, niczyj",
       `Szuka {word}`,
@@ -402,7 +499,7 @@ const zaimkiWithOdmianaSource = {
       "czyich, niczyich",
       "czyich, niczyich"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaCzyj(
       `Komu?`,
       "czyj, niczyj",
       `Daje {word}`,
@@ -412,7 +509,7 @@ const zaimkiWithOdmianaSource = {
       "czyim, niczyim",
       "czyim, niczyim"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaCzyj(
       `Kogo?`,
       "czyj, niczyj",
       `Zna {word}`,
@@ -422,7 +519,7 @@ const zaimkiWithOdmianaSource = {
       "czyich, niczyich",
       "czyje, niczyje"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaCzyj(
       `Kim?`,
       "czyj, niczyj",
       `Interesue się {word}`,
@@ -432,7 +529,7 @@ const zaimkiWithOdmianaSource = {
       "czyimi, niczyimi",
       "czyimi, niczyimi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaCzyj(
       `Kim?`,
       "czyj, niczyj",
       `Myśle o {word}`,
@@ -444,7 +541,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   ten: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaTen(
       `Kto?`,
       "ten",
       `To {word}`,
@@ -454,7 +551,7 @@ const zaimkiWithOdmianaSource = {
       "ci",
       "te"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaTen(
       `Kogo?`,
       "ten",
       `Szuka {word}`,
@@ -464,7 +561,7 @@ const zaimkiWithOdmianaSource = {
       "tych",
       "tych"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaTen(
       `Komu?`,
       "ten",
       `Daje {word}`,
@@ -474,7 +571,7 @@ const zaimkiWithOdmianaSource = {
       "tym",
       "tym"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaTen(
       `Kogo?`,
       "ten",
       `Zna {word}`,
@@ -484,7 +581,7 @@ const zaimkiWithOdmianaSource = {
       "tych",
       "te"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaTen(
       `Kim?`,
       "ten",
       `Interesue się {word}`,
@@ -494,7 +591,7 @@ const zaimkiWithOdmianaSource = {
       "tymi",
       "tymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaTen(
       `Kim?`,
       "ten",
       `Myśle o {word}`,
@@ -506,7 +603,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   tamten: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaTamten(
       `Kto?`,
       "tamten",
       `To {word}`,
@@ -516,7 +613,7 @@ const zaimkiWithOdmianaSource = {
       "tamci",
       "tamte"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaTamten(
       `Kogo?`,
       "tamten",
       `Szuka {word}`,
@@ -526,7 +623,7 @@ const zaimkiWithOdmianaSource = {
       "tamtych",
       "tamtych"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaTamten(
       `Komu?`,
       "tamten",
       `Daje {word}`,
@@ -536,7 +633,7 @@ const zaimkiWithOdmianaSource = {
       "tamtym",
       "tamtym"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaTamten(
       `Kogo?`,
       "tamten",
       `Zna {word}`,
@@ -546,7 +643,7 @@ const zaimkiWithOdmianaSource = {
       "tamtych",
       "tamte"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaTamten(
       `Kim?`,
       "tamten",
       `Interesue się {word}`,
@@ -556,7 +653,7 @@ const zaimkiWithOdmianaSource = {
       "tamtymi",
       "tamtymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaTamten(
       `Kim?`,
       "tamten",
       `Myśle o {word}`,
@@ -568,7 +665,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   ow: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaOw(
       `Kto?`,
       "ow",
       `To {word}`,
@@ -578,7 +675,7 @@ const zaimkiWithOdmianaSource = {
       "owi",
       "owe"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaOw(
       `Kogo?`,
       "ow",
       `Szuka {word}`,
@@ -588,7 +685,7 @@ const zaimkiWithOdmianaSource = {
       "owych",
       "owych"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaOw(
       `Komu?`,
       "ow",
       `Daje {word}`,
@@ -598,7 +695,7 @@ const zaimkiWithOdmianaSource = {
       "owym",
       "owym"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaOw(
       `Kogo?`,
       "ow",
       `Zna {word}`,
@@ -608,7 +705,7 @@ const zaimkiWithOdmianaSource = {
       "owych",
       "owe"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaOw(
       `Kim?`,
       "ow",
       `Interesue się {word}`,
@@ -618,7 +715,7 @@ const zaimkiWithOdmianaSource = {
       "owymi",
       "owymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaOw(
       `Kim?`,
       "ow",
       `Myśle o {word}`,
@@ -630,7 +727,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   taki: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaTaki(
       `Kto?`,
       "taki",
       `To {word}`,
@@ -640,7 +737,7 @@ const zaimkiWithOdmianaSource = {
       "tacy",
       "takie"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaTaki(
       `Kogo?`,
       "taki",
       `Szuka {word}`,
@@ -650,7 +747,7 @@ const zaimkiWithOdmianaSource = {
       "takich",
       "takich"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaTaki(
       `Komu?`,
       "taki",
       `Daje {word}`,
@@ -660,7 +757,7 @@ const zaimkiWithOdmianaSource = {
       "takim",
       "takim"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaTaki(
       `Kogo?`,
       "taki",
       `Zna {word}`,
@@ -670,7 +767,7 @@ const zaimkiWithOdmianaSource = {
       "takich",
       "takie"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaTaki(
       `Kim?`,
       "taki",
       `Interesue się {word}`,
@@ -680,7 +777,7 @@ const zaimkiWithOdmianaSource = {
       "takimi",
       "takimi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaTaki(
       `Kim?`,
       "taki",
       `Myśle o {word}`,
@@ -692,7 +789,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   który: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaKtory(
       `Kto?`,
       "który",
       `To {word}`,
@@ -702,7 +799,7 @@ const zaimkiWithOdmianaSource = {
       "którzy",
       "które"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaKtory(
       `Kogo?`,
       "który",
       `Szuka {word}`,
@@ -712,7 +809,7 @@ const zaimkiWithOdmianaSource = {
       "których",
       "których"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaKtory(
       `Komu?`,
       "który",
       `Daje {word}`,
@@ -722,7 +819,7 @@ const zaimkiWithOdmianaSource = {
       "którym",
       "którym"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaKtory(
       `Kogo?`,
       "który",
       `Zna {word}`,
@@ -732,7 +829,7 @@ const zaimkiWithOdmianaSource = {
       "których",
       "które"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaKtory(
       `Kim?`,
       "który",
       `Interesue się {word}`,
@@ -742,7 +839,7 @@ const zaimkiWithOdmianaSource = {
       "którymi",
       "którymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaKtory(
       `Kim?`,
       "który",
       `Myśle o {word}`,
@@ -754,7 +851,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   jaki: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaJaki(
       `Kto?`,
       "jaki",
       `To {word}`,
@@ -764,7 +861,7 @@ const zaimkiWithOdmianaSource = {
       "jacy",
       "jakie"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaJaki(
       `Kogo?`,
       "jaki",
       `Szuka {word}`,
@@ -774,7 +871,7 @@ const zaimkiWithOdmianaSource = {
       "jakich",
       "jakich"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaJaki(
       `Komu?`,
       "jaki",
       `Daje {word}`,
@@ -784,7 +881,7 @@ const zaimkiWithOdmianaSource = {
       "jakim",
       "jakim"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaJaki(
       `Kogo?`,
       "jaki",
       `Zna {word}`,
@@ -794,7 +891,7 @@ const zaimkiWithOdmianaSource = {
       "jakich",
       "jakie"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaJaki(
       `Kim?`,
       "jaki",
       `Interesue się {word}`,
@@ -804,7 +901,7 @@ const zaimkiWithOdmianaSource = {
       "jakimi",
       "jakimi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaJaki(
       `Kim?`,
       "jaki",
       `Myśle o {word}`,
@@ -816,7 +913,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   kazdy: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaKazdy(
       `Kto?`,
       "kazdy",
       `To {word}`,
@@ -826,7 +923,7 @@ const zaimkiWithOdmianaSource = {
       "wszyscy",
       "wszystkie"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaKazdy(
       `Kogo?`,
       "kazdy",
       `Szuka {word}`,
@@ -836,7 +933,7 @@ const zaimkiWithOdmianaSource = {
       "wszystkich",
       "wszystkich"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaKazdy(
       `Komu?`,
       "kazdy",
       `Daje {word}`,
@@ -846,7 +943,7 @@ const zaimkiWithOdmianaSource = {
       "wszystkim",
       "wszystkim"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaKazdy(
       `Kogo?`,
       "kazdy",
       `Zna {word}`,
@@ -856,7 +953,7 @@ const zaimkiWithOdmianaSource = {
       "wszystkich",
       "wszystkie"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaKazdy(
       `Kim?`,
       "kazdy",
       `Interesue się {word}`,
@@ -866,7 +963,7 @@ const zaimkiWithOdmianaSource = {
       "wszystkimi",
       "wszystkimi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaKazdy(
       `Kim?`,
       "kazdy",
       `Myśle o {word}`,
@@ -878,7 +975,7 @@ const zaimkiWithOdmianaSource = {
     ),
   },
   żaden: {
-    [`Mianownik, Wolacz`]: formsOdmianaDict(
+    [`Mianownik, Wolacz`]: formsOdmianaZaden(
       `Kto?`,
       "żaden",
       `To {word}`,
@@ -888,7 +985,7 @@ const zaimkiWithOdmianaSource = {
       "żadni",
       "żadne"
     ),
-    [`Dopełniacz`]: formsOdmianaDict(
+    [`Dopełniacz`]: formsOdmianaZaden(
       `Kogo?`,
       "żaden",
       `Szuka {word}`,
@@ -898,7 +995,7 @@ const zaimkiWithOdmianaSource = {
       "żadnych",
       "żadnych"
     ),
-    [`Celownik`]: formsOdmianaDict(
+    [`Celownik`]: formsOdmianaZaden(
       `Komu?`,
       "żaden",
       `Daje {word}`,
@@ -908,7 +1005,7 @@ const zaimkiWithOdmianaSource = {
       "żadnym",
       "żadnych"
     ),
-    [`Biernik`]: formsOdmianaDict(
+    [`Biernik`]: formsOdmianaZaden(
       `Kogo?`,
       "żaden",
       `Zna {word}`,
@@ -918,7 +1015,7 @@ const zaimkiWithOdmianaSource = {
       "żadnych",
       "żadne"
     ),
-    [`Narzędnik`]: formsOdmianaDict(
+    [`Narzędnik`]: formsOdmianaZaden(
       `Kim?`,
       "żaden",
       `Interesue się {word}`,
@@ -928,7 +1025,7 @@ const zaimkiWithOdmianaSource = {
       "żadnymi",
       "żadnymi"
     ),
-    [`Miejscownik`]: formsOdmianaDict(
+    [`Miejscownik`]: formsOdmianaZaden(
       `Kim?`,
       "żaden",
       `Myśle o {word}`,
@@ -941,25 +1038,25 @@ const zaimkiWithOdmianaSource = {
   },
 } as const;
 
-
 export function prepareZaimkiWithOdmianaCards(
   shuffle = false
-): Record<string, { caseName: string, cards: Card[] }[]> {
+): Record<string, { caseName: string; cards: Card[] }[]> {
   const data = entries(zaimkiWithOdmianaSource).reduce((prev, [word, data]) => {
-    prev[word] = entries(data).map(
-      ([caseName, caseData]) => ({
-        caseName,
-        cards: entries(caseData.data).map(([form, answer]) =>
-          mapToCard(form, answer, caseData.word, caseData.question, caseData.template)
-        ),
-      })
-    );
+    prev[word] = entries(data).map(([caseName, caseData]) => ({
+      caseName,
+      cards: entries(caseData.data).map(([form, answer]) =>
+        mapToCard(
+          answer,
+          caseData.base[form],
+          caseData.template
+        )
+      ),
+    }));
     return prev;
-  },
-  {} as Record<string, { caseName: string, cards: Card[] }[]>);
-  
+  }, {} as Record<string, { caseName: string; cards: Card[] }[]>);
+
   if (shuffle) {
-    for (const arr of Object.values(data)){
+    for (const arr of Object.values(data)) {
       shuffleAndReturnArr(arr);
     }
   }
@@ -967,20 +1064,18 @@ export function prepareZaimkiWithOdmianaCards(
   return data;
 
   function mapToCard(
-    form: string,
     answer: string,
     word: string,
-    question: string,
     template: string
   ) {
     return {
       id: Math.random(),
       isMarked: false,
       isOpened: false,
-      textWhenClosed: template.replace("{word}", `(${word}, ${form})`),
+      textWhenClosed: template.replace("{word}", `\r\n(${word})`),
       textWhenOpened: template.replace(
         "{word}",
-        `${answer}` //(${question}) \r\n 
+        `\r\n${answer}` //(${question}) \r\n
       ),
     } as Card;
   }
