@@ -452,7 +452,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `dozwolonej prędkości`,
       `Czego?`,
     ],
-    [`Wartość powyżej {word}`, `zakres`, `zakres`, `Czego?`],
+    [`Wartość powyżej {word}`, `zakres`, `zakresu`, `Czego?`],
     [`Przelewy powyżej {word}`, `pięc tysięcy`, `pięciu tysięcy`, `Czego?`],
     [`Przelewy powyżej {word}`, `dwa tysiące`, `dwóch tysięcy`, `Czego?`]
   ),
@@ -602,7 +602,7 @@ const dopełniaczSourceData: CardSourceData[] = [
     ],
     [`Jestem niedaleko {word}`, `ty`, `ciebie`, `Kogo?`]
   ),
-  celownikMatrixChoice(
+  dopełniaczMatrixChoice(
     [`Widzi {word}`],
     [
       [`ja`, `mnie`, `Kogo?`],
@@ -1613,7 +1613,7 @@ const narzędniSourcseData: CardSourceData[] = [
       `Czym?`,
     ],
     [`Postanowiłam ochronić moje dziecko przed {word}`, `zło`, `złem`, `Czym?`],
-    [`Rodzice trzymali przed {word} straszną tajemnicę`, `my`, `nami`, `Czym?`]
+    [`Rodzice trzymali przed {word} straszną tajemnicę`, `my`, `nami`, `Kim?`]
   ),
   narzędnikListChoice(
     [`Chowa się za {word}`, `ściana`, `ścianą`, `Czym?`],

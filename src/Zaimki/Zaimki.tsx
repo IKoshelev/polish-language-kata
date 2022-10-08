@@ -178,9 +178,10 @@ export function Zaimki() {
         <button
           onClick={() => {
             updateState((d) => {
-              d.zaimkiWithDeclension = prepareZaimkiWithDeclensionCards(true);
-              d.zaimkiWithOdmiana = prepareZaimkiWithOdmianaCards(true);
-              d.target = undefined;
+              shuffleAndReturnArr(d.zaimkiWithDeclension);
+              for (const arr of Object.values(d.zaimkiWithOdmiana)){
+                shuffleAndReturnArr(arr);
+              }
             });
           }}
         >
