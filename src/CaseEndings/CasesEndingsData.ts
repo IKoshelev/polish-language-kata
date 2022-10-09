@@ -56,6 +56,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marek"],
+            ["mężczyzna", "mężczyzna"],
             ["aktor", "aktor"],
             ["kot", "kot"],
             ["poeta", "poeta"],
@@ -84,6 +85,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matka"],
+            ["kobieta", "kobieta"],
             ["sofa", "sofa"],
             ["pani", "pani"],
             ["noc", "noc"],
@@ -119,6 +121,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markowie"],
+            ["mężczyzna", "mężczyźni"],
             ["aktor", "aktorzy"],
             ["student", "studenci"],
             ["poeta", "poeci"],
@@ -149,6 +152,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matki"],
+            ["kobieta", "kobiety"],
             ["sofa", "sofy"],
             ["pani", "panie"],
             ["noc", "nocy"],
@@ -196,6 +200,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marka"],
+            ["mężczyzna", "mężczyzny"],
             ["aktor", "aktora"],
             ["kot", "kota"],
             ["poeta", "poety"],
@@ -234,6 +239,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matki"],
+            ["kobieta", "kobiety"],
             ["sofa", "sofy"],
             ["pani", "pani"],
             ["noc", "nocy"],
@@ -279,6 +285,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marków"],
+            ["mężczyzna", "mężczyzn"],
             ["aktor", "aktorów"],
             ["student", "studentów"],
             ["poeta", "poetów"],
@@ -318,6 +325,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matek"],
+            ["kobieta", "kobiet"],
             ["sofa", "sof"],
             ["pani", "pań"],
             ["noc", "nocy"],
@@ -369,6 +377,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markowi"],
+            ["mężczyzna", "mężczyźnie"],
             ["aktor", "aktorowi"],
             ["kot", "kotu"],
             ["poeta", "poecie"],
@@ -405,6 +414,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matce"],
+            ["kobieta", "kobiecie"],
             ["sofa", "sofie"],
             ["pani", "pani"],
             ["noc", "nocy"],
@@ -448,6 +458,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markom"],
+            ["mężczyzna", "mężczyznom"],
             ["aktor", "aktorom"],
             ["student", "studentom"],
             ["poeta", "poetom"],
@@ -485,6 +496,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matkom"],
+            ["kobieta", "kobietom"],
             ["sofa", "sofom"],
             ["pani", "paniom"],
             ["noc", "nocom"],
@@ -536,6 +548,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marka"],
+            ["mężczyzna", "mężczyznę"],
             ["aktor", "aktora"],
             ["kot", "kota"],
             ["poeta", "poetę"],
@@ -574,6 +587,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matkę"],
+            ["kobieta", "kobietę"],
             ["sofa", "sofę"],
             ["pani", "panią"],
             ["noc", "noc"],
@@ -619,6 +633,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marków"],
+            ["mężczyzna", "mężczyzn"],
             ["aktor", "aktorów"],
             ["student", "studentów"],
             ["poeta", "poetów"],
@@ -658,6 +673,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matki"],
+            ["kobieta", "kobiety"],
             ["sofa", "sofy"],
             ["pani", "panie"],
             ["noc", "noce"],
@@ -710,6 +726,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markiem"],
+            ["mężczyzna", "mężczyzną"],
             ["aktor", "aktorem"],
             ["kot", "kotem"],
             ["poeta", "poetą"],
@@ -748,6 +765,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matką"],
+            ["kobieta", "kobietą"],
             ["sofa", "sofą"],
             ["pani", "panią"],
             ["noc", "nocą"],
@@ -799,6 +817,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markami"],
+            ["mężczyzna", "mężczyznami"],
             ["aktor", "aktorami"],
             ["student", "studentami"],
             ["poeta", "poetami"],
@@ -850,6 +869,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matkami"],
+            ["kobieta", "kobietami"],
             ["sofa", "sofami"],
             ["pani", "paniami"],
             ["noc", "nocami"],
@@ -907,6 +927,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marku"],
+            ["mężczyzna", "mężczyźnie"],
             ["aktor", "aktorze"],
             ["kot", "kocie"],
             ["poeta", "poecie"],
@@ -943,6 +964,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matce"],
+            ["kobieta", "kobiecie"],
             ["sofa", "sofie"],
             ["pani", "pani"],
             ["noc", "nocy"],
@@ -986,6 +1008,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markach"],
+            ["mężczyzna", "mężczyznach"],
             ["aktor", "aktorach"],
             ["student", "studentach"],
             ["poeta", "poetach"],
@@ -1023,6 +1046,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matkach"],
+            ["kobieta", "kobietach"],
             ["sofa", "sofach"],
             ["pani", "paniach"],
             ["noc", "nocach"],
@@ -1072,6 +1096,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Marku"],
+            ["mężczyzna", "mężczyzno"],
             ["aktor", "aktorze"],
             ["kot", "kocie"],
             ["poeta", "poeto"],
@@ -1106,6 +1131,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matko"],
+            ["kobieta", "kobieto"],
             ["sofa", "sofo"],
             ["pani", "pani"],
             ["noc", "nocy"],
@@ -1149,6 +1175,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["Marek", "Markowie"],
+            ["mężczyzna", "mężczyźni"],
             ["aktor", "aktorzy"],
             ["student", "studenci"],
             ["poeta", "poeci"],
@@ -1184,6 +1211,7 @@ const casesSourceData: CaseSourceData[] = [
           ],
           nouns: [
             ["matka", "matki"],
+            ["kobieta", "kobiety"],
             ["sofa", "sofy"],
             ["pani", "panie"],
             ["noc", "noce"],
@@ -1656,8 +1684,12 @@ export function getRandomizedCaseData(
   const sourcesData = sourcesDataClone.map((x) => {
     function collapseCardSource(source: CardSource): Card {
       const template = getRandomItem(source.templates);
+
+      //TODO remove mężczyzna/kobiet
       const verb = getRandomItem(source.verbs);
-      const noun = getRandomItem(source.nouns);
+      const noun =
+        source.nouns.find((x) => x[0] === "mężczyzna" || x[0] === "kobieta") ??
+        getRandomItem(source.nouns);
 
       return {
         id: Math.random(),
