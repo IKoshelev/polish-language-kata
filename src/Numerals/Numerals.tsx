@@ -11,6 +11,7 @@ import { GiCardExchange, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import {
   attemptGetDataByQSKey,
   getRandomItem,
+  scrollIntoView,
   shuffleAndReturnArr,
   whichSideOfElementWasClicked,
 } from "../util";
@@ -122,11 +123,7 @@ export function Numerals() {
           updateState((d) => (d.target = undefined));
           return;
         }
-        targetTd.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
+        scrollIntoView(targetTd);
       }, state.timeout + 200);
     }
   }, [state.randomModeOn, state.target?.id]);

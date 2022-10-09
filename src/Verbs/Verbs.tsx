@@ -12,6 +12,7 @@ import {
   attemptGetDataByQSKey,
   entries,
   getRandomItem,
+  scrollIntoView,
   shuffleAndReturnArr,
   whichSideOfElementWasClicked,
 } from "../util";
@@ -113,11 +114,7 @@ export function Verbs() {
           updateState((d) => (d.target = undefined));
           return;
         }
-        targetTd.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
+        scrollIntoView(targetTd);
       }, state.timeout + 200);
     }
   }, [state.randomModeOn, state.target?.id]);

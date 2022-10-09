@@ -3,6 +3,7 @@ import { useImmer } from "use-immer";
 import {
   attemptGetDataByQSKey,
   getRandomItem,
+  scrollIntoView,
   whichSideOfElementWasClicked,
 } from "../util";
 import {
@@ -87,11 +88,7 @@ export function CasesEndings() {
         updateState((d) => (d.target = undefined));
         return;
       }
-      targetTd.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-      });
+      scrollIntoView(targetTd);
     }, state.timeout + 200);
   }, [state.randomModeOn, state.target]);
 

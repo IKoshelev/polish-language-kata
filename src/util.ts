@@ -48,3 +48,21 @@ export function whichSideOfElementWasClicked(event: React.MouseEvent<HTMLElement
     const isRightSide = eventOffsetX < currentTargetRect.width / 2;
     return isRightSide ? 'right' : 'left';
   }
+
+  export async function scrollIntoView(elem: Element) {
+    // fixes problem with mobile browser failing to scroll horizontally when no vertical scroll is needed
+
+    elem.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    elem.scrollIntoView({
+        block: "center",
+        inline: "center",
+      });
+
+  }

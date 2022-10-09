@@ -3,6 +3,7 @@ import { useImmer } from "use-immer";
 import {
   attemptGetDataByQSKey,
   getRandomItem,
+  scrollIntoView,
   shuffleAndReturnArr,
   whichSideOfElementWasClicked,
 } from "../util";
@@ -124,11 +125,7 @@ export function CasesUsage() {
         updateState((d) => (d.target = undefined));
         return;
       }
-      targetTd.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center",
-      });
+      scrollIntoView(targetTd);
     }, state.timeout + 200);
   }, [state.randomModeOn, state.target]);
 
@@ -408,11 +405,7 @@ export function CasesUsage() {
               if (!target) {
                 return;
               }
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-                inline: "center",
-              });
+              scrollIntoView(target);
             }}
             disabled={!state.previousTarget}
           >
@@ -427,11 +420,7 @@ export function CasesUsage() {
               if (!target) {
                 return;
               }
-              target.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
-                inline: "center",
-              });
+              scrollIntoView(target);
             }}
             disabled={!state.target}
           >
