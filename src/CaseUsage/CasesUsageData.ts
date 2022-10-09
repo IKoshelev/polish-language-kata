@@ -191,7 +191,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       `Bałem się {word}`,
     ],
     [
-      [`pajak l.mn.`, `pajaków`, `Kogo?`],
+      [`pająk l.mn.`, `pająków`, `Kogo?`],
       [`wonż`, `węża`, `Kogo?`],
       [`wysokość`, `wysokości`, `Czego?`],
       [`ja`, `mnie`, `Kogo?`],
@@ -1268,7 +1268,7 @@ const biernikSourceData: CardSourceData[] = [
   biernikListChoice(
     [`A jutro rano jedziemy nad {word}`, `morze`, `morze`, `Co?`],
     [`Ruszam nad {word}`, `jezioro`, `jezioro`, `Co?`],
-    [`Pojechałem nad {word}`, `rzekę`, `rzekę`, `Co?`]
+    [`Pojechałem nad {word}`, `rzeka`, `rzekę`, `Co?`]
   ),
   biernikListChoice(
     [`Sprzedałem ponad {word}`, `milion sztuk`, `milion sztuk`, `Co?`],
