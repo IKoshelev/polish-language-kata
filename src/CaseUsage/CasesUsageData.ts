@@ -1171,6 +1171,22 @@ const biernikSourceData: CardSourceData[] = [
     ]
   ),
   biernikMatrixChoice(
+    [`Mieć {word}`, `Mam {word}`, `Masz {word}`, `Miałem {word}`],
+    [
+      [`dziewięć cyferek`, `dziewięć cyferek`, `Co?`],
+      [`pięć róż`, `pięć róż`, `Co?`],
+      [`siedem poziomów`, `siedem poziomów`, `Co?`]
+    ]
+  ),
+  biernikMatrixChoice(
+    [`Widzieć {word}`, `Widzę {word}`, `Widzisz {word}`, `Widziałem {word}`],
+    [
+      [`sześć samochodów`, `sześć samochodów`, `Co?`],
+      [`dziesięć psów`, `dziesięć psów`, `Co?`],
+      [`jedenaście córek`, ` jedenaście córek`, `Kogo?`],
+    ]
+  ),
+  biernikMatrixChoice(
     [`Spowodować {word}`, `Spowoduję {word}`, `Spowoduje {word}`, `Spowodowało {word}`],
     [
       [`utrata przytomności`, `utratę przytomności`, `Co?`],
