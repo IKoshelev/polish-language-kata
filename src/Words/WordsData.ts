@@ -73,7 +73,7 @@ const rzeczownikDopMiejs = (
     wordPolish,
     [
       `nie ma ${dopelniaczPolish}`,
-      `myśli ${miejscownikPolish}`,
+      `myśli o ${miejscownikPolish}`,
       ...additionalPolish,
     ],
     topics
