@@ -6,8 +6,9 @@ import { Verbs } from "./Verbs/Verbs";
 import dialogPolyfill from 'dialog-polyfill';
 import { CasesUsage } from "./CaseUsage/CasesUsage";
 import { Zaimki } from "./Zaimki/Zaimki";
+import { Words } from "./Words/Words";
 
-const modes = ["verbs", "cases-ending", "cases-usage", "zaimki", "numerals"] as const;
+const modes = ["verbs", "cases-ending", "cases-usage", "words", "zaimki", "numerals"] as const;
 
 type Mode = (typeof modes)[number];
 const APP_MODE_KEY = "app-mode-key";
@@ -53,6 +54,7 @@ function App() {
               ["cases-usage", "Przypadki (użycie)"], 
               ["zaimki", "Zaimki"], 
               ["numerals", "Liczebniki"],
+              ["words", "Słownictwo"],
             ] as [Mode, string][]
           ).map(([buttonMode, label]) => (
             <option key={buttonMode} value={buttonMode}>{label}</option>
@@ -82,6 +84,7 @@ function App() {
         {mode === "zaimki" && <Zaimki />}
         {mode === "verbs" && <Verbs />}
         {mode === "numerals" && <Numerals />}
+        {mode === "words" && <Words />}
       </div>
     </div>
   );
