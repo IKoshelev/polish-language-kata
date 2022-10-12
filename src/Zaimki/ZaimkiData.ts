@@ -161,7 +161,7 @@ const zaimkiWithDeclensionSource = {
   ),
   [`Miejscownik`]: formsDeclensionDict(
     `Kim?`,
-    `Myśle o {word}`,
+    `Myśli o {word}`,
     "mnie",
     "tobie",
     "nim",
@@ -408,7 +408,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaKto(
       `Kim?`,
       "mój, twój, swój",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "moim, twoim, swoim",
       "mojej, twojej, swojej",
       "moim, twoim, swoim",
@@ -470,7 +470,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaNasz(
       `Kim?`,
       "nasz, wasz",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "naszym, waszym",
       "naszej, waszej",
       "naszym, waszym",
@@ -532,7 +532,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaCzyj(
       `Kim?`,
       "czyj, niczyj",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "czyim, niczyim",
       "czyjej, niczyjej",
       "czyim, niczyim",
@@ -594,7 +594,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaTen(
       `Kim?`,
       "ten",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "tym",
       "tej",
       "tym",
@@ -656,7 +656,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaTamten(
       `Kim?`,
       "tamten",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "tamtym",
       "tamtej",
       "tamtym",
@@ -718,7 +718,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaOw(
       `Kim?`,
       "ow",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "owym",
       "owej",
       "owym",
@@ -780,7 +780,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaTaki(
       `Kim?`,
       "taki",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "takim",
       "takiej",
       "takim",
@@ -842,7 +842,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaKtory(
       `Kim?`,
       "który",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "którym",
       "której",
       "którym",
@@ -904,7 +904,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaJaki(
       `Kim?`,
       "jaki",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "jakim",
       "jakiej",
       "jakim",
@@ -966,7 +966,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaKazdy(
       `Kim?`,
       "kazdy",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "każdym",
       "każdej",
       "każdym",
@@ -1028,7 +1028,7 @@ const zaimkiWithOdmianaSource = {
     [`Miejscownik`]: formsOdmianaZaden(
       `Kim?`,
       "żaden",
-      `Myśle o {word}`,
+      `Myśli o {word}`,
       "żadnym",
       "żadnej",
       "żadnym",

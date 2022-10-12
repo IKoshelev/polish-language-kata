@@ -1761,10 +1761,10 @@ const miejscownikSourceData: CardSourceData[] = [
     `Czym?`,
   ]),
   miejscownikListChoice(
-    [`Myśle o {word}`, `ja`, `mnie`, `Kim?`],
-    [`Myśle o {word}`, `ty`, `tobie`, `Kim?`],
-    [`Myśle o {word}`, `on`, `nim`, `Kim?`],
-    [`Myśle o {word}`, `ona`, `niej`, `Kim?`]
+    [`Myśli o {word}`, `ja`, `mnie`, `Kim?`],
+    [`Myśli o {word}`, `ty`, `tobie`, `Kim?`],
+    [`Myśli o {word}`, `on`, `nim`, `Kim?`],
+    [`Myśli o {word}`, `ona`, `niej`, `Kim?`]
   ),
   miejscownikListChoice(
     [`Po {word} idę do pracy`, `śniadanie`, `śniadaniu`, `Czym?`],
@@ -1814,7 +1814,7 @@ const miejscownikSourceData: CardSourceData[] = [
   ),
   miejscownikMatrixChoice(
     [
-      `Myśleć o {word}`,
+      `Myślić o {word}`,
       `Myślę o {word}`,
       `Myślisz o {word}`,
       `Myślałem o {word}`,
