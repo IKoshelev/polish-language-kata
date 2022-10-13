@@ -120,12 +120,31 @@ const rzeczowniki: CardSourceData[] = [
     "stołka barowego",
     "stołku barowym"
   ),
-  rzeczownikDopMiejs('skill, ability', 'umiejętność', "umiejętności", "umiejętności"),
-  rzeczownikDopMiejs('knowledge', 'wiedza ', "wiedzy", "wiedzy"),
-  rzeczownikDopMiejs('missile, projectile', 'pocisk', "pocisku", "pocisku"),
-  rzeczownikDopMiejs('sculpture', 'rzeźba', "rzeźby", "rzeźbie"),
-  rzeczownikDopMiejs('flag', 'flaga, sztandar', "flagi, sztandaru", "fladze, sztandarze"),
-
+  rzeczownikDopMiejs(
+    "skill, ability",
+    "umiejętność",
+    "umiejętności",
+    "umiejętności"
+  ),
+  rzeczownikDopMiejs("knowledge", "wiedza ", "wiedzy", "wiedzy"),
+  rzeczownikDopMiejs("missile, projectile", "pocisk", "pocisku", "pocisku"),
+  rzeczownikDopMiejs("sculpture", "rzeźba", "rzeźby", "rzeźbie"),
+  rzeczownikDopMiejs(
+    "flag",
+    "flaga, sztandar",
+    "flagi, sztandaru",
+    "fladze, sztandarze"
+  ),
+  rzeczownikDopMiejs("result", "skutek", "skutku", "skutku", [
+    "skuteczny manager - effective manager",
+    "zajmować stanowisko - to hold a position",
+    "zwolnić kogoś ze stanowiska - to dismiss somebody (from job)",
+  ]),
+  rzeczownikDopMiejs("position", "stanowisko", "stanowiska", "stanowisku", [
+    "objąć stanowisko - to take up a position",
+  ]),
+  rzeczownikDopMiejs("faucet", "kran", "kranu", "kranie", ["woda wypływa z kranu - water flows from the facuet"]),
+  
 ];
 const czasowniki: CardSourceData[] = [
   czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
@@ -138,6 +157,22 @@ const czasowniki: CardSourceData[] = [
   czasownik("cause, lead to", "powodować ", ["powoduję", "powodujesz"]),
   czasownik("bring, lead to", "sprawić", ["sprawię", "sprawisz"]),
   czasownik("betray", "zdradzać", ["zdradzam", "zdradzasz"]),
+  czasownik("propose, submit, declare", "zgłaszać", [
+    "zgłaszam",
+    "zgłaszasz",
+    "zgłaszać coś do oclenia - to declare sth",
+    "zgłosić sprzeciw - to raise an objection",
+    "zgłaszać zastrzeżenia - to express reservations",
+  ]),
+  czasownik("agree", "zgadzać", ["zgadzam", "zgadzasz"]),
+  czasownik("convienece", "przekonywać", ["przekonuję", "przekonujesz"]),
+  czasownik("cultivate, grow, practice", "uprawiać", [
+    "uprawiam",
+    "uprawiasz",
+    "uprawiać sport - play/do sports",
+    "uprawiać seks - have sex",
+  ]),
+  czasownik("repair, fix", "naprawiać", ["naprawiam", "naprawiasz", "naprawiać samochód - fix car"]),
 ];
 const przymiotniki: CardSourceData[] = [
   przymiotnik("appropriate, correct, proper", "właściwy"),
@@ -180,12 +215,13 @@ const wyrazy: CardSourceData[] = [
     [],
     []
   ),
-  wyraz(
-    "you won't lose anything",
-    "nic nie stracisz",
-    [],
-    []
-  ),
+  wyraz("you won't lose anything", "nic nie stracisz", [], []),
+  wyraz("he must not drink much", "nie powinien pic dużo", [], []),
+  wyraz("he can't drink much", "nie wolno mu pić dużo", [], []),
+  wyraz("he can't be trusted", "nie wolno mu zaufać", [], []),
+  wyraz("visit the gym", "chodzić na siłownie", [], []),
+  wyraz("quickly", "na szybko"),
+  wyraz("how long will it take", "ile czasu to zajmie")
 ];
 const inneSource: CardSourceData[] = [
   inne("almost", "prawie", [
@@ -197,6 +233,7 @@ const inneSource: CardSourceData[] = [
   inne("usually", "zwykle; z reguły"),
   inne("equally", "równie; również; tak samo; jednakowo; też"),
   inne("earlier, before, in andvance", "wcześniej"),
+  inne("cruel towards animals", "łagodny wobec zwierząt"),
 ];
 
 const source: CardSourceData[] = [
