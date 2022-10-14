@@ -227,6 +227,9 @@ const rzeczowniki: CardSourceData[] = [
     "opłacalności"
   ),
   rzeczownikDopMiejs("railway", "kolej", "kolei", "kolei"),
+  rzeczownikDopMiejs("pattern, model, fasnio", "wzór", "wzoru", "wzorze", [
+    "koszula we wzór - patterned shirt",
+  ]),
 ];
 const czasowniki: CardSourceData[] = [
   czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
@@ -381,6 +384,7 @@ const wyrazy: CardSourceData[] = [
   wyraz("allow yourself to", "pozwól sobie na", [
     "pozwól sobie na świętowanie -  allow yourself to celebrate",
   ]),
+  wyraz("shirt with blue stripes", "koszula w niebieskie paski"),
 ];
 const inneSource: CardSourceData[] = [
   inne("almost", "prawie", [
