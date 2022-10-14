@@ -219,13 +219,13 @@ export function Words() {
         <button
           onClick={() =>
             updateState((d) => {
-              d.cards = getCardsData();
+              d.cards = getCardsData(10, true, state.cards);
               d.target = undefined;
             })
           }
         >
           <div className="text">
-            wygenerować po 10
+            wygenerować po 10 losowo
             <br />
             <i>zachowuje zaznaczone kartki</i>
           </div>
@@ -236,13 +236,30 @@ export function Words() {
         <button
           onClick={() =>
             updateState((d) => {
-              d.cards = getCardsData(10);
+              d.cards = getCardsData(10, false, state.cards);
               d.target = undefined;
             })
           }
         >
           <div className="text">
-            wygenerować max
+            wygenerować po 10 (niedawnych)
+            <br />
+            <i>zachowuje zaznaczone kartki</i>
+          </div>
+          <div className="icon">
+            <GiCardDraw />
+          </div>
+        </button>
+        <button
+          onClick={() =>
+            updateState((d) => {
+              d.cards = getCardsData(undefined, true, state.cards);
+              d.target = undefined;
+            })
+          }
+        >
+          <div className="text">
+            wygenerować max losowo
             <br />
             <i>zachowuje zaznaczone kartki</i>
           </div>
