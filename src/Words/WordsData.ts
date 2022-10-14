@@ -230,6 +230,13 @@ const rzeczowniki: CardSourceData[] = [
   rzeczownikDopMiejs("pattern, model, fasnio", "wzór", "wzoru", "wzorze", [
     "koszula we wzór - patterned shirt",
   ]),
+  rzeczownikDopMiejs("agency", "placówka", "placówki", "placówce"),
+  rzeczownikDopMiejs("quality", "jakość", "jakości", "jakości"),
+  rzeczownikDopMiejs("character trait", "cecha", "cechy", "cesze"),
+  rzeczownikDopMiejs("camp", "obóz", "obozu", "obozie"),
+  rzeczownikDopMiejs("primary school", "podstawówka", "podstawówki", "podstawówce"),
+  rzeczownikDopMiejs("wealth", "zamożność", "zamożności", "zamożności"),
+  rzeczownikDopMiejs("idea", "pomysł", "pomysłu", "pomyśle"),
 ];
 const czasowniki: CardSourceData[] = [
   czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
@@ -294,9 +301,16 @@ const czasowniki: CardSourceData[] = [
     "spierasz się z",
   ]),
   czasownik("recognize, acknowledge", "uznawać", ["uznaję", "uznajesz"]),
-  czasownik("care", "troszczyć się", ["troszczę się", "troszczysz się"]),
+  czasownik("to care", "troszczyć się", ["troszczę się", "troszczysz się"]),
   czasownik("discard, thrown out", "wyrzucać", ["wyrzucam", "wyrzucasz"]),
-  czasownik("to shape, to form", "kształtować", ["kształtuję", "kształtujesz"]),
+  czasownik("shape, to form", "kształtować", ["kształtuję", "kształtujesz"]),
+  czasownik("be enough", "wystarczyć", ["wystarczę", "wystarczysz"]),
+  czasownik("advance, proceed", "awansować", ["awansuję", "awansujesz"]),
+  czasownik("accuse", "oskarzyć", ["oskarżę", "oskarżysz"]),
+  czasownik("court", "sąd", ["sądu", "sądzie"]),
+  czasownik("inherit", "dziedziczyć", ["dziedziczę", "dziedziczysz"]),
+  czasownik("achieve", "osiągać", ["osiągam", "osiągasz"]),
+  czasownik("stop wanting", "odechcieć się, odechciewać się"),
 ];
 const przymiotniki: CardSourceData[] = [
   przymiotnik("appropriate, correct, proper", "właściwy"),
@@ -317,6 +331,9 @@ const przymiotniki: CardSourceData[] = [
   przymiotnik("too (much)", "zbyt", ["byłem zbyt surowy - i was too harsh"]),
   przymiotnik("essential", "niezbędny"),
   przymiotnik("apparent", "pozorny"),
+  przymiotnik("clever", "sprytny"),
+  przymiotnik("ruthless", "bezwzględny"),
+  przymiotnik("luxurious", "luksusowy"),
 ];
 const wyrazy: CardSourceData[] = [
   wyraz("to wear", "mieć no sobie (co?)"),
@@ -385,6 +402,7 @@ const wyrazy: CardSourceData[] = [
     "pozwól sobie na świętowanie -  allow yourself to celebrate",
   ]),
   wyraz("shirt with blue stripes", "koszula w niebieskie paski"),
+  wyraz("allow promotion, advancement", "Pozwalać na awans"),
 ];
 const inneSource: CardSourceData[] = [
   inne("almost", "prawie", [
@@ -411,6 +429,11 @@ const inneSource: CardSourceData[] = [
   inne("since", "skoro", ["skoro jesteś zazdrosny - since you are jealous"]),
   inne("recently", "niedawno"),
   inne("largely", "w dużej mierze"),
+  inne("enough", "dość, dosyć, wystarczająco"),
+  inne("between", "pomiędzy"),
+  inne("before", "zanim"),
+  inne("simultaneously", "jednocześnie"),
+  inne("barely, just", "dopiero"),
 ];
 
 const source: CardSourceData[] = [
@@ -454,3 +477,9 @@ export function getCardsData(
 
   return res;
 }
+
+
+// parser
+// [...document.querySelectorAll('tr')].map(x => {
+//   return [...x.getElementsByTagName('td')].map(x => x.innerText.replaceAll(/\[.*\]/gm, "").replaceAll('  ',' ').replaceAll('\n', ',').trim());
+// })
