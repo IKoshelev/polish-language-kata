@@ -14,6 +14,7 @@ export type WordType = typeof wordTypes[keyof typeof wordTypes];
 export const topics = {
   egzaminPaństwowy: "egzamin państwowy",
   inne: "inne",
+  cechyCharakteru: "cechy charakteru",
 } as const;
 
 export type Topic = typeof topics[keyof typeof topics];
@@ -234,7 +235,12 @@ const rzeczowniki: CardSourceData[] = [
   rzeczownikDopMiejs("quality", "jakość", "jakości", "jakości"),
   rzeczownikDopMiejs("character trait", "cecha", "cechy", "cesze"),
   rzeczownikDopMiejs("camp", "obóz", "obozu", "obozie"),
-  rzeczownikDopMiejs("primary school", "podstawówka", "podstawówki", "podstawówce"),
+  rzeczownikDopMiejs(
+    "primary school",
+    "podstawówka",
+    "podstawówki",
+    "podstawówce"
+  ),
   rzeczownikDopMiejs("wealth", "zamożność", "zamożności", "zamożności"),
   rzeczownikDopMiejs("idea", "pomysł", "pomysłu", "pomyśle"),
 ];
@@ -434,6 +440,331 @@ const inneSource: CardSourceData[] = [
   inne("before", "zanim"),
   inne("simultaneously", "jednocześnie"),
   inne("barely, just", "dopiero"),
+
+  // cechy charakteru
+  inne("personality", "osobowość", [], [topics.cechyCharakteru]),
+  inne(
+    "affectionate, loving",
+    "czuły, kochający",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("ambitious", "ambitny", [], [topics.cechyCharakteru]),
+  inne("brave, courageous", "odważny", [], [topics.cechyCharakteru]),
+  inne("bright", "bystry", [], [topics.cechyCharakteru]),
+  inne(
+    "open-minded, tolerant",
+    "tolerancyjny, o szerokich horyzontach",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("calm", "spokojny, opanowany", [], [topics.cechyCharakteru]),
+  inne(
+    "composed, controlled",
+    "opanowany, kontrolujący się",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("peaceful", "pokojowy, spokojny", [], [topics.cechyCharakteru]),
+  inne("carefree", "beztroski", [], [topics.cechyCharakteru]),
+  inne("caring", "opiekuńczy, troskliwy", [], [topics.cechyCharakteru]),
+  inne("cautious", "ostrożny", [], [topics.cechyCharakteru]),
+  inne("charming", "czarujący", [], [topics.cechyCharakteru]),
+  inne("cheerful", "wesoły, radosny", [], [topics.cechyCharakteru]),
+  inne("considerate", "troskliwy", [], [topics.cechyCharakteru]),
+  inne("creative", "eatywny, twórczy", [], [topics.cechyCharakteru]),
+  inne("decisive", "zdecydowany", [], [topics.cechyCharakteru]),
+  inne("dedicated, devoted", "oddany", [], [topics.cechyCharakteru]),
+  inne("demanding", "wymagający", [], [topics.cechyCharakteru]),
+  inne("depressed", "załamany, z depresją", [], [topics.cechyCharakteru]),
+  inne("direct", "bezpośredni", [], [topics.cechyCharakteru]),
+  inne(
+    "down-to-earth, realistic",
+    "reczowy, realistyczny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("dynamic", "dynamiczny", [], [topics.cechyCharakteru]),
+  inne("easy-going", "luzacki", [], [topics.cechyCharakteru]),
+  inne("economical", "oszczędny", [], [topics.cechyCharakteru]),
+  inne("energetic", "energiczny", [], [topics.cechyCharakteru]),
+  inne("excited", "podekscytowany", [], [topics.cechyCharakteru]),
+  inne("experienced", "doświadczony", [], [topics.cechyCharakteru]),
+  inne("fair", "sprawiedliwy", [], [topics.cechyCharakteru]),
+  inne(
+    "forgiving",
+    "łatwo wybaczający, wyrozumiały",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("frank, honest (uczciwy)", "szczery", [], [topics.cechyCharakteru]),
+  inne("friendly", "przyjacielski, przyjazny", [], [topics.cechyCharakteru]),
+  inne("funny", "zabawny", [], [topics.cechyCharakteru]),
+  inne("generous", "hojny, szczodry", [], [topics.cechyCharakteru]),
+  inne("gentle", "łagodny", [], [topics.cechyCharakteru]),
+  inne("gifted, talented", "utalentowany", [], [topics.cechyCharakteru]),
+  inne("hard-working", "pracowity", [], [topics.cechyCharakteru]),
+  inne("helpful", "pomocny, uczynny", [], [topics.cechyCharakteru]),
+  inne("hospitable", "gościnny", [], [topics.cechyCharakteru]),
+  inne("independent", "niezależny", [], [topics.cechyCharakteru]),
+  inne("loyal", "lojalny", [], [topics.cechyCharakteru]),
+  inne("lenient", "pobłażliwy, wyrozumiały", [], [topics.cechyCharakteru]),
+  inne("mature", "dojrzały", [], [topics.cechyCharakteru]),
+  inne("modest", "skromny", [], [topics.cechyCharakteru]),
+  inne("neat", "schludny, staranny", [], [topics.cechyCharakteru]),
+  inne("noble", "szlachetny, wielkoduszny", [], [topics.cechyCharakteru]),
+  inne("obedient", "posłuszny", [], [topics.cechyCharakteru]),
+  inne("observant", "spostrzegawczy", [], [topics.cechyCharakteru]),
+  inne("optimistic", "optymistyczny", [], [topics.cechyCharakteru]),
+  inne("organized", "zorganizowany", [], [topics.cechyCharakteru]),
+  inne(
+    "outgoing, sociable",
+    "towarzyski, otwarty",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("patient", "cierpliwy", [], [topics.cechyCharakteru]),
+  inne("persuasive", "przekonujący, elokwentny", [], [topics.cechyCharakteru]),
+  inne("polite", "grzeczny, uprzejmy", [], [topics.cechyCharakteru]),
+  inne("practical", "praktyczny", [], [topics.cechyCharakteru]),
+  inne("punctual", "punktualny", [], [topics.cechyCharakteru]),
+  inne("quiet", "opanowany, spokojny, cichy", [], [topics.cechyCharakteru]),
+  inne("relaxed", "wyluzowany", [], [topics.cechyCharakteru]),
+  inne(
+    "easy-going",
+    "łatwy w obejściu, wyluzowany",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("reliable", "rzetelny, godny zaufania", [], [topics.cechyCharakteru]),
+  inne("resourceful", "pomysłowy, zaradny", [], [topics.cechyCharakteru]),
+  inne("responsible", "odpowiedzialny", [], [topics.cechyCharakteru]),
+  inne("romantic", "romantyczny", [], [topics.cechyCharakteru]),
+  inne("self-confident", "pewny siebie", [], [topics.cechyCharakteru]),
+  inne("selfless", "bezinteresowny", [], [topics.cechyCharakteru]),
+  inne(
+    "sense of humorUS/ humourGB",
+    "poczucie humoru",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("sensible", "rozsądny", [], [topics.cechyCharakteru]),
+  inne("sensitive", "wrażliwy", [], [topics.cechyCharakteru]),
+  inne("serious", "poważny", [], [topics.cechyCharakteru]),
+  inne(
+    "smart, intelligent, clever",
+    "inteligentny, bystry",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("sophisticated", "wyrafinowany, obyty", [], [topics.cechyCharakteru]),
+  inne("spontaneous", "spontaniczny", [], [topics.cechyCharakteru]),
+  inne(
+    "sympathetic, compassionate",
+    "współczujący",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("talkative", "gadatliwy", [], [topics.cechyCharakteru]),
+  inne("thoughtful", "troskliwy, życzliwy", [], [topics.cechyCharakteru]),
+  inne("thrifty", "oszczędny", [], [topics.cechyCharakteru]),
+  inne("tidy", "schludny", [], [topics.cechyCharakteru]),
+  inne("trustful", "ufny", [], [topics.cechyCharakteru]),
+  inne("trustworthy", "godny zaufania", [], [topics.cechyCharakteru]),
+  inne("truthful", "prawdomówny", [], [topics.cechyCharakteru]),
+  inne("understanding", "wyrozumiały", [], [topics.cechyCharakteru]),
+  inne("warm-hearted", "życzliwy, serdeczny", [], [topics.cechyCharakteru]),
+  inne("wise", "mądry", [], [topics.cechyCharakteru]),
+  inne("witty", "dowcipny", [], [topics.cechyCharakteru]),
+  inne("negative traits", "CECHY NEGATYWNE", [], [topics.cechyCharakteru]),
+  inne("absent-minded", "roztargniony", [], [topics.cechyCharakteru]),
+  inne("aggressive", "agresywny", [], [topics.cechyCharakteru]),
+  inne("arrogant", "arogancki, zarozumiały", [], [topics.cechyCharakteru]),
+  inne("awkward", "niezręczny, niezdarny", [], [topics.cechyCharakteru]),
+  inne("bad-tempered", "zły, skory do gniewu", [], [topics.cechyCharakteru]),
+  inne("bitter", "zgorzkniały", [], [topics.cechyCharakteru]),
+  inne("boring, dull", "nudny, nieciekawy", [], [topics.cechyCharakteru]),
+  inne("bored", "znudzony", [], [topics.cechyCharakteru]),
+  inne(
+    "bossy, dominant",
+    "lubiący dominować, apodyktyczny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("careless", "nieuważny, niedbały", [], [topics.cechyCharakteru]),
+  inne("childish", "dziecinny", [], [topics.cechyCharakteru]),
+  inne("clumsy", "niezdarny", [], [topics.cechyCharakteru]),
+  inne("conceited", "zarozumiały", [], [topics.cechyCharakteru]),
+  inne("coward", "tchór", [], [topics.cechyCharakteru]),
+  inne("cruel", "okrutny", [], [topics.cechyCharakteru]),
+  inne("cunning", "przebiegły", [], [topics.cechyCharakteru]),
+  inne(
+    "disappointed (with)",
+    "rozczarowany (czymś)",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("dishonest", "nieuczciwy", [], [topics.cechyCharakteru]),
+  inne("disloyal", "nielojalny", [], [topics.cechyCharakteru]),
+  inne("distrustful", "podejrzliwy, nieufny", [], [topics.cechyCharakteru]),
+  inne("eccentric", "ekscentryczny", [], [topics.cechyCharakteru]),
+  inne(
+    "egoistic, egocentric, self-centred",
+    "egoistyczny, egocentryczny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("embarassed", "zażenowany, zawstydzony", [], [topics.cechyCharakteru]),
+  inne("emotional", "uczuciowy", [], [topics.cechyCharakteru]),
+  inne("extravagant", "rozrzutny", [], [topics.cechyCharakteru]),
+  inne("forgetful", "roztargniony", [], [topics.cechyCharakteru]),
+  inne("greedy", "chciwy, zachłanny", [], [topics.cechyCharakteru]),
+  inne("grumpy", "zrzędliwy", [], [topics.cechyCharakteru]),
+  inne("immature", "niedojrzały", [], [topics.cechyCharakteru]),
+  inne("impatient", "niecierpliwy", [], [topics.cechyCharakteru]),
+  inne("impolite", "nieuprzejmy", [], [topics.cechyCharakteru]),
+  inne(
+    "nosy, curious, inquisitive",
+    "ciekawski, wścibski",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "insecure",
+    "niepewny siebie, zakompleksiony",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("insensitive", "niewrażliwy", [], [topics.cechyCharakteru]),
+  inne("intolerant", "nietolerancyjny", [], [topics.cechyCharakteru]),
+  inne("irresponsible", "nieodpowiedzialny", [], [topics.cechyCharakteru]),
+  inne("jealous", "zazdrosny", [], [topics.cechyCharakteru]),
+  inne("lazy", "leniwy", [], [topics.cechyCharakteru]),
+  inne("lively", "żywiołowy", [], [topics.cechyCharakteru]),
+  inne(
+    "low self-esteem, poor self-esteem",
+    "niska samoocena",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "mean, vicious, malicious",
+    "złośliwy, podły",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("messy", "nieporządny, zabałaganiony", [], [topics.cechyCharakteru]),
+  inne("miserable", "nieszczęśliwy", [], [topics.cechyCharakteru]),
+  inne(
+    "moody",
+    "zmiennego usposobienia, zmienny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("naive", "naiwny", [], [topics.cechyCharakteru]),
+  inne("nasty", "wstrętny", [], [topics.cechyCharakteru]),
+  inne(
+    "narrow-minded",
+    "ograniczony, o wąskich horyzontach",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "oversensitive",
+    "przewrażliwiony, przeczulony",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("pedantic", "pedantyczny", [], [topics.cechyCharakteru]),
+  inne("pessimistic", "pesymistyczny", [], [topics.cechyCharakteru]),
+  inne("possessive", "zaborczy", [], [topics.cechyCharakteru]),
+  inne(
+    "prejudiced",
+    "uprzedzony, nietolerancyjny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("proud", "dumny, pyszny", [], [topics.cechyCharakteru]),
+  inne("quick-tempered", "porywczy", [], [topics.cechyCharakteru]),
+  inne("rebellious", "buntowniczy", [], [topics.cechyCharakteru]),
+  inne("reserved", "powściągliwy", [], [topics.cechyCharakteru]),
+  inne("rude", "opryskliwy", [], [topics.cechyCharakteru]),
+  inne("secretive", "skryty", [], [topics.cechyCharakteru]),
+  inne("selfish", "samolubny", [], [topics.cechyCharakteru]),
+  inne("shallow", "płytki", [], [topics.cechyCharakteru]),
+  inne("shy, bashful", "nieśmiały", [], [topics.cechyCharakteru]),
+  inne("sly", "przebiegły", [], [topics.cechyCharakteru]),
+  inne("sneaky", "podstępny", [], [topics.cechyCharakteru]),
+  inne("stingy", "skąpy", [], [topics.cechyCharakteru]),
+  inne("strict", "surowy, srogi", [], [topics.cechyCharakteru]),
+  inne("stubborn", "uparty", [], [topics.cechyCharakteru]),
+  inne(
+    "stupid, dumb, silly (w śmieszny sposób)",
+    "głupi, niemądry",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("submissive", "uległy", [], [topics.cechyCharakteru]),
+  inne("superstitious", "przesądny", [], [topics.cechyCharakteru]),
+  inne("suspicious", "podejrzliwy", [], [topics.cechyCharakteru]),
+  inne("timid", "bojaźliwy, lękliwy", [], [topics.cechyCharakteru]),
+  inne("unfriendly", "nieprzyjazny", [], [topics.cechyCharakteru]),
+  inne("ungrateful", "niewdzięczny", [], [topics.cechyCharakteru]),
+  inne(
+    "unpredictable",
+    "nieprzewidywalny, nieobliczalny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne("vain", "próżny", [], [topics.cechyCharakteru]),
+  inne(
+    "weird, strange",
+    "dziwny, dziwaczny, ekscentryczny",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "What is he like? He is very nice.",
+    "Jaki on jest? On jest bardzo miły.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "What kind of person is he? He's both friendly and trustworthy.",
+    "Jaką on jest osobą? On jest zarówno przyjacielski jak i gody zaufania.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "Everyone was very friendly towards me.",
+    "Wszycy są dla mnie bardzo mili.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "He was a hard-working, honest man.",
+    "On był pracowitym, szczerym mężczyzną.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "She's always very generous to the kids.",
+    "On jest bardzo hojny dla dzieci.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "He is the laziest boy in the class.",
+    "On jest najleniwszym chłopcem w klasie.",
+    [],
+    [topics.cechyCharakteru]
+  ),
+  inne(
+    "I was very angry with myself for making such a stupid mistake.",
+    "Byłem wkurzony na siebie, że zrobiłem taki głupi błąd.",
+    [],
+    [topics.cechyCharakteru]
+  ),
 ];
 
 const source: CardSourceData[] = [
@@ -478,8 +809,7 @@ export function getCardsData(
   return res;
 }
 
-
 // parser
-// [...document.querySelectorAll('tr')].map(x => {
-//   return [...x.getElementsByTagName('td')].map(x => x.innerText.replaceAll(/\[.*\]/gm, "").replaceAll('  ',' ').replaceAll('\n', ',').trim());
-// })
+// console.log([...document.querySelectorAll('tr')].map(x => {
+//   return [...x.getElementsByTagName('td')].map(x => x.innerText.replaceAll(/\[.*\]/gm, "").replaceAll('  ',' ').trim().trim('\n').replaceAll(' \n', ', '));
+// }).map(x => `przymiotnik("${x[1]}","${x[0]}"),`).join('\r\n'))
