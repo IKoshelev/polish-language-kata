@@ -351,7 +351,7 @@ export function Words() {
           );
         })}
       </div>
-      {/* <div className="subsections-std">
+      <div className="subsections-std">
         {Object.values(topics).map((topic) => {
           const active = state.activeTopics.includes(topic);
           return (
@@ -373,7 +373,7 @@ export function Words() {
             </div>
           );
         })}
-      </div> */}
+      </div>
       <div>
         Kliknij na kartki, prawa strona do odwrócenia, lewa strona do
         zaznaczenia.

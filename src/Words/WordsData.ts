@@ -137,12 +137,12 @@ const rzeczowniki: CardSourceData[] = [
     "fladze, sztandarze"
   ),
   rzeczownikDopMiejs("result", "skutek", "skutku", "skutku", [
-    "skuteczny manager - effective manager",
-    "zajmować stanowisko - to hold a position",
-    "zwolnić kogoś ze stanowiska - to dismiss somebody (from job)",
+    "skuteczny manager - effective manager"
   ]),
   rzeczownikDopMiejs("position", "stanowisko", "stanowiska", "stanowisku", [
     "objąć stanowisko - to take up a position",
+    "zajmować stanowisko - to hold a position",
+    "zwolnić kogoś ze stanowiska - to dismiss somebody (from job)",
   ]),
   rzeczownikDopMiejs("faucet", "kran", "kranu", "kranie", [
     "woda wypływa z kranu - water flows from the facuet",
@@ -228,8 +228,10 @@ const rzeczowniki: CardSourceData[] = [
     "opłacalności"
   ),
   rzeczownikDopMiejs("railway", "kolej", "kolei", "kolei"),
-  rzeczownikDopMiejs("pattern, model, fasnio", "wzór", "wzoru", "wzorze", [
+  rzeczownikDopMiejs("pattern, model, fasion", "wzór", "wzoru", "wzorze", [
     "koszula we wzór - patterned shirt",
+    "koszula w paski - shirt with dots",
+    "koszula w plamki - shirt with stripes"
   ]),
   rzeczownikDopMiejs("agency", "placówka", "placówki", "placówce"),
   rzeczownikDopMiejs("quality", "jakość", "jakości", "jakości"),
@@ -243,6 +245,7 @@ const rzeczowniki: CardSourceData[] = [
   ),
   rzeczownikDopMiejs("wealth", "zamożność", "zamożności", "zamożności"),
   rzeczownikDopMiejs("idea", "pomysł", "pomysłu", "pomyśle"),
+  rzeczownikDopMiejs("court", "sąd", "sądu", "sądzie"),
 ];
 const czasowniki: CardSourceData[] = [
   czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
@@ -292,7 +295,7 @@ const czasowniki: CardSourceData[] = [
   czasownik("sue", "pozywać", ["pozywam", "pozywasz"]),
   czasownik("guess", "zgadnąć", ["zgadnę", "zgadniesz"]),
   czasownik("lose (thing)", "gubić", ["gubię", "gubisz"]),
-  czasownik("waste, loose (touce/sense/time...)", "tracić", [
+  czasownik("waste, loose (touch/sense/time...)", "tracić", [
     "tracę",
     "tracisz",
   ]),
@@ -308,12 +311,11 @@ const czasowniki: CardSourceData[] = [
   ]),
   czasownik("recognize, acknowledge", "uznawać", ["uznaję", "uznajesz"]),
   czasownik("to care", "troszczyć się", ["troszczę się", "troszczysz się"]),
-  czasownik("discard, thrown out", "wyrzucać", ["wyrzucam", "wyrzucasz"]),
+  czasownik("discard, throw out", "wyrzucać", ["wyrzucam", "wyrzucasz"]),
   czasownik("shape, to form", "kształtować", ["kształtuję", "kształtujesz"]),
   czasownik("be enough", "wystarczyć", ["wystarczę", "wystarczysz"]),
   czasownik("advance, proceed", "awansować", ["awansuję", "awansujesz"]),
   czasownik("accuse", "oskarzyć", ["oskarżę", "oskarżysz"]),
-  czasownik("court", "sąd", ["sądu", "sądzie"]),
   czasownik("inherit", "dziedziczyć", ["dziedziczę", "dziedziczysz"]),
   czasownik("achieve", "osiągać", ["osiągam", "osiągasz"]),
   czasownik("stop wanting", "odechcieć się, odechciewać się"),
@@ -342,7 +344,7 @@ const przymiotniki: CardSourceData[] = [
   przymiotnik("luxurious", "luksusowy"),
 ];
 const wyrazy: CardSourceData[] = [
-  wyraz("to wear", "mieć no sobie (co?)"),
+  wyraz("to wear", "mieć na sobie (co?)"),
   wyraz("to be dressed in", "być ubranym w (co?)"),
   wyraz(
     "on the front plan of the photo",
@@ -380,7 +382,7 @@ const wyrazy: CardSourceData[] = [
   wyraz("visit the gym", "chodzić na siłownie", [], []),
   wyraz("quickly", "na szybko"),
   wyraz("how long will it take", "ile czasu to zajmie"),
-  wyraz("cruel towards animals", "łagodny wobec zwierząt"),
+  wyraz("friendly towards animals", "łagodny wobec zwierząt"),
   wyraz("boiling water", "wrząca, przegotowana woda", [
     "szuka wrzącej, przegotowanej wody",
     "myśli o wrzącej, przegotowanej wodzie",
@@ -400,7 +402,7 @@ const wyrazy: CardSourceData[] = [
   wyraz("a necessary condition", "konieczny warunek"),
   wyraz("as a result...", "wynikiem tego stało się coś"),
   wyraz("role model", "wzór do naśladowania"),
-  wyraz("do pewnego stopnia", "to some extent"),
+  wyraz("to some extent", "do pewnego stopnia"),
   wyraz("social media", "siec społecznościowa"),
   wyraz("external affairs", "sprawy zewnętrzne"),
   wyraz("internal affairs", "sprawy wewnętrzne"),
