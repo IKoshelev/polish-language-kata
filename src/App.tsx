@@ -54,7 +54,7 @@ function App() {
               ["cases-usage", "Przypadki (użycie)"], 
               ["zaimki", "Zaimki"], 
               ["numerals", "Liczebniki"],
-              ["words", "Słownictwo"],
+              //["words", "Słownictwo"],
             ] as [Mode, string][]
           ).map(([buttonMode, label]) => (
             <option key={buttonMode} value={buttonMode}>{label}</option>

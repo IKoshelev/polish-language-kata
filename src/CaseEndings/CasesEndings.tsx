@@ -4,6 +4,7 @@ import {
   attemptGetDataByQSKey,
   getRandomItem,
   scrollIntoView,
+  shuffleAndReturnArr,
   whichSideOfElementWasClicked,
 } from "../util";
 import {
@@ -12,7 +13,7 @@ import {
   MdFlipToFront,
   MdShuffle,
 } from "react-icons/md";
-import { GiCardDraw, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
+import { GiCardDraw, GiCardExchange, GiCardRandom, GiLoad, GiSave } from "react-icons/gi";
 import classNames from "classnames";
 import {
   basicCaseData,
@@ -194,6 +195,19 @@ export function CasesEndings() {
           </div>
           <div className="icon">
             <GiCardDraw />
+          </div>
+        </button>
+        <button
+          onClick={() =>
+            updateState((d) => {
+              shuffleAndReturnArr(d.cards);
+              d.target = undefined;
+            })
+          }
+        >
+          <div className="text">tasować</div>
+          <div className="icon">
+            <GiCardExchange />
           </div>
         </button>
         <button

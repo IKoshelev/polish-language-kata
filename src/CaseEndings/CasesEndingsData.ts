@@ -1675,7 +1675,8 @@ export const basicCaseData: CaseData[] = [
 ];
 
 export function getRandomizedCaseData(
-  currentSourceToPreserveMarked?: CaseData[]
+  currentSourceToPreserveMarked?: CaseData[],
+  shuffle = false
 ): CaseData[] {
   const sourcesDataClone = JSON.parse(
     JSON.stringify(casesSourceData)
@@ -1725,6 +1726,10 @@ export function getRandomizedCaseData(
         }
       }
     }
+  }
+
+  if (!shuffle){
+    return sourcesData;
   }
 
   const sourcesDataShuffled: CaseData[] = [];

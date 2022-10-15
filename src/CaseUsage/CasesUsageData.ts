@@ -203,7 +203,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`pieniądz l.mn.`, `pieniędzy`, `Czego?`],
       [`czas`, `czasu`, `Czego?`],
       [`siła l.mn.`, `sił`, `Czego?`],
-      [`one/one`, `ich`, `Kogo?`],
+      [`one/oni`, `ich`, `Kogo?`],
     ]
   ),
   dopełniaczMatrixChoice(
@@ -217,7 +217,7 @@ const dopełniaczSourceData: CardSourceData[] = [
       [`własny interes l. mn.`, `własnych interesów`, `Czego?`],
       [`rzecz l.mn.`, `rzeczy`, `Czego?`],
       [`dziecko`, `dziecka`, `Kogo?`],
-      [`on`, `jego/go`, `Kogo?`],
+      [`on`, `go`, `Kogo?`],
     ]
   ),
   dopełniaczMatrixChoice(
@@ -636,7 +636,7 @@ const celownikSourceData: CardSourceData[] = [
   celownikMatrixChoice(
     [`Dawać {word}`, `Daję {word}`, `Dajesz {word}`, `Dawałem {word}`],
     [
-      [`ja`, `mi/mnie`, `Komu?`],
+      [`ja`, `mi`, `Komu?`],
       [`ona`, `jej`, `Komu?`],
       [`oni/one`, `im`, `Komu?`],
     ]
@@ -650,7 +650,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`kot`, `kotu`, `Komu?`],
-      [`on`, `jemu/mu`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`ona`, `jej`, `Komu?`],
     ]
   ),
@@ -689,7 +689,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`drużyna`, `drużynie`, `Czemu?`],
-      [`on`, `jemu`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`swój mąż`, `swojemu mężowi`, `Komu?`],
     ]
   ),
@@ -779,7 +779,7 @@ const celownikSourceData: CardSourceData[] = [
       `Podawałem rękę {word}`,
     ],
     [
-      [`on`, `jemu/mu`, `Komu?`],
+      [`on`, `jemu`, `Komu?`],
       [`prezes`, `prezesowi`, `Komu?`],
       [`lekarz`, `lekarzowi`, `Komu?`],
     ]
@@ -813,7 +813,7 @@ const celownikSourceData: CardSourceData[] = [
       `Pożyczałem {word} pieniądze`,
     ],
     [
-      [`on`, `jemu/mu`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`oni/one`, `im`, `Komu?`],
       [`ta firma`, `tej firmie`, `Czemu?`],
     ]
@@ -852,7 +852,7 @@ const celownikSourceData: CardSourceData[] = [
       `Przynosiłem {word} radość`,
     ],
     [
-      [`on`, `jemu/mu`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`dzieci`, `dzieciom`, `Komu?`],
       [`wszyscy`, `wszystkim`, `Komu?`],
     ]
@@ -926,7 +926,7 @@ const celownikSourceData: CardSourceData[] = [
     ],
     [
       [`sędzia`, `sędzi`, `Komu?`],
-      [`on`, `jemu/mu`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`sobie`, `sobie`, `Komu?`],
     ]
   ),
@@ -1039,11 +1039,11 @@ const celownikSourceData: CardSourceData[] = [
   celownikMatrixChoice(
     [`Ufa {word}`],
     [
-      [`ja`, `mnie`, `Komu?`],
-      [`ty`, `tobie`, `Komu?`],
-      [`on`, `jemu`, `Komu?`],
+      [`ja`, `mi`, `Komu?`],
+      [`ty`, `ci`, `Komu?`],
+      [`on`, `mu`, `Komu?`],
       [`ona`, `jej`, `Komu?`],
-      [`ono`, `jemu`, `Komu?`],
+      [`ono`, `mu`, `Komu?`],
       [`my`, `nam`, `Komu?`],
       [`wy`, `wam`, `Komu?`],
       [`oni`, `im`, `Komu?`],
@@ -1634,7 +1634,7 @@ const narzędniSourcseData: CardSourceData[] = [
   narzędnikListChoice(
     [`Chowa się za {word}`, `ściana`, `ścianą`, `Czym?`],
     [`Zamknąłem za {word} drzwi`, `ona`, `nią`, `Kim?`],
-    [`Myslalem, że stoi za {word}`, `ja`, `mną`, `Kim?`]
+    [`Myslałem, że stoi za {word}`, `ja`, `mną`, `Kim?`]
   ),
   narzędnikListChoice(
     [`W domu nad {word}`, `morze`, `morzem`, `Czym?`],
