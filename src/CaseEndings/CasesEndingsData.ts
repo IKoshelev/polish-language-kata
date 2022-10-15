@@ -1686,10 +1686,9 @@ export function getRandomizedCaseData(
     function collapseCardSource(source: CardSource): Card {
       const template = getRandomItem(source.templates);
 
-      //TODO remove mężczyzna/kobiet
       const verb = getRandomItem(source.verbs);
       const noun =
-        source.nouns.find((x) => x[0] === "mężczyzna" || x[0] === "kobieta") ??
+        //source.nouns.find((x) => x[0] === "mężczyzna" || x[0] === "kobieta") ??
         getRandomItem(source.nouns);
 
       return {
