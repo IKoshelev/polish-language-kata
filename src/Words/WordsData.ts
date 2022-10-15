@@ -246,6 +246,8 @@ const rzeczowniki: CardSourceData[] = [
   rzeczownikDopMiejs("wealth", "zamożność", "zamożności", "zamożności"),
   rzeczownikDopMiejs("idea", "pomysł", "pomysłu", "pomyśle"),
   rzeczownikDopMiejs("court", "sąd", "sądu", "sądzie"),
+  rzeczownikDopMiejs("report", "sprawozdanie", "sprawozdania", "sprawozdaniu"),
+  rzeczownikDopMiejs("schedule", "harmonogram", "harmonogramu", "harmonogramie"),
 ];
 const czasowniki: CardSourceData[] = [
   czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
