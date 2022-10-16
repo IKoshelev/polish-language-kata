@@ -137,7 +137,7 @@ const rzeczowniki: CardSourceData[] = [
     "fladze, sztandarze"
   ),
   rzeczownikDopMiejs("result", "skutek", "skutku", "skutku", [
-    "skuteczny manager - effective manager"
+    "skuteczny manager - effective manager",
   ]),
   rzeczownikDopMiejs("position", "stanowisko", "stanowiska", "stanowisku", [
     "objąć stanowisko - to take up a position",
@@ -231,7 +231,7 @@ const rzeczowniki: CardSourceData[] = [
   rzeczownikDopMiejs("pattern, model, fasion", "wzór", "wzoru", "wzorze", [
     "koszula we wzór - patterned shirt",
     "koszula w paski - shirt with dots",
-    "koszula w plamki - shirt with stripes"
+    "koszula w plamki - shirt with stripes",
   ]),
   rzeczownikDopMiejs("agency", "placówka", "placówki", "placówce"),
   rzeczownikDopMiejs("quality", "jakość", "jakości", "jakości"),
@@ -247,61 +247,72 @@ const rzeczowniki: CardSourceData[] = [
   rzeczownikDopMiejs("idea", "pomysł", "pomysłu", "pomyśle"),
   rzeczownikDopMiejs("court", "sąd", "sądu", "sądzie"),
   rzeczownikDopMiejs("report", "sprawozdanie", "sprawozdania", "sprawozdaniu"),
-  rzeczownikDopMiejs("schedule", "harmonogram", "harmonogramu", "harmonogramie"),
+  rzeczownikDopMiejs(
+    "schedule",
+    "harmonogram",
+    "harmonogramu",
+    "harmonogramie"
+  ),
+  rzeczownikDopMiejs("drive", "napęd", "napędu", "napędzie"),
+  rzeczownikDopMiejs("vehicle", "pojazd", "pojazdu", "pojeździe"),
+  rzeczownikDopMiejs("doubt", "wątpliwość", "wątpliwości", "wątpliwości", [
+    "nie miał żadnych wątpliwości co - he did not have any doubts that",
+  ]),
+  rzeczownikDopMiejs("abduction", "porwanie", "porwania", "porwaniu"),
 ];
 const czasowniki: CardSourceData[] = [
-  czasownik("dress-up", "wystroić", ["wystroję", "wystroisz"]),
-  czasownik("avoid", "unikać", ["unikam", "unikasz"]),
-  czasownik("require", "wymagać", ["wymagam", "wymagasz"]),
-  czasownik("demand", "żądać", [" żądam", "żądasz"]),
-  czasownik("care", "dbać", ["dbam", "dbasz"]),
-  czasownik("infect", "zarażać", ["zarażam", "zarażasz"]),
-  czasownik("surrender, give up", "poddawać się", ["poddaję", "poddajesz"]),
-  czasownik("cause, lead to", "powodować ", ["powoduję", "powodujesz"]),
-  czasownik("bring, lead to", "sprawić", ["sprawię", "sprawisz"]),
-  czasownik("betray", "zdradzać", ["zdradzam", "zdradzasz"]),
-  czasownik("propose, submit, declare", "zgłaszać", [
+  czasownik("to dress-up", "wystroić", ["wystroję", "wystroisz"]),
+  czasownik("to avoid", "unikać", ["unikam", "unikasz"]),
+  czasownik("to require", "wymagać", ["wymagam", "wymagasz"]),
+  czasownik("to demand", "żądać", [" żądam", "żądasz"]),
+  czasownik("to care", "dbać", ["dbam", "dbasz"]),
+  czasownik("to infect", "zarażać", ["zarażam", "zarażasz"]),
+  czasownik("to surrender, give up", "poddawać się", ["poddaję", "poddajesz"]),
+  czasownik("to cause, lead to", "powodować ", ["powoduję", "powodujesz"]),
+  czasownik("to bring, lead to", "sprawić", ["sprawię", "sprawisz"]),
+  czasownik("to betray", "zdradzać", ["zdradzam", "zdradzasz"]),
+  czasownik("to propose, submit, declare", "zgłaszać", [
     "zgłaszam",
     "zgłaszasz",
     "zgłaszać coś do oclenia - to declare sth",
     "zgłosić sprzeciw - to raise an objection",
     "zgłaszać zastrzeżenia - to express reservations",
   ]),
-  czasownik("agree", "zgadzać", ["zgadzam", "zgadzasz"]),
-  czasownik("convienece", "przekonywać", ["przekonuję", "przekonujesz"]),
-  czasownik("cultivate, grow, practice", "uprawiać", [
+  czasownik("to agree", "zgadzać", ["zgadzam", "zgadzasz"]),
+  czasownik("to convienece", "przekonywać", ["przekonuję", "przekonujesz"]),
+  czasownik("to cultivate, grow, practice", "uprawiać", [
     "uprawiam",
     "uprawiasz",
     "uprawiać sport - play/do sports",
     "uprawiać seks - have sex",
   ]),
-  czasownik("repair, fix", "naprawiać", [
+  czasownik("to repair, fix", "naprawiać", [
     "naprawiam",
     "naprawiasz",
     "naprawiać samochód - fix car",
   ]),
-  czasownik("toss, throw", "przerzucać", ["przerzucam", "przerzucasz"]),
-  czasownik("go around", "obchodzić", [
+  czasownik("to toss, throw", "przerzucać", ["przerzucam", "przerzucasz"]),
+  czasownik("to go around", "obchodzić", [
     "obchodzę",
     "obchodzisz",
     "polityka go nie obchodzi - he does not care about politics",
   ]),
-  czasownik("involve", "dotyczyć", [
+  czasownik("to involve", "dotyczyć", [
     "dotyczę",
     "dotyczysz",
     "Niniejsza sprawa dotyczy... - The present case concerns...",
   ]),
-  czasownik("establish, found", "zakładać", ["zakładam", "zakładasz"]),
-  czasownik("equip", "wyposażyć", ["wyposażę", "wyposażysz"]),
-  czasownik("testify", "świadczyć", ["świadczę", "świadczysz"]),
-  czasownik("sue", "pozywać", ["pozywam", "pozywasz"]),
-  czasownik("guess", "zgadnąć", ["zgadnę", "zgadniesz"]),
-  czasownik("lose (thing)", "gubić", ["gubię", "gubisz"]),
-  czasownik("waste, loose (touch/sense/time...)", "tracić", [
+  czasownik("to establish, found", "zakładać", ["zakładam", "zakładasz"]),
+  czasownik("to equip", "wyposażyć", ["wyposażę", "wyposażysz"]),
+  czasownik("to testify", "świadczyć", ["świadczę", "świadczysz"]),
+  czasownik("to sue", "pozywać", ["pozywam", "pozywasz"]),
+  czasownik("to guess", "zgadnąć", ["zgadnę", "zgadniesz"]),
+  czasownik("to lose (thing)", "gubić", ["gubię", "gubisz"]),
+  czasownik("to waste, loose (touch/sense/time...)", "tracić", [
     "tracę",
     "tracisz",
   ]),
-  czasownik("suggest", "sugerować", ["sugeruję", "sugerujesz"]),
+  czasownik("to suggest", "sugerować", ["sugeruję", "sugerujesz"]),
   czasownik("to argue", "kłócić się z,o", [
     "kłócę się",
     "kłócisz się",
@@ -311,16 +322,33 @@ const czasowniki: CardSourceData[] = [
     "spieram się z",
     "spierasz się z",
   ]),
-  czasownik("recognize, acknowledge", "uznawać", ["uznaję", "uznajesz"]),
+  czasownik("to recognize, acknowledge", "uznawać", ["uznaję", "uznajesz"]),
   czasownik("to care", "troszczyć się", ["troszczę się", "troszczysz się"]),
-  czasownik("discard, throw out", "wyrzucać", ["wyrzucam", "wyrzucasz"]),
-  czasownik("shape, to form", "kształtować", ["kształtuję", "kształtujesz"]),
-  czasownik("be enough", "wystarczyć", ["wystarczę", "wystarczysz"]),
-  czasownik("advance, proceed", "awansować", ["awansuję", "awansujesz"]),
-  czasownik("accuse", "oskarzyć", ["oskarżę", "oskarżysz"]),
-  czasownik("inherit", "dziedziczyć", ["dziedziczę", "dziedziczysz"]),
-  czasownik("achieve", "osiągać", ["osiągam", "osiągasz"]),
-  czasownik("stop wanting", "odechcieć się, odechciewać się"),
+  czasownik("to discard, throw out", "wyrzucać", ["wyrzucam", "wyrzucasz"]),
+  czasownik("to shape, to form", "kształtować", ["kształtuję", "kształtujesz"]),
+  czasownik("to be enough", "wystarczyć", ["wystarczę", "wystarczysz"]),
+  czasownik("to advance, proceed", "awansować", ["awansuję", "awansujesz"]),
+  czasownik("to accuse", "oskarzyć", ["oskarżę", "oskarżysz"]),
+  czasownik("to inherit", "dziedziczyć", ["dziedziczę", "dziedziczysz"]),
+  czasownik("to achieve", "osiągać", ["osiągam", "osiągasz"]),
+  czasownik("to stop wanting", "odechcieć się, odechciewać się"),
+  czasownik("to put smth. in (order)", "doprowadzać", [
+    "doprowadzam",
+    "doprowadzasz",
+    "doprowadzać kogoś do kogoś/czegoś",
+  ]),
+  czasownik("to greet", "pozdrawiać", [
+    "pozdrawiam",
+    "pozdrawiasz",
+    "Pozdrawiam was w imieniu naszego Szoguna - I greet you on behalf of our Shogun",
+    "pozdrów ją ode mnie - give her my [best] regards",
+  ]),
+  czasownik("to congratulate sb on sth", "gratulować komuś czegoś", [
+    "gratuluję",
+    "gratulujesz",
+    "gratuluje ci zaręczyn - I congratulate you on your engagement",
+    "gratuluje ci świetnej pamięci - - she compliments you on your wonderful memory"
+  ]),
 ];
 const przymiotniki: CardSourceData[] = [
   przymiotnik("appropriate, correct, proper", "właściwy"),
@@ -413,6 +441,10 @@ const wyrazy: CardSourceData[] = [
   ]),
   wyraz("shirt with blue stripes", "koszula w niebieskie paski"),
   wyraz("allow promotion, advancement", "Pozwalać na awans"),
+  wyraz("nonetheless", "niemniej jednak"),
+  wyraz("to be anticipating sth.", "spodziewać się czegoś", [
+    "Nie spodziewał się takiego obrotu sprawy - It was almost done! I didn't expect an attack like that",
+  ]),
 ];
 const inneSource: CardSourceData[] = [
   inne("almost", "prawie", [
@@ -444,6 +476,11 @@ const inneSource: CardSourceData[] = [
   inne("before", "zanim"),
   inne("simultaneously", "jednocześnie"),
   inne("barely, just", "dopiero"),
+  inne("sporo", "a lot, a good deal", [
+    "Ostatnio wydarzyło się sporo dziwnych wypadków - There've been a lot of strange accidents lately.",
+    "Poświęcił sporo, żeby ją przygotować - He spent a lot of time preparing her",
+    "Widzę że sporo on dla pana znaczy - I can see that it means a great deal to you",
+  ]),
 
   // cechy charakteru
   inne("personality", "osobowość", [], [topics.cechyCharakteru]),
