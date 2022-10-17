@@ -84,7 +84,7 @@ const zaimkiWithDeclensionSource = {
   "Dopełniacz + krótkia forma": formsDeclensionDict(
     `Kogo?`,
     `szuka {word}`,
-    "mię",
+    "mnie",
     "cię",
     "go",
     "jej",
@@ -162,7 +162,7 @@ const zaimkiWithDeclensionSource = {
   [`Biernik + krótkia forma`]: formsDeclensionDict(
     `Kogo?`,
     `zna {word}`,
-    "mi",
+    "mnie",
     "cię",
     "go",
     "ją",

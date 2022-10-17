@@ -149,10 +149,10 @@ function App() {
           Słowniki:
           <br /> {link("https://pl.bab.la/")}
           <br /> {link("https://context.reverso.net/t%C5%82umaczenie/", "https://context.reverso.net/")} (użycie słów)
-          <br /> {link("https://pl.wiktionary.org/")}
+          <br /> {link("https://pl.wiktionary.org/")} (Uważaj! Wikisłownik bardzo lubi formy gramatyky experymentałne I archaiczne. )
           <br /> {link("https://odmiana.net/")}
           <br /> {link("https://synonim.net/")}
-          <br /> {link(" https://pl.pons.com/t%C5%82umaczenie", " https://pl.pons.com/")}
+          <br /> {link("https://pl.pons.com/t%C5%82umaczenie", "https://pl.pons.com/")}
         </p>
 
         <p>
