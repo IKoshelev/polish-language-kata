@@ -284,7 +284,7 @@ export function CasesEndings() {
             </tr>
             <tr>
               <th>Męskoosobowy</th>
-              <th>Męski nieosobowy</th>
+              <th>Niemęskoosobowy</th>
             </tr>
           </thead>
           <tbody>

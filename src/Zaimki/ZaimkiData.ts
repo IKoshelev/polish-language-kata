@@ -255,7 +255,7 @@ export const formsOdmiana = [
   "żeński",
   "nijaki",
   "męskoosobowy",
-  "męski nieosobowy",
+  "niemęskoosobowy",
 ] as const;
 
 export type FormsOdmiana = typeof formsOdmiana[number];
@@ -281,14 +281,14 @@ const baseOdmiana =
         żeński: base_f,
         nijaki: base_n,
         męskoosobowy: base_mo,
-        "męski nieosobowy": base_mno,
+        "niemęskoosobowy": base_mno,
       },
       data: {
         męski: m,
         żeński: f,
         nijaki: n,
         męskoosobowy: mo,
-        "męski nieosobowy": mno,
+        "niemęskoosobowy": mno,
       },
     };
   };
